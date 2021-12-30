@@ -1,0 +1,45 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["9:00 AM", "5:00 PM"]
+        ],
+        "Tuesday": [
+            ["9:00 AM", "5:00 PM"]
+        ],
+        "Wednesday": [
+            ["9:00 AM", "5:00 PM"]
+        ],
+        "Thursday": [
+            ["9:00 AM", "5:00 PM"]
+        ],
+        "Friday": [
+            ["9:00 AM", "5:00 PM"]
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "Test Meeting 1",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "kai"]
+        },
+        {
+            "name": "Test Meeting 2",
+            "length": 60,
+            "type": "in-person",
+            "participants": ["kenny", "aditya"]
+        },
+        {
+            "name": "Test Meeting 3",
+            "length": 30,
+            "type": "remote",
+            "participants": ["kai", "xianghao"]
+        }
+    ]
+}

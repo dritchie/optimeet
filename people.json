@@ -1,0 +1,26 @@
+{
+    "kai": {
+        "name": "Kai Wang",
+        "email":  "daniel_ritchie@brown.edu"
+    },
+
+    "kenny": {
+        "name": "Kenny Jones",
+        "email": "daniel_ritchie@brown.edu"
+    },
+
+    "xianghao": {
+        "name": "Xianghao Xu",
+        "email": "daniel_ritchie@brown.edu"
+    },
+
+    "aditya": {
+        "name": "Aditya Ganeshan",
+        "email": "daniel_ritchie@brown.edu"
+    },
+
+    "arman": {
+        "name": "Arman Maesumi",
+        "email": "daniel_ritchie@brown.edu"
+    }
+}
