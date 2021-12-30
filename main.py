@@ -175,9 +175,8 @@ def loadInputFile(filename):
     
     return j
 
-def sendInitialEmails(inputjson):
+def makeWhen2Meets(inputjson):
     j = inputjson
-    people = loadPeople()
     config = loadConfig()
     meetings = j['meetingsToSchedule']
 
@@ -186,11 +185,18 @@ def sendInitialEmails(inputjson):
     earliestTime = datetime.strftime(min(allTimes), "%I:%M %p")
     latestTime = datetime.strftime(max(allTimes), "%I:%M %p")
 
-    person2meetings = {}
-
     for meeting in meetings:
         meeting['when2meet'] = createWhen2Meet(meeting['name'], config['timeZone'], availableDays, earliestTime, latestTime)
         # meeting['when2meet'] = 'https://www.when2meet.com/?13981717-exqIc'
+
+def sendInitialEmails(inputjson):
+    j = inputjson
+    people = loadPeople()
+    config = loadConfig()
+    meetings = j['meetingsToSchedule']
+
+    person2meetings = {}
+    for meeting in meetings:
         for person in meeting['participants']:
             if not (person in person2meetings):
                 person2meetings[person] = []
@@ -233,17 +239,19 @@ Please provide your availibility by {deadline}. You will receive a reminder mess
 
 def initScheduling(inputFilename):
     inp = loadInputFile(inputFilename)
+    makeWhen2Meets(inp)
     sendInitialEmails(inp)
     prog = createProgressFile(inputFilename, inp)
     saveProgressReportHTML(inputFilename, prog)
-    # TODO: Set up loop that periodically checks things
 
 def progressFilename(inputFilename):
     return os.path.splitext(inputFilename)[0] + '.progress.json'
 
 def createProgressFile(inputFilename, inputjson):
     j = inputjson
-    # for each meeting: name, when2meet link, who has filled it out, who hasn't filled it out, num slots that work for everyone so far
+    config = loadConfig()
+    deadline = datetime.now().date() + timedelta(days=config['deadlineInDaysFromNow'])
+    deadline = datetime.strftime(deadline, "%x")
     progressData = []
     for meeting in j['meetingsToSchedule']:
         progressData.append({
@@ -251,7 +259,8 @@ def createProgressFile(inputFilename, inputjson):
             'when2meet': meeting['when2meet'],
             'hasResponded': [],
             'hasNotResponded': meeting['participants'],
-            'numViableMeetingTimesSoFar': 0
+            'numViableMeetingTimesSoFar': 0,
+            'deadline': deadline
         })
     with open(progressFilename(inputFilename), 'w') as f:
         json.dump(progressData, f, sort_keys=True, indent=3)
@@ -305,6 +314,51 @@ def checkProgress(inputFilename):
     saveProgressFile(inputFilename, prog)
     saveProgressReportHTML(inputFilename, prog)
 
+def sendReminderEmails(progressData):
+    config = loadConfig()
+    people = loadPeople()
+
+    people2meetings = {}
+    for meeting in progressData:
+        for person in meeting['hasNotResponded']:
+            if not (person in people2meetings):
+                people2meetings[person] = []
+            people2meetings[person].append(meeting)
+    
+    remindFreq = config['reminderFrequencyInHours']
+
+    port = 465  # For SSL
+    password = input("Type your email password and press enter: ")
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
+        server.login(config['emailAddress'], password)
+        for person,meetings in people2meetings.items():
+            personInfo = people[person]
+            name = personInfo['name']
+            firstname = name.split()[0]
+            email = personInfo['email']
+            deadline = datetime.strptime(meeting['deadline'], '%x')
+            overdue = datetime.now() > deadline
+            deadline = datetime.strftime(deadline, "%A, %B %d")
+            deadlineStatement  = f'Your availability is now overdue (the deadline was {deadline})' if overdue else f'Please provide your availibility by {deadline}'
+            linklist = ""
+            for meeting in meetings:
+                linklist += f"* {meeting['name']}: {meeting['when2meet']}\n"
+            msg = f'''\
+Subject: [{"OVERDUE" if overdue else "Reminder"}] Please provide your meeeting availability
+
+Hi {firstname},
+
+This is a reminder that {config['name']} requests that you fill out the when2meets for the following meetings:
+{linklist}
+Please use the name '{name}' when filling them out.
+
+{deadlineStatement}. You will continue to receive a reminder message from this email address every {remindFreq} hours.
+'''
+            server.sendmail(config['emailAddress'], email, msg)
+
+
+
 if __name__ == '__main__':
     # r = createWhen2Meet('Test', 'America/New_York', DAYS, '9:00 AM', '5:00 PM')
     # r = parseWhen2Meet('https://www.when2meet.com/?8079662-q5hqG')
@@ -319,5 +373,6 @@ if __name__ == '__main__':
     # print(json.dumps(j, sort_keys=True, indent=3))
     # sendInitialEmails(loadInputFile('test.json'))
     # initScheduling('test.json')
-    checkProgress('test.json')
+    # checkProgress('test.json')
+    sendReminderEmails(loadProgressFile('test.json'))
     
