@@ -86,11 +86,13 @@ def respondents(when2meet):
         for slot in slots:
             for person in slot['available']:
                 res.add(person)
-    return res
+    return list(res)
  
 def viableSlots(when2meet):
-    everyone = respondents(when2meet)
+    everyone = set(respondents(when2meet))
     viable = {day: [] for day in DAYS}
+    if len(everyone) == 0:
+        return viable
     for day,slots in when2meet.items():
         for slot in slots:
             if everyone == set(slot['available']):
@@ -113,7 +115,8 @@ def numViableMeetingTimes(when2meet, meetingLength):
     return num
 
 def loadConfig():
-    filename = os.path.dirname(os.path.abspath(__file__)) + '/config.json'
+    dirPath = os.path.dirname(os.path.abspath(__file__))
+    filename = os.path.join(dirPath, 'config.json')
     with open(filename) as f:
         j = json.load(f)
     assert 'name' in j, 'config.json missing "name"'
@@ -121,12 +124,14 @@ def loadConfig():
     defaults = {
         'timeZone' : 'America/New_York',
         'deadlineInDaysFromNow': 7,
-        'reminderFrequencyInHours' : 24
+        'reminderFrequencyInHours' : 24,
+        'progressCheckFrequencyInHours' : 1
     }
     return {**defaults, **j}
 
 def loadPeople():
-    filename = os.path.dirname(os.path.abspath(__file__)) + '/people.json'
+    dirPath = os.path.dirname(os.path.abspath(__file__))
+    filename = os.path.join(dirPath, 'people.json')
     with open(filename) as f:
         j = json.load(f)
     return j
@@ -184,8 +189,8 @@ def sendInitialEmails(inputjson):
     person2meetings = {}
 
     for meeting in meetings:
-        # meeting['when2meet'] = createWhen2Meet(meeting['name'], config['timeZone'], availableDays, earliestTime, latestTime)
-        meeting['when2meet'] = 'https://www.when2meet.com/?13981717-exqIc'
+        meeting['when2meet'] = createWhen2Meet(meeting['name'], config['timeZone'], availableDays, earliestTime, latestTime)
+        # meeting['when2meet'] = 'https://www.when2meet.com/?13981717-exqIc'
         for person in meeting['participants']:
             if not (person in person2meetings):
                 person2meetings[person] = []
@@ -226,7 +231,17 @@ Please provide your availibility by {deadline}. You will receive a reminder mess
 """
             server.sendmail(config['emailAddress'], email, message)
 
-def createProgressFile(filename, inputjson):
+def initScheduling(inputFilename):
+    inp = loadInputFile(inputFilename)
+    sendInitialEmails(inp)
+    prog = createProgressFile(inputFilename, inp)
+    saveProgressReportHTML(inputFilename, prog)
+    # TODO: Set up loop that periodically checks things
+
+def progressFilename(inputFilename):
+    return os.path.splitext(inputFilename)[0] + '.progress.json'
+
+def createProgressFile(inputFilename, inputjson):
     j = inputjson
     # for each meeting: name, when2meet link, who has filled it out, who hasn't filled it out, num slots that work for everyone so far
     progressData = []
@@ -236,27 +251,66 @@ def createProgressFile(filename, inputjson):
             'when2meet': meeting['when2meet'],
             'hasResponded': [],
             'hasNotResponded': meeting['participants'],
-            'numViableSlotsSoFar': 0
+            'numViableMeetingTimesSoFar': 0
         })
-    with open(filename, 'w') as f:
+    with open(progressFilename(inputFilename), 'w') as f:
         json.dump(progressData, f, sort_keys=True, indent=3)
+    return progressData
 
-def initScheduling(inputFilename):
-    j = loadInputFile(inputFilename)
-    sendInitialEmails(j)
-    progFileName = os.path.splitext(inputFilename)[0] + '.progress.json'
-    createProgressFile(progFileName, j)
-    # TODO: Set up loop that periodically checks things
+def saveProgressReportHTML(inputFilename, prog):
+    dirPath = os.path.dirname(os.path.abspath(__file__))
+    filename = os.path.join(dirPath, 'progress_template.html')
+    with open(filename) as f:
+        html = f.read()
+    html = html.replace('[[INPUTFILE]]', os.path.abspath(inputFilename))
+    html = html.replace('[[LASTCHECKED]]', datetime.strftime(datetime.now(), '%A %B %m, %I:%M %p'))
+    tableRows = '';
+    people = loadPeople()
+    for meeting in prog:
+        hasResponded = sorted([people[p]["name"] for p in meeting["hasResponded"]])
+        hasNotResponded = sorted([people[p]["name"] for p in meeting["hasNotResponded"]])
+        tableRows += f'''\
+        <tr>
+            <td>{meeting["name"]}</td>
+            <td><a target="_blank" href="{meeting["when2meet"]}">{meeting["when2meet"]}</a></td>
+            <td>{"<br/>".join(hasResponded)}</td>
+            <td>{"<br/>".join(hasNotResponded)}</td>
+            <td>{meeting["numViableMeetingTimesSoFar"]}</td>
+        </tr>
+        '''
+    html = html.replace('[[TABLEROWS]]', tableRows)
+    filename = os.path.splitext(progressFilename(inputFilename))[0] + '.html'
+    with open(filename, 'w') as f:
+        f.write(html)
+
+def loadProgressFile(inputFilename):
+    with open(progressFilename(inputFilename)) as f:
+        j = json.load(f)
+    return j
+
+def saveProgressFile(inputFilename, prog):
+    with open(progressFilename(inputFilename), 'w') as f:
+        json.dump(prog, f, sort_keys=True, indent=3)
 
 def checkProgress(inputFilename):
-    pass
+    inp = loadInputFile(inputFilename)
+    prog = loadProgressFile(inputFilename)
+    for meeting in prog:
+        when2meet = parseWhen2Meet(meeting['when2meet'])
+        ppl = respondents(when2meet)
+        meeting['hasResponded'] = ppl
+        meeting['hasNotResponded'] = list(set(meeting['hasNotResponded']).difference(set(ppl)))
+        meetingLength = next(m for m in inp['meetingsToSchedule'] if m['name'] == meeting['name'])['length']
+        meeting['numViableMeetingTimesSoFar'] = numViableMeetingTimes(when2meet, meetingLength)
+    saveProgressFile(inputFilename, prog)
+    saveProgressReportHTML(inputFilename, prog)
 
 if __name__ == '__main__':
     # r = createWhen2Meet('Test', 'America/New_York', DAYS, '9:00 AM', '5:00 PM')
-    r = parseWhen2Meet('https://www.when2meet.com/?8079662-q5hqG')
+    # r = parseWhen2Meet('https://www.when2meet.com/?8079662-q5hqG')
     # print(json.dumps(r, sort_keys=True, indent=3))
     # print(json.dumps(viableSlots(r), sort_keys=True, indent=3))
-    print(numViableMeetingTimes(r, 60))
+    # print(numViableMeetingTimes(r, 60))
     # j = loadConfig()
     # print(j)
     # j = loadPeople()
@@ -265,4 +319,5 @@ if __name__ == '__main__':
     # print(json.dumps(j, sort_keys=True, indent=3))
     # sendInitialEmails(loadInputFile('test.json'))
     # initScheduling('test.json')
+    checkProgress('test.json')
     

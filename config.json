@@ -2,6 +2,7 @@
     "timeZone": "America/New_York",
     "deadlineInDaysFromNow": 7,
     "reminderFrequencyInHours": 24,
+    "progressCheckFrequencyInHours": 1,
     "name": "Daniel Ritchie",
     "emailAddress": "optimeet.scheduler@gmail.com"
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <title>Optimeet Progress Report</title>
+
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                padding: 6px;
+            }
+            table {
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <h1>Optimeet Progress Report</h1>
+            Input file: [[INPUTFILE]]
+            <br/>
+            Last checked: [[LASTCHECKED]]
+        </div>
+
+        <br/>
+
+        <div>
+            <table>
+                <tr>
+                    <th>Meeting Name</th>
+                    <th>When2meet Link</th>
+                    <th>Has Responded</th>  
+                    <th>Has Not Responded</th>
+                    <th># Viable Meeting Times</th>
+                </tr>
+                [[TABLEROWS]]
+            </table>
+        </div>
+    </body>
+</html>
