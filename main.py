@@ -1,10 +1,12 @@
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from functools import reduce
 import json
 import os
 import re
+import schedule
 import smtplib
 import ssl
+import time
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -49,6 +51,10 @@ def parseWhen2Meet(url):
     for idx,Id in slot_index_info:
         slots[int(idx)] = id2slot[Id]
 
+    # Build reverse index of people names to people ids/keys
+    people = loadPeople()
+    name2pid = {p['name'] : pid for pid,p in people.items()}
+
     people_name_info = re.findall(r"PeopleNames\[(\d+)\] = '([\w\s]+)';", html)
     if len(people_name_info) > 0:
         people_id_info = re.findall(r"PeopleIDs\[(\d+)\] = (\d+);", html)
@@ -58,7 +64,9 @@ def parseWhen2Meet(url):
         
         availability_info = re.findall(r"AvailableAtSlot\[(\d+)\].push\((\d+)\);", html)
         for slotidx,personid in availability_info:
-            slots[int(slotidx)]['available'].append(id2personname[personid])
+            personName = id2personname[personid]
+            pid = getPersonFromName(personName)
+            slots[int(slotidx)]['available'].append(pid)
 
     # Restructure by day
     ret = {day : [] for day in DAYS}
@@ -88,8 +96,10 @@ def respondents(when2meet):
                 res.add(person)
     return list(res)
  
-def viableSlots(when2meet):
-    everyone = set(respondents(when2meet))
+def viableSlots(when2meet, everyone=None):
+    if everyone is None:
+        everyone = respondents(when2meet)
+    everyone = set(everyone)
     viable = {day: [] for day in DAYS}
     if len(everyone) == 0:
         return viable
@@ -99,8 +109,8 @@ def viableSlots(when2meet):
                 viable[day].append(slot)
     return viable
 
-def numViableMeetingTimes(when2meet, meetingLength):
-    when2meet = viableSlots(when2meet)
+def numViableMeetingTimes(when2meet, meetingLength, everyone=None):
+    when2meet = viableSlots(when2meet, everyone)
     if meetingLength == 30:
         return reduce(lambda a,b: a+b, [len(slots) for slots in when2meet.values()])
     # Count number of back-to-back half hour slots we have
@@ -114,27 +124,52 @@ def numViableMeetingTimes(when2meet, meetingLength):
                 num += 1
     return num
 
+__config = None
 def loadConfig():
-    dirPath = os.path.dirname(os.path.abspath(__file__))
-    filename = os.path.join(dirPath, 'config.json')
-    with open(filename) as f:
-        j = json.load(f)
-    assert 'name' in j, 'config.json missing "name"'
-    assert 'emailAddress' in j, 'config.json missing "emailAddress"'
-    defaults = {
-        'timeZone' : 'America/New_York',
-        'deadlineInDaysFromNow': 7,
-        'reminderFrequencyInHours' : 24,
-        'progressCheckFrequencyInHours' : 1
-    }
-    return {**defaults, **j}
+    global __config
+    if __config is None:
+        dirPath = os.path.dirname(os.path.abspath(__file__))
+        filename = os.path.join(dirPath, 'config.json')
+        with open(filename) as f:
+            j = json.load(f)
+        assert 'name' in j, 'config.json missing "name"'
+        assert 'emailAddress' in j, 'config.json missing "emailAddress"'
+        defaults = {
+            'timeZone' : 'America/New_York',
+            'deadlineInDaysFromNow': 7,
+            'reminderFrequencyInHours' : 24,
+            'progressCheckFrequencyInHours' : 1
+        }
+        __config = {**defaults, **j}
+    return __config
 
+__people = None
 def loadPeople():
-    dirPath = os.path.dirname(os.path.abspath(__file__))
-    filename = os.path.join(dirPath, 'people.json')
-    with open(filename) as f:
-        j = json.load(f)
-    return j
+    global __people
+    if __people is None:
+        dirPath = os.path.dirname(os.path.abspath(__file__))
+        filename = os.path.join(dirPath, 'people.json')
+        with open(filename) as f:
+            j = json.load(f)
+        __people = j
+    return __people
+
+'''
+Tries exact name match, then just first name (case insensitive)
+If both fail, returns UnknownPerson<Name>
+'''
+def getPersonFromName(name):
+    people = loadPeople()
+    origName = name
+    name = name.lower()
+    exactMatch = next((pid for pid,p in people.items() if p['name'].lower() == name), None)
+    if not (exactMatch is None):
+        return exactMatch
+    firstname = name.split(' ')[0]
+    firstMatch = next((pid for pid,p in people.items() if p['name'].split(' ')[0].lower() == firstname), None)
+    if not (firstMatch is None):
+        return firstMatch
+    return f'UnknownPerson<{origName}>'
 
 def loadInputFile(filename):
     with open(filename) as f:
@@ -189,6 +224,13 @@ def makeWhen2Meets(inputjson):
         meeting['when2meet'] = createWhen2Meet(meeting['name'], config['timeZone'], availableDays, earliestTime, latestTime)
         # meeting['when2meet'] = 'https://www.when2meet.com/?13981717-exqIc'
 
+__emailPassword = None
+def getEmailPassword():
+    global __emailPassword
+    if __emailPassword is None:
+        __emailPassword = input("Type your email password and press enter: ")
+    return __emailPassword
+
 def sendInitialEmails(inputjson):
     j = inputjson
     people = loadPeople()
@@ -207,7 +249,7 @@ def sendInitialEmails(inputjson):
     deadline = datetime.strftime(deadline, "%A, %B %d")
 
     port = 465  # For SSL
-    password = input("Type your email password and press enter: ")
+    password = getEmailPassword()
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
         server.login(config['emailAddress'], password)
@@ -242,7 +284,7 @@ def initScheduling(inputFilename):
     makeWhen2Meets(inp)
     sendInitialEmails(inp)
     prog = createProgressFile(inputFilename, inp)
-    saveProgressReportHTML(inputFilename, prog)
+    saveProgressReportHTML(inputFilename, inp, prog)
 
 def progressFilename(inputFilename):
     return os.path.splitext(inputFilename)[0] + '.progress.json'
@@ -266,7 +308,7 @@ def createProgressFile(inputFilename, inputjson):
         json.dump(progressData, f, sort_keys=True, indent=3)
     return progressData
 
-def saveProgressReportHTML(inputFilename, prog):
+def saveProgressReportHTML(inputFilename, inp, prog):
     dirPath = os.path.dirname(os.path.abspath(__file__))
     filename = os.path.join(dirPath, 'progress_template.html')
     with open(filename) as f:
@@ -276,11 +318,13 @@ def saveProgressReportHTML(inputFilename, prog):
     tableRows = '';
     people = loadPeople()
     for meeting in prog:
+        inpMeeting = next(m for m in inp['meetingsToSchedule'] if m['name'] == meeting['name'])
         hasResponded = sorted([people[p]["name"] for p in meeting["hasResponded"]])
         hasNotResponded = sorted([people[p]["name"] for p in meeting["hasNotResponded"]])
         tableRows += f'''\
         <tr>
             <td>{meeting["name"]}</td>
+            <td>{inpMeeting["length"]}</td>
             <td><a target="_blank" href="{meeting["when2meet"]}">{meeting["when2meet"]}</a></td>
             <td>{"<br/>".join(hasResponded)}</td>
             <td>{"<br/>".join(hasNotResponded)}</td>
@@ -305,18 +349,25 @@ def checkProgress(inputFilename):
     inp = loadInputFile(inputFilename)
     prog = loadProgressFile(inputFilename)
     for meeting in prog:
+        inpMeeting = next(m for m in inp['meetingsToSchedule'] if m['name'] == meeting['name'])
         when2meet = parseWhen2Meet(meeting['when2meet'])
         ppl = respondents(when2meet)
+        ppl = list(set(ppl).intersection(set(inpMeeting['participants'])))
         meeting['hasResponded'] = ppl
-        meeting['hasNotResponded'] = list(set(meeting['hasNotResponded']).difference(set(ppl)))
-        meetingLength = next(m for m in inp['meetingsToSchedule'] if m['name'] == meeting['name'])['length']
-        meeting['numViableMeetingTimesSoFar'] = numViableMeetingTimes(when2meet, meetingLength)
+        meeting['hasNotResponded'] = list(set(inpMeeting['participants']).difference(set(ppl)))
+        meetingLength = inpMeeting['length']
+        meeting['numViableMeetingTimesSoFar'] = numViableMeetingTimes(when2meet, meetingLength, ppl)
     saveProgressFile(inputFilename, prog)
-    saveProgressReportHTML(inputFilename, prog)
+    saveProgressReportHTML(inputFilename, inp, prog)
+    return prog
 
-def sendReminderEmails(progressData):
+'''
+Returns list of people to whom reminder emails were sent
+'''
+def sendReminderEmails(inputFilename):
     config = loadConfig()
     people = loadPeople()
+    progressData = loadProgressFile(inputFilename)
 
     people2meetings = {}
     for meeting in progressData:
@@ -328,7 +379,7 @@ def sendReminderEmails(progressData):
     remindFreq = config['reminderFrequencyInHours']
 
     port = 465  # For SSL
-    password = input("Type your email password and press enter: ")
+    password = getEmailPassword()
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
         server.login(config['emailAddress'], password)
@@ -356,8 +407,66 @@ Please use the name '{name}' when filling them out.
 {deadlineStatement}. You will continue to receive a reminder message from this email address every {remindFreq} hours.
 '''
             server.sendmail(config['emailAddress'], email, msg)
+    
+    return list(people2meetings.keys())
+
+def availabilityFilename(inputFilename):
+    return os.path.splitext(inputFilename)[0] + '.avail.json'
+
+def saveFinalAvailability(inputFilename):
+    prog  = loadProgressFile(inputFilename)
+    availabilities = {}
+    for meeting in prog:
+        when2meet = parseWhen2Meet(meeting['when2meet'])
+        when2meet = viableSlots(when2meet, meeting['hasResponded'])
+        # Remove the 'available' lists from each slot
+        for slots in when2meet.values():
+            for slot in slots:
+                del slot['available']
+        availabilities[meeting['name']] = when2meet
+    filename = availabilityFilename(inputFilename)
+    with open(filename, 'w') as f:
+        json.dump(availabilities, f, sort_keys=True, indent=3)
+    return availabilities
 
 
+def doPeriodicChecksAndReminders(inputFilename, verbose=True):
+
+    # Ensure that we have the user's email password before we start the schedule loop
+    getEmailPassword()
+
+    def log(msg):
+        if verbose:
+            now = datetime.now()
+            msg = f'[{datetime.strftime(now, "%c")}] ' + msg
+            print(msg)
+
+    config = loadConfig()
+    progCheckFreq = config['progressCheckFrequencyInHours']
+    remindFreq = config['reminderFrequencyInHours'] 
+
+    def progCheckJob():
+        meetings = checkProgress(inputFilename)
+        if all([len(m['hasNotResponded']) == 0 for m in meetings]):
+            schedule.clear()
+        log('Checked when2meets')
+
+    def reminderJob():
+        remindees = sendReminderEmails(inputFilename)
+        log(f'Sent reminder emails to {remindees}')
+
+    schedule.every(progCheckFreq).hours.do(progCheckJob)
+    schedule.every(remindFreq).hours.do(reminderJob)
+    # schedule.every(20).seconds.do(progCheckJob)
+    # schedule.every(40).seconds.do(reminderJob)
+
+    log(f'Checking when2meets every {progCheckFreq} hours and sending reminder emails every {remindFreq} hours...')
+    while len(schedule.get_jobs()) > 0:
+        schedule.run_pending()
+        time.sleep(1)
+    log('DONE (All when2meets have been filled out by all participants)')
+    saveFinalAvailability(inputFilename)
+    log(f'Final availabilities saved to {availabilityFilename(inputFilename)}')
 
 if __name__ == '__main__':
     # r = createWhen2Meet('Test', 'America/New_York', DAYS, '9:00 AM', '5:00 PM')
@@ -374,5 +483,6 @@ if __name__ == '__main__':
     # sendInitialEmails(loadInputFile('test.json'))
     # initScheduling('test.json')
     # checkProgress('test.json')
-    sendReminderEmails(loadProgressFile('test.json'))
+    # sendReminderEmails('test.json')
+    doPeriodicChecksAndReminders('test.json')
     
