@@ -171,44 +171,64 @@ def getPersonFromName(name):
         return firstMatch
     return f'UnknownPerson<{origName}>'
 
+__inputFiles = {}
 def loadInputFile(filename):
-    with open(filename) as f:
-        j = json.load(f)
-    
-    assert 'myAvailability' in  j, 'Input file did not provide "myAvailability"'
-    defaultAvailability = {day : [] for day in
-        ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']}
-    j['myAvailability'] = {**defaultAvailability, **j['myAvailability']}
+    global __inputFiles
+    if not filename in __inputFiles:
+        with open(filename) as f:
+            j = json.load(f)
+        
+        assert 'myAvailability' in  j, 'Input file did not provide "myAvailability"'
+        defaultAvailability = {day : [] for day in
+            ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']}
+        j['myAvailability'] = {**defaultAvailability, **j['myAvailability']}
+        j['myAvailability'] = {day: ranges2slots(ranges) for day,ranges in j['myAvailability'].items()}
 
-    myPhysicalLocation = j['myLocations']['physical'] if ('myLocations' in j) and ('physical' in j['myLocations']) else None
-    myRemoteLocation = j['myLocations']['remote'] if ('myLocations' in j) and ('remote' in j['myLocations']) else None
+        myPhysicalLocation = j['myLocations']['physical'] if ('myLocations' in j) and ('physical' in j['myLocations']) else None
+        myRemoteLocation = j['myLocations']['remote'] if ('myLocations' in j) and ('remote' in j['myLocations']) else None
 
-    assert 'meetingsToSchedule' in  j, 'Input file did not provide any "meetingsToSchedule"'
-    meetings = j['meetingsToSchedule']
-    meetingDefaults = {
-        'length': 60,
-        'type': 'hybrid'
-    }
-    if myPhysicalLocation is not None:
-        meetingDefaults['physicalLocation'] = myPhysicalLocation
-    if myRemoteLocation is not None:
-        meetingDefaults['remoteLocation'] = myRemoteLocation
-    for i in range(len(meetings)):
-        meetings[i] = {**meetingDefaults, **meetings[i]}
-        assert 'name' in meetings[i], f'Meeting {i} has no "name"'
-        name = meetings[i]['name']
-        assert 'participants' in meetings[i], f'Meeting "{name}" has no "participants"'
-        mtype = meetings[i]['type']
-        if mtype == 'hybrid' or mtype == 'in-person':
-            assert 'physicalLocation' in meetings[i], 'Meeting "{name}" has no "physicalLocation"'
-        if mtype == 'hybrid' or mtype == 'remote':
-            assert 'remoteLocation' in meetings[i], 'Meeting "{name}" has no "remoteLocation"'
-        if mtype == 'in-person':
-            meetings[i].pop('remoteLocation', None)
-        if mtype == 'remote':
-            meetings[i].pop('physicalLocation', None)
+        assert 'meetingsToSchedule' in  j, 'Input file did not provide any "meetingsToSchedule"'
+        meetings = j['meetingsToSchedule']
+        meetingDefaults = {
+            'length': 60,
+            'type': 'hybrid'
+        }
+        if myPhysicalLocation is not None:
+            meetingDefaults['physicalLocation'] = myPhysicalLocation
+        if myRemoteLocation is not None:
+            meetingDefaults['remoteLocation'] = myRemoteLocation
+        for i in range(len(meetings)):
+            meetings[i] = {**meetingDefaults, **meetings[i]}
+            assert 'name' in meetings[i], f'Meeting {i} has no "name"'
+            name = meetings[i]['name']
+            assert 'participants' in meetings[i], f'Meeting "{name}" has no "participants"'
+            mtype = meetings[i]['type']
+            if mtype == 'hybrid' or mtype == 'in-person':
+                assert 'physicalLocation' in meetings[i], 'Meeting "{name}" has no "physicalLocation"'
+            if mtype == 'hybrid' or mtype == 'remote':
+                assert 'remoteLocation' in meetings[i], 'Meeting "{name}" has no "remoteLocation"'
+            if mtype == 'in-person':
+                meetings[i].pop('remoteLocation', None)
+            if mtype == 'remote':
+                meetings[i].pop('physicalLocation', None)
+        
+        __inputFiles[filename] = j
     
-    return j
+    return __inputFiles[filename]
+
+'''
+Convert ranges of availabilities into a list of slsots
+'''
+def ranges2slots(ranges):
+    slots = []
+    for r in  ranges:
+        rmin = datetime.strptime(r[0], "%I:%M %p")
+        rmax = datetime.strptime(r[1], "%I:%M %p")
+        t = rmin
+        while t <= rmax:
+            slots.append(datetime.strftime(t, "%I:%M %p"))
+            t += timedelta(minutes=30)
+    return  slots
 
 def makeWhen2Meets(inputjson):
     j = inputjson
@@ -419,16 +439,17 @@ def saveFinalAvailability(inputFilename):
     for meeting in prog:
         when2meet = parseWhen2Meet(meeting['when2meet'])
         when2meet = viableSlots(when2meet, meeting['hasResponded'])
-        # Remove the 'available' lists from each slot
-        for slots in when2meet.values():
-            for slot in slots:
-                del slot['available']
-        availabilities[meeting['name']] = when2meet
+        # Turn when2meet into a map from days to lists of times
+        availabilities[meeting['name']] = {day: [slot['time'] for slot in slots] for day,slots in when2meet.items()}
     filename = availabilityFilename(inputFilename)
     with open(filename, 'w') as f:
         json.dump(availabilities, f, sort_keys=True, indent=3)
     return availabilities
 
+def loadAvailabilityFile(inputFilename):
+    with open(availabilityFilename(inputFilename)) as f:
+        j = json.load(f)
+    return j
 
 def doPeriodicChecksAndReminders(inputFilename, verbose=True):
 
@@ -468,6 +489,33 @@ def doPeriodicChecksAndReminders(inputFilename, verbose=True):
     saveFinalAvailability(inputFilename)
     log(f'Final availabilities saved to {availabilityFilename(inputFilename)}')
 
+def interfaceFilename(inputFilename):
+    return os.path.splitext(inputFilename)[0] + '.interface.html'
+
+def createInterfaceHTML(inputFilename):
+    people = loadPeople()
+    inp = loadInputFile(inputFilename)
+    avail = loadAvailabilityFile(inputFilename)
+    dirPath = os.path.dirname(os.path.abspath(__file__))
+    filename = os.path.join(dirPath, 'interface_template.html')
+    with open(filename) as f:
+        html = f.read()
+
+    # Inject all the people who participate in these meetings
+    participants = set(reduce(lambda a,b: a+b, [m['participants'] for m in inp['meetingsToSchedule']]))
+    relevantPeople = {k:v for k,v in people.items() if k in participants}
+    html = html.replace('const people = undefined;', f'const people = {json.dumps(relevantPeople)};')
+    # Inject the meeting data
+    html = html.replace('const meetings = undefined;', f'const meetings = {json.dumps(inp["meetingsToSchedule"])};')
+    # Inject user availability and participant availability
+    html = html.replace('const myAvailability = undefined;', f'const myAvailability = {json.dumps(inp["myAvailability"])};')
+    html = html.replace('const meeting2validslots = undefined;', f'const meeting2validslots = {json.dumps(avail)};')
+
+    # TODO: Create DOM elements for meetings, rows of calendar (according to availability)
+
+    with open(interfaceFilename(inputFilename), 'w') as f:
+        f.write(html)
+
 if __name__ == '__main__':
     # r = createWhen2Meet('Test', 'America/New_York', DAYS, '9:00 AM', '5:00 PM')
     # r = parseWhen2Meet('https://www.when2meet.com/?8079662-q5hqG')
@@ -484,5 +532,11 @@ if __name__ == '__main__':
     # initScheduling('test.json')
     # checkProgress('test.json')
     # sendReminderEmails('test.json')
-    doPeriodicChecksAndReminders('test.json')
+    # doPeriodicChecksAndReminders('test.json')
+    # saveFinalAvailability('test.json')
+    # print(ranges2slots([
+    #     ["9:00 AM", "5:00 PM"]
+    # ]))
+    # print(json.dumps(loadInputFile('test.json'), sort_keys=True, indent=3))
+    createInterfaceHTML('test.json')
     
