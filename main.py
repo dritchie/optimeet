@@ -451,6 +451,13 @@ def loadAvailabilityFile(inputFilename):
         j = json.load(f)
     return j
 
+def timeRange(avail):
+    def add(a,b):
+        return a + b
+    times = reduce(add, [reduce(add, day2times.values(), []) for day2times in avail.values()], [])
+    times = list(map(lambda t: datetime.strptime(t, "%I:%M %p"), times))
+    return min(times), max(times)
+
 def doPeriodicChecksAndReminders(inputFilename, verbose=True):
 
     # Ensure that we have the user's email password before we start the schedule loop
@@ -511,7 +518,19 @@ def createInterfaceHTML(inputFilename):
     html = html.replace('const myAvailability = undefined;', f'const myAvailability = {json.dumps(inp["myAvailability"])};')
     html = html.replace('const meeting2validslots = undefined;', f'const meeting2validslots = {json.dumps(avail)};')
 
-    # TODO: Create DOM elements for meetings, rows of calendar (according to availability)
+    # Create DOM elements for rows of calendar (according to availability)
+    calendarRows = ''
+    minTime, maxTime = timeRange(avail)
+    currTime = minTime
+    while currTime <= maxTime:
+        calendarRows += f'''
+        <tr>
+            <th scope="row">{datetime.strftime(currTime, "%I:%M %p")}</th>
+            {''.join(['<td></td>' for _ in range(7)])}
+        </tr>
+        '''
+        currTime += timedelta(minutes=30)
+    html = html.replace('[[CALENDARROWS]]', calendarRows)
 
     with open(interfaceFilename(inputFilename), 'w') as f:
         f.write(html)
