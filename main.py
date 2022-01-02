@@ -512,29 +512,33 @@ def createInterfaceHTML(inputFilename):
     # Inject all the people who participate in these meetings
     participants = set(reduce(lambda a,b: a+b, [m['participants'] for m in inp['meetingsToSchedule']]))
     relevantPeople = {k:v for k,v in people.items() if k in participants}
-    html = html.replace('const people = undefined;', f'const people = {json.dumps(relevantPeople)};')
+    html = html.replace('let people = undefined;', f'let people = {json.dumps(relevantPeople)};')
     # Inject the meeting data
     for meeting in inp['meetingsToSchedule']:
         progMeeting = next(m for m in prog if m['name'] == meeting['name'])
         meeting['numViableTimes'] = progMeeting['numViableMeetingTimesSoFar']
-    html = html.replace('const meetings = undefined;', f'const meetings = {json.dumps(inp["meetingsToSchedule"])};')
+    html = html.replace('let meetings = undefined;', f'let meetings = {json.dumps(inp["meetingsToSchedule"])};')
     # Inject user availability and participant availability
-    html = html.replace('const myAvailability = undefined;', f'const myAvailability = {json.dumps(inp["myAvailability"])};')
-    html = html.replace('const meeting2validslots = undefined;', f'const meeting2validslots = {json.dumps(avail)};')
+    html = html.replace('let myAvailability = undefined;', f'let myAvailability = {json.dumps(inp["myAvailability"])};')
+    html = html.replace('let meeting2validslots = undefined;', f'let meeting2validslots = {json.dumps(avail)};')
 
     # Create DOM elements for rows of calendar (according to availability)
     calendarRows = ''
+    times = []
     minTime, maxTime = timeRange(avail)
     currTime = minTime
     while currTime <= maxTime:
+        timestr = datetime.strftime(currTime, "%I:%M %p")
         calendarRows += f'''
         <tr>
-            <th scope="row">{datetime.strftime(currTime, "%I:%M %p")}</th>
-            {''.join(['<td></td>' for _ in range(7)])}
+            <th scope="row">{timestr}</th>
+            {''.join([f'<td day="{DAYS[i]}" time="{timestr}"></td>' for i in range(7)])}
         </tr>
         '''
+        times.append(timestr)
         currTime += timedelta(minutes=30)
     html = html.replace('[[CALENDARROWS]]', calendarRows)
+    html = html.replace('const TIMES = undefined;', f'const TIMES = {json.dumps(times)};')
 
     with open(interfaceFilename(inputFilename), 'w') as f:
         f.write(html)

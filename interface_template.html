@@ -30,15 +30,25 @@
         </style>
 
         <script type='text/javascript'>
-            const people = undefined;
-            const myAvailability = undefined;
-            const meetings = undefined;
-            const meeting2validslots = undefined;
+            const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const TIMES = undefined;
+            let people = undefined;
+            let myAvailability = undefined;
+            let meetings = undefined;
+            let meeting2validslots = undefined;
+            let currValidSlots = undefined;
 
-            function vbars(n) {
+            function vbars_med(n) {
                 let vbars = '';
                 for (let i = 0; i < n; i++) {
                     vbars += '❙';
+                }
+                return vbars;
+            }
+            function vbars_thick(n) {
+                let vbars = '';
+                for (let i = 0; i < n; i++) {
+                    vbars += '❚';
                 }
                 return vbars;
             }
@@ -47,21 +57,56 @@
                 let tableBody = $('#meetings tbody');
                 for (let meeting of meetings) {
                     tr = tableBody.append('<tr class="meeting"></tr>');
-
                     tr.append(`<td>${meeting.name}</td>`);
-
                     const hour = (meeting.length == 60);
                     const halfhour = (meeting.length == 30);
                     tr.append(`<td><select class="form-select form-select-sm">
                         <option ${hour ? "selected" : ""} value=60>Hour</option>
                         <option ${halfhour ? "selected" : ""} value=30>Half hour</option>
                     </select></td>`);
-
-                    tr.append(`<td>${vbars(meeting.numViableTimes)}</td>`);
+                    tr.append(`<td>${vbars_med(meeting.numViableTimes)}</td>`);
+                    tr.append('<td class="d-none"></td>');
                 }
             }
 
-            $(document).ready(populateMeeetingList);
+            function renderCalendar() {
+                // Render num meetings per empty slot
+                let slot2num = {};
+                for (let day of DAYS) {
+                    slot2num[day] = {};
+                    for (let time of TIMES) {
+                        slot2num[day][time] = 0;
+                    }
+                }
+                for (let meeting in currValidSlots) {
+                    for (let day in currValidSlots[meeting]) {
+                        for (let time of currValidSlots[meeting][day]) {
+                            slot2num[day][time] += 1;
+                        }
+                    }
+                }
+                for (let day of DAYS) {
+                    for (let time of TIMES) {
+                        $(`#calendar td[day="${day}"][time="${time}"]`).html(vbars_thick(slot2num[day][time]));
+                    }
+                }
+            }
+
+            function initValidSlots() {
+                currValidSlots = JSON.parse(JSON.stringify(meeting2validslots));
+                // Remove any slots that aren't in myAvailability
+                for (let meeting in currValidSlots) {
+                    for (let day in currValidSlots[meeting]) {
+                        currValidSlots[meeting][day] = currValidSlots[meeting][day].filter(time => myAvailability[day].includes(time));
+                    }
+                }
+            }
+
+            $(document).ready(function() {
+                initValidSlots();
+                populateMeeetingList();
+                renderCalendar();
+            });
         </script>
     </head>
 
