@@ -502,7 +502,6 @@ def interfaceFilename(inputFilename):
 def createInterfaceHTML(inputFilename):
     people = loadPeople()
     inp = loadInputFile(inputFilename)
-    prog = loadProgressFile(inputFilename)
     avail = loadAvailabilityFile(inputFilename)
     dirPath = os.path.dirname(os.path.abspath(__file__))
     filename = os.path.join(dirPath, 'interface_template.html')
@@ -513,10 +512,6 @@ def createInterfaceHTML(inputFilename):
     participants = set(reduce(lambda a,b: a+b, [m['participants'] for m in inp['meetingsToSchedule']]))
     relevantPeople = {k:v for k,v in people.items() if k in participants}
     html = html.replace('let people = undefined;', f'let people = {json.dumps(relevantPeople)};')
-    # Inject the meeting data
-    for meeting in inp['meetingsToSchedule']:
-        progMeeting = next(m for m in prog if m['name'] == meeting['name'])
-        meeting['numViableTimes'] = progMeeting['numViableMeetingTimesSoFar']
     html = html.replace('let meetings = undefined;', f'let meetings = {json.dumps(inp["meetingsToSchedule"])};')
     # Inject user availability and participant availability
     html = html.replace('let myAvailability = undefined;', f'let myAvailability = {json.dumps(inp["myAvailability"])};')

@@ -36,7 +36,6 @@
             let myAvailability = undefined;
             let meetings = undefined;
             let meeting2validslots = undefined;
-            let currValidSlots = undefined;
 
             function vbars_med(n) {
                 let vbars = '';
@@ -53,23 +52,113 @@
                 return vbars;
             }
 
-            function populateMeeetingList() {
-                let tableBody = $('#meetings tbody');
-                for (let meeting of meetings) {
-                    tr = tableBody.append('<tr class="meeting"></tr>');
-                    tr.append(`<td>${meeting.name}</td>`);
-                    const hour = (meeting.length == 60);
-                    const halfhour = (meeting.length == 30);
-                    tr.append(`<td><select class="form-select form-select-sm">
+            function timestr2minutes(timestr) {
+                const re = /(\d\d):(\d\d) ([A|P]M)/;
+                matches = timestr.match(re);
+                if (matches.length == 0) return NaN;
+                let hours = parseInt(matches[1]);
+                const minutes = parseInt(matches[2]);
+                const AMPM = matches[3];
+                if (AMPM == "AM" && hours == 12)
+                    hours -= 12;
+                if (AMPM == 'PM' && hours != 12)
+                    hours += 12;
+                return 60*hours + minutes;
+            }
+
+            class Meeting {
+
+                constructor(index, data, validSlots) {
+                    this.index = index;
+
+                    for (let prop in data)  {
+                        this[prop] = data[prop];
+                    }
+
+                    this.allValidSlots = validSlots;
+                    this.currValidSlots = JSON.parse(JSON.stringify(validSlots));
+
+                    let tableBody = $('#meetings tbody');
+                    tableBody.append(`<tr class="meeting" index=${index}></tr>`);
+                    let tr = $(`${this.selector}`);
+                    tr.append(`<td class='meetingName'>${this.name}</td>`);
+                    const hour = (this.length == 60);
+                    const halfhour = (this.length == 30);
+                    tr.append(`<td class='meetingLength'><select class="form-select form-select-sm">
                         <option ${hour ? "selected" : ""} value=60>Hour</option>
                         <option ${halfhour ? "selected" : ""} value=30>Half hour</option>
                     </select></td>`);
-                    tr.append(`<td>${vbars_med(meeting.numViableTimes)}</td>`);
-                    tr.append('<td class="d-none"></td>');
+                    tr.append(`<td class='meetingViable'></td>`);
+                    tr.append('<td class="meetingCommon d-none"></td>');
+
+                    this.viableTimes = undefined;
+                    this.numViableTimes = undefined;
+                    this.__updateViableTimes();
+
+                    // Event handlers
+                    $(`${this.selector} select`).change(function(event) {
+                        this.changeMeetingLength(event.target.value);
+                    }.bind(this));
+                }
+
+                get selector() { return `#meetings tr[index="${this.index}"]`; }
+
+                changeMeetingLength(newLength) {
+                    if (this.length != newLength) {
+                        this.length = newLength;
+                        this.__updateViableTimes();
+                    }
+                }
+
+                __updateViableTimes() {
+                    if (this.length == 30)
+                        this.viableTimes = JSON.parse(JSON.stringify(this.currValidSlots));
+                    else {
+                        // Find back-to-back half hour slots
+                        this.viableTimes = {};
+                        for (let day in this.currValidSlots) {
+                            const slots = this.currValidSlots[day];
+                            this.viableTimes[day] = [];
+                            for (let i = 0; i < slots.length - 1; i++) {
+                                const time1 = timestr2minutes(slots[i]);
+                                const time2 = timestr2minutes(slots[i+1]);
+                                if (time2 - time1 == 30)
+                                    this.viableTimes[day].push(slots[i]);
+                            }
+                        }
+                    }
+                    // Update numViableTimmes
+                    this.numViableTimes = 0;
+                    for (let day in this.viableTimes)
+                        this.numViableTimes += this.viableTimes[day].length;
+                    // Update DOM
+                    $(`${this.selector} td.meetingViable`).html(vbars_med(this.numViableTimes));
                 }
             }
 
-            function renderCalendar() {
+
+            $(document).ready(function() {
+                initMeeetings();
+                initCalendar();
+            });
+
+            function initMeeetings() {
+                for (let i = 0; i < meetings.length; i++) {
+                    let meeting = meetings[i];
+                    validSlots = meeting2validslots[meeting.name];
+                    // Remove any slots that aren't in myAvailability
+                    for (let day in validSlots) {
+                        validSlots[day] = validSlots[day].filter(time => myAvailability[day].includes(time));
+                    }
+                    meetings[i] = new Meeting(i, meetings[i], validSlots);
+                }
+            }
+
+            function calslot(day, time) {
+                return $(`#calendar td[day="${day}"][time="${time}"]`);
+            }
+
+            function initCalendar() {
                 // Render num meetings per empty slot
                 let slot2num = {};
                 for (let day of DAYS) {
@@ -78,35 +167,19 @@
                         slot2num[day][time] = 0;
                     }
                 }
-                for (let meeting in currValidSlots) {
-                    for (let day in currValidSlots[meeting]) {
-                        for (let time of currValidSlots[meeting][day]) {
+                for (let meeting of meetings) {
+                    for (let day in meeting.currValidSlots) {
+                        for (let time of meeting.currValidSlots[day]) {
                             slot2num[day][time] += 1;
                         }
                     }
                 }
                 for (let day of DAYS) {
                     for (let time of TIMES) {
-                        $(`#calendar td[day="${day}"][time="${time}"]`).html(vbars_thick(slot2num[day][time]));
+                        calslot(day, time).html(vbars_thick(slot2num[day][time]));
                     }
                 }
             }
-
-            function initValidSlots() {
-                currValidSlots = JSON.parse(JSON.stringify(meeting2validslots));
-                // Remove any slots that aren't in myAvailability
-                for (let meeting in currValidSlots) {
-                    for (let day in currValidSlots[meeting]) {
-                        currValidSlots[meeting][day] = currValidSlots[meeting][day].filter(time => myAvailability[day].includes(time));
-                    }
-                }
-            }
-
-            $(document).ready(function() {
-                initValidSlots();
-                populateMeeetingList();
-                renderCalendar();
-            });
         </script>
     </head>
 
