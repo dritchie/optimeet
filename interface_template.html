@@ -582,6 +582,17 @@
                         this.hoverIn(day, time);
                     }
                 }
+                unscheduleAllMeetings() {
+                    for (let meeting of meetings) {
+                        if (meeting.scheduled) {
+                            const day = meeting.scheduled.day;
+                            const time = meeting.scheduled.time;
+                            this.scheduledFormatting('remove', day, time);
+                            meeting.unschedule();
+                        }
+                    }
+                    this.__updateMeetingsPerCell();
+                }
 
                 __updateMeetingsPerCell() {
                     this.meetings = mapdaytimes(() => []);
@@ -631,6 +642,7 @@
             $(document).ready(function() {
                 initMeetings();
                 calendar = new Calendar();
+                $('#clearButton').click(() => calendar.unscheduleAllMeetings());
             });
 
             function initMeetings() {
@@ -671,6 +683,8 @@
                             [[CALENDARROWS]]
                         </tbody>
                     </table>
+                    <button id="clearButton" type="button" class="btn btn-secondary">Clear Schedule</button>
+                    <button id="exportButton" type="button" class="btn btn-secondary" disabled>Export to Google Calendar</button>
                 </div>
                 <div class='col-5'>
                     <div class='text-center'>
