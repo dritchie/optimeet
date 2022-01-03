@@ -27,6 +27,10 @@
             #meetings {
                 width: 100%;
             }
+
+            .smalltext {
+                font-size: x-small;
+            }
         </style>
 
         <script type='text/javascript'>
@@ -39,7 +43,11 @@
             const TIMES = undefined;
 
             const highlightClass = 'table-primary';
-            const selectClass = 'border-primary border-2';
+            const selectClass = 'border-primary';
+            const scheduledHightlightClass = 'table-success';
+            const scheduledSelectClass = 'border-success';
+            const scheduledBGClass = 'table-secondary';
+            const scheduledBorderClass = 'border-dark';
             const hideClass = 'opacity-25';
 
             let people = undefined;
@@ -101,6 +109,8 @@
                     this.allValidSlots = validSlots;
                     this.currValidSlots = JSON.parse(JSON.stringify(validSlots));
 
+                    this.scheduled = false;
+
                     // UI state
                     this.selected = false;
 
@@ -136,41 +146,44 @@
                     });
 
                     // Hover
-                    $(this.selector).hover(function() {
-                        if (inSelectMode()) return;
-                        // Hover in
-                        this.highlight();
-                        calendar.highlights(this.currValidSlots);
-                        for (let meeting of meetings) {
-                            if (meeting !== this) {
-                                meeting.showPeopleInCommon(this);
-                            }
-                        }
-                    }.bind(this), function() {
-                        if (inSelectMode()) return;
-                        // Hover out
-                        this.unhighlight();
-                        calendar.unhighlights(this.currValidSlots);
-                        for (let meeting of meetings) {
-                            if (meeting !== this) {
-                                meeting.unshowPeopleInCommon();
-                            }
-                        }
-                    }.bind(this));
+                    $(this.selector).hover(this.hoverIn.bind(this), this.hoverOut.bind(this));
 
                     // Click
-                    $(this.selector).click(function() {
-                        if (!this.selected)  {
-                            if (inSelectMode()) return;
-                            this.selected = true;
-                            this.select();
-                            calendar.hideCellsExcept(this.currValidSlots);
-                        } else {
-                            this.selected = false;
-                            this.unselect();
-                            calendar.showAllCells();
+                    $(this.selector).click(this.click.bind(this));
+                }
+
+                hoverIn() {
+                    if (inSelectMode()) return;
+                    this.highlight();
+                    calendar.highlightValidSlotsFor(this);
+                    for (let meeting of meetings) {
+                        if (meeting !== this) {
+                            meeting.showPeopleInCommon(this);
                         }
-                    }.bind(this));
+                    }
+                }
+                hoverOut() {
+                    if (inSelectMode()) return;
+                    this.unhighlight();
+                    calendar.unhighlightValidSlotsFor(this);
+                    for (let meeting of meetings) {
+                        if (meeting !== this) {
+                            meeting.unshowPeopleInCommon();
+                        }
+                    } 
+                }
+
+                click() {
+                    if (!this.selected)  {
+                        if (inSelectMode()) return;
+                        this.selected = true;
+                        this.select();
+                        calendar.hideCellsNotValidFor(this);
+                    } else {
+                        this.selected = false;
+                        this.unselect();
+                        calendar.showAllCells(this);
+                    }
                 }
 
                 get selector() { return `#meetings tr[index="${this.index}"]`; }
@@ -182,11 +195,11 @@
                     }
                 }
 
-                highlight() { $(this.selector).addClass(highlightClass); }
-                unhighlight() { $(this.selector).removeClass(highlightClass); }
+                highlight() { $(this.selector).addClass(this.scheduled ? scheduledHightlightClass : highlightClass); }
+                unhighlight() { $(this.selector).removeClass(this.scheduled ? scheduledHightlightClass : highlightClass); }
 
-                select() { $(this.selector).addClass(selectClass); }
-                unselect() { $(this.selector).removeClass(selectClass); }
+                select() { $(this.selector).addClass(`${this.scheduled ? scheduledSelectClass : selectClass} border-2`); }
+                unselect() { $(this.selector).removeClass(`${this.scheduled ? scheduledSelectClass : selectClass} border-2`); }
 
                 peopleInCommon(meeting) {
                     let n = 0;
@@ -200,6 +213,37 @@
                 }
                 unshowPeopleInCommon() {
                     $(`${this.selector} td.meetingCommon`).html('');
+                }
+
+                isViable(day, time) {
+                    return this.viableTimes[day].includes(time);
+                }
+
+                schedule(day, time) {
+                    this.scheduled = {day: day, time: time};
+                    // Remove this time slot from viable times of all other meetings
+                    for (let meeting of meetings) {
+                        if (meeting !== this) {
+                            let times = meeting.currValidSlots[day];
+                            if (times) {
+                                if (times.includes(time))
+                                    times.splice(times.indexOf(time), 1); 
+                                // May also need to remove the second slot in an hour long meeting
+                                if (this.length == 60) {
+                                    const nextTime = TIMES[TIMES.indexOf(time)+1];
+                                    if (times.includes(nextTime))
+                                    times.splice(times.indexOf(nextTime), 1); 
+                                }
+                            }
+                            meeting.__updateViableTimes();
+                        }
+                    }
+
+                    $(this.selector).addClass(hideClass);
+                    $(`${this.selector} select`).prop('disabled', true);
+                }
+                unschedule() {
+
                 }
 
                 __updateViableTimes() {
@@ -272,41 +316,45 @@
                     // Hover
                     fordaytimes(function(day,time) {
                         this.cell(day, time).hover(function() {
-                            // Hover in
-                            if (inSelectMode()) {
-                                this.previewScheduleMeetingAtCell(selectedMeeting(), day, time);
-                            } else {
-                                if (this.meetings[day][time].length > 0)
-                                    this.highlight(day,time);
-                                for (let meeting of this.meetings[day][time])
-                                    meeting.highlight();
-                            }
+                            this.hoverIn(day, time);
                         }.bind(this), function() {
-                            // Hover out
-                            if (inSelectMode()) {
-                                this.unpreviewScheduleMeetingAtCell(selectedMeeting(), day, time);
-                            } else {
-                                if (this.meetings[day][time].length > 0)
-                                    this.unhighlight(day,time);
-                                for (let meeting of this.meetings[day][time])
-                                    meeting.unhighlight();
-                            }
+                            this.hoverOut(day, time);
+                        }.bind(this));
+                    }.bind(this));
+
+                    // Click
+                    fordaytimes(function(day, time) {
+                        this.cell(day, time).click(function() {
+                            this.click(day, time);
                         }.bind(this));
                     }.bind(this));
                 }
 
-                __updateMeetingsPerCell() {
-                    this.meetings = mapdaytimes(() => []);
-                    for (let meeting of meetings) {
-                        fordaytimes(function(day, time) {
-                            this.meetings[day][time].push(meeting);
-                        }.bind(this), meeting.currValidSlots);
+                hoverIn(day, time) {
+                    if (inSelectMode()) {
+                        this.previewScheduleMeetingAtCell(selectedMeeting(), day, time);
+                    } else {
+                        if (this.meetings[day][time].length > 0)
+                            this.highlight(day,time);
+                        for (let meeting of this.meetings[day][time])
+                            meeting.highlight();
                     }
+                }
+                hoverOut(day, time) {
+                    if (inSelectMode()) {
+                        this.unpreviewScheduleMeetingAtCell(selectedMeeting(), day, time);
+                    } else {
+                        if (this.meetings[day][time].length > 0)
+                            this.unhighlight(day,time);
+                        for (let meeting of this.meetings[day][time])
+                            meeting.unhighlight();
+                    }
+                }
 
-                    // Update DOM
-                    fordaytimes(function(day,time) {
-                        this.cell(day, time).html(vbars_thick(this.meetings[day][time].length));
-                    }.bind(this));
+                click(day, time) {
+                    if (inSelectMode()) {
+                        this.scheduleMeeting(selectedMeeting(), day, time);
+                    }
                 }
 
                 cell(day, time) { return $(`#calendar td[day="${day}"][time="${time}"]`); }
@@ -331,26 +379,64 @@
                     return undefined;
                 }
 
-                highlight(day, time) { this.cell(day, time).addClass(highlightClass); }
-                unhighlight(day, time) { this.cell(day, time).removeClass(highlightClass); }
-                highlights(validSlots) {
-                    fordaytimes(function(day,time) { this.highlight(day,time); }.bind(this), validSlots);
+                isScheduled(day, time) {
+                    return this.meetingScheduledAt(day, time) != undefined;
                 }
-                unhighlights(validSlots) {
-                    fordaytimes(function(day,time) { this.unhighlight(day,time); }.bind(this), validSlots);
+                meetingScheduledAt(day, time) {
+                    if (this.meetings[day][time].length == 0) return undefined;
+                    if (!this.meetings[day][time][0].scheduled) return undefined;
+                    return this.meetings[day][time][0];
                 }
 
-                hideCellsExcept(cells) {
+                highlight(day, time) {
+                    this.scheduledFormatting('remove', day, time);
+                    this.cell(day, time).addClass(this.isScheduled(day, time) ? scheduledHightlightClass : highlightClass);
+                    if (this.isScheduled(day, time) && this.meetingScheduledAt(day, time).length == 60)
+                        this.belowcell(day, time).addClass(scheduledHightlightClass);
+                }
+                unhighlight(day, time) {
+                    this.scheduledFormatting('add', day, time);
+                    this.cell(day, time).removeClass(this.isScheduled(day, time) ? scheduledHightlightClass : highlightClass);
+                    if (this.isScheduled(day, time) && this.meetingScheduledAt(day, time).length == 60)
+                        this.belowcell(day, time).removeClass(scheduledHightlightClass);
+                }
+                highlightValidSlotsFor(meeting) {
+                    fordaytimes(function(day,time) {
+                        this.scheduledFormatting('remove', day, time);
+                        this.cell(day, time).addClass(meeting.scheduled ? scheduledHightlightClass : highlightClass);
+                    }.bind(this), meeting.currValidSlots);
+                }
+                unhighlightValidSlotsFor(meeting) {
+                    fordaytimes(function(day,time) {
+                        this.scheduledFormatting('add', day, time);
+                        this.cell(day, time).removeClass(meeting.scheduled ? scheduledHightlightClass : highlightClass);
+                    }.bind(this), meeting.currValidSlots);
+                }
+
+                hideCellsNotValidFor(meeting) {
+                    let cells = meeting.currValidSlots;
                     fordaytimes(function(day,time) {
                         if (!cells[day].includes(time)) {
                             this.cell(day,time).addClass(hideClass);
                         }
                     }.bind(this));
+                    // Also need to change the border color of scheduled meetings
+                    for (let m of meetings) {
+                        if (m !== meeting && m.scheduled) {
+                            this.outlineForMeeting('remove', m, m.scheduled.day, m.scheduled.time, scheduledBorderClass);
+                        }
+                    }
                 }
-                showAllCells() {
+                showAllCells(meeting) {
                     fordaytimes(function(day,time) {
                         this.cell(day,time).removeClass(hideClass);
                     }.bind(this));
+                    // Also need to change the border color of scheduled meetings
+                    for (let m of meetings) {
+                        if (m !== meeting && m.scheduled) {
+                            this.outlineForMeeting('add', m, m.scheduled.day, m.scheduled.time, scheduledBorderClass);
+                        }
+                    }
                 }
 
                 outlineForMeeting(mode, meeting, day, time, borderColorClass) {
@@ -366,6 +452,10 @@
                         if (top) top[`${mode}Class`]('border-bottom-0'); 
                         let bot = this.belowcell(day, time);
                         if (bot) bot[`${mode}Class`]('border-top-0');
+                        // Make sure none of my borders are turned off
+                        if (mode == 'add') {
+                            this.cell(day, time).removeClass('border-start-0 border-end-0 border-top-0 border-bottom-0');
+                        }
                     } else {
                         // Outline two consecutive slots as if it were one chunk of time
                         this.cell(day, time)[`${mode}Class`](`border-top border-start border-end border-bottom-0 ${borderColorClass}`);
@@ -385,15 +475,86 @@
                         if (right) right[`${mode}Class`]('border-start-0');
                         let bot = this.belowcell(day, time2);
                         if (bot) bot[`${mode}Class`]('border-top-0');
+                        // Make sure none of my borders are turned off
+                        if (mode == 'add') {
+                            this.cell(day, time).removeClass('border-start-0 border-end-0 border-top-0');
+                            this.belowcell(day, time).removeClass('border-start-0 border-end-0 border-bottom-0');
+                        }
                     }
                 }
                 previewScheduleMeetingAtCell(meeting, day, time) {
-                    if (meeting.viableTimes[day].includes(time))
-                        this.outlineForMeeting('add', meeting, day, time, 'border-primary');
+                    if (meeting.isViable(day, time))
+                        this.outlineForMeeting('add', meeting, day, time, meeting.scheduled ? scheduledSelectClass : selectClass);
                 }
                 unpreviewScheduleMeetingAtCell(meeting, day, time) {
-                    if (meeting.viableTimes[day].includes(time))
-                        this.outlineForMeeting('remove', meeting, day, time, 'border-primary');
+                    if (meeting.isViable(day, time))
+                        this.outlineForMeeting('remove', meeting, day, time, meeting.scheduled ? scheduledSelectClass : selectClass);
+                }
+
+                scheduledFormatting(mode, day, time) {
+                    if (this.isScheduled(day, time)) {
+                        let meeting = this.meetingScheduledAt(day, time);
+                        this.cell(day, time)[`${mode}Class`](scheduledBGClass);
+                        if (meeting.length == 60) {
+                            this.belowcell(day, time)[`${mode}Class`](scheduledBGClass);
+                        }
+                        this.outlineForMeeting(mode, meeting, day, time, scheduledBorderClass);
+                    }
+                }
+
+                scheduleMeeting(meeting, day, time) {
+                    if (meeting.isViable(day, time)) {
+                        this.hoverOut(day, time);
+                        meeting.click();
+                        meeting.hoverOut();
+
+                        meeting.schedule(day, time);
+                        this.__updateMeetingsPerCell();
+
+                        // meeting.hoverIn();
+                        // meeting.click()
+                        this.hoverIn(day, time);
+                    }
+                }
+                unscheduleMeeting(meeting) {
+
+                }
+
+                __updateMeetingsPerCell() {
+                    this.meetings = mapdaytimes(() => []);
+                    for (let meeting of meetings) {
+                        if (meeting.scheduled) {
+                            this.meetings[meeting.scheduled.day][meeting.scheduled.time].push(meeting);
+                        } else {
+                            fordaytimes(function(day, time) {
+                                this.meetings[day][time].push(meeting);
+                            }.bind(this), meeting.currValidSlots);
+                        }
+                    }
+
+                    // Update DOM: unscheduled slots
+                    fordaytimes(function(day,time) {
+                        if (!this.isScheduled(day,time)) {
+                            let cell = this.cell(day, time);
+                            cell.html(vbars_thick(this.meetings[day][time].length));
+                            cell.removeClass('smalltext');
+                        } 
+                    }.bind(this));
+                    // Update DOM: scheduled slots
+                    for (let meeting of meetings) {
+                        if (meeting.scheduled) {
+                            let day = meeting.scheduled.day;
+                            let time = meeting.scheduled.time;
+                            let cell = this.cell(day, time);
+                            cell.html(meeting.name);
+                            cell.addClass('smalltext');
+                            if (meeting.length == 60) {
+                                let cell2 = this.belowcell(day, time);
+                                cell2.html(meeting.name);
+                                cell2.addClass('smalltext');
+                            }
+                        }
+                    }
                 }
 
             }
@@ -405,11 +566,11 @@
 
 
             $(document).ready(function() {
-                initMeeetings();
+                initMeetings();
                 calendar = new Calendar();
             });
 
-            function initMeeetings() {
+            function initMeetings() {
                 for (let i = 0; i < meetings.length; i++) {
                     let meeting = meetings[i];
                     validSlots = meeting2validslots[meeting.name];
