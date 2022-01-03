@@ -48,6 +48,8 @@
             const scheduledSelectClass = 'border-success';
             const scheduledBGClass = 'table-secondary';
             const scheduledBorderClass = 'border-dark';
+            // const scheduledTextClass = 'text-secondary';
+            const scheduledTextClass = 'opacity-50';
             const hideClass = 'opacity-25';
 
             let people = undefined;
@@ -221,6 +223,7 @@
 
                 schedule(day, time) {
                     this.scheduled = {day: day, time: time};
+
                     // Remove this time slot from viable times of all other meetings
                     for (let meeting of meetings) {
                         if (meeting !== this) {
@@ -239,11 +242,34 @@
                         }
                     }
 
-                    $(this.selector).addClass(hideClass);
+                    $(this.selector).addClass(scheduledTextClass);
                     $(`${this.selector} select`).prop('disabled', true);
                 }
                 unschedule() {
+                    const day = this.scheduled.day;
+                    const time = this.scheduled.time;
+                    this.scheduled = false;
 
+                    // Add this time slot back to viable times for other meetings
+                    for (let meeting of meetings) {
+                        if (meeting !== this) {
+                            let times = meeting.allValidSlots[day];
+                            if (times) {
+                                if (times.includes(time))
+                                    meeting.currValidSlots[day].push(time); // TODO: Sorted order?
+                                // May also need to add back the second slot in an hour long meeting
+                                if (this.length == 60) {
+                                    const nextTime = TIMES[TIMES.indexOf(time)+1];
+                                    if (times.includes(nextTime))
+                                    meeting.currValidSlots[day].push(nextTime); // TODO: Sorted order?
+                                }
+                            }
+                            meeting.__updateViableTimes();
+                        }
+                    }
+
+                    $(this.selector).removeClass(scheduledTextClass);
+                    $(`${this.selector} select`).prop('disabled', false);
                 }
 
                 __updateViableTimes() {
@@ -353,7 +379,30 @@
 
                 click(day, time) {
                     if (inSelectMode()) {
-                        this.scheduleMeeting(selectedMeeting(), day, time);
+                        let meeting = selectedMeeting();
+                        if (!meeting.scheduled) {
+                            this.scheduleMeeting(meeting, day, time);
+                        } else {
+                            const sday = meeting.scheduled.day;
+                            const stime = meeting.scheduled.time;
+                            if (!(sday == day && stime == time)) {
+                                this.hoverOut(day, time);
+                                this.hoverIn(sday, stime);
+                            }
+                            this.unscheduleMeeting(meeting);
+                            if (!(sday == day && stime == time)) {
+                                this.hoverOut(sday, stime);
+                                this.hoverIn(day, time);
+                                this.scheduleMeeting(meeting, day, time);
+                            }
+                        }
+                    } else {
+                        if (this.isScheduled(day, time)) {
+                            let meeting = this.meetingScheduledAt(day, time);
+                            meeting.hoverIn();
+                            meeting.click();
+                            this.hoverIn(day, time);
+                        }
                     }
                 }
 
@@ -517,7 +566,21 @@
                     }
                 }
                 unscheduleMeeting(meeting) {
+                    if (meeting.scheduled) {
+                        const day = meeting.scheduled.day;
+                        const time = meeting.scheduled.time;
+                        this.hoverOut(day, time);
+                        meeting.click();
+                        meeting.hoverOut();
 
+                        this.scheduledFormatting('remove', day, time);
+                        meeting.unschedule();
+                        this.__updateMeetingsPerCell();
+
+                        meeting.hoverIn();
+                        meeting.click();
+                        this.hoverIn(day, time);
+                    }
                 }
 
                 __updateMeetingsPerCell() {
