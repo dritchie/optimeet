@@ -353,26 +353,47 @@
                     }.bind(this));
                 }
 
-                outlineForMeeting(mode, meeting, day, time, borderClass) {
-                    this.cell(day, time)[`${mode}Class`](borderClass);
-                    let left = this.leftcell(day, time);
-                    if (left) left[`${mode}Class`]('border-end-0');
-                    let right = this.rightcell(day, time);
-                    if (right) right[`${mode}Class`]('border-start-0');
-                    let top = this.abovecell(day, time);
-                    if (top) top[`${mode}Class`]('border-bottom-0'); 
-                    let bot = this.belowcell(day, time);
-                    if (bot) bot[`${mode}Class`]('border-top-0');
+                outlineForMeeting(mode, meeting, day, time, borderColorClass) {
+                    if (meeting.length == 30) {
+                        // Just outline one half-hour slot
+                        this.cell(day, time)[`${mode}Class`](`border ${borderColorClass}`);
+                        // Turn off borders shared by adjacent cells
+                        let left = this.leftcell(day, time);
+                        if (left) left[`${mode}Class`]('border-end-0');
+                        let right = this.rightcell(day, time);
+                        if (right) right[`${mode}Class`]('border-start-0');
+                        let top = this.abovecell(day, time);
+                        if (top) top[`${mode}Class`]('border-bottom-0'); 
+                        let bot = this.belowcell(day, time);
+                        if (bot) bot[`${mode}Class`]('border-top-0');
+                    } else {
+                        // Outline two consecutive slots as if it were one chunk of time
+                        this.cell(day, time)[`${mode}Class`](`border-top border-start border-end border-bottom-0 ${borderColorClass}`);
+                        this.belowcell(day, time)[`${mode}Class`](`border-top-0 border-start border-end border-bottom ${borderColorClass}`);
+                        // Turn off borders shared by cells adjacent to cell 1
+                        let left = this.leftcell(day, time);
+                        if (left) left[`${mode}Class`]('border-end-0');
+                        let right = this.rightcell(day, time);
+                        if (right) right[`${mode}Class`]('border-start-0');
+                        let top = this.abovecell(day, time);
+                        if (top) top[`${mode}Class`]('border-bottom-0'); 
+                        // Turn off borders shared by cells adjacent to cell 2
+                        let time2 = TIMES[TIMES.indexOf(time)+1];
+                        left = this.leftcell(day, time2);
+                        if (left) left[`${mode}Class`]('border-end-0');
+                        right = this.rightcell(day, time2);
+                        if (right) right[`${mode}Class`]('border-start-0');
+                        let bot = this.belowcell(day, time2);
+                        if (bot) bot[`${mode}Class`]('border-top-0');
+                    }
                 }
                 previewScheduleMeetingAtCell(meeting, day, time) {
-                    let cell = this.cell(day,time);
-                    if (!cell.hasClass(hideClass))
-                        this.outlineForMeeting('add', meeting, day, time, 'border-1 border-primary');
+                    if (meeting.viableTimes[day].includes(time))
+                        this.outlineForMeeting('add', meeting, day, time, 'border-primary');
                 }
                 unpreviewScheduleMeetingAtCell(meeting, day, time) {
-                    let cell = this.cell(day,time);
-                    if (!cell.hasClass(hideClass))
-                    this.outlineForMeeting('remove', meeting, day, time, 'border-1 border-primary');
+                    if (meeting.viableTimes[day].includes(time))
+                        this.outlineForMeeting('remove', meeting, day, time, 'border-primary');
                 }
 
             }
