@@ -33,7 +33,9 @@
             const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             const TIMES = undefined;
 
-            const highlightClass = 'table-primary'
+            const highlightClass = 'table-primary';
+            const selectClass = 'border-primary border-2';
+            const hideClass = 'opacity-25';
 
             let people = undefined;
             let myAvailability = undefined;
@@ -70,6 +72,10 @@
                 return 60*hours + minutes;
             }
 
+            function inSelectMode() {
+                return meetings.some((m) => m.selected);
+            }
+
             class Meeting {
 
                 constructor(index, data, validSlots) {
@@ -80,6 +86,9 @@
                     }
                     this.allValidSlots = validSlots;
                     this.currValidSlots = JSON.parse(JSON.stringify(validSlots));
+
+                    // UI state
+                    this.selected = false;
 
                     // DOM elemments
                     let tableBody = $('#meetings tbody');
@@ -107,9 +116,14 @@
                     $(`${this.selector} select`).change(function(event) {
                         this.changeMeetingLength(event.target.value);
                     }.bind(this));
+                    // Prevent click from bubbling up and 'selecting' the meeeting
+                    $(`${this.selector} select`).click(function(event) {
+                        event.stopPropagation();
+                    });
 
                     // Hover
                     $(this.selector).hover(function() {
+                        if (inSelectMode()) return;
                         // Hover in
                         this.highlight();
                         calendar.highlights(this.currValidSlots);
@@ -119,6 +133,7 @@
                             }
                         }
                     }.bind(this), function() {
+                        if (inSelectMode()) return;
                         // Hover out
                         this.unhighlight();
                         calendar.unhighlights(this.currValidSlots);
@@ -126,6 +141,20 @@
                             if (meeting !== this) {
                                 meeting.unshowPeopleInCommon();
                             }
+                        }
+                    }.bind(this));
+
+                    // Click
+                    $(this.selector).click(function() {
+                        if (!this.selected)  {
+                            if (inSelectMode()) return;
+                            this.selected = true;
+                            this.select();
+                            calendar.hideCellsExcept(this.currValidSlots);
+                        } else {
+                            this.selected = false;
+                            this.unselect();
+                            calendar.showAllCells();
                         }
                     }.bind(this));
                 }
@@ -141,6 +170,9 @@
 
                 highlight() { $(this.selector).addClass(highlightClass); }
                 unhighlight() { $(this.selector).removeClass(highlightClass); }
+
+                select() { $(this.selector).addClass(selectClass); }
+                unselect() { $(this.selector).removeClass(selectClass); }
 
                 peopleInCommon(meeting) {
                     let n = 0;
@@ -182,18 +214,27 @@
                 }
             }
 
-            function fordaytimes(f) {
-                for (let day of DAYS) {
-                    for (let time of TIMES) {
+            let allslots = {};
+            for (let day of DAYS) {
+                allslots[day] = [];
+                for (let time of TIMES) {
+                    allslots[day].push(time);
+                }
+            }
+            function fordaytimes(f, slots=undefined) {
+                slots = slots ? slots : allslots;
+                for (let day in slots) {
+                    for (let time of slots[day]) {
                         f(day, time);
                     }
                 }
             }
-            function mapdaytimes(f) {
+            function mapdaytimes(f, slots=undefined) {
+                slots = slots ? slots : allslots;
                 let ret = {};
-                for (let day of DAYS) {
+                for (let day in slots) {
                     ret[day] = [];
-                    for (let time of TIMES) {
+                    for (let time of slots[day]) {
                         ret[day][time] = f(day, time);
                     }
                 }
@@ -211,13 +252,17 @@
                     // Hover
                     fordaytimes(function(day,time) {
                         this.cell(day, time).hover(function() {
+                            if (inSelectMode()) return;
                             // Hover in
-                            this.highlight(day,time);
+                            if (this.meetings[day][time].length > 0)
+                                this.highlight(day,time);
                             for (let meeting of this.meetings[day][time])
                                 meeting.highlight();
                         }.bind(this), function() {
+                            if (inSelectMode()) return;
                             // Hover out
-                            this.unhighlight(day,time);
+                            if (this.meetings[day][time].length > 0)
+                                this.unhighlight(day,time);
                             for (let meeting of this.meetings[day][time])
                                 meeting.unhighlight();
                         }.bind(this));
@@ -227,11 +272,9 @@
                 __updateMeetingsPerCell() {
                     this.meetings = mapdaytimes(() => []);
                     for (let meeting of meetings) {
-                        for (let day in meeting.currValidSlots) {
-                            for (let time of meeting.currValidSlots[day]) {
-                                this.meetings[day][time].push(meeting);
-                            }
-                        }
+                        fordaytimes(function(day, time) {
+                            this.meetings[day][time].push(meeting);
+                        }.bind(this), meeting.currValidSlots);
                     }
 
                     // Update DOM
@@ -245,18 +288,23 @@
                 highlight(day, time) { this.cell(day, time).addClass(highlightClass); }
                 unhighlight(day, time) { this.cell(day, time).removeClass(highlightClass); }
                 highlights(validSlots) {
-                    for (let day in validSlots) {
-                        for (let time of validSlots[day]) {
-                            this.highlight(day, time);
-                        }
-                    }
+                    fordaytimes(function(day,time) { this.highlight(day,time); }.bind(this), validSlots);
                 }
                 unhighlights(validSlots) {
-                    for (let day in validSlots) {
-                        for (let time of validSlots[day]) {
-                            this.unhighlight(day, time);
+                    fordaytimes(function(day,time) { this.unhighlight(day,time); }.bind(this), validSlots);
+                }
+
+                hideCellsExcept(cells) {
+                    fordaytimes(function(day,time) {
+                        if (!cells[day].includes(time)) {
+                            this.cell(day,time).addClass(hideClass);
                         }
-                    }
+                    }.bind(this));
+                }
+                showAllCells() {
+                    fordaytimes(function(day,time) {
+                        this.cell(day,time).removeClass(hideClass);
+                    }.bind(this));
                 }
 
             }
