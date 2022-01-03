@@ -32,10 +32,14 @@
         <script type='text/javascript'>
             const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             const TIMES = undefined;
+
+            const highlightClass = 'table-primary'
+
             let people = undefined;
             let myAvailability = undefined;
             let meetings = undefined;
             let meeting2validslots = undefined;
+            let calendar = undefined;
 
             function vbars_med(n) {
                 let vbars = '';
@@ -69,18 +73,18 @@
             class Meeting {
 
                 constructor(index, data, validSlots) {
+                    // Basic properties
                     this.index = index;
-
                     for (let prop in data)  {
                         this[prop] = data[prop];
                     }
-
                     this.allValidSlots = validSlots;
                     this.currValidSlots = JSON.parse(JSON.stringify(validSlots));
 
+                    // DOM elemments
                     let tableBody = $('#meetings tbody');
                     tableBody.append(`<tr class="meeting" index=${index}></tr>`);
-                    let tr = $(`${this.selector}`);
+                    let tr = $(this.selector);
                     tr.append(`<td class='meetingName'>${this.name}</td>`);
                     const hour = (this.length == 60);
                     const halfhour = (this.length == 30);
@@ -89,15 +93,40 @@
                         <option ${halfhour ? "selected" : ""} value=30>Half hour</option>
                     </select></td>`);
                     tr.append(`<td class='meetingViable'></td>`);
-                    tr.append('<td class="meetingCommon d-none"></td>');
+                    tr.append('<td class="meetingCommon"></td>');
 
+                    // Viable times
                     this.viableTimes = undefined;
                     this.numViableTimes = undefined;
                     this.__updateViableTimes();
 
                     // Event handlers
+                    // ----------------------------------------------------
+
+                    // Change meeting length
                     $(`${this.selector} select`).change(function(event) {
                         this.changeMeetingLength(event.target.value);
+                    }.bind(this));
+
+                    // Hover
+                    $(this.selector).hover(function() {
+                        // Hover in
+                        this.highlight();
+                        calendar.highlights(this.currValidSlots);
+                        for (let meeting of meetings) {
+                            if (meeting !== this) {
+                                meeting.showPeopleInCommon(this);
+                            }
+                        }
+                    }.bind(this), function() {
+                        // Hover out
+                        this.unhighlight();
+                        calendar.unhighlights(this.currValidSlots);
+                        for (let meeting of meetings) {
+                            if (meeting !== this) {
+                                meeting.unshowPeopleInCommon();
+                            }
+                        }
                     }.bind(this));
                 }
 
@@ -108,6 +137,23 @@
                         this.length = newLength;
                         this.__updateViableTimes();
                     }
+                }
+
+                highlight() { $(this.selector).addClass(highlightClass); }
+                unhighlight() { $(this.selector).removeClass(highlightClass); }
+
+                peopleInCommon(meeting) {
+                    let n = 0;
+                    for (let p of this.participants) {
+                        n += meeting.participants.includes(p);
+                    }
+                    return n;
+                }
+                showPeopleInCommon(meeting) {
+                    $(`${this.selector} td.meetingCommon`).html(vbars_med(this.peopleInCommon(meeting)));
+                }
+                unshowPeopleInCommon() {
+                    $(`${this.selector} td.meetingCommon`).html('');
                 }
 
                 __updateViableTimes() {
@@ -136,10 +182,89 @@
                 }
             }
 
+            function fordaytimes(f) {
+                for (let day of DAYS) {
+                    for (let time of TIMES) {
+                        f(day, time);
+                    }
+                }
+            }
+            function mapdaytimes(f) {
+                let ret = {};
+                for (let day of DAYS) {
+                    ret[day] = [];
+                    for (let time of TIMES) {
+                        ret[day][time] = f(day, time);
+                    }
+                }
+                return ret;
+            }
+
+            class Calendar {
+                constructor() {
+                    this.meetings = undefined;
+                    this.__updateMeetingsPerCell();
+
+                    // Event handlers
+                    // ------------------------------------
+
+                    // Hover
+                    fordaytimes(function(day,time) {
+                        this.cell(day, time).hover(function() {
+                            // Hover in
+                            this.highlight(day,time);
+                            for (let meeting of this.meetings[day][time])
+                                meeting.highlight();
+                        }.bind(this), function() {
+                            // Hover out
+                            this.unhighlight(day,time);
+                            for (let meeting of this.meetings[day][time])
+                                meeting.unhighlight();
+                        }.bind(this));
+                    }.bind(this));
+                }
+
+                __updateMeetingsPerCell() {
+                    this.meetings = mapdaytimes(() => []);
+                    for (let meeting of meetings) {
+                        for (let day in meeting.currValidSlots) {
+                            for (let time of meeting.currValidSlots[day]) {
+                                this.meetings[day][time].push(meeting);
+                            }
+                        }
+                    }
+
+                    // Update DOM
+                    fordaytimes(function(day,time) {
+                        this.cell(day, time).html(vbars_thick(this.meetings[day][time].length));
+                    }.bind(this));
+                }
+
+                cell(day, time) { return $(`#calendar td[day="${day}"][time="${time}"]`); }
+
+                highlight(day, time) { this.cell(day, time).addClass(highlightClass); }
+                unhighlight(day, time) { this.cell(day, time).removeClass(highlightClass); }
+                highlights(validSlots) {
+                    for (let day in validSlots) {
+                        for (let time of validSlots[day]) {
+                            this.highlight(day, time);
+                        }
+                    }
+                }
+                unhighlights(validSlots) {
+                    for (let day in validSlots) {
+                        for (let time of validSlots[day]) {
+                            this.unhighlight(day, time);
+                        }
+                    }
+                }
+
+            }
+
 
             $(document).ready(function() {
                 initMeeetings();
-                initCalendar();
+                calendar = new Calendar();
             });
 
             function initMeeetings() {
@@ -153,40 +278,13 @@
                     meetings[i] = new Meeting(i, meetings[i], validSlots);
                 }
             }
-
-            function calslot(day, time) {
-                return $(`#calendar td[day="${day}"][time="${time}"]`);
-            }
-
-            function initCalendar() {
-                // Render num meetings per empty slot
-                let slot2num = {};
-                for (let day of DAYS) {
-                    slot2num[day] = {};
-                    for (let time of TIMES) {
-                        slot2num[day][time] = 0;
-                    }
-                }
-                for (let meeting of meetings) {
-                    for (let day in meeting.currValidSlots) {
-                        for (let time of meeting.currValidSlots[day]) {
-                            slot2num[day][time] += 1;
-                        }
-                    }
-                }
-                for (let day of DAYS) {
-                    for (let time of TIMES) {
-                        calslot(day, time).html(vbars_thick(slot2num[day][time]));
-                    }
-                }
-            }
         </script>
     </head>
 
     <body>
         <div class='container' id='maincontent'>
             <div class='row'>
-                <div class='col-8'>
+                <div class='col-7'>
                     <div class='text-center'>
                         <h4>Calendar</h4>
                     </div>
@@ -194,13 +292,13 @@
                         <thead>
                             <tr class='text-center'>
                                 <th scope='col'></th>
-                                <th scope='col'>Sunday</th>
-                                <th scope='col'>Monday</th>
-                                <th scope='col'>Tuesday</th>
-                                <th scope='col'>Wednesday</th>
-                                <th scope='col'>Thursday</th>
-                                <th scope='col'>Friday</th>
-                                <th scope='col'>Saturday</th>
+                                <th scope='col'>Sun</th>
+                                <th scope='col'>Mon</th>
+                                <th scope='col'>Tues</th>
+                                <th scope='col'>Weds</th>
+                                <th scope='col'>Thurs</th>
+                                <th scope='col'>Fri</th>
+                                <th scope='col'>Sat</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -208,7 +306,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class='col-4'>
+                <div class='col-5'>
                     <div class='text-center'>
                         <h4>Meetings</h4>
                     </div>
@@ -217,8 +315,8 @@
                             <tr>
                                 <th scope='col'>Name</th>
                                 <th scope='col'>Length</th>
-                                <th scope='col'>Viable Times</th>
-                                <th scope='col' class='d-none'>Common Participants</th>
+                                <th scope='col'>Times</th>
+                                <th scope='col'>Common 👤</th>
                             </tr>
                         </thead>
                         <tbody>
