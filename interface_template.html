@@ -30,6 +30,11 @@
         </style>
 
         <script type='text/javascript'>
+
+            // --------------------------------------------------------------------------
+            // Global stuff
+            // --------------------------------------------------------------------------
+
             const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             const TIMES = undefined;
 
@@ -75,6 +80,15 @@
             function inSelectMode() {
                 return meetings.some((m) => m.selected);
             }
+            function selectedMeeting()  {
+                return meetings.find((m) => m.selected);
+            }
+
+
+            // --------------------------------------------------------------------------
+            // Meeting stuff
+            // --------------------------------------------------------------------------
+
 
             class Meeting {
 
@@ -214,6 +228,12 @@
                 }
             }
 
+
+            // --------------------------------------------------------------------------
+            // Calendar stuff
+            // --------------------------------------------------------------------------
+
+
             let allslots = {};
             for (let day of DAYS) {
                 allslots[day] = [];
@@ -252,19 +272,25 @@
                     // Hover
                     fordaytimes(function(day,time) {
                         this.cell(day, time).hover(function() {
-                            if (inSelectMode()) return;
                             // Hover in
-                            if (this.meetings[day][time].length > 0)
-                                this.highlight(day,time);
-                            for (let meeting of this.meetings[day][time])
-                                meeting.highlight();
+                            if (inSelectMode()) {
+                                this.previewScheduleMeetingAtCell(selectedMeeting(), day, time);
+                            } else {
+                                if (this.meetings[day][time].length > 0)
+                                    this.highlight(day,time);
+                                for (let meeting of this.meetings[day][time])
+                                    meeting.highlight();
+                            }
                         }.bind(this), function() {
-                            if (inSelectMode()) return;
                             // Hover out
-                            if (this.meetings[day][time].length > 0)
-                                this.unhighlight(day,time);
-                            for (let meeting of this.meetings[day][time])
-                                meeting.unhighlight();
+                            if (inSelectMode()) {
+                                this.unpreviewScheduleMeetingAtCell(selectedMeeting(), day, time);
+                            } else {
+                                if (this.meetings[day][time].length > 0)
+                                    this.unhighlight(day,time);
+                                for (let meeting of this.meetings[day][time])
+                                    meeting.unhighlight();
+                            }
                         }.bind(this));
                     }.bind(this));
                 }
@@ -284,6 +310,26 @@
                 }
 
                 cell(day, time) { return $(`#calendar td[day="${day}"][time="${time}"]`); }
+                leftcell(day, time) {
+                    const i = DAYS.indexOf(day);
+                    if (i > 0) return this.cell(DAYS[i-1], time);
+                    return undefined;
+                }
+                rightcell(day, time) {
+                    const i = DAYS.indexOf(day);
+                    if (i < DAYS.length-1) return this.cell(DAYS[i+1], time);
+                    return undefined;
+                }
+                abovecell(day, time) {
+                    const i = TIMES.indexOf(time);
+                    if (i > 0) return this.cell(day, TIMES[i-1]);
+                    return undefined;
+                } 
+                belowcell(day, time) {
+                    const i = TIMES.indexOf(time);
+                    if (i < TIMES.length-1) return this.cell(day, TIMES[i+1]);
+                    return undefined;
+                }
 
                 highlight(day, time) { this.cell(day, time).addClass(highlightClass); }
                 unhighlight(day, time) { this.cell(day, time).removeClass(highlightClass); }
@@ -307,7 +353,34 @@
                     }.bind(this));
                 }
 
+                outlineForMeeting(mode, meeting, day, time, borderClass) {
+                    this.cell(day, time)[`${mode}Class`](borderClass);
+                    let left = this.leftcell(day, time);
+                    if (left) left[`${mode}Class`]('border-end-0');
+                    let right = this.rightcell(day, time);
+                    if (right) right[`${mode}Class`]('border-start-0');
+                    let top = this.abovecell(day, time);
+                    if (top) top[`${mode}Class`]('border-bottom-0'); 
+                    let bot = this.belowcell(day, time);
+                    if (bot) bot[`${mode}Class`]('border-top-0');
+                }
+                previewScheduleMeetingAtCell(meeting, day, time) {
+                    let cell = this.cell(day,time);
+                    if (!cell.hasClass(hideClass))
+                        this.outlineForMeeting('add', meeting, day, time, 'border-1 border-primary');
+                }
+                unpreviewScheduleMeetingAtCell(meeting, day, time) {
+                    let cell = this.cell(day,time);
+                    if (!cell.hasClass(hideClass))
+                    this.outlineForMeeting('remove', meeting, day, time, 'border-1 border-primary');
+                }
+
             }
+
+
+            // --------------------------------------------------------------------------
+            // Initialization stuff
+            // --------------------------------------------------------------------------
 
 
             $(document).ready(function() {
