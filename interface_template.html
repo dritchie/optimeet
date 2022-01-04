@@ -156,23 +156,13 @@
 
                 hoverIn() {
                     if (inSelectMode()) return;
-                    this.highlight();
+                    this.highlight(true);
                     calendar.highlightValidSlotsFor(this);
-                    for (let meeting of meetings) {
-                        if (meeting !== this) {
-                            meeting.showPeopleInCommon(this);
-                        }
-                    }
                 }
                 hoverOut() {
                     if (inSelectMode()) return;
-                    this.unhighlight();
+                    this.unhighlight(true);
                     calendar.unhighlightValidSlotsFor(this);
-                    for (let meeting of meetings) {
-                        if (meeting !== this) {
-                            meeting.unshowPeopleInCommon();
-                        }
-                    } 
                 }
 
                 click() {
@@ -197,8 +187,26 @@
                     }
                 }
 
-                highlight() { $(this.selector).addClass(this.scheduled ? scheduledHightlightClass : highlightClass); }
-                unhighlight() { $(this.selector).removeClass(this.scheduled ? scheduledHightlightClass : highlightClass); }
+                highlight(showPeopleInCommon=false) {
+                    $(this.selector).addClass(this.scheduled ? scheduledHightlightClass : highlightClass);
+                    if (showPeopleInCommon) {
+                        for (let meeting of meetings) {
+                            if (meeting !== this) {
+                                meeting.showPeopleInCommon(this);
+                            }
+                        }
+                    }
+                }
+                unhighlight(showPeopleInCommon=false) {
+                    $(this.selector).removeClass(this.scheduled ? scheduledHightlightClass : highlightClass);
+                    if (showPeopleInCommon) {
+                        for (let meeting of meetings) {
+                            if (meeting !== this) {
+                                meeting.unshowPeopleInCommon();
+                            }
+                        } 
+                    }
+                }
 
                 select() { $(this.selector).addClass(`${this.scheduled ? scheduledSelectClass : selectClass} border-2`); }
                 unselect() { $(this.selector).removeClass(`${this.scheduled ? scheduledSelectClass : selectClass} border-2`); }
@@ -362,8 +370,12 @@
                     } else {
                         if (this.meetings[day][time].length > 0)
                             this.highlight(day,time);
-                        for (let meeting of this.meetings[day][time])
-                            meeting.highlight();
+                        if (this.isScheduled(day, time)) {
+                            this.meetingScheduledAt(day, time).highlight(true);
+                        } else  {
+                            for (let meeting of this.meetings[day][time])
+                                meeting.highlight();
+                        }
                     }
                 }
                 hoverOut(day, time) {
@@ -372,14 +384,24 @@
                     } else {
                         if (this.meetings[day][time].length > 0)
                             this.unhighlight(day,time);
-                        for (let meeting of this.meetings[day][time])
-                            meeting.unhighlight();
+                        if (this.isScheduled(day, time)) {
+                            this.meetingScheduledAt(day, time).unhighlight(true);
+                        } else  {
+                            for (let meeting of this.meetings[day][time])
+                                meeting.unhighlight();
+                        }
                     }
                 }
 
                 click(day, time) {
                     if (inSelectMode()) {
                         let meeting = selectedMeeting();
+                        if (!meeting.isViable(day, time)) {
+                            // Just deselect the meeting
+                            meeting.click();
+                            meeting.hoverOut();
+                            return;
+                        }
                         if (!meeting.scheduled) {
                             this.scheduleMeeting(meeting, day, time);
                         } else {
@@ -394,6 +416,11 @@
                                 this.hoverOut(sday, stime);
                                 this.hoverIn(day, time);
                                 this.scheduleMeeting(meeting, day, time);
+                            } else {
+                                this.hoverOut(sday, stime);
+                                meeting.click();
+                                meeting.hoverOut();
+                                this.hoverIn(day, time);
                             }
                         }
                     } else {
