@@ -134,6 +134,7 @@ def loadConfig():
             j = json.load(f)
         assert 'name' in j, 'config.json missing "name"'
         assert 'emailAddress' in j, 'config.json missing "emailAddress"'
+        assert 'emailServer' in j, 'config.json missing "emailServer"'
         defaults = {
             'timeZone' : 'America/New_York',
             'deadlineInDaysFromNow': 7,
@@ -271,7 +272,7 @@ def sendInitialEmails(inputjson):
     port = 465  # For SSL
     password = getEmailPassword()
     context = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
+    with smtplib.SMTP_SSL(config['emailServer'], port, context=context) as server:
         server.login(config['emailAddress'], password)
         for person,meetings in person2meetings.items():
             assert person in people, f'Person "{person}" not found in people.json'
@@ -500,6 +501,7 @@ def interfaceFilename(inputFilename):
     return os.path.splitext(inputFilename)[0] + '.interface.html'
 
 def createInterfaceHTML(inputFilename):
+    config = loadConfig()
     people = loadPeople()
     inp = loadInputFile(inputFilename)
     avail = loadAvailabilityFile(inputFilename)
@@ -508,6 +510,8 @@ def createInterfaceHTML(inputFilename):
     with open(filename) as f:
         html = f.read()
 
+    # Inject config
+    html = html.replace('let config = undefined;', f'let config = {json.dumps(config)}');
     # Inject all the people who participate in these meetings
     participants = set(reduce(lambda a,b: a+b, [m['participants'] for m in inp['meetingsToSchedule']]))
     relevantPeople = {k:v for k,v in people.items() if k in participants}

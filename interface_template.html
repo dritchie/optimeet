@@ -12,6 +12,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://apis.google.com/js/api.js"></script>
+        <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
         <style>
             #maincontent {
@@ -36,6 +38,19 @@
         <script type='text/javascript'>
 
             // --------------------------------------------------------------------------
+            // GOOGLE API STUFF
+            // --------------------------------------------------------------------------
+
+            // Client ID and API key from the Developer Console
+            var CLIENT_ID = '809694660718-d5r3pmi1l0jt5fs1gv8gk7tfmvvbgsbd.apps.googleusercontent.com';
+            var API_KEY = 'AIzaSyDcf7Xs1WA_Z0EMx1L9iTRvp8qnOTkicxM';
+            // Array of API discovery doc URLs for APIs used by the quickstart
+            var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+            // Authorization scopes required by the API; multiple scopes can be
+            // included, separated by spaces.
+            var SCOPES = "https://www.googleapis.com/auth/calendar";
+
+            // --------------------------------------------------------------------------
             // Global stuff
             // --------------------------------------------------------------------------
 
@@ -48,10 +63,10 @@
             const scheduledSelectClass = 'border-success';
             const scheduledBGClass = 'table-secondary';
             const scheduledBorderClass = 'border-dark';
-            // const scheduledTextClass = 'text-secondary';
             const scheduledTextClass = 'opacity-50';
             const hideClass = 'opacity-25';
 
+            let config = undefined;
             let people = undefined;
             let myAvailability = undefined;
             let meetings = undefined;
@@ -73,7 +88,7 @@
                 return vbars;
             }
 
-            function timestr2minutes(timestr) {
+            function timestr2hoursminutes(timestr) {
                 const re = /(\d\d):(\d\d) ([A|P]M)/;
                 matches = timestr.match(re);
                 if (matches.length == 0) return NaN;
@@ -84,7 +99,12 @@
                     hours -= 12;
                 if (AMPM == 'PM' && hours != 12)
                     hours += 12;
-                return 60*hours + minutes;
+                return {hours: hours, minutes: minutes};
+            }
+
+            function timestr2minutes(timestr) {
+                const time = timestr2hoursminutes(timestr);
+                return 60*time.hours + time.minutes;
             }
 
             function inSelectMode() {
@@ -252,6 +272,10 @@
 
                     $(this.selector).addClass(scheduledTextClass);
                     $(`${this.selector} select`).prop('disabled', true);
+
+                    // If all meetings have been scheduled, enable the export button
+                    if (meetings.every((m) => m.scheduled))
+                        $('#exportButton').prop('disabled', false);
                 }
                 unschedule() {
                     const day = this.scheduled.day;
@@ -278,6 +302,9 @@
 
                     $(this.selector).removeClass(scheduledTextClass);
                     $(`${this.selector} select`).prop('disabled', false);
+
+                    // Make sure the export button is disabled
+                    $('#exportButton').prop('disabled', true);
                 }
 
                 __updateViableTimes() {
@@ -676,6 +703,10 @@
                 initMeetings();
                 calendar = new Calendar();
                 $('#clearButton').click(() => calendar.unscheduleAllMeetings());
+                $('#startDate').change(function(event) {
+                    $('#confirmExportButton').prop('disabled', event.target.value == '');
+                });
+                $('#confirmExportButton').click(() => exportToGCal());
             });
 
             function initMeetings() {
@@ -687,6 +718,102 @@
                         validSlots[day] = validSlots[day].filter(time => myAvailability[day].includes(time));
                     }
                     meetings[i] = new Meeting(i, meetings[i], validSlots);
+                }
+            }
+
+            function exportToGCal() {
+                let clientInitialized = false;
+
+                let resultModal = new bootstrap.Modal(document.getElementById('exportResult'), {
+                    keyboard: false
+                });
+
+                function initClient() {
+                        gapi.client.init({
+                        apiKey: API_KEY,
+                        clientId: CLIENT_ID,
+                        discoveryDocs: DISCOVERY_DOCS,
+                        scope: SCOPES
+                    }).then(function () {
+                        clientInitialized = true;
+                        // Listen for sign-in state changes.
+                        gapi.auth2.getAuthInstance().isSignedIn.listen(signInStatusChanged);
+                        // Trigger sign-in
+                        signInIfNeeded(); 
+                    }, function(error) {
+                        $('#resultModalLabel').html('Export Error');
+                        $('#exportResult .modal-body').html(JSON.stringify(error, null, 2));
+                        resultModal.show();
+                    });
+                }
+
+                function signInIfNeeded() {
+                    if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
+                        gapi.auth2.getAuthInstance().signIn();
+                    } else {
+                        doExport();
+                    }
+                }
+
+                function signInStatusChanged(isSignedIn) {
+                    if (isSignedIn)
+                        doExport();
+                }
+
+                function doExport(mtgIndex=0) {
+                    if (mtgIndex == meetings.length) {
+                        $('#resultModalLabel').html('Export Success!');
+                        $('#exportResult .modal-body').html('Meeting schedule successfully exported to Google Calendar.');
+                        resultModal.show();
+                    } else {
+                        const startDate = document.getElementById('startDate').value;
+                        const d = dayjs(startDate);
+                        const meeting = meetings[mtgIndex];
+                        const di = d.day();
+                        const mdi = DAYS.indexOf(meeting.scheduled.day);
+                        let daysDiff = mdi - di;
+                        if (daysDiff < 0) daysDiff += 7;
+                        const meetingTime = timestr2hoursminutes(meeting.scheduled.time);
+                        let meetingDate = d.add(daysDiff, 'day').hour(meetingTime.hours).minute(meetingTime.minutes);
+
+                        const event = {
+                            'summary': meeting.name,
+                            'location': (meeting.type == 'hybrid' || meeting.type == 'in-person') ? meeting.physicalLocation : meeting.remoteLocation,
+                            'description': meeting.type == 'hybrid' ? `Remote Location: ${meeting.remoteLocation}` : '',
+                            'start': {
+                                'dateTime': meetingDate.toISOString(),
+                                'timeZone': config.timeZone
+                            },
+                            'end': {
+                                'dateTime': meetingDate.add(meeting.length, 'minutes').toISOString(),
+                                'timeZone': config.timeZone
+                            },
+                            'recurrence': [
+                                'RRULE:FREQ=WEEKLY'
+                            ],
+                            'attendees': meeting.participants.map(function(p) {
+                                return { email: people[p].email };
+                            }),
+                            'reminders': {
+                                'useDefault': true
+                            }
+                        };
+
+                        var request = gapi.client.calendar.events.insert({
+                            'calendarId': 'primary',
+                            'resource': event
+                        });
+
+                        request.execute(function(event) {
+                            doExport(mtgIndex+1);
+                        });
+                    }
+                }
+
+                if (!clientInitialized) {
+                    gapi.load('client:auth2', initClient);
+                } else {
+                    signInIfNeeded();
                 }
             }
         </script>
@@ -716,8 +843,64 @@
                             [[CALENDARROWS]]
                         </tbody>
                     </table>
-                    <button id="clearButton" type="button" class="btn btn-secondary">Clear Schedule</button>
-                    <button id="exportButton" type="button" class="btn btn-secondary" disabled>Export to Google Calendar</button>
+                    <button id="clearButton" type="button" class="btn btn-primary">Clear Schedule</button>
+                    <button id="exportButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportConfirm" disabled>
+                        Export to Google Calendar
+                    </button>
+                    
+                    <!-- Export Confirm Modal -->
+                    <div class="modal fade" id="exportConfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="confirmModalLabel">Confirm Export</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            This will create entries on your Google Calendar, including sending invite emails to meeting participants. Are you sure you want to proceed?
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button id="proceedWithExportButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportDate">Proceed</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Export Date Modal -->
+                    <div class="modal fade" id="exportDate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="dateModalLabel">Choose Start Date</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Scheduled meetings will be created as recurring weekly Google Calendar events starting from this date:</p>
+                                <input type="date" id="startDate"></input>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button id="confirmExportButton" type="button" class="btn btn-primary" data-bs-dismiss="modal" disabled>Export</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                     <!-- Export Result Modal -->
+                    <div class="modal fade" id="exportResult" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="resultModalLabel">...</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
                 <div class='col-5'>
                     <div class='text-center'>
