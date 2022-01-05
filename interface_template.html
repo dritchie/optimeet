@@ -36,20 +36,6 @@
         </style>
 
         <script type='text/javascript'>
-
-            // --------------------------------------------------------------------------
-            // GOOGLE API STUFF
-            // --------------------------------------------------------------------------
-
-            // Client ID and API key from the Developer Console
-            var CLIENT_ID = '809694660718-d5r3pmi1l0jt5fs1gv8gk7tfmvvbgsbd.apps.googleusercontent.com';
-            var API_KEY = 'AIzaSyDcf7Xs1WA_Z0EMx1L9iTRvp8qnOTkicxM';
-            // Array of API discovery doc URLs for APIs used by the quickstart
-            var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-            // Authorization scopes required by the API; multiple scopes can be
-            // included, separated by spaces.
-            var SCOPES = "https://www.googleapis.com/auth/calendar";
-
             // --------------------------------------------------------------------------
             // Global stuff
             // --------------------------------------------------------------------------
@@ -57,18 +43,26 @@
             const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             const TIMES = undefined;
 
-            const highlightClass = 'table-primary';
-            const selectClass = 'border-primary';
-            const scheduledHightlightClass = 'table-success';
-            const scheduledSelectClass = 'border-success';
-            const scheduledBGClass = 'table-secondary';
-            const scheduledBorderClass = 'border-dark';
-            const scheduledTextClass = 'opacity-50';
-            const hideClass = 'opacity-25';
+            var highlightClass = 'table-primary';
+            var selectClass = 'border-primary';
+            var scheduledHightlightClass = 'table-success';
+            var scheduledSelectClass = 'border-success';
+            var scheduledBGClass = 'table-secondary';
+            var scheduledBorderClass = 'border-dark';
+            var scheduledTextClass = 'text-body';
+            // var commitmentBGClass = 'table-dark';
+            // var commitmentBorderClass = 'border-dark';
+            // var commitmentTextClass = 'text-light';
+            var commitmentBGClass = 'table-danger';
+            var commitmentBorderClass = 'border-dark';
+            var commitmentTextClass = 'text-body';
+            var hideClass = 'opacity-25';
+            var scheduledMeetingTextClass = 'opacity-50';
 
             let config = undefined;
             let people = undefined;
             let myAvailability = undefined;
+            let myCommitments = undefined;
             let meetings = undefined;
             let meeting2validslots = undefined;
             let calendar = undefined;
@@ -270,7 +264,7 @@
                         }
                     }
 
-                    $(this.selector).addClass(scheduledTextClass);
+                    $(this.selector).addClass(scheduledMeetingTextClass);
                     $(`${this.selector} select`).prop('disabled', true);
 
                     // If all meetings have been scheduled, enable the export button
@@ -300,7 +294,7 @@
                         }
                     }
 
-                    $(this.selector).removeClass(scheduledTextClass);
+                    $(this.selector).removeClass(scheduledMeetingTextClass);
                     $(`${this.selector} select`).prop('disabled', false);
 
                     // Make sure the export button is disabled
@@ -523,10 +517,15 @@
                             this.cell(day,time).addClass(hideClass);
                         }
                     }.bind(this));
-                    // Also need to change the border color of scheduled meetings
+                    // Also need to change the border color of scheduled meetings and commitments
                     for (let m of meetings) {
                         if (m !== meeting && m.scheduled) {
                             this.outlineForMeeting('remove', m, m.scheduled.day, m.scheduled.time, scheduledBorderClass);
+                        }
+                    }
+                    for (let day in myCommitments) {
+                        for (let c of myCommitments[day]) {
+                            this.outlineForMeeting('remove', c, day, c.time, commitmentBorderClass);
                         }
                     }
                 }
@@ -534,10 +533,15 @@
                     fordaytimes(function(day,time) {
                         this.cell(day,time).removeClass(hideClass);
                     }.bind(this));
-                    // Also need to change the border color of scheduled meetings
+                    // Also need to change the border color of scheduled meetings and commitments
                     for (let m of meetings) {
                         if (m !== meeting && m.scheduled) {
                             this.outlineForMeeting('add', m, m.scheduled.day, m.scheduled.time, scheduledBorderClass);
+                        }
+                    }
+                    for (let day in myCommitments) {
+                        for (let c of myCommitments[day]) {
+                            this.outlineForMeeting('add', c, day, c.time, commitmentBorderClass);
                         }
                     }
                 }
@@ -597,12 +601,17 @@
                 scheduledFormatting(mode, day, time) {
                     if (this.isScheduled(day, time)) {
                         let meeting = this.meetingScheduledAt(day, time);
-                        this.cell(day, time)[`${mode}Class`](scheduledBGClass);
-                        if (meeting.length == 60) {
-                            this.belowcell(day, time)[`${mode}Class`](scheduledBGClass);
-                        }
-                        this.outlineForMeeting(mode, meeting, day, time, scheduledBorderClass);
+                        this.formatForMeeting(meeting, 'scheduled', mode, day, time);
                     }
+                }
+
+                formatForMeeting(meeting, type, mode, day, time) {
+                    let cell = this.cell(day, time);
+                    this.cell(day, time)[`${mode}Class`](window[`${type}BGClass`] + ' ' + window[`${type}TextClass`]);
+                    if (meeting.length == 60) {
+                        this.belowcell(day, time)[`${mode}Class`](window[`${type}BGClass`] + ' ' + window[`${type}TextClass`]);
+                    }
+                    this.outlineForMeeting(mode, meeting, day, time, window[`${type}BorderClass`]);
                 }
 
                 scheduleMeeting(meeting, day, time) {
@@ -654,6 +663,17 @@
                     this.__updateMeetingsPerCell();
                 }
 
+                addCommitmentToDOM(commitment, day, time) {
+                    let cell = this.cell(day, time);
+                    cell.html(commitment.name);
+                    cell.addClass('smalltext');
+                    if (commitment.length == 60) {
+                        let cell2 = this.belowcell(day, time);
+                        cell2.html(commitment.name);
+                        cell2.addClass('smalltext');
+                    }
+                }
+
                 __updateMeetingsPerCell() {
                     this.meetings = mapdaytimes(() => []);
                     for (let meeting of meetings) {
@@ -679,47 +699,34 @@
                         if (meeting.scheduled) {
                             let day = meeting.scheduled.day;
                             let time = meeting.scheduled.time;
-                            let cell = this.cell(day, time);
-                            cell.html(meeting.name);
-                            cell.addClass('smalltext');
-                            if (meeting.length == 60) {
-                                let cell2 = this.belowcell(day, time);
-                                cell2.html(meeting.name);
-                                cell2.addClass('smalltext');
-                            }
+                            this.addCommitmentToDOM(meeting, day, time);
+                        }
+                    }
+                    // Update DOM: existing commitments
+                    for (let day in myCommitments) {
+                        for (let commitment of myCommitments[day]) {
+                            let time = commitment.time;
+                            this.addCommitmentToDOM(commitment, day, time);
+                            this.formatForMeeting(commitment, 'commitment', 'add', day, time);
                         }
                     }
                 }
 
             }
 
-
             // --------------------------------------------------------------------------
-            // Initialization stuff
+            // GCAL STUFF
             // --------------------------------------------------------------------------
 
+            // Client ID and API key from the Developer Console
+            var CLIENT_ID = '809694660718-d5r3pmi1l0jt5fs1gv8gk7tfmvvbgsbd.apps.googleusercontent.com';
+            var API_KEY = 'AIzaSyDcf7Xs1WA_Z0EMx1L9iTRvp8qnOTkicxM';
+            // Array of API discovery doc URLs for APIs used by the quickstart
+            var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+            // Authorization scopes required by the API; multiple scopes can be
+            // included, separated by spaces.
+            var SCOPES = "https://www.googleapis.com/auth/calendar";
 
-            $(document).ready(function() {
-                initMeetings();
-                calendar = new Calendar();
-                $('#clearButton').click(() => calendar.unscheduleAllMeetings());
-                $('#startDate').change(function(event) {
-                    $('#confirmExportButton').prop('disabled', event.target.value == '');
-                });
-                $('#confirmExportButton').click(() => exportToGCal());
-            });
-
-            function initMeetings() {
-                for (let i = 0; i < meetings.length; i++) {
-                    let meeting = meetings[i];
-                    validSlots = meeting2validslots[meeting.name];
-                    // Remove any slots that aren't in myAvailability
-                    for (let day in validSlots) {
-                        validSlots[day] = validSlots[day].filter(time => myAvailability[day].includes(time));
-                    }
-                    meetings[i] = new Meeting(i, meetings[i], validSlots);
-                }
-            }
 
             function exportToGCal() {
                 let clientInitialized = false;
@@ -780,6 +787,7 @@
                             'summary': meeting.name,
                             'location': (meeting.type == 'hybrid' || meeting.type == 'in-person') ? meeting.physicalLocation : meeting.remoteLocation,
                             'description': meeting.type == 'hybrid' ? `Remote Location: ${meeting.remoteLocation}` : '',
+                            'colorId': config.gCalEventColorId ? `${config.gCalEventColorId}` : undefined,
                             'start': {
                                 'dateTime': meetingDate.toISOString(),
                                 'timeZone': config.timeZone
@@ -816,6 +824,33 @@
                     signInIfNeeded();
                 }
             }
+
+            // --------------------------------------------------------------------------
+            // Initialization stuff
+            // --------------------------------------------------------------------------
+
+
+            $(document).ready(function() {
+                initMeetings();
+                calendar = new Calendar();
+                $('#clearButton').click(() => calendar.unscheduleAllMeetings());
+                $('#startDate').change(function(event) {
+                    $('#confirmExportButton').prop('disabled', event.target.value == '');
+                });
+                $('#confirmExportButton').click(() => exportToGCal());
+            });
+
+            function initMeetings() {
+                for (let i = 0; i < meetings.length; i++) {
+                    let meeting = meetings[i];
+                    validSlots = meeting2validslots[meeting.name];
+                    // Remove any slots that aren't in myAvailability
+                    for (let day in validSlots) {
+                        validSlots[day] = validSlots[day].filter(time => myAvailability[day].includes(time));
+                    }
+                    meetings[i] = new Meeting(i, meetings[i], validSlots);
+                }
+            }
         </script>
     </head>
 
@@ -827,6 +862,7 @@
                         <h4>Calendar</h4>
                     </div>
                     <table class='table table-bordered table-sm text-break' id='calendar'>
+                    <!-- <table class='table table-borderless table-sm text-break' id='calendar'> -->
                         <thead>
                             <tr class='text-center'>
                                 <th scope='col'></th>

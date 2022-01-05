@@ -185,6 +185,21 @@ def loadInputFile(filename):
         j['myAvailability'] = {**defaultAvailability, **j['myAvailability']}
         j['myAvailability'] = {day: ranges2slots(ranges) for day,ranges in j['myAvailability'].items()}
 
+        defaultCommitments = {day : [] for day in
+            ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']}
+        j['myCommitments'] = {**defaultCommitments, **j['myCommitments']}
+        for day,commitments in j['myCommitments'].items():
+            for commitment in commitments:
+                # Remove any slots from myAvailability that conflict with this commitment
+                t = commitment['time']
+                if t in j['myAvailability'][day]:
+                    j['myAvailability'][day].remove(t)
+                if commitment['length'] == 60:
+                    # Remove the next slot, too
+                    t = datetime.strftime(datetime.strptime(t, "%I:%M %p") + timedelta(minutes=30), "%I:%M %p")
+                    if t in j['myAvailability'][day]:
+                        j['myAvailability'][day].remove(t)
+
         myPhysicalLocation = j['myLocations']['physical'] if ('myLocations' in j) and ('physical' in j['myLocations']) else None
         myRemoteLocation = j['myLocations']['remote'] if ('myLocations' in j) and ('remote' in j['myLocations']) else None
 
@@ -517,9 +532,10 @@ def createInterfaceHTML(inputFilename):
     relevantPeople = {k:v for k,v in people.items() if k in participants}
     html = html.replace('let people = undefined;', f'let people = {json.dumps(relevantPeople)};')
     html = html.replace('let meetings = undefined;', f'let meetings = {json.dumps(inp["meetingsToSchedule"])};')
-    # Inject user availability and participant availability
+    # Inject user availability, participant availability, and user commitments
     html = html.replace('let myAvailability = undefined;', f'let myAvailability = {json.dumps(inp["myAvailability"])};')
     html = html.replace('let meeting2validslots = undefined;', f'let meeting2validslots = {json.dumps(avail)};')
+    html = html.replace('let myCommitments = undefined;', f'let myCommitments = {json.dumps(inp["myCommitments"])};')
 
     # Create DOM elements for rows of calendar (according to availability)
     calendarRows = ''

@@ -17,6 +17,23 @@
         ]
     },
 
+    "myCommitments": {
+        "Tuesday" : [
+            {
+                "name": "Teaching",
+                "time": "11:00 AM",
+                "length": 60
+            }
+        ],
+        "Thursday" : [
+            {
+                "name": "Teaching",
+                "time": "11:00 AM",
+                "length": 60
+            }
+        ]
+    },
+
     "myLocations": {
         "physical": "CIT 445",
         "remote": "https://brown.zoom.us/j/2338054298"
