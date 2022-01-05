@@ -11,6 +11,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+THIRTYMINS = timedelta(minutes=30)
 
 '''
 Returns:
@@ -111,18 +112,23 @@ def viableSlots(when2meet, everyone=None):
 
 def numViableMeetingTimes(when2meet, meetingLength, everyone=None):
     when2meet = viableSlots(when2meet, everyone)
-    if meetingLength == 30:
-        return reduce(lambda a,b: a+b, [len(slots) for slots in when2meet.values()])
-    # Count number of back-to-back half hour slots we have
-    num = 0
-    thirtymins = timedelta(minutes=30)
+    nslots = int(meetingLength / 30);
+    nViable = 0
     for slots in when2meet.values():
-        for i in range(0,len(slots)-1):
-            time1 = datetime.strptime(slots[i]['time'], "%I:%M %p")
-            time2 = datetime.strptime(slots[i+1]['time'], "%I:%M %p")
-            if time2 - time1 == thirtymins:
-                num += 1
-    return num
+        # For each valid slot, check whether there are enough back-to-back slots
+        #  starting from that slot to account for the whole meeting length
+        for i in range(0, len(slots)-(nslots-1)):
+            time = datetime.strptime(slots[i]['time'], "%I:%M %p")
+            enoughValidBackToBackSlots = True
+            for j in range(1, nslots):
+                time2 = datetime.strptime(slots[i+j]['time'], "%I:%M %p")
+                if time2 - time != THIRTYMINS:
+                    enoughValidBackToBackSlots = False
+                    break
+                time = time2
+            if enoughValidBackToBackSlots:
+                nViable += 1
+    return nViable
 
 __config = None
 def loadConfig():
@@ -191,14 +197,13 @@ def loadInputFile(filename):
         for day,commitments in j['myCommitments'].items():
             for commitment in commitments:
                 # Remove any slots from myAvailability that conflict with this commitment
-                t = commitment['time']
-                if t in j['myAvailability'][day]:
-                    j['myAvailability'][day].remove(t)
-                if commitment['length'] == 60:
-                    # Remove the next slot, too
-                    t = datetime.strftime(datetime.strptime(t, "%I:%M %p") + timedelta(minutes=30), "%I:%M %p")
-                    if t in j['myAvailability'][day]:
-                        j['myAvailability'][day].remove(t)
+                t = datetime.strptime(commitment['time'], "%I:%M %p")
+                nslots = int(commitment['length'] / 30)
+                for i in range(0, nslots):
+                    tstr = datetime.strftime(t, "%I:%M %p")
+                    if tstr in j['myAvailability'][day]:
+                        j['myAvailability'][day].remove(tstr)
+                    t = t + THIRTYMINS    
 
         myPhysicalLocation = j['myLocations']['physical'] if ('myLocations' in j) and ('physical' in j['myLocations']) else None
         myRemoteLocation = j['myLocations']['remote'] if ('myLocations' in j) and ('remote' in j['myLocations']) else None
@@ -217,6 +222,7 @@ def loadInputFile(filename):
             meetings[i] = {**meetingDefaults, **meetings[i]}
             assert 'name' in meetings[i], f'Meeting {i} has no "name"'
             name = meetings[i]['name']
+            assert meetings[i]['length'] % 30 == 0, f'Length of meeting "{name}" is not a multiple of 30 (minutes)'
             assert 'participants' in meetings[i], f'Meeting "{name}" has no "participants"'
             mtype = meetings[i]['type']
             if mtype == 'hybrid' or mtype == 'in-person':

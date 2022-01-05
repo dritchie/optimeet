@@ -96,6 +96,13 @@
                 return {hours: hours, minutes: minutes};
             }
 
+            function nexttime(time) {
+                if (!TIMES.includes(time)) return undefined;
+                const i = TIMES.indexOf(time);
+                if (i == TIMES.length) return undefined;
+                return TIMES[i+1];
+            }
+
             function timestr2minutes(timestr) {
                 const time = timestr2hoursminutes(timestr);
                 return 60*time.hours + time.minutes;
@@ -135,12 +142,12 @@
                     tableBody.append(`<tr class="meeting" index=${index}></tr>`);
                     let tr = $(this.selector);
                     tr.append(`<td class='meetingName'>${this.name}</td>`);
-                    const hour = (this.length == 60);
-                    const halfhour = (this.length == 30);
-                    tr.append(`<td class='meetingLength'><select class="form-select form-select-sm">
-                        <option ${hour ? "selected" : ""} value=60>Hour</option>
-                        <option ${halfhour ? "selected" : ""} value=30>Half hour</option>
-                    </select></td>`);
+                    const maxLength = Math.max(...meetings.map((m) => m.length));
+                    let options = '';
+                    for (let i = 30; i <= maxLength; i += 30) {
+                        options += `<option ${i == this.length ? "selected" : ""} value=${i}>${i}</option>`;
+                    }
+                    tr.append(`<td class='meetingLength'><select class="form-select form-select-sm">${options}</select></td>`);
                     tr.append(`<td class='meetingViable'></td>`);
                     tr.append('<td class="meetingCommon"></td>');
 
@@ -251,13 +258,12 @@
                         if (meeting !== this) {
                             let times = meeting.currValidSlots[day];
                             if (times) {
-                                if (times.includes(time))
-                                    times.splice(times.indexOf(time), 1); 
-                                // May also need to remove the second slot in an hour long meeting
-                                if (this.length == 60) {
-                                    const nextTime = TIMES[TIMES.indexOf(time)+1];
-                                    if (times.includes(nextTime))
-                                    times.splice(times.indexOf(nextTime), 1); 
+                                const nslots = this.length / 30;
+                                let t = time;
+                                for (let i = 0; i < nslots; i++) {
+                                    if (times.includes(t))
+                                        times.splice(times.indexOf(t), 1);
+                                    t = nexttime(t);
                                 }
                             }
                             meeting.__updateViableTimes();
@@ -281,13 +287,12 @@
                         if (meeting !== this) {
                             let times = meeting.allValidSlots[day];
                             if (times) {
-                                if (times.includes(time))
-                                    meeting.currValidSlots[day].push(time); // TODO: Sorted order?
-                                // May also need to add back the second slot in an hour long meeting
-                                if (this.length == 60) {
-                                    const nextTime = TIMES[TIMES.indexOf(time)+1];
-                                    if (times.includes(nextTime))
-                                    meeting.currValidSlots[day].push(nextTime); // TODO: Sorted order?
+                                const nslots = this.length / 30;
+                                let t = time;
+                                for (let i = 0; i < nslots; i++) {
+                                    if (times.includes(t))
+                                        meeting.currValidSlots[day].push(t); // TODO: Sorted order?
+                                    t = nexttime(t);
                                 }
                             }
                             meeting.__updateViableTimes();
@@ -302,22 +307,29 @@
                 }
 
                 __updateViableTimes() {
-                    if (this.length == 30)
-                        this.viableTimes = JSON.parse(JSON.stringify(this.currValidSlots));
-                    else {
-                        // Find back-to-back half hour slots
-                        this.viableTimes = {};
-                        for (let day in this.currValidSlots) {
-                            const slots = this.currValidSlots[day];
-                            this.viableTimes[day] = [];
-                            for (let i = 0; i < slots.length - 1; i++) {
-                                const time1 = timestr2minutes(slots[i]);
-                                const time2 = timestr2minutes(slots[i+1]);
-                                if (time2 - time1 == 30)
-                                    this.viableTimes[day].push(slots[i]);
+                    const nslots = this.length / 30;
+                    this.viableTimes = {}
+                    for (let day in this.currValidSlots) {
+                        const slots = this.currValidSlots[day];
+                        this.viableTimes[day] = [];
+                        // For each valid slot, check whether there are enough back-to-back
+                        //  slots starting from that slot to account for the whole meeting length
+                        for (let i = 0; i < slots.length - (nslots-1); i++) {
+                            let time = timestr2minutes(slots[i]);
+                            let enoughValidBackToBackSlots = true;
+                            for (let j = 1; j < nslots; j++) {
+                                const time2 = timestr2minutes(slots[i+j]);
+                                if (time2 - time != 30) {
+                                    enoughValidBackToBackSlots = false;
+                                    break;
+                                }
+                                time = time2;
                             }
+                            if (enoughValidBackToBackSlots)
+                                this.viableTimes[day].push(slots[i]);
                         }
                     }
+
                     // Update numViableTimmes
                     this.numViableTimes = 0;
                     for (let day in this.viableTimes)
@@ -488,14 +500,24 @@
                 highlight(day, time) {
                     this.scheduledFormatting('remove', day, time);
                     this.cell(day, time).addClass(this.isScheduled(day, time) ? scheduledHightlightClass : highlightClass);
-                    if (this.isScheduled(day, time) && this.meetingScheduledAt(day, time).length == 60)
-                        this.belowcell(day, time).addClass(scheduledHightlightClass);
+                    if (this.isScheduled(day, time) && this.meetingScheduledAt(day, time).length > 30) {
+                        const nslots = this.meetingScheduledAt(day, time).length / 30;
+                        for (let i = 1; i < nslots; i++) {
+                            time = nexttime(time);
+                            this.cell(day, time).addClass(scheduledHightlightClass);
+                        }
+                    }
                 }
                 unhighlight(day, time) {
                     this.scheduledFormatting('add', day, time);
                     this.cell(day, time).removeClass(this.isScheduled(day, time) ? scheduledHightlightClass : highlightClass);
-                    if (this.isScheduled(day, time) && this.meetingScheduledAt(day, time).length == 60)
-                        this.belowcell(day, time).removeClass(scheduledHightlightClass);
+                    if (this.isScheduled(day, time) && this.meetingScheduledAt(day, time).length > 30) {
+                        const nslots = this.meetingScheduledAt(day, time).length / 30;
+                        for (let i = 1; i < nslots; i++) {
+                            time = nexttime(time);
+                            this.cell(day, time).removeClass(scheduledHightlightClass);
+                        }
+                    }
                 }
                 highlightValidSlotsFor(meeting) {
                     fordaytimes(function(day,time) {
@@ -547,46 +569,49 @@
                 }
 
                 outlineForMeeting(mode, meeting, day, time, borderColorClass) {
-                    if (meeting.length == 30) {
-                        // Just outline one half-hour slot
-                        this.cell(day, time)[`${mode}Class`](`border ${borderColorClass}`);
-                        // Turn off borders shared by adjacent cells
-                        let left = this.leftcell(day, time);
-                        if (left) left[`${mode}Class`]('border-end-0');
-                        let right = this.rightcell(day, time);
-                        if (right) right[`${mode}Class`]('border-start-0');
-                        let top = this.abovecell(day, time);
-                        if (top) top[`${mode}Class`]('border-bottom-0'); 
-                        let bot = this.belowcell(day, time);
-                        if (bot) bot[`${mode}Class`]('border-top-0');
-                        // Make sure none of my borders are turned off
-                        if (mode == 'add') {
-                            this.cell(day, time).removeClass('border-start-0 border-end-0 border-top-0 border-bottom-0');
+                    const nslots = meeting.length / 30;
+                    for (let i = 0; i < nslots; i++) {
+                        let cell = this.cell(day, time);
+                        cell[`${mode}Class`](borderColorClass);
+
+                        // Top-most cell has a top border; others do not
+                        if (i == 0) {
+                            cell[`${mode}Class`]('border-top');
+                            cell.removeClass('border-top-0');
+                            // Adjacent top cell should have bottom border turned off
+                            let abovecell = this.abovecell(day, time);
+                            if (abovecell)
+                                abovecell[`${mode}Class`]('border-bottom-0');
+                        } else {
+                            cell[`${mode}Class`]('border-top-0');
                         }
-                    } else {
-                        // Outline two consecutive slots as if it were one chunk of time
-                        this.cell(day, time)[`${mode}Class`](`border-top border-start border-end border-bottom-0 ${borderColorClass}`);
-                        this.belowcell(day, time)[`${mode}Class`](`border-top-0 border-start border-end border-bottom ${borderColorClass}`);
-                        // Turn off borders shared by cells adjacent to cell 1
-                        let left = this.leftcell(day, time);
-                        if (left) left[`${mode}Class`]('border-end-0');
-                        let right = this.rightcell(day, time);
-                        if (right) right[`${mode}Class`]('border-start-0');
-                        let top = this.abovecell(day, time);
-                        if (top) top[`${mode}Class`]('border-bottom-0'); 
-                        // Turn off borders shared by cells adjacent to cell 2
-                        let time2 = TIMES[TIMES.indexOf(time)+1];
-                        left = this.leftcell(day, time2);
-                        if (left) left[`${mode}Class`]('border-end-0');
-                        right = this.rightcell(day, time2);
-                        if (right) right[`${mode}Class`]('border-start-0');
-                        let bot = this.belowcell(day, time2);
-                        if (bot) bot[`${mode}Class`]('border-top-0');
-                        // Make sure none of my borders are turned off
-                        if (mode == 'add') {
-                            this.cell(day, time).removeClass('border-start-0 border-end-0 border-top-0');
-                            this.belowcell(day, time).removeClass('border-start-0 border-end-0 border-bottom-0');
+
+                        // Bottom-most cell has a bottom border; others do not
+                        if (i == nslots-1) {
+                            cell[`${mode}Class`]('border-bottom');
+                            cell.removeClass('border-bottom-0');
+                            // Adjacent bottom cell should have top border turned off
+                            let belowcell = this.belowcell(day, time);
+                            if (belowcell)
+                                belowcell[`${mode}Class`]('border-top-0');
+                        } else {
+                            cell[`${mode}Class`]('border-bottom-0');
                         }
+
+                        // All cells have left/right borders
+                        cell[`${mode}Class`]('border-start');
+                        cell[`${mode}Class`]('border-end');
+                        cell.removeClass('border-start-0');
+                        cell.removeClass('border-end-0');
+                        // Left/right adjacent cells should have their right/left borders turned off
+                        let leftcell = this.leftcell(day, time);
+                        if (leftcell)
+                            leftcell[`${mode}Class`]('border-end-0');
+                        let rightcell = this.rightcell(day, time);
+                        if (rightcell)
+                            rightcell[`${mode}Class`]('border-start-0');
+
+                        time = nexttime(time);
                     }
                 }
                 previewScheduleMeetingAtCell(meeting, day, time) {
@@ -606,12 +631,12 @@
                 }
 
                 formatForMeeting(meeting, type, mode, day, time) {
-                    let cell = this.cell(day, time);
-                    this.cell(day, time)[`${mode}Class`](window[`${type}BGClass`] + ' ' + window[`${type}TextClass`]);
-                    if (meeting.length == 60) {
-                        this.belowcell(day, time)[`${mode}Class`](window[`${type}BGClass`] + ' ' + window[`${type}TextClass`]);
-                    }
                     this.outlineForMeeting(mode, meeting, day, time, window[`${type}BorderClass`]);
+                    const nslots = meeting.length / 30;
+                    for (let i = 0; i < nslots; i++) {
+                        this.cell(day, time)[`${mode}Class`](window[`${type}BGClass`] + ' ' + window[`${type}TextClass`]);
+                        time = nexttime(time);
+                    }
                 }
 
                 scheduleMeeting(meeting, day, time) {
@@ -664,13 +689,12 @@
                 }
 
                 addCommitmentToDOM(commitment, day, time) {
-                    let cell = this.cell(day, time);
-                    cell.html(commitment.name);
-                    cell.addClass('smalltext');
-                    if (commitment.length == 60) {
-                        let cell2 = this.belowcell(day, time);
-                        cell2.html(commitment.name);
-                        cell2.addClass('smalltext');
+                    const nslots = commitment.length / 30;
+                    for (let i = 0; i < nslots; i++) {
+                        let cell = this.cell(day, time);
+                        cell.html(commitment.name);
+                        cell.addClass('smalltext');
+                        time = nexttime(time);    
                     }
                 }
 
