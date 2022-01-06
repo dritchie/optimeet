@@ -9,7 +9,7 @@ Optimeet is easy to install; just run
 
 ```pip install -r requirements.txt```
 
-from the repository root directory. In fact, Optimeet only has one external dependency (the Python [schedule](https://schedule.readthedocs.io/en/stable/) library.
+from the repository root directory. In fact, Optimeet only has one external dependency (the Python [schedule](https://schedule.readthedocs.io/en/stable/) package).
 
 ## Overview & Input Files
 Using Optimeet proceeds in two phases: first, use `optimeet.py` to gather availabilities from meeting participants; second, use a web interface to visualize availabilities and find a viable meeting schedule.
