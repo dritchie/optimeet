@@ -49,6 +49,16 @@ Each one of these files specifies a set of meetings to be scheduled; an example 
   * `"length"`: How long the commitment is in minutes, which must be a multiple of 30 
 
 ## Gathering Participant Availabilities
+To gather participant availabilities, run `python optimeet.py start <inputFilename>`. This automatically creates when2meets, sends an email to each participant with links to all the when2meets they should fill out, and starts a loop which periodically checks for when2meet updates and sends reminder emails to participants who have not yet filled them out.
+
+Every time Optimeet checks for when2meet updates, it stores the results in `<inputBasename>.progress.json`, where `<inputBasename>` is the name of the input file minus the `.json` file extension. For convenience, this data is also written to a simple web page at `<inputBasename>.progress.html`. This webpage includes clickable links to all when2meets, shows who has and has not yet filled out each when2meet, and even shows how many viable meeting times exist for all participants who have filled it out thus far.
+
+When all participants have filled out all when2meets, Optimeet saves information about valid meeting times for all meetings to `<inputBasename>.avail.json`. It also creates a scheduling web interface at `<inputBasename>.interface.html`.
+
+If you need to restart the progress check/reminder email loop (e.g. because Optimeet crashed, or you restarted your machine), run `python optimeet.py resume <inputFilename>`. You can also manually check for progress using `python optimeet.py check <inputFilename>`, send reminder emails using `python optimeet.py remind <inputFilename>`, or regenerate the scheduling web interface using `python optimeet.py finalize <inputFilename>`.
+
+### What if there's no meeting time that works for all participants?
+If at any point the Optimeet progress report shows that there are zero valid times that work for all participants of a meeting, you have a couple of options: remove one or more participants from the meeting's participants list, or split the meeting into multiple meetings (each with a subset of the original participants). Both options will require manual editing of `<inputBasename>.json` and `<inputBasename>.progress.json`.
 
 ## Scheduling Interface
 
