@@ -4,6 +4,8 @@ https://user-images.githubusercontent.com/2229830/148315574-35f21e41-75ea-4ddc-a
 
 Optimeet is a tool for coordinated scheduling of multiple meetings. Existing meeting scheduling tools (e.g. Doodle, when2meet, Calendly) poll participants for availability and help everyone find a time that works, but they only do this for a **single** meeting. In contrast, Optimeet gathers availability for **multiple** meetings (which may have overlapping sets of participants) and visualizes this information in a convenient interface that allows rapid exploration of different viable ways to schedule all meetings. Optimeet is built on existing standard tools: it uses automatically-generated when2meets to gather participant availability, and it can export the final meeting schedule to Google Calendar.
 
+**NOTE: At present, the Google Calendar export feature is limited to a known set of test users that I control.** This is because Optimeet has not yet been verified by Google. Getting verified is a bit of a hassle; if enough people express interest in Optimeet, I'll jump through the requisite hoops. For now, if you'd like to use the GCal export functionality, [send me email](mailto:daniel_ritchie@brown.edu) so I can add you to the test users list.
+
 ## Requirements & Installation
 Optimeet requires Python 3 and an ES5-compatible web browser.
 
