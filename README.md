@@ -1,6 +1,6 @@
 # Optimeet: Schedule ALL the meetings
 
-Brief introduction
+Optimeet is a tool for coordinated scheduling of multiple meetings. Existing meeting scheduling tools (e.g. Doodle, when2meet, Calendly) poll participants for availability and help everyone find a time that works, but they only do this for a **single** meeting. In contrast, Optimeet gathers availability for **multiple** meetings (which may have overlapping sets of participants) and visualizes this information in a convenient interface that allows rapid exploration of different viable ways to schedule all meetings.
 
 ## Table of Contents
 
