@@ -5,6 +5,11 @@ Optimeet is a tool for coordinated scheduling of multiple meetings. Existing mee
 ## Table of Contents
 
 ## Installation
+Optimeet is easy to install; just run
+
+```pip install -r requirements.txt```
+
+from the repository root directory. In fact, Optimeet only has one external dependency (the Python [schedule](https://schedule.readthedocs.io/en/stable/) library.
 
 ## Overview
 Incl. file structures
