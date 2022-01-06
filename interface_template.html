@@ -273,6 +273,9 @@
                     $(this.selector).addClass(scheduledMeetingTextClass);
                     $(`${this.selector} select`).prop('disabled', true);
 
+                    // Enable the 'naviagate away from page' warning
+                    window.onbeforeunload = () => true;
+
                     // If all meetings have been scheduled, enable the export button
                     if (meetings.every((m) => m.scheduled))
                         $('#exportButton').prop('disabled', false);
@@ -301,6 +304,11 @@
 
                     $(this.selector).removeClass(scheduledMeetingTextClass);
                     $(`${this.selector} select`).prop('disabled', false);
+
+                    // If no remaining scheduled meetings remain, disable the
+                    //  'navigate away from page' warning
+                    if (!meetings.some((m) => m.scheduled))
+                        window.onbeforeunload = null;
 
                     // Make sure the export button is disabled
                     $('#exportButton').prop('disabled', true);
