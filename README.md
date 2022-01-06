@@ -79,7 +79,9 @@ The meeting list in the right hand panel shows the name of the meeting, allows y
 
 Clicking on a meeting selects it; while in select mode, clicking on a valid time slot for that meeting schedules it into that slot. To de-schedule a meeting, click on the slot in which it is currently schduled while in select mode. You can also click the "Clear Schedule" button below the calendar to de-schedule all meetings.
 
-Once all meetings have been scheduled, the "Export to Google Calendar" button becomes enabled. Clicking this takes you through a confirmation dialog, then asks you to select a start date for the meetings. You'll then be asked to log into your Google Account (if you aren't already) and to authorize Optimeet to view and make changes to your calendar events.
+Once all meetings have been scheduled, the "Export to Google Calendar" button becomes enabled. Clicking this takes you through a confirmation dialog, then asks you to select a start date for the meetings. You'll then be asked to log into your Google Account (if you aren't already) and to authorize Optimeet to view and make changes to your calendar events. Here's what it looks like, if you've already logged in and authorized:
+
+https://user-images.githubusercontent.com/2229830/148320152-2e320808-a07a-41ba-ac3d-6f0613c643c5.mov
 
 ## Privacy Policy
 To export schedules to Google Calendar, Optimeet requires read/write access to your Google Calendar Events data. Since **you** run the Optimeet web interface locally on your machine, this data is never accessed or stored anywhere except by your local machine.
