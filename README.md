@@ -63,7 +63,15 @@ If you need to restart the progress check/reminder email loop (e.g. because Opti
 If at any point the Optimeet progress report shows that there are zero valid times that work for all participants of a meeting, you have a couple of options: remove one or more participants from the meeting's participants list, or split the meeting into multiple meetings (each with a subset of the original participants). Both options will require manual editing of `<inputBasename>.json` and `<inputBasename>.progress.json`.
 
 ## Scheduling Interface
-Once you've finished gathering participant availability, open the scheduling interface provided in the file `<inputBasename>.interface.html`. You'll see something like this (also shown at the top of this README): 
+Once you've finished gathering participant availability, you can use the scheduling interface provided in the file `<inputBasename>.interface.html`. To do this, run
+
+```
+python -m http.server 8000
+```
+
+from the repository root directory and then point your browser to `http://localhost:8000/<testInterface>.interface.html`. **NOTE: You MUST use port 8000**, otherwise exporting to Google Calendar will not work (the Google Cloud project for Optimeet is configured to allow access to the Calendar API only from the exact URL `http://localhost:8000`).
+
+You'll see something like this (also shown at the top of this README): 
 
 https://user-images.githubusercontent.com/2229830/148315574-35f21e41-75ea-4ddc-a97b-3b3b6d699896.mov
 
