@@ -240,7 +240,7 @@
                     return n;
                 }
                 showPeopleInCommon(meeting) {
-                    $(`${this.selector} td.meetingCommon`).html(vbars_med(this.peopleInCommon(meeting)));
+                    $(`${this.selector} td.meetingCommon`).html(vbars_thick(this.peopleInCommon(meeting)));
                 }
                 unshowPeopleInCommon() {
                     $(`${this.selector} td.meetingCommon`).html('');
@@ -742,15 +742,10 @@
             // GCAL STUFF
             // --------------------------------------------------------------------------
 
-            // Client ID and API key from the Developer Console
             var CLIENT_ID = '809694660718-d5r3pmi1l0jt5fs1gv8gk7tfmvvbgsbd.apps.googleusercontent.com';
             var API_KEY = 'AIzaSyDcf7Xs1WA_Z0EMx1L9iTRvp8qnOTkicxM';
-            // Array of API discovery doc URLs for APIs used by the quickstart
             var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-            // Authorization scopes required by the API; multiple scopes can be
-            // included, separated by spaces.
-            var SCOPES = "https://www.googleapis.com/auth/calendar";
-
+            var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
             function exportToGCal() {
                 let clientInitialized = false;

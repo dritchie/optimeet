@@ -1,11 +1,14 @@
-from datetime import date, datetime, timedelta
+import argparse
+from datetime import datetime, timedelta
 from functools import reduce
+from getpass import getpass
 import json
 import os
 import re
 import schedule
 import smtplib
 import ssl
+import textwrap
 import time
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -258,7 +261,8 @@ def makeWhen2Meets(inputjson):
     meetings = j['meetingsToSchedule']
 
     availableDays = [day for day in DAYS if len(j['myAvailability'][day]) > 0]
-    allTimes = [datetime.strptime(time, "%I:%M %p") for timepairs in j['myAvailability'].values() for timepair in timepairs for time in timepair]
+    allTimes =  [datetime.strptime(time, "%I:%M %p") for times in j['myAvailability'].values() for time in times]
+    # allTimes = [datetime.strptime(time, "%I:%M %p") for timepairs in j['myAvailability'].values() for timepair in timepairs for time in timepair]
     earliestTime = datetime.strftime(min(allTimes), "%I:%M %p")
     latestTime = datetime.strftime(max(allTimes), "%I:%M %p")
 
@@ -270,7 +274,7 @@ __emailPassword = None
 def getEmailPassword():
     global __emailPassword
     if __emailPassword is None:
-        __emailPassword = input("Type your email password and press enter: ")
+        __emailPassword = getpass("Type your email password and press enter: ")
     return __emailPassword
 
 def sendInitialEmails(inputjson):
@@ -321,12 +325,19 @@ Please provide your availibility by {deadline}. You will receive a reminder mess
 """
             server.sendmail(config['emailAddress'], email, message)
 
-def initScheduling(inputFilename):
+def initScheduling(inputFilename, verbose=True):
+    def log(msg):
+        if verbose:
+            print(msg)
     inp = loadInputFile(inputFilename)
     makeWhen2Meets(inp)
+    log('Created when2meets')
     sendInitialEmails(inp)
+    log('Sent initial emails')
     prog = createProgressFile(inputFilename, inp)
+    log(f'Initial progress data saved to {progressFilename(inputFilename)}');
     saveProgressReportHTML(inputFilename, inp, prog)
+    log(f'View progress report at {progressReportFilename(inputFilename)}');
 
 def progressFilename(inputFilename):
     return os.path.splitext(inputFilename)[0] + '.progress.json'
@@ -349,6 +360,9 @@ def createProgressFile(inputFilename, inputjson):
     with open(progressFilename(inputFilename), 'w') as f:
         json.dump(progressData, f, sort_keys=True, indent=3)
     return progressData
+
+def progressReportFilename(inputFilename):
+    return os.path.splitext(progressFilename(inputFilename))[0] + '.html'
 
 def saveProgressReportHTML(inputFilename, inp, prog):
     dirPath = os.path.dirname(os.path.abspath(__file__))
@@ -374,8 +388,7 @@ def saveProgressReportHTML(inputFilename, inp, prog):
         </tr>
         '''
     html = html.replace('[[TABLEROWS]]', tableRows)
-    filename = os.path.splitext(progressFilename(inputFilename))[0] + '.html'
-    with open(filename, 'w') as f:
+    with open(progressReportFilename(inputFilename), 'w') as f:
         f.write(html)
 
 def loadProgressFile(inputFilename):
@@ -387,7 +400,11 @@ def saveProgressFile(inputFilename, prog):
     with open(progressFilename(inputFilename), 'w') as f:
         json.dump(prog, f, sort_keys=True, indent=3)
 
-def checkProgress(inputFilename):
+def checkProgress(inputFilename, verbose=True):
+    def log(msg):
+        if verbose:
+            print(msg)
+
     inp = loadInputFile(inputFilename)
     prog = loadProgressFile(inputFilename)
     for meeting in prog:
@@ -401,12 +418,17 @@ def checkProgress(inputFilename):
         meeting['numViableMeetingTimesSoFar'] = numViableMeetingTimes(when2meet, meetingLength, ppl)
     saveProgressFile(inputFilename, prog)
     saveProgressReportHTML(inputFilename, inp, prog)
+    log('Checked when2meets; progress report updated')
     return prog
 
 '''
 Returns list of people to whom reminder emails were sent
 '''
-def sendReminderEmails(inputFilename):
+def sendReminderEmails(inputFilename, verbose=True):
+    def log(msg):
+        if verbose:
+            print(msg)
+
     config = loadConfig()
     people = loadPeople()
     progressData = loadProgressFile(inputFilename)
@@ -450,7 +472,9 @@ Please use the name '{name}' when filling them out.
 '''
             server.sendmail(config['emailAddress'], email, msg)
     
-    return list(people2meetings.keys())
+    remindees = list(people2meetings.keys())
+    log(f'Sent reminder emails to {remindees}')
+    return remindees
 
 def availabilityFilename(inputFilename):
     return os.path.splitext(inputFilename)[0] + '.avail.json'
@@ -496,14 +520,12 @@ def doPeriodicChecksAndReminders(inputFilename, verbose=True):
     remindFreq = config['reminderFrequencyInHours'] 
 
     def progCheckJob():
-        meetings = checkProgress(inputFilename)
+        meetings = checkProgress(inputFilename, verbose)
         if all([len(m['hasNotResponded']) == 0 for m in meetings]):
             schedule.clear()
-        log('Checked when2meets')
 
     def reminderJob():
-        remindees = sendReminderEmails(inputFilename)
-        log(f'Sent reminder emails to {remindees}')
+        sendReminderEmails(inputFilename, verbose)
 
     schedule.every(progCheckFreq).hours.do(progCheckJob)
     schedule.every(remindFreq).hours.do(reminderJob)
@@ -515,8 +537,16 @@ def doPeriodicChecksAndReminders(inputFilename, verbose=True):
         schedule.run_pending()
         time.sleep(1)
     log('DONE (All when2meets have been filled out by all participants)')
+    finalize(inputFilename, verbose)
+
+def finalize(inputFilename, verbose=True):
+    def log(msg):
+        if verbose:
+            print(msg)
     saveFinalAvailability(inputFilename)
     log(f'Final availabilities saved to {availabilityFilename(inputFilename)}')
+    createInterfaceHTML(inputFilename)
+    log(f'Web interface saved to {interfaceFilename(inputFilename)}')
 
 def interfaceFilename(inputFilename):
     return os.path.splitext(inputFilename)[0] + '.interface.html'
@@ -565,6 +595,36 @@ def createInterfaceHTML(inputFilename):
         f.write(html)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=textwrap.dedent('''Valid choices for the first argument:
+    - start: Creates when2meets, sends emails to participants, and starts a persistent loop that checks for progress and sends reminder emails
+    - resume: Restarts the persistent check/remind loop (e.g. if the process crashed)
+    - finalize: Save final participant availabilities and create the scheduling web interface
+    - check: Checks when2meets for current participant availability
+    - remind: Send reminder emails to participants who have not yet responded
+'''));
+    parser.add_argument('operation',
+        type=str,
+        choices=['start', 'resume', 'finalize', 'check', 'remind'],
+        help='Operation to perform');
+    parser.add_argument('inputFile',
+        type=str,
+        help='Path to the input JSON file specifying meetings to schedule');
+    args = parser.parse_args()
+
+    if args.operation == 'start':
+        initScheduling(args.inputFile);
+        doPeriodicChecksAndReminders(args.inputFile);
+    elif args.operation == 'resume':
+        doPeriodicChecksAndReminders(args.inputFile);
+    elif args.operation == 'finalize':
+        finalize(args.inputFile)
+    elif args.operation == 'check':
+        checkProgress(args.inputFile)
+    elif args.operation == 'remind':
+        sendReminderEmails(args.inputFile)
+
     # r = createWhen2Meet('Test', 'America/New_York', DAYS, '9:00 AM', '5:00 PM')
     # r = parseWhen2Meet('https://www.when2meet.com/?8079662-q5hqG')
     # print(json.dumps(r, sort_keys=True, indent=3))

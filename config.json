@@ -5,6 +5,6 @@
     "progressCheckFrequencyInHours": 1,
     "name": "Daniel Ritchie",
     "emailAddress": "optimeet.scheduler@gmail.com",
-    "emailServer": "stmp.gmail.com",
+    "emailServer": "smtp.gmail.com",
     "gCalEventColorId": 1
 }
