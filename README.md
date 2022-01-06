@@ -64,5 +64,17 @@ If at any point the Optimeet progress report shows that there are zero valid tim
 
 ## Scheduling Interface
 
+Once you've finished gathering participant availability, open the scheduling interface provided in the file `<inputBasename>.interface.html`. You'll see something like this (also shown at the top of this README): 
+
+https://user-images.githubusercontent.com/2229830/148315574-35f21e41-75ea-4ddc-a97b-3b3b6d699896.mov
+
+Each cell of the calendar shows the number of meetings which can currently be scheduled at that slot (as it is often helpful to schedule meetings into less-contentious slots). Hovering over a cell highlights those meetings in the right-hand panel.
+
+The meeting list in the right hand panel shows the name of the meeting, allows you to change the meeting length via a dropdown (e.g. if you need to make a meeting shorter to create a viable schedule), and shows the number of viable times for each meeting (so you can prioritize scheduling the more constrained meetings first). If you hover over a meeting, the meeting list also shows the number of participants that other meetings have in common with that one (to help you schedule meetings with many common participants back-to-back).
+
+Clicking on a meeting selects it; while in select mode, clicking on a valid time slot for that meeting schedules it into that slot. To de-schedule a meeting, click on the slot in which it is currently schduled while in select mode. You can also click the "Clear Schedule" button below the calendar to de-schedule all meetings.
+
+Once all meetings have been scheduled, the "Export to Google Calendar" button becomes enabled. Clicking this takes you through a confirmation dialog, then asks you to select a start date for the meetings. You'll then be asked to log into your Google Account (if you aren't already) and to authorize Optimeet to view and make changes to your calendar events.
+
 ## Contact
 Optimeet was created by me, [Daniel Ritchie](https://dritchie.github.io), professor of Computer Science at Brown University, for scheduling weekly meetings with members of my research group every semester. If you find Optimeet useful, please do send me [email](mailto:daniel_ritchie@brown.edu)! I'm especially interested in hearing about use cases outside of academia. If you find a bug or make a modificaton to Optimeet that you think might be useful to others, I'm happy to review pull requests. I am open to hearing feature requests, but I can't promise I'll have time to work on new features any time soon.
