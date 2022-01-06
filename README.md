@@ -11,8 +11,23 @@ Optimeet is easy to install; just run
 
 from the repository root directory. In fact, Optimeet only has one external dependency (the Python [schedule](https://schedule.readthedocs.io/en/stable/) library.
 
-## Overview
-Incl. file structures
+## Overview & Input Files
+Using Optimeet proceeds in two phases: first, use `optimeet.py` to gather availabilities from meeting participants; second, use a web interface to visualize availabilities and find a viable meeting schedule.
+
+Optimeet's behavior is defined by a few files:
+
+### config.json
+This file specifies general configuration options that tend to be constant for a given user (i.e. you!) It has the following options:
+* `"timeZone"`: Time zone in which the user is location (defaults to `"America/New_York"`),
+* `"deadlineInDaysFromNow"`: Deadline by which participants should provide their availabiliity, expressed in a number of days after Optimeet starts (defaults to `7`)
+* `"reminderFrequencyInHours"`: How often to send reminder emails to participants who have not yet provided their availability (defaults to `24`)
+* `"progressCheckFrequencyInHours"`: How often to check for updates to participant availability (defaults to `1`)
+* `"name"`: The user's name, which will be included in emails sent to participants
+* `"emailAddress"`: The email address from which Optimeet will send emails to participants
+* `"emailServer"`: The SMTP server from which Optimeet will send emails (for GMail, this should be `"smtp.gmail.com"`)
+* `"gCalEventColorId"`: A number from 1 to 11 specifying the color to be used for created Google Calendar events. [This image](https://i.stack.imgur.com/YSMrI.png) shows the colors to which each number corresponds.
+
+### people.json
 
 ## Gathering Participant Availabilities
 
