@@ -1,26 +1,16 @@
 {
-    "kai": {
-        "name": "Kai Wang",
-        "email": "daniel.c.ritchie+kai@gmail.com"
+    "foo": {
+        "name": "Foo McFooson",
+        "email": "foo@gmail.com"
     },
 
-    "kenny": {
-        "name": "Kenny Jones",
-        "email": "daniel.c.ritchie+kenny@gmail.com"
+    "bar": {
+        "name": "Bar O'Barly",
+        "email": "bar@gmail.com"
     },
 
-    "xianghao": {
-        "name": "Xianghao Xu",
-        "email": "daniel.c.ritchie+xianghao@gmail.com"
-    },
-
-    "aditya": {
-        "name": "Aditya Ganeshan",
-        "email": "daniel.c.ritchie+aditya@gmail.com"
-    },
-
-    "arman": {
-        "name": "Arman Maesumi",
-        "email": "daniel.c.ritchie+arman@gmail.com"
+    "baz": {
+        "name": "Baz Bazelton",
+        "email": "baz@gmail.com"
     }
 }
