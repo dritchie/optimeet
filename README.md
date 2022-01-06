@@ -30,6 +30,7 @@ This file specifies general configuration options that tend to be constant for a
 * `"gCalEventColorId"`: A number from 1 to 11 specifying the color to be used for created Google Calendar events. [This image](https://i.stack.imgur.com/YSMrI.png) shows the colors to which each number corresponds.
 
 ### people.json
+This file specifies information about people that participate in the user's meetings. It contains a dictionary mapping from unique person IDs to `{name:, email:}` dictionaries. Enter info for all the people you meet with here, and then simply refer to them by ID when creating a scheduling input file.
 
 ## Gathering Participant Availabilities
 
