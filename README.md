@@ -21,7 +21,7 @@ Optimeet's behavior is defined by a few files:
 ### config.json
 This file specifies general configuration options that tend to be constant for a given user (i.e. you!) It has the following options:
 * `"timeZone"`: Time zone in which the user is located (defaults to `"America/New_York"`),
-* `"deadlineInDaysFromNow"`: Deadline by which participants should provide their availabiliity, expressed as a number of days after Optimeet starts (defaults to `7`)
+* `"deadlineInDaysFromNow"`: Deadline by which participants should provide their availability, expressed as a number of days after Optimeet starts (defaults to `7`)
 * `"reminderFrequencyInHours"`: How often to send reminder emails to participants who have not yet provided their availability (defaults to `24`)
 * `"progressCheckFrequencyInHours"`: How often to check for updates to participant availability (defaults to `1`)
 * `"name"`: The user's name, which will be included in emails sent to participants
