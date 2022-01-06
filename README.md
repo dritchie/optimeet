@@ -4,7 +4,9 @@ Optimeet is a tool for coordinated scheduling of multiple meetings. Existing mee
 
 ## Table of Contents
 
-## Installation
+## Requirements & Installation
+Optimeet requires Python 3 and an ES5-compatible web browser.
+
 Optimeet is easy to install; just run
 
 ```pip install -r requirements.txt```
