@@ -26,7 +26,7 @@ def createWhen2Meet(name, timeZone, daysOfWeek, earliestTime, latestTime):
     latestTime = datetime.strptime(latestTime, "%I:%M %p").hour
     url = 'https://when2meet.com/SaveNewEvent.php'
     post_fields = {
-        'NewEventName': name,
+        'NewEventName': f'{name} ({timeZone})',
         'DateTypes': 'DaysOfTheWeek',
         'PossibleDates': possibleDates,
         'NoEarlierThan': earliestTime,
@@ -320,6 +320,7 @@ Hi {firstname},
 {config['name']} requests that you fill out the when2meets for the following meetings:
 {linklist}
 Please use the name '{name}' when filling them out.
+Note also that times are assumed to be in the {config['timeZone']} time zone.
 
 Please provide your availibility by {deadline}. You will receive a reminder message from this email address every {remindFreq} hours.
 """
@@ -467,6 +468,7 @@ Hi {firstname},
 This is a reminder that {config['name']} requests that you fill out the when2meets for the following meetings:
 {linklist}
 Please use the name '{name}' when filling them out.
+Note also that times are assumed to be in the {config['timeZone']} time zone.
 
 {deadlineStatement}. You will continue to receive a reminder message from this email address every {remindFreq} hours.
 '''
