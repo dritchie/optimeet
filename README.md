@@ -32,6 +32,22 @@ This file specifies general configuration options that tend to be constant for a
 ### people.json
 This file specifies information about people that participate in the user's meetings. It contains a dictionary mapping from unique person IDs to `{name:, email:}` dictionaries. Enter info for all the people you meet with here, and then simply refer to them by ID when creating a scheduling input file.
 
+### Scheduling Input Files
+Each one of these files specifies a set of meetings to be scheduled; an example can be found in `exampleInput/input.json`. They contain the following fields:
+* `"meetingsToSchedule"`: A list of meetings to schedule. Each meeting contains the following fields:
+  * `"name"`: A name for the meeting
+  * `"length"`: The meeting length in minutes, which must be a multiple of 30 (defaults to `60`)
+  * `"type"`: One of `"in-person"`, `"remote"`,  or `"hybrid"` (defaults to `"hybrid"`)
+  * `"participants"`: A list of person IDs for each person who should participate in the meeting
+  * `"physicalLocation"`: Physical location where the meeting will be held. This is required for `"in-person"` and `"hybrid"` meetings.
+  * `"remoteLocation"`: Video conference link. This is required for `"remote"` and `"hybrid"` meetings.
+* `"myLocations"`: Contains two fields, `"physical"` and `"remote"`, specifying the user's typicial physical location and typical video conference link (e.g. a personal Zoom room). These are used to fill in the `"physicalLocation"` and `"remoteLocation"` fields for any meetings with do not provide them. 
+* `"myAvailability"`: A map from days of the week to a list of time ranges when the user is available for meetings
+* `"myCommitments"`: A map from days of the week to a list of pre-existing commitments the user has. This is optional and only affects the web interface visualization. If these commitments overlap with any of the time ranges specified in `"myAvailability"`, those ranges will be adjusted accordingly. Each commitment contains the following fields:
+  * `"name"`: A name for the commitment
+  * `"time"`: When the commitment starts
+  * `"length"`: How long the commitment is in minutes, which must be a multiple of 30 
+
 ## Gathering Participant Availabilities
 
 ## Scheduling Interface
