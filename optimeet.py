@@ -113,8 +113,25 @@ def viableSlots(when2meet, everyone=None):
                 viable[day].append(slot)
     return viable
 
+def slotsWithMostAvailable(when2meet, everyone):
+    if everyone is None:
+        everyone = respondents(when2meet)
+    biggestSlotN = 0
+    for _,slots in when2meet.items():
+        for slot in slots:
+            available = set(slot['available']).intersection(everyone)
+            biggestSlotN = max(biggestSlotN, len(available))
+    viable = {day: [] for day in DAYS}
+    for day,slots in when2meet.items():
+        for slot in slots:
+            available = set(slot['available']).intersection(everyone)
+            if len(available) == biggestSlotN:
+                viable[day].append(slot)
+    return viable
+
 def numViableMeetingTimes(when2meet, meetingLength, everyone=None):
     when2meet = viableSlots(when2meet, everyone)
+    # when2meet = slotsWithMostAvailable(when2meet, everyone)
     nslots = int(meetingLength / 30);
     nViable = 0
     for slots in when2meet.values():
@@ -148,7 +165,8 @@ def loadConfig():
             'timeZone' : 'America/New_York',
             'deadlineInDaysFromNow': 7,
             'reminderFrequencyInHours' : 24,
-            'progressCheckFrequencyInHours' : 1
+            'progressCheckFrequencyInHours' : 1,
+            'useBestSlotsIfNoneViable': False
         }
         __config = {**defaults, **j}
     return __config
@@ -483,12 +501,15 @@ def availabilityFilename(inputFilename):
 
 def saveFinalAvailability(inputFilename):
     prog  = loadProgressFile(inputFilename)
+    config = loadConfig()
     availabilities = {}
     for meeting in prog:
         when2meet = parseWhen2Meet(meeting['when2meet'])
-        when2meet = viableSlots(when2meet, meeting['hasResponded'])
+        avail = viableSlots(when2meet, meeting['hasResponded'])
+        if config['useBestSlotsIfNoneViable'] and all([len(slots) for slots in when2meet.items()]):
+            avail = slotsWithMostAvailable(when2meet, meeting['hasResponded'])
         # Turn when2meet into a map from days to lists of times
-        availabilities[meeting['name']] = {day: [slot['time'] for slot in slots] for day,slots in when2meet.items()}
+        availabilities[meeting['name']] = {day: [slot['time'] for slot in slots] for day,slots in avail.items()}
     filename = availabilityFilename(inputFilename)
     with open(filename, 'w') as f:
         json.dump(availabilities, f, sort_keys=True, indent=3)
@@ -648,5 +669,5 @@ if __name__ == '__main__':
     #     ["9:00 AM", "5:00 PM"]
     # ]))
     # print(json.dumps(loadInputFile('test.json'), sort_keys=True, indent=3))
-    createInterfaceHTML('test.json')
+    # createInterfaceHTML('test.json')
     
