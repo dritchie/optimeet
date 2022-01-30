@@ -109,7 +109,7 @@ def viableSlots(when2meet, everyone=None):
         return viable
     for day,slots in when2meet.items():
         for slot in slots:
-            if everyone == set(slot['available']):
+            if everyone.issubset(set(slot['available'])):
                 viable[day].append(slot)
     return viable
 
