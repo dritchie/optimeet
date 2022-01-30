@@ -59,7 +59,7 @@ def parseWhen2Meet(url):
     people = loadPeople()
     name2pid = {p['name'] : pid for pid,p in people.items()}
 
-    people_name_info = re.findall(r"PeopleNames\[(\d+)\] = '([\w\s]+)';", html)
+    people_name_info = re.findall(r"PeopleNames\[(\d+)\] = '([^;]+)';", html)
     if len(people_name_info) > 0:
         people_id_info = re.findall(r"PeopleIDs\[(\d+)\] = (\d+);", html)
         idx2name = {p[0] : p[1] for p in people_name_info}
