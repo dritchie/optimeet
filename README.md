@@ -30,6 +30,7 @@ This file specifies general configuration options that tend to be constant for a
 * `"emailAddress"`: The email address from which Optimeet will send emails to participants
 * `"emailServer"`: The SMTP server from which Optimeet will send emails (for GMail, this should be `"smtp.gmail.com"`)
 * `"gCalEventColorId"`: A number from 1 to 11 specifying the color to be used for created Google Calendar events. [This image](https://i.stack.imgur.com/YSMrI.png) shows the colors to which each number corresponds. This field is optional; if omitted, the default calendar event color will be used.
+* `"useBestSlotsIfNoneViable"`: A boolean value indicating what to do if there end up being no times that work for all participants of a meeting. If true, the times for which the most people are available will be treated as the set of viable meeting times. If false, the meeting will register as having no valid meeting times.
 
 ### people.json
 This file specifies information about people that participate in the user's meetings. It contains a dictionary mapping from unique person IDs to `{name:, email:}` dictionaries. Enter info for all the people you meet with here, and then simply refer to them by ID when creating a scheduling input file.
