@@ -1,10 +1,11 @@
 {
     "timeZone": "America/New_York",
-    "deadlineInDaysFromNow": 7,
+    "deadlineInDaysFromNow": 5,
     "reminderFrequencyInHours": 24,
     "progressCheckFrequencyInHours": 1,
-    "name": "Your Name",
-    "emailAddress": "email@gmail.com",
+    "name": "Daniel Ritchie",
+    "emailAddress": "optimeet.scheduler@gmail.com",
     "emailServer": "smtp.gmail.com",
-    "gCalEventColorId": 1
+    "gCalEventColorId": 1,
+    "useBestSlotsIfNoneViable": true    
 }

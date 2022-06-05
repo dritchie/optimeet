@@ -32,6 +32,8 @@ This file specifies general configuration options that tend to be constant for a
 * `"gCalEventColorId"`: A number from 1 to 11 specifying the color to be used for created Google Calendar events. [This image](https://i.stack.imgur.com/YSMrI.png) shows the colors to which each number corresponds. This field is optional; if omitted, the default calendar event color will be used.
 * `"useBestSlotsIfNoneViable"`: A boolean value indicating what to do if there end up being no times that work for all participants of a meeting. If true, the times for which the most people are available will be treated as the set of viable meeting times. If false, the meeting will register as having no valid meeting times.
 
+IMPORTANT NOTE: Due to Google's new security policies (as of May 2022), if you use GMail to send Optimeet emails, you will need to set up an "App Password" and use that password to log in to your email account when prompted by Optimeet. [This page](https://support.google.com/accounts/answer/185833#zippy=) provides information on how to set up an App Password (note that you will also need to have 2-factor authentication enabled).
+
 ### people.json
 This file specifies information about people that participate in the user's meetings. It contains a dictionary mapping from unique person IDs to `{name:, email:}` dictionaries. Enter info for all the people you meet with here, and then simply refer to them by ID when creating a scheduling input file.
 

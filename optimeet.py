@@ -340,7 +340,7 @@ Hi {firstname},
 Please use the name '{name}' when filling them out.
 Note also that times are assumed to be in the {config['timeZone']} time zone.
 
-Please provide your availibility by {deadline}. You will receive a reminder message from this email address every {remindFreq} hours.
+Please provide your availibility by {deadline}. You may receive reminder messages from this email address.
 """
             server.sendmail(config['emailAddress'], email, message)
 
