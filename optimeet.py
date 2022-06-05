@@ -5,6 +5,7 @@ from getpass import getpass
 import json
 import os
 import re
+import sys
 import schedule
 import smtplib
 import ssl
@@ -344,11 +345,30 @@ Please provide your availibility by {deadline}. You may receive reminder message
 """
             server.sendmail(config['emailAddress'], email, message)
 
+# Verify that all participants listed in all meetings have an entry in the 'people' file
+def checkParticipants(inputFile):
+    people = loadPeople()
+    meetings = inputFile['meetingsToSchedule']
+    missing_people = []
+    for meeting in meetings:
+        for person in meeting['participants']:
+            if not (person in people):
+                missing_people.append(person)
+    missing_people = set(missing_people)
+    if len(missing_people) > 0:
+        print('The following participants do not appear in people.json:')
+        for person in missing_people:
+            print(f'   {person}')
+        print('Please add entries for them to people.json and then re-run Optimeet')
+        sys.exit(1)
+
 def initScheduling(inputFilename, verbose=True):
     def log(msg):
         if verbose:
             print(msg)
     inp = loadInputFile(inputFilename)
+    log('Checking participants')
+    checkParticipants(inp)
     makeWhen2Meets(inp)
     log('Created when2meets')
     sendInitialEmails(inp)
