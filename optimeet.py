@@ -45,7 +45,7 @@ Returns:
  - Dictionary of Sa|M|T|W|Th|F|Su, each day maps to a list of half-hour slots, each slot has a time
    and a list of people who are available then
 '''
-def parseWhen2Meet(url):
+def parseWhen2Meet(url, participants):
     r = Request(url)
     html = urlopen(r).read().decode()
 
@@ -70,7 +70,7 @@ def parseWhen2Meet(url):
         availability_info = re.findall(r"AvailableAtSlot\[(\d+)\].push\((\d+)\);", html)
         for slotidx,personid in availability_info:
             personName = id2personname[personid]
-            pid = getPersonFromName(personName)
+            pid = getPersonFromName(personName, participants)
             slots[int(slotidx)]['available'].append(pid)
 
     # Restructure by day
@@ -184,20 +184,37 @@ def loadPeople():
     return __people
 
 '''
-Tries exact name match, then just first name (case insensitive)
-If both fail, returns UnknownPerson<Name>
+Tries to match against several forms of name:
+- Full name
+- First name
+- First name + last initial (with space)
+- First name + last initial (no space)
+If all fail, returns UnknownPerson<Name>
 '''
-def getPersonFromName(name):
+def getPersonFromName(name, participants):
     people = loadPeople()
     origName = name
     name = name.lower()
-    exactMatch = next((pid for pid,p in people.items() if p['name'].lower() == name), None)
+    # Try full name
+    exactMatch = next((pid for pid,p in people.items() if (p['name'].lower() == name and pid in participants)), None)
     if not (exactMatch is None):
         return exactMatch
+    # Try first name
     firstname = name.split(' ')[0]
-    firstMatch = next((pid for pid,p in people.items() if p['name'].split(' ')[0].lower() == firstname), None)
+    firstMatch = next((pid for pid,p in people.items() if (p['name'].split(' ')[0].lower() == firstname) and pid in participants), None)
     if not (firstMatch is None):
         return firstMatch
+    # Try first name + last initial (with space)
+    if len(name.split(' ')) == 2:
+        lastInitial = name.split(' ')[1][0]
+        firstLastMatch = next((pid for pid,p in people.items() if (p['name'].split(' ')[0].lower() == firstname and p['name'].split(' ')[1][0].lower() == lastInitial) and pid in participants), None)
+        if not (firstLastMatch is None):
+            return firstLastMatch
+    # Try first name + last initial (no space)
+    if len(name.split(' ')) == 1:
+        firstLastMatch = next((pid for pid,p in people.items() if (p['name'].split(' ')[0].lower() + p['name'].split(' ')[1][0].lower() == name) and pid in participants), None)
+        if not (firstLastMatch is None):
+            return firstLastMatch
     return f'UnknownPerson<{origName}>'
 
 __inputFiles = {}
@@ -448,7 +465,7 @@ def checkProgress(inputFilename, verbose=True):
     prog = loadProgressFile(inputFilename)
     for meeting in prog:
         inpMeeting = next(m for m in inp['meetingsToSchedule'] if m['name'] == meeting['name'])
-        when2meet = parseWhen2Meet(meeting['when2meet'])
+        when2meet = parseWhen2Meet(meeting['when2meet'], inpMeeting['participants'])
         ppl = respondents(when2meet)
         ppl = list(set(ppl).intersection(set(inpMeeting['participants'])))
         meeting['hasResponded'] = ppl
@@ -520,11 +537,13 @@ def availabilityFilename(inputFilename):
     return os.path.splitext(inputFilename)[0] + '.avail.json'
 
 def saveFinalAvailability(inputFilename):
+    inp = loadInputFile(inputFilename)
     prog  = loadProgressFile(inputFilename)
     config = loadConfig()
     availabilities = {}
     for meeting in prog:
-        when2meet = parseWhen2Meet(meeting['when2meet'])
+        inpMeeting = next(m for m in inp['meetingsToSchedule'] if m['name'] == meeting['name'])
+        when2meet = parseWhen2Meet(meeting['when2meet'], inpMeeting['participants'])
         avail = viableSlots(when2meet, meeting['hasResponded'])
         if config['useBestSlotsIfNoneViable'] and all([len(slots) for slots in when2meet.items()]):
             avail = slotsWithMostAvailable(when2meet, meeting['hasResponded'])
