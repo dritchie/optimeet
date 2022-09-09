@@ -153,6 +153,12 @@
             "length": 60,
             "type": "hybrid",
             "participants": ["arman", "matt", "soren", "vova"]
+        },
+        {
+            "name": "Rao's Internship Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["rao", "srinath", "aditya_s", "hooman"]
         }
     ]
 }

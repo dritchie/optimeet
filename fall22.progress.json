@@ -3,10 +3,10 @@
       "deadline": "09/09/22",
       "hasNotResponded": [],
       "hasResponded": [
-         "angel",
-         "kai",
          "adrian",
-         "manolis"
+         "manolis",
+         "angel",
+         "kai"
       ],
       "name": "Indoor Scene Synth",
       "numViableMeetingTimesSoFar": 2,
@@ -16,9 +16,9 @@
       "deadline": "09/09/22",
       "hasNotResponded": [],
       "hasResponded": [
+         "kenny",
          "niloy",
-         "paul_g",
-         "kenny"
+         "paul_g"
       ],
       "name": "Part Graph Programs",
       "numViableMeetingTimesSoFar": 6,
@@ -49,10 +49,10 @@
       "deadline": "09/09/22",
       "hasNotResponded": [],
       "hasResponded": [
-         "jay",
-         "srinath",
          "kenny",
-         "manolis"
+         "srinath",
+         "manolis",
+         "jay"
       ],
       "name": "functional-shape-progs",
       "numViableMeetingTimesSoFar": 0,
@@ -65,8 +65,8 @@
       ],
       "hasResponded": [
          "matt",
-         "paul_g",
-         "xianghao"
+         "xianghao",
+         "paul_g"
       ],
       "name": "Xianghao's Adobe Project",
       "numViableMeetingTimesSoFar": 6,
@@ -76,12 +76,12 @@
       "deadline": "09/09/22",
       "hasNotResponded": [],
       "hasResponded": [
+         "thomas",
+         "aaron",
          "hari",
          "jb",
          "lisa",
-         "thomas",
-         "tiny",
-         "aaron"
+         "tiny"
       ],
       "name": "Geopipe: Procedural Buildings",
       "numViableMeetingTimesSoFar": 3,
@@ -93,10 +93,10 @@
          "david_h"
       ],
       "hasResponded": [
+         "manolis",
          "angel",
          "qirui",
-         "sonia",
-         "manolis"
+         "sonia"
       ],
       "name": "Scene Dataset Meeting",
       "numViableMeetingTimesSoFar": 2,
@@ -108,11 +108,11 @@
          "sid"
       ],
       "hasResponded": [
-         "matt",
-         "paul_g",
-         "noam",
+         "arman",
          "vova",
-         "arman"
+         "paul_g",
+         "matt",
+         "noam"
       ],
       "name": "Arman's Deformation Project",
       "numViableMeetingTimesSoFar": 3,
@@ -154,9 +154,9 @@
       "deadline": "09/09/22",
       "hasNotResponded": [],
       "hasResponded": [
+         "kenny",
          "anh",
          "kai",
-         "kenny",
          "paul_b"
       ],
       "name": "Implicit Transformer Shape Synth",
@@ -179,13 +179,27 @@
       "deadline": "09/09/22",
       "hasNotResponded": [],
       "hasResponded": [
-         "soren",
          "arman",
-         "matt",
-         "vova"
+         "vova",
+         "soren",
+         "matt"
       ],
       "name": "Arman's Internship Project",
       "numViableMeetingTimesSoFar": 9,
       "when2meet": "https://when2meet.com/?16665682-WFoyh"
+   },
+   {
+      "deadline": "09/09/22",
+      "hasNotResponded": [
+         "aditya_s",
+         "hooman"
+      ],
+      "hasResponded": [
+         "rao",
+         "srinath"
+      ],
+      "name": "Rao's Internship Project",
+      "numViableMeetingTimesSoFar": 2,
+      "when2meet": "https://www.when2meet.com/?16687948-ablE1"
    }
 ]

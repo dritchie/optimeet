@@ -292,5 +292,15 @@
     "james": {
         "name": "James Tompkin",
         "email": "james_tompkin@brown.edu"
+    },
+
+    "aditya_s": {
+        "name": "Aditya Sanghi",
+        "email": "aditya.sanghi@autodesk.com"
+    },
+
+    "hooman": {
+        "name": "Hooman Shayani",
+        "email": "hooman.shayani@autodesk.com"
     }
 }
