@@ -1,16 +1,296 @@
 {
-    "foo": {
-        "name": "Foo McFooson",
-        "email": "foo@gmail.com"
+    "kai": {
+        "name": "Kai Wang",
+        "email": "kai_wang@brown.edu"
     },
 
-    "bar": {
-        "name": "Bar O'Barly",
-        "email": "bar@gmail.com"
+    "kenny": {
+        "name": "Kenny Jones",
+        "email": "russell_jones@brown.edu"
     },
 
-    "baz": {
-        "name": "Baz Bazelton",
-        "email": "baz@gmail.com"
+    "xianghao": {
+        "name": "Xianghao Xu",
+        "email": "xianghao_xu@brown.edu"
+    },
+
+    "aditya": {
+        "name": "Aditya Ganeshan",
+        "email": "aditya_ganeshan@brown.edu"
+    },
+
+    "arman": {
+        "name": "Arman Maesumi",
+        "email": "arman_maesumi@brown.edu"
+    },
+
+    "manolis": {
+        "name": "Manolis Savva",
+        "email": "manolis.savva@gmail.com"
+    },
+
+    "angel": {
+        "name": "Angel Chang",
+        "email": "angelx@gmail.com"
+    },
+
+    "aalia": {
+        "name": "Aalia Habib",
+        "email": "aalia_habib@brown.edu"
+    },
+
+    "paul_g": {
+        "name": "Paul Guerrero",
+        "email": "paulaugguerrero@gmail.com"
+    },
+
+    "niloy": {
+        "name": "Niloy Mitra",
+        "email": "niloym@gmail.com"
+    },
+
+    "caleb": {
+        "name": "Caleb Trotz",
+        "email": "caleb_trotz@brown.edu"
+    },
+
+    "sean": {
+        "name": "Sean Zhan",
+        "email": "xiao_zhan@brown.edu"
+    },
+
+    "rao": {
+        "name": "Rao Fu",
+        "email": "rao_fu@brown.edu"
+    },
+
+    "srinath":  {
+        "name": "Srinath Sridhar",
+        "email": "srinath@brown.edu"
+    },
+
+    "bryce": {
+        "name": "Bryce Blinn",
+        "email": "bryce_blinn@brown.edu"
+    },
+
+    "alex": {
+        "name": "Alex Ding",
+        "email": "alexander_ding@brown.edu"
+    },
+
+    "matt": {
+        "name": "Matt Fisher",
+        "email": "matfishe@adobe.com"
+    },
+
+    "noam": {
+        "name": "Noam Aigerman",
+        "email": "aigerman@adobe.com"
+    },
+
+    "vova": {
+        "name": "Vova Kim",
+        "email": "vokim@adobe.com"
+    },
+
+    "thomas": {
+        "name": "Thomas Dickerson",
+        "email": "thomas@geopi.pe"
+    },
+
+    "hari": {
+        "name": "Hari Teja Tatavarti",
+        "email": "hari@geopi.pe"
+    },
+
+    "aaron": {
+        "name": "Aaron Gokaslan",
+        "email": "akg87@cornell.edu"
+    },
+
+    "david_m": {
+        "name": "David Meierfrankenfeld",
+        "email": "nfelddav@gmail.com"
+    },
+
+    "jb": {
+        "name": "JB Truong",
+        "email": "jb@geopi.pe"
+    },
+
+    "lisa": {
+        "name": "Lisa Malani",
+        "email": "lisa.malani@geopi.pe"
+    },
+
+    "tiny": {
+        "name": "Tiny Ramachandra",
+        "email": "tiny@geopi.pe"
+    },
+
+    "bill": {
+        "name": "Bill Han",
+        "email": "bill.han@geopi.pe"
+    },
+
+    "vikas": {
+        "name": "Vikas Thamizharasan",
+        "email": "vikas_thamizharasan@brown.edu"
+    },
+
+    "joshua": {
+        "name": "Joshua Pierce",
+        "email": "joshua_pierce@brown.edu"
+    },
+
+    "david_h": {
+        "name": "David Han",
+        "email": "david_franklin_han@brown.edu"
+    },
+
+    "sid": {
+        "name": "Siddhartha Chaudhuri",
+        "email": "sidch@adobe.com"
+    },
+
+    "yifan": {
+        "name": "Yifan Ruan",
+        "email": "yifan_ruan@brown.edu"
+    },
+
+    "zhouqi": {
+        "name": "Zhouqi Gong",
+        "email": "zhouqi_gong@brown.edu"
+    },
+
+    "yuchen": {
+        "name": "Yuchen Zhou",
+        "email": "yuchen_zhou@brown.edu"
+    },
+
+    "adam": {
+        "name": "Adam Wang",
+        "email": "adam_wang1@brown.edu"
+    },
+
+    "xiangyu": {
+        "name": "Xiangyu Li",
+        "email": "xiangyu_li@brown.edu"
+    },
+
+    "toshiya": {
+        "name": "Toshiya Hachisuka",
+        "email": "tohachisu@gmail.com"
+    },
+
+    "gene": {
+        "name": "Gene Siriviboon",
+        "email": "phum_siriviboon@brown.edu"
+    },
+
+    "aparna": {
+        "name": "Aparna Natarajan",
+        "email": "aparna_natarajan@brown.edu"
+    },
+
+    "adrian": {
+        "name": "Adrian Chang",
+        "email": "adrian_chang@brown.edu"
+    },
+
+    "anh": {
+        "name": "Anh Truong",
+        "email": "dinh_anh_truong@brown.edu"
+    },
+
+    "jay": {
+        "name": "Jay Sarva",
+        "email": "jay_sarva@brown.edu"
+    },
+
+    "paul_b": {
+        "name": "Paul Biberstein",
+        "email": "paul_biberstein@brown.edu"
+    },
+
+    "klara": {
+        "name": "Klara Chura",
+        "email": "Klara.Chura@tufts.edu"
+    },
+
+    "michelle": {
+        "name": "Michelle Ly",
+        "email": "lymichelle2016@icloud.com"
+    },
+
+    "lemara": {
+        "name": "Lemara Williams",
+        "email": "lwilliams22@amherst.edu"
+    },
+
+    "imani": {
+        "name": "Imani Finkley",
+        "email": "imaniefinkley@gmail.com"
+    },
+
+    "soren": {
+        "name": "Soren Pirk",
+        "email": "soeren.pirk@gmail.com"
+    },
+
+    "laura": {
+        "name": "Laura Dobler",
+        "email": "laura_dobler@brown.edu"
+    },
+
+    "jeff": {
+        "name": "Jeff Huang",
+        "email": "jeff_huang@brown.edu"
+    },
+
+    "ian": {
+        "name": "Ian Gonsher",
+        "email": "ian_gonsher@brown.edu"
+    },
+
+    "david_l": {
+        "name": "David Laidlaw",
+        "email": "david_laidlaw@brown.edu"
+    },
+
+    "stefanie": {
+        "name": "Stefanie Tellex",
+        "email": "stefanie_tellex@brown.edu"
+    },
+
+    "catherine": {
+        "name": "Catherine Chen",
+        "email": "catherine_s_chen@brown.edu"
+    },
+
+    "roma": {
+        "name": "Roma Patel",
+        "email": "roma_patel1@brown.edu"
+    },
+
+    "zainab": {
+        "name": "Zainab Iftihkar",
+        "email": "zainab_iftikhar@brown.edu"
+    },
+
+    "qirui": {
+        "name": "Qirui Wu",
+        "email": "qirui_wu@sfu.ca"
+    },
+
+    "sonia": {
+        "name": "Sonia Raychaudhuri",
+        "email": "sonia_raychaudhuri@sfu.ca"
+    },
+
+    "james": {
+        "name": "James Tompkin",
+        "email": "james_tompkin@brown.edu"
     }
 }

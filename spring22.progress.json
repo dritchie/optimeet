@@ -1,0 +1,245 @@
+[
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "manolis",
+         "kai",
+         "angel",
+         "adrian"
+      ],
+      "name": "Indoor Scenes / Floor Plans",
+      "numViableMeetingTimesSoFar": 5,
+      "when2meet": "https://when2meet.com/?14280128-7V593"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "kai",
+         "adam"
+      ],
+      "name": "scene-structure-style",
+      "numViableMeetingTimesSoFar": 41,
+      "when2meet": "https://when2meet.com/?14280129-cuTgD"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "kenny",
+         "aalia"
+      ],
+      "name": "NGSP",
+      "numViableMeetingTimesSoFar": 16,
+      "when2meet": "https://when2meet.com/?14280130-E7EyV"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "kenny",
+         "paul_g",
+         "niloy"
+      ],
+      "name": "Part Graph Programs",
+      "numViableMeetingTimesSoFar": 3,
+      "when2meet": "https://when2meet.com/?14280131-x4Lk2"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "kenny",
+         "aditya"
+      ],
+      "name": "structural-gradients",
+      "numViableMeetingTimesSoFar": 14,
+      "when2meet": "https://when2meet.com/?14280132-l2I8u"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "kenny",
+         "caleb"
+      ],
+      "name": "shape-structure-style",
+      "numViableMeetingTimesSoFar": 14,
+      "when2meet": "https://when2meet.com/?14280133-uKN5O"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "sean"
+      ],
+      "name": "3d-character-gen",
+      "numViableMeetingTimesSoFar": 30,
+      "when2meet": "https://when2meet.com/?14280134-BBE3L"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "sean",
+         "srinath",
+         "rao"
+      ],
+      "name": "Conditional Shape Generation",
+      "numViableMeetingTimesSoFar": 5,
+      "when2meet": "https://when2meet.com/?14280135-UnyBg"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "manolis",
+         "kenny",
+         "jay",
+         "bryce",
+         "srinath",
+         "alex"
+      ],
+      "name": "functional-shape-progs",
+      "numViableMeetingTimesSoFar": 1,
+      "when2meet": "https://when2meet.com/?14280136-inIkJ"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [
+         "noam"
+      ],
+      "hasResponded": [
+         "matt",
+         "paul_g",
+         "xianghao",
+         "sid"
+      ],
+      "name": "Xianghao's Project",
+      "numViableMeetingTimesSoFar": 2,
+      "when2meet": "https://when2meet.com/?14280137-mqjRO"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "david_m",
+         "hari",
+         "jb",
+         "thomas",
+         "aaron"
+      ],
+      "name": "Geopipe: Procedural Buildings",
+      "numViableMeetingTimesSoFar": 7,
+      "when2meet": "https://when2meet.com/?14280138-9yFk5"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "vikas",
+         "joshua"
+      ],
+      "name": "Mesh Texture Generation",
+      "numViableMeetingTimesSoFar": 33,
+      "when2meet": "https://when2meet.com/?14280139-676dF"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "david_h"
+      ],
+      "name": "Scene Dataset Meeting",
+      "numViableMeetingTimesSoFar": 34,
+      "when2meet": "https://when2meet.com/?14280140-IfgdT"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [
+         "noam"
+      ],
+      "hasResponded": [
+         "matt",
+         "arman",
+         "paul_g",
+         "vova",
+         "sid"
+      ],
+      "name": "Arman's Project",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?14280142-3FWa4"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "xianghao",
+         "srinath",
+         "yifan"
+      ],
+      "name": "Unsupervised Part Variabilities",
+      "numViableMeetingTimesSoFar": 1,
+      "when2meet": "https://when2meet.com/?14280143-9vUEG"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "zhouqi",
+         "yuchen"
+      ],
+      "name": "3d-perceptual-sim",
+      "numViableMeetingTimesSoFar": 14,
+      "when2meet": "https://when2meet.com/?14280144-7GNZN"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "toshiya",
+         "xiangyu"
+      ],
+      "name": "dl-rendering",
+      "numViableMeetingTimesSoFar": 5,
+      "when2meet": "https://when2meet.com/?14280145-ekINV"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "anh",
+         "kenny",
+         "paul_b",
+         "kai"
+      ],
+      "name": "Implicit Transformer Shape Synth",
+      "numViableMeetingTimesSoFar": 7,
+      "when2meet": "https://when2meet.com/?14280146-gQN2o"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "gene",
+         "aparna",
+         "bryce"
+      ],
+      "name": "CS 2240 Staff Meeting",
+      "numViableMeetingTimesSoFar": 14,
+      "when2meet": "https://when2meet.com/?14280148-pbY5v"
+   },
+   {
+      "deadline": "01/30/22",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "lemara",
+         "michelle",
+         "klara"
+      ],
+      "name": "Daniel's exploreCSR Team Meeting",
+      "numViableMeetingTimesSoFar": 2,
+      "when2meet": "https://when2meet.com/?14280149-P22TL"
+   }
+]

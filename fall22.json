@@ -1,0 +1,158 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["10:00 AM", "7:00 PM"]
+        ]
+    },
+
+    "myCommitments": { 
+        "Monday": [
+            {
+                "name": "Articulated Canonicalization",
+                "time": "11:30 AM",
+                "length": 60
+            },
+            {
+                "name": "VC Group Meeting",
+                "time": "01:00 PM",
+                "length": 60
+            }
+        ],
+        "Tuesday" : [
+            {
+                "name": "CS 1230 Lecture",
+                "time": "10:30 AM",
+                "length": 90
+            },
+            {
+                "name": "CS Faculty Meeting",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ],
+        "Thursday" : [
+            {
+                "name": "CS 1230 Lecture",
+                "time": "10:30 AM",
+                "length": 90
+            }
+        ],
+        "Friday": [
+            {
+                "name": "BVC Seminar",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "Indoor Scene Synth",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kai", "manolis", "angel", "adrian"]
+        },
+        {
+            "name": "Part Graph Programs",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "niloy", "paul_g"]
+        },
+        {
+            "name": "structural-gradients",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "aditya"]
+        },
+        {
+            "name": "3d-character-gen",
+            "length": 30,
+            "type": "remote",
+            "participants": ["sean"]
+        },
+        {
+            "name": "functional-shape-progs",
+            "length": 30,
+            "type": "remote",
+            "participants": ["kenny", "srinath", "manolis", "jay"]
+        },
+        {
+            "name": "Xianghao's Adobe Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["xianghao", "paul_g", "matt", "sid"]
+        },
+        {
+            "name": "Geopipe: Procedural Buildings",
+            "length": 30,
+            "type": "remote",
+            "participants": ["thomas", "hari", "aaron", "jb", "lisa", "tiny"]
+        },
+        {
+            "name": "Scene Dataset Meeting",
+            "length": 30,
+            "type": "remote",
+            "participants": ["david_h", "manolis", "angel", "qirui", "sonia"]
+        },
+        {
+            "name": "Arman's Deformation Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman", "matt", "vova", "sid", "noam", "paul_g"]
+        },
+        {
+            "name": "Unsupervised Semantic Deformation",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["xianghao", "srinath"]
+        },
+        {
+            "name": "3d-perceptual-sim",
+            "length": 30,
+            "type": "remote",
+            "participants": ["zhouqi"]
+        },
+        {
+            "name": "dl-rendering",
+            "length": 30,
+            "type": "remote",
+            "participants": ["xiangyu", "toshiya"]
+        },
+        {
+            "name": "Implicit Transformer Shape Synth",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kai", "kenny", "anh", "paul_b"]
+        },
+        {
+            "name": "Kenny's Internship Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "sid"]
+        },
+        {
+            "name": "Arman's Internship Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman", "matt", "soren", "vova"]
+        }
+    ]
+}

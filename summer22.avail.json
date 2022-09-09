@@ -1,0 +1,392 @@
+{
+   "3d-character-gen": {
+      "Friday": [
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Tuesday": [
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Wednesday": [
+         "03:00 PM",
+         "03:30 PM"
+      ]
+   },
+   "3d-perceptual-sim": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Tuesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ]
+   },
+   "Arman's Project": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "02:30 PM"
+      ],
+      "Tuesday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Wednesday": []
+   },
+   "Geopipe: Procedural Buildings": {
+      "Friday": [],
+      "Monday": [
+         "11:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Implicit Transformer Shape Synth": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Indoor Scenes / Floor Plans": {
+      "Friday": [],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Wednesday": []
+   },
+   "Kenny's Internship Project": {
+      "Friday": [
+         "10:00 AM",
+         "12:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Part Graph Programs": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "REU Site Staff Meeting": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "04:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Scene Dataset Checkin": {
+      "Friday": [
+         "01:30 PM",
+         "02:00 PM",
+         "04:30 PM",
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Monday": [
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "04:30 PM",
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Tuesday": [
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Wednesday": [
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "04:30 PM",
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ]
+   },
+   "Scene Dataset Meeting": {
+      "Friday": [],
+      "Monday": [
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Wednesday": []
+   },
+   "Unsupervised Part Variabilities": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM"
+      ],
+      "Tuesday": [
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM"
+      ],
+      "Wednesday": []
+   },
+   "Xianghao's Project": {
+      "Friday": [
+         "10:00 AM",
+         "12:30 PM",
+         "03:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Tuesday": [
+         "10:00 AM",
+         "11:30 AM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Wednesday": [
+         "02:00 PM",
+         "02:30 PM"
+      ]
+   },
+   "dl-rendering": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM"
+      ]
+   },
+   "functional-shape-progs": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "structural-gradients": {
+      "Friday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM",
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   }
+}

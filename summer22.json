@@ -1,0 +1,145 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["10:00 AM", "7:00 PM"]
+        ]
+    },
+
+    "myCommitments": { 
+        "Tuesday" : [
+            {
+                "name": "VC Reading group",
+                "time": "03:00 PM",
+                "length": 60
+            }
+        ],
+        "Friday" : [
+            {
+                "name": "Rao internship meeting",
+                "time": "12:00 PM",
+                "length": 60
+            },
+            {
+                "name": "Arman internship meeting",
+                "time": "04:00 PM",
+                "length": 60
+            }
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "Indoor Scenes / Floor Plans",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kai", "manolis", "angel", "adrian"]
+        },
+        {
+            "name": "Part Graph Programs",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "niloy", "paul_g"]
+        },
+        {
+            "name": "structural-gradients",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "aditya"]
+        },
+        {
+            "name": "3d-character-gen",
+            "length": 30,
+            "type": "remote",
+            "participants": ["sean"]
+        },
+        {
+            "name": "functional-shape-progs",
+            "length": 60,
+            "type": "remote",
+            "participants": ["kenny", "srinath", "manolis", "jay", "alex"]
+        },
+        {
+            "name": "Xianghao's Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["xianghao", "paul_g", "matt", "sid"]
+        },
+        {
+            "name": "Geopipe: Procedural Buildings",
+            "length": 30,
+            "type": "remote",
+            "participants": ["thomas", "hari", "aaron",     "jb"]
+        },
+        {
+            "name": "Scene Dataset Meeting",
+            "length": 30,
+            "type": "remote",
+            "participants": ["david_h", "manolis", "angel", "qirui", "sonia"]
+        },
+        {
+            "name": "Scene Dataset Checkin",
+            "length": 30,
+            "type": "remote",
+            "participants": ["david_h"]
+        },
+        {
+            "name": "Arman's Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman", "matt", "vova", "sid", "noam", "paul_g"]
+        },
+        {
+            "name": "Unsupervised Part Variabilities",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["xianghao", "srinath", "yifan"]
+        },
+        {
+            "name": "3d-perceptual-sim",
+            "length": 30,
+            "type": "remote",
+            "participants": ["zhouqi", "yuchen"]
+        },
+        {
+            "name": "dl-rendering",
+            "length": 30,
+            "type": "remote",
+            "participants": ["xiangyu", "toshiya"]
+        },
+        {
+            "name": "Implicit Transformer Shape Synth",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kai", "kenny", "anh", "paul_b"]
+        },
+        {
+            "name": "REU Site Staff Meeting",
+            "length": 60,
+            "type": "remote",
+            "participants": ["aditya", "catherine", "roma", "zainab", "laura", "james", "jeff", "david_l", "ian", "srinath", "stefanie"]
+        },
+        {
+            "name": "Kenny's Internship Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "sid"]
+        }
+    ]
+}
