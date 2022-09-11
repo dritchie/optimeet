@@ -108,7 +108,7 @@
         },
         {
             "name": "Scene Dataset Meeting",
-            "length": 30,
+            "length": 60,
             "type": "remote",
             "participants": ["david_h", "manolis", "angel", "qirui", "sonia"]
         },
@@ -125,12 +125,6 @@
             "participants": ["xianghao", "srinath"]
         },
         {
-            "name": "3d-perceptual-sim",
-            "length": 30,
-            "type": "remote",
-            "participants": ["zhouqi"]
-        },
-        {
             "name": "dl-rendering",
             "length": 30,
             "type": "remote",
@@ -144,7 +138,7 @@
         },
         {
             "name": "Kenny's Internship Project",
-            "length": 60,
+            "length": 30,
             "type": "hybrid",
             "participants": ["kenny", "sid"]
         },
