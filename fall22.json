@@ -85,13 +85,13 @@
         {
             "name": "3d-character-gen",
             "length": 30,
-            "type": "remote",
+            "type": "hybrid",
             "participants": ["sean"]
         },
         {
             "name": "functional-shape-progs",
             "length": 30,
-            "type": "remote",
+            "type": "hybrid",
             "participants": ["kenny", "srinath", "manolis", "jay"]
         },
         {
@@ -109,8 +109,9 @@
         {
             "name": "Scene Dataset Meeting",
             "length": 60,
-            "type": "remote",
-            "participants": ["david_h", "manolis", "angel", "qirui", "sonia"]
+            "type": "hybrid",
+            "participants": ["david_h", "manolis", "angel", "qirui", "sonia"],
+            "remoteLocation": "https://sfu.zoom.us/j/97617289278?pwd=K0dTRkNJTmJwcnNpVHRmb2pHbTJQQT09"
         },
         {
             "name": "Arman's Deformation Project",
@@ -146,13 +147,15 @@
             "name": "Arman's Internship Project",
             "length": 60,
             "type": "hybrid",
-            "participants": ["arman", "matt", "soren", "vova"]
+            "participants": ["arman", "matt", "soren", "vova"],
+            "remoteLocation": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2JkYWJkMTgtM2RlYS00MWFmLTk0MjYtOTNkYTFjYTUzODdm%40thread.v2/0?context=%7b%22Tid%22%3a%22fa7b1b5a-7b34-4387-94ae-d2c178decee1%22%2c%22Oid%22%3a%22e72a762f-6352-4a4b-bdbb-580f1aa619f9%22%7d"
         },
         {
             "name": "Rao's Internship Project",
             "length": 60,
             "type": "hybrid",
-            "participants": ["rao", "srinath", "aditya_s", "hooman"]
+            "participants": ["rao", "srinath", "aditya_s", "hooman"],
+            "remoteLocation": "https://autodesk.zoom.us/j/96441392912?pwd=THV6c05WWTFRVlVCRStNcVhLOTNNQT09&from=addon"
         }
     ]
 }
