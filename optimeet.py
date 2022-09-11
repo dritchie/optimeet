@@ -45,7 +45,7 @@ Returns:
  - Dictionary of Sa|M|T|W|Th|F|Su, each day maps to a list of half-hour slots, each slot has a time
    and a list of people who are available then
 '''
-def parseWhen2Meet(url, participants):
+def parseWhen2Meet(url, participants, myAvailability):
     r = Request(url)
     html = urlopen(r).read().decode()
 
@@ -80,6 +80,7 @@ def parseWhen2Meet(url, participants):
             'time': datetime.strptime(slot['time'], "%I:%M %p"),
             'available': slot['available']
         })
+
     # Sort and merge 15 min slots into half hour ones
     for day in ret.keys():
         slots = sorted(ret[day], key=lambda slot: slot['time'])
@@ -90,6 +91,10 @@ def parseWhen2Meet(url, participants):
                 'available': list(set(slots[i]['available']).intersection(set(slots[i+1]['available'])))
             })
         ret[day] = mergedSlots
+
+    # Remove slots that I'm not available for
+    for day in ret.keys():
+        ret[day] = [slot for slot in ret[day] if slot['time'] in myAvailability[day]]
     
     return ret
 
@@ -278,7 +283,7 @@ def loadInputFile(filename):
     return __inputFiles[filename]
 
 '''
-Convert ranges of availabilities into a list of slsots
+Convert ranges of availabilities into a list of slots
 '''
 def ranges2slots(ranges):
     slots = []
@@ -465,7 +470,7 @@ def checkProgress(inputFilename, verbose=True):
     prog = loadProgressFile(inputFilename)
     for meeting in prog:
         inpMeeting = next(m for m in inp['meetingsToSchedule'] if m['name'] == meeting['name'])
-        when2meet = parseWhen2Meet(meeting['when2meet'], inpMeeting['participants'])
+        when2meet = parseWhen2Meet(meeting['when2meet'], inpMeeting['participants'], inp['myAvailability'])
         ppl = respondents(when2meet)
         ppl = list(set(ppl).intersection(set(inpMeeting['participants'])))
         meeting['hasResponded'] = ppl
@@ -543,9 +548,9 @@ def saveFinalAvailability(inputFilename):
     availabilities = {}
     for meeting in prog:
         inpMeeting = next(m for m in inp['meetingsToSchedule'] if m['name'] == meeting['name'])
-        when2meet = parseWhen2Meet(meeting['when2meet'], inpMeeting['participants'])
+        when2meet = parseWhen2Meet(meeting['when2meet'], inpMeeting['participants'], inp['myAvailability'])
         avail = viableSlots(when2meet, meeting['hasResponded'])
-        if config['useBestSlotsIfNoneViable'] and all([len(slots) for slots in when2meet.items()]):
+        if all(len(slots) == 0 for slots in avail.values()) and config['useBestSlotsIfNoneViable']:
             avail = slotsWithMostAvailable(when2meet, meeting['hasResponded'])
         # Turn when2meet into a map from days to lists of times
         availabilities[meeting['name']] = {day: [slot['time'] for slot in slots] for day,slots in avail.items()}
