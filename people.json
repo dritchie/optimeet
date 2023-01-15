@@ -302,5 +302,10 @@
     "hooman": {
         "name": "Hooman Shayani",
         "email": "hooman.shayani@autodesk.com"
+    },
+
+    "krishi": {
+        "name": "Krishi Saripalli",
+        "email": "krishi_saripalli@brown.edu"
     }
 }
