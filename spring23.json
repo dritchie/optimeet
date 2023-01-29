@@ -146,8 +146,19 @@
             "name": "Arman's Internship Project",
             "length": 60,
             "type": "hybrid",
-            "participants": ["arman", "matt", "soren", "vova", "krishi"],
-            "remoteLocation": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2JkYWJkMTgtM2RlYS00MWFmLTk0MjYtOTNkYTFjYTUzODdm%40thread.v2/0?context=%7b%22Tid%22%3a%22fa7b1b5a-7b34-4387-94ae-d2c178decee1%22%2c%22Oid%22%3a%22e72a762f-6352-4a4b-bdbb-580f1aa619f9%22%7d"
+            "participants": ["arman", "matt", "soren", "vova", "krishi"]
+        },
+        {
+            "name": "CS 2240 Staff Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "paul_b", "zack", "brynn"]
+        },
+        {
+            "name": "Daniel's exploreCSR Group Meeting",
+            "length": 60,
+            "type": "remote",
+            "participants": ["aditya", "daniela", "morayo", "stefen"]
         }
     ]
 }

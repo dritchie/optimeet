@@ -307,5 +307,25 @@
     "krishi": {
         "name": "Krishi Saripalli",
         "email": "krishi_saripalli@brown.edu"
+    },
+    "brynn": {
+        "name": "Brynn Chernosky",
+        "email": "brynn_chernosky@brown.edu"
+    },
+    "zack": {
+        "name": "Zack Cheng",
+        "email": "zack_cheng@brown.edu"
+    },
+    "daniela": {
+        "name": "Daniela Galvez-Cepeda",
+        "email": "dg18@williams.edu"
+    },
+    "morayo": {
+        "name": "Morayo Adeyemi",
+        "email": "morayoadeyemi2c@gmail.com"
+    },
+    "stefen": {
+        "name": "Stefen Dodson",
+        "email": "sdodson@vassar.edu"
     }
 }
