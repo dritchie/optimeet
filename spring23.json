@@ -91,7 +91,7 @@
             "name": "character-mixer",
             "length": 30,
             "type": "hybrid",
-            "participants": ["sean"]
+            "participants": ["sean", "rao"]
         },
         {
             "name": "functional-shape-progs",
@@ -109,7 +109,7 @@
             "name": "Scene Dataset Meeting",
             "length": 60,
             "type": "hybrid",
-            "participants": ["david_h", "manolis", "angel", "qirui", "sonia"],
+            "participants": ["manolis", "angel", "qirui", "sonia"],
             "remoteLocation": "https://sfu.zoom.us/j/97617289278?pwd=K0dTRkNJTmJwcnNpVHRmb2pHbTJQQT09"
         },
         {
@@ -159,6 +159,18 @@
             "length": 60,
             "type": "remote",
             "participants": ["aditya", "daniela", "morayo", "stefen"]
+        },
+        {
+            "name": "3D perceptual sim",
+            "length": 30,
+            "type": "remote",
+            "participants": ["zhouqi"]
+        },
+        {
+            "name": "NGSP",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "alana"]
         }
     ]
 }

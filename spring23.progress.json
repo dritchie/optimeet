@@ -1,0 +1,212 @@
+[
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "kai",
+         "manolis",
+         "angel",
+         "adrian"
+      ],
+      "hasResponded": [],
+      "name": "Indoor Scene Synth",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541934-bG6ER"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "kenny",
+         "niloy",
+         "paul_g"
+      ],
+      "hasResponded": [],
+      "name": "Part Graph Programs",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541935-ZO7gg"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "kenny",
+         "aditya"
+      ],
+      "hasResponded": [],
+      "name": "structural-gradients",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541936-tS8hl"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "sean",
+         "rao"
+      ],
+      "hasResponded": [],
+      "name": "character-mixer",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541937-JgkvP"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "kenny",
+         "srinath",
+         "manolis",
+         "jay"
+      ],
+      "hasResponded": [],
+      "name": "functional-shape-progs",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541938-KemZ6"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "thomas",
+         "hari",
+         "aaron",
+         "jb",
+         "lisa",
+         "tiny"
+      ],
+      "hasResponded": [],
+      "name": "Geopipe: Procedural Buildings",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541939-buLyX"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "manolis",
+         "angel",
+         "qirui",
+         "sonia"
+      ],
+      "hasResponded": [],
+      "name": "Scene Dataset Meeting",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541940-yDsXZ"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "arman",
+         "matt",
+         "vova",
+         "sid",
+         "noam",
+         "paul_g"
+      ],
+      "hasResponded": [],
+      "name": "Arman's Deformation Project",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541941-8ErJi"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "xianghao",
+         "srinath"
+      ],
+      "hasResponded": [],
+      "name": "Unsupervised Semantic Deformation",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541942-74irX"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "xiangyu",
+         "toshiya"
+      ],
+      "hasResponded": [],
+      "name": "dl-rendering",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541944-xJXuL"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "kai",
+         "kenny",
+         "anh",
+         "paul_b"
+      ],
+      "hasResponded": [],
+      "name": "Implicit Transformer Shape Synth",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541945-aUWGo"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "kenny",
+         "sid"
+      ],
+      "hasResponded": [],
+      "name": "Kenny's Internship Project",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541946-F6xLF"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "arman",
+         "matt",
+         "soren",
+         "vova",
+         "krishi"
+      ],
+      "hasResponded": [],
+      "name": "Arman's Internship Project",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541947-FwKBj"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "kenny",
+         "paul_b",
+         "zack",
+         "brynn"
+      ],
+      "hasResponded": [],
+      "name": "CS 2240 Staff Meeting",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541948-hNrjZ"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "aditya",
+         "daniela",
+         "morayo",
+         "stefen"
+      ],
+      "hasResponded": [],
+      "name": "Daniel's exploreCSR Group Meeting",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541949-fkrO7"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "zhouqi"
+      ],
+      "hasResponded": [],
+      "name": "3D perceptual sim",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541950-xemcT"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "kenny",
+         "alana"
+      ],
+      "hasResponded": [],
+      "name": "NGSP",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?18541951-tvFnZ"
+   }
+]
