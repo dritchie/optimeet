@@ -3,9 +3,9 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
+         "manolis",
          "kai",
          "adrian",
-         "manolis",
          "angel"
       ],
       "name": "Indoor Scene Synth",
@@ -28,8 +28,8 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
-         "aditya"
+         "aditya",
+         "kenny"
       ],
       "name": "structural-gradients",
       "numViableMeetingTimesSoFar": 11,
@@ -39,8 +39,8 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "rao",
-         "sean"
+         "sean",
+         "rao"
       ],
       "name": "character-mixer",
       "numViableMeetingTimesSoFar": 23,
@@ -48,29 +48,13 @@
    },
    {
       "deadline": "02/03/23",
-      "hasNotResponded": [
-         "jay",
-         "srinath"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
-         "manolis"
-      ],
-      "name": "functional-shape-progs",
-      "numViableMeetingTimesSoFar": 13,
-      "when2meet": "https://when2meet.com/?18541938-KemZ6"
-   },
-   {
-      "deadline": "02/03/23",
-      "hasNotResponded": [
-         "lisa"
-      ],
-      "hasResponded": [
-         "hari",
-         "thomas",
-         "jb",
+         "aaron",
          "tiny",
-         "aaron"
+         "thomas",
+         "hari",
+         "jb"
       ],
       "name": "Geopipe: Procedural Buildings",
       "numViableMeetingTimesSoFar": 14,
@@ -91,18 +75,17 @@
    },
    {
       "deadline": "02/03/23",
-      "hasNotResponded": [
-         "vova",
-         "noam"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "matt",
          "arman",
          "sid",
-         "paul_g"
+         "vova",
+         "paul_g",
+         "noam",
+         "matt"
       ],
       "name": "Arman's Deformation Project",
-      "numViableMeetingTimesSoFar": 1,
+      "numViableMeetingTimesSoFar": 0,
       "when2meet": "https://when2meet.com/?18541941-8ErJi"
    },
    {
@@ -132,10 +115,10 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
+         "anh",
          "kenny",
          "kai",
-         "paul_b",
-         "anh"
+         "paul_b"
       ],
       "name": "Implicit Transformer Shape Synth",
       "numViableMeetingTimesSoFar": 24,
@@ -145,8 +128,8 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
-         "sid"
+         "sid",
+         "kenny"
       ],
       "name": "Kenny's Internship Project",
       "numViableMeetingTimesSoFar": 4,
@@ -171,10 +154,10 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
+         "zack",
          "kenny",
          "paul_b",
-         "brynn",
-         "zack"
+         "brynn"
       ],
       "name": "CS 2240 Staff Meeting",
       "numViableMeetingTimesSoFar": 2,
@@ -184,10 +167,10 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "morayo",
-         "daniela",
+         "stefen",
          "aditya",
-         "stefen"
+         "daniela",
+         "morayo"
       ],
       "name": "Daniel's exploreCSR Group Meeting",
       "numViableMeetingTimesSoFar": 0,
@@ -195,12 +178,12 @@
    },
    {
       "deadline": "02/03/23",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
          "zhouqi"
       ],
-      "hasResponded": [],
       "name": "3D perceptual sim",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 12,
       "when2meet": "https://when2meet.com/?18541950-xemcT"
    },
    {

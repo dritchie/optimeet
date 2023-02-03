@@ -94,16 +94,10 @@
             "participants": ["sean", "rao"]
         },
         {
-            "name": "functional-shape-progs",
-            "length": 30,
-            "type": "hybrid",
-            "participants": ["kenny", "srinath", "manolis", "jay"]
-        },
-        {
             "name": "Geopipe: Procedural Buildings",
             "length": 30,
             "type": "remote",
-            "participants": ["thomas", "hari", "aaron", "jb", "lisa", "tiny"]
+            "participants": ["thomas", "hari", "aaron", "jb", "tiny"]
         },
         {
             "name": "Scene Dataset Meeting",
