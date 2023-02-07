@@ -331,5 +331,17 @@
     "alana": {
         "name": "Alana White",
         "email": "alana_white@brown.edu"
+    },
+    "norman": {
+        "name": "Norman Zhang",
+        "email": "renhao_zhang@brown.edu"
+    },
+    "rahul": {
+        "name": "Rahul Sajnani",
+        "email": "rahul_sajnani@brown.edu"
+    },
+    "congyue": {
+        "name": "Congyue Deng",
+        "email": "congyue@stanford.edu"
     }
 }

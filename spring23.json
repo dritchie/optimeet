@@ -20,11 +20,6 @@
     "myCommitments": { 
         "Monday": [
             {
-                "name": "Articulated Canonicalization",
-                "time": "01:00 PM",
-                "length": 60
-            },
-            {
                 "name": "VC Group Meeting",
                 "time": "12:00 PM",
                 "length": 60
@@ -47,6 +42,11 @@
                 "name": "CS 2240 Lecture",
                 "time": "11:00 AM",
                 "length": 60
+            },
+            {
+                "name": "My office hours",
+                "time": "12:00 PM",
+                "length": 60
             }
         ],
         "Friday": [
@@ -58,6 +58,11 @@
             {
                 "name": "CS 2240 Lecture",
                 "time": "11:00 AM",
+                "length": 60
+            },
+            {
+                "name": "My office hours",
+                "time": "12:00 PM",
                 "length": 60
             }
         ]
@@ -165,6 +170,25 @@
             "length": 30,
             "type": "hybrid",
             "participants": ["kenny", "alana"]
+        },
+        {
+            "name": "vpi-edits",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "aditya", "norman"]
+        },
+        {
+            "name": "rao-proj-meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["srinath"]
+        },
+        {
+            "name": "Articulated Canonicalization",
+            "length": 60,
+            "type": "remote",
+            "participants": ["srinath", "congyue", "rahul", "xianghao"],
+            "remoteLocation": "https://brown.zoom.us/j/92062477527?pwd=QUpJdGNnMFgxbXpqaGRDaWF2Yy9LZz09"
         }
     ]
 }

@@ -4,9 +4,9 @@
       "hasNotResponded": [],
       "hasResponded": [
          "manolis",
-         "kai",
          "adrian",
-         "angel"
+         "angel",
+         "kai"
       ],
       "name": "Indoor Scene Synth",
       "numViableMeetingTimesSoFar": 5,
@@ -16,8 +16,8 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "niloy",
          "kenny",
+         "niloy",
          "paul_g"
       ],
       "name": "Part Graph Programs",
@@ -28,19 +28,19 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "aditya",
-         "kenny"
+         "kenny",
+         "aditya"
       ],
       "name": "structural-gradients",
-      "numViableMeetingTimesSoFar": 11,
+      "numViableMeetingTimesSoFar": 13,
       "when2meet": "https://when2meet.com/?18541936-tS8hl"
    },
    {
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "sean",
-         "rao"
+         "rao",
+         "sean"
       ],
       "name": "character-mixer",
       "numViableMeetingTimesSoFar": 23,
@@ -50,11 +50,11 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "aaron",
-         "tiny",
          "thomas",
+         "tiny",
          "hari",
-         "jb"
+         "jb",
+         "aaron"
       ],
       "name": "Geopipe: Procedural Buildings",
       "numViableMeetingTimesSoFar": 14,
@@ -66,8 +66,8 @@
       "hasResponded": [
          "manolis",
          "sonia",
-         "angel",
-         "qirui"
+         "qirui",
+         "angel"
       ],
       "name": "Scene Dataset Meeting",
       "numViableMeetingTimesSoFar": 5,
@@ -77,12 +77,12 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "arman",
-         "sid",
-         "vova",
-         "paul_g",
          "noam",
-         "matt"
+         "matt",
+         "arman",
+         "paul_g",
+         "sid",
+         "vova"
       ],
       "name": "Arman's Deformation Project",
       "numViableMeetingTimesSoFar": 0,
@@ -90,14 +90,13 @@
    },
    {
       "deadline": "02/03/23",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
+         "xianghao",
          "srinath"
       ],
-      "hasResponded": [
-         "xianghao"
-      ],
       "name": "Unsupervised Semantic Deformation",
-      "numViableMeetingTimesSoFar": 46,
+      "numViableMeetingTimesSoFar": 11,
       "when2meet": "https://when2meet.com/?18541942-74irX"
    },
    {
@@ -115,13 +114,13 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "anh",
+         "paul_b",
          "kenny",
          "kai",
-         "paul_b"
+         "anh"
       ],
       "name": "Implicit Transformer Shape Synth",
-      "numViableMeetingTimesSoFar": 24,
+      "numViableMeetingTimesSoFar": 26,
       "when2meet": "https://when2meet.com/?18541945-aUWGo"
    },
    {
@@ -137,27 +136,26 @@
    },
    {
       "deadline": "02/03/23",
-      "hasNotResponded": [
-         "vova"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
          "soren",
-         "arman",
          "matt",
-         "krishi"
+         "arman",
+         "krishi",
+         "vova"
       ],
       "name": "Arman's Internship Project",
-      "numViableMeetingTimesSoFar": 5,
+      "numViableMeetingTimesSoFar": 1,
       "when2meet": "https://when2meet.com/?18541947-FwKBj"
    },
    {
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "zack",
-         "kenny",
          "paul_b",
-         "brynn"
+         "kenny",
+         "brynn",
+         "zack"
       ],
       "name": "CS 2240 Staff Meeting",
       "numViableMeetingTimesSoFar": 2,
@@ -167,9 +165,9 @@
       "deadline": "02/03/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "stefen",
          "aditya",
          "daniela",
+         "stefen",
          "morayo"
       ],
       "name": "Daniel's exploreCSR Group Meeting",
@@ -196,5 +194,41 @@
       "name": "NGSP",
       "numViableMeetingTimesSoFar": 28,
       "when2meet": "https://when2meet.com/?18541951-tvFnZ"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "kenny",
+         "norman",
+         "aditya"
+      ],
+      "name": "vpi-edits",
+      "numViableMeetingTimesSoFar": 17,
+      "when2meet": "https://www.when2meet.com/?18646010-7B5Yc"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "srinath"
+      ],
+      "name": "rao-proj-meeting",
+      "numViableMeetingTimesSoFar": 11,
+      "when2meet": "https://www.when2meet.com/?18655810-w89mf"
+   },
+   {
+      "deadline": "02/03/23",
+      "hasNotResponded": [
+         "rahul"
+      ],
+      "hasResponded": [
+         "xianghao",
+         "srinath",
+         "congyue"
+      ],
+      "name": "Articulated Canonicalization",
+      "numViableMeetingTimesSoFar": 11,
+      "when2meet": "https://www.when2meet.com/?18655983-MSqau"
    }
 ]
