@@ -343,5 +343,53 @@
     "congyue": {
         "name": "Congyue Deng",
         "email": "congyue@stanford.edu"
+    },
+    "luca": {
+        "name": "Luca Fonstad",
+        "email": "luca_fonstad@brown.edu"
+    },
+    "alex_w": {
+        "name": "Alex Wang",
+        "email": "alexander_wang1@brown.edu"
+    },
+    "neil": {
+        "name": "Neil Xu",
+        "email": "neil_xu@brown.edu"
+    },
+    "ran": {
+        "name": "Ran Zhang",
+        "email": "tianran_zhang@brown.edu"
+    },
+    "ellie": {
+        "name": "Ellie Pavlick",
+        "email": "ellie_pavlick@brown.edu"
+    },
+    "carmen": {
+        "name": "Carmen Yu",
+        "email": "carmen_yu@brown.edu"
+    },
+    "dingxi": {
+        "name": "Dingxi Zhang",
+        "email": "dxzhang1@mit.edu"
+    },
+    "karl": {
+        "name": "Karl Willis",
+        "email": "karl.willis@autodesk.com"
+    },
+    "will": {
+        "name": "William Sun",
+        "email": "william_sun@brown.edu"
+    },
+    "dylan": {
+        "name": "Dylan Hu",
+        "email": "dylan_hu@brown.edu"
+    },
+    "michal": {
+        "name": "Michal Golovanevsky",
+        "email": "michal_golovanevsky@brown.edu"
+    },
+    "yanyan": {
+        "name": "Yanyan Ren",
+        "email": "yanyan_ren@brown.edu"
     }
 }

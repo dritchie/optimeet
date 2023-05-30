@@ -1,0 +1,140 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["10:00 AM", "7:00 PM"]
+        ]
+    },
+
+    "myCommitments": { 
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "Neurosymbolic Scene Synth",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["manolis", "angel", "adrian", "luca"]
+        },
+        {
+            "name": "Part Graph Programs",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "niloy", "paul_g"]
+        },
+        {
+            "name": "structural-gradients",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "aditya"]
+        },
+        {
+            "name": "Geopipe: Procedural Buildings",
+            "length": 30,
+            "type": "remote",
+            "participants": ["thomas", "hari", "aaron", "jb", "tiny"]
+        },
+        {
+            "name": "Scene Dataset Meeting",
+            "length": 60,
+            "type": "remote",
+            "participants": ["manolis", "angel", "qirui", "sonia"],
+            "remoteLocation": "https://sfu.zoom.us/j/97617289278?pwd=K0dTRkNJTmJwcnNpVHRmb2pHbTJQQT09"
+        },
+        {
+            "name": "Unsupervised Semantic Shape Editing",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["xianghao", "srinath"]
+        },
+        {
+            "name": "dl-rendering",
+            "length": 30,
+            "type": "remote",
+            "participants": ["xiangyu", "toshiya"]
+        },
+        {
+            "name": "Implicit Transformer Shape Synth",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kai", "kenny", "anh"]
+        },
+        {
+            "name": "Kenny's Internship Project",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "sid"]
+        },
+        {
+            "name": "Arman's Noise Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman", "matt", "soren", "vova", "krishi"]
+        },
+        {
+            "name": "3D perceptual sim",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["alex_w"]
+        },
+        {
+            "name": "vpi-edits",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "aditya", "norman", "neil"]
+        },
+        {
+            "name": "Text2Action",
+            "length": 60,
+            "type": "remote",
+            "participants": ["srinath", "rao", "ran", "carmen", "ellie", "dingxi"]
+        },
+        {
+            "name": "Articulated Canonicalization",
+            "length": 60,
+            "type": "remote",
+            "participants": ["srinath", "congyue", "rahul", "xianghao"],
+            "remoteLocation": "https://brown.zoom.us/j/92062477527?pwd=QUpJdGNnMFgxbXpqaGRDaWF2Yy9LZz09"
+        },
+        {
+            "name": "Xianghao Autodesk Internship",
+            "length": 60,
+            "type": "remote",
+            "participants": ["xianghao", "karl"]
+        },
+        {
+            "name": "Arman Adobe Internship",
+            "length": 60,
+            "type": "remote",
+            "participants": ["arman", "noam", "vova"]
+        },
+        {
+            "name": "CS 1230 summer course dev check-in",
+            "length": 30,
+            "type": "remote",
+            "participants": ["will", "dylan"]
+        },
+        {
+            "name": "REU Site staff meeting",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["catherine", "zainab", "michal", "yanyan"]
+        },
+    ]
+}
