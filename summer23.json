@@ -30,7 +30,7 @@
             "name": "Neurosymbolic Scene Synth",
             "length": 30,
             "type": "hybrid",
-            "participants": ["manolis", "angel", "adrian", "luca"]
+            "participants": ["manolis", "angel", "adrian", "luca", "kai"]
         },
         {
             "name": "Part Graph Programs",
@@ -103,7 +103,8 @@
             "name": "Text2Action",
             "length": 60,
             "type": "remote",
-            "participants": ["srinath", "rao", "ran", "carmen", "ellie", "dingxi"]
+            "participants": ["srinath", "rao", "ran", "carmen", "ellie", "dingxi"],
+            "remoteLocation": "https://brown.zoom.us/my/raofu"
         },
         {
             "name": "Articulated Canonicalization",
@@ -116,7 +117,7 @@
             "name": "Xianghao Autodesk Internship",
             "length": 60,
             "type": "remote",
-            "participants": ["xianghao", "karl"]
+            "participants": ["xianghao", "karl", "mor", "amir", "pradeep", "sifan"]
         },
         {
             "name": "Arman Adobe Internship",
@@ -136,5 +137,11 @@
             "type": "hybrid",
             "participants": ["catherine", "zainab", "michal", "yanyan"]
         },
+        {
+            "name": "LLM Scene Generation",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["rio", "brian", "stewart", "maxim", "kenny", "aditya", "xianghao"]
+        }
     ]
 }

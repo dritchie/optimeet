@@ -391,5 +391,37 @@
     "yanyan": {
         "name": "Yanyan Ren",
         "email": "yanyan_ren@brown.edu"
+    },
+    "mor": {
+        "name": "Mor Katz",
+        "email": "mor.katz@autodesk.com"
+    },
+    "amir": {
+        "name": "Amir Khas Ahmadi",
+        "email": "amir.khasahmadi@autodesk.com"
+    },
+    "pradeep": {
+        "name": "Pradeep Kumar Jayaraman",
+        "email": "pradeep.kumar.jayaraman@autodesk.com"
+    },
+    "sifan": {
+        "name": "Sifan Wu",
+        "email": "sifan.wu@autodesk.com"
+    },
+    "rio": {
+        "name": "Rio Aguina-Kang",
+        "email": "raguinakangus@gmail.com"
+    },
+    "brian": {
+        "name": "Do Han Heon",
+        "email": "do_heon_han@brown.edu"
+    },
+    "stewart": {
+        "name": "Stewart Morris",
+        "email": "stewart_morris@brown.edu"
+    },
+    "maxim": {
+        "name": "Maxim Gumin",
+        "email": "maxgumin@gmail.com"
     }
 }

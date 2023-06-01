@@ -1,0 +1,253 @@
+[
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "manolis",
+         "adrian",
+         "angel",
+         "kai",
+         "luca"
+      ],
+      "hasResponded": [],
+      "name": "Neurosymbolic Scene Synth",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?20233429-s2Ikf"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "kenny",
+         "niloy"
+      ],
+      "hasResponded": [
+         "paul_g"
+      ],
+      "name": "Part Graph Programs",
+      "numViableMeetingTimesSoFar": 44,
+      "when2meet": "https://when2meet.com/?20233432-qpvDV"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "kenny",
+         "aditya"
+      ],
+      "hasResponded": [],
+      "name": "structural-gradients",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?20233433-fOeSG"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "hari",
+         "thomas",
+         "jb",
+         "aaron"
+      ],
+      "hasResponded": [
+         "tiny"
+      ],
+      "name": "Geopipe: Procedural Buildings",
+      "numViableMeetingTimesSoFar": 25,
+      "when2meet": "https://when2meet.com/?20233438-gMFsc"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "manolis",
+         "angel",
+         "qirui",
+         "sonia"
+      ],
+      "hasResponded": [],
+      "name": "Scene Dataset Meeting",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?20233439-maAOz"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "xianghao",
+         "srinath"
+      ],
+      "hasResponded": [],
+      "name": "Unsupervised Semantic Shape Editing",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?20233441-cBJta"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "xiangyu"
+      ],
+      "hasResponded": [
+         "toshiya"
+      ],
+      "name": "dl-rendering",
+      "numViableMeetingTimesSoFar": 10,
+      "when2meet": "https://when2meet.com/?20233445-bxcyx"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "kenny"
+      ],
+      "hasResponded": [
+         "kai",
+         "anh"
+      ],
+      "name": "Implicit Transformer Shape Synth",
+      "numViableMeetingTimesSoFar": 80,
+      "when2meet": "https://when2meet.com/?20233447-KoIT1"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "kenny",
+         "sid"
+      ],
+      "hasResponded": [],
+      "name": "Kenny's Internship Project",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?20233449-gvWMY"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "matt",
+         "vova",
+         "arman",
+         "soren"
+      ],
+      "hasResponded": [
+         "krishi"
+      ],
+      "name": "Arman's Noise Project",
+      "numViableMeetingTimesSoFar": 5,
+      "when2meet": "https://when2meet.com/?20233452-pxSds"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "alex_w"
+      ],
+      "hasResponded": [],
+      "name": "3D perceptual sim",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?20233455-H7TdR"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "neil",
+         "kenny",
+         "aditya"
+      ],
+      "hasResponded": [
+         "norman"
+      ],
+      "name": "vpi-edits",
+      "numViableMeetingTimesSoFar": 90,
+      "when2meet": "https://when2meet.com/?20233457-n1KSy"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "ellie",
+         "srinath",
+         "rao"
+      ],
+      "hasResponded": [
+         "ran",
+         "dingxi",
+         "carmen"
+      ],
+      "name": "Text2Action",
+      "numViableMeetingTimesSoFar": 3,
+      "when2meet": "https://when2meet.com/?20233459-cnoBa"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "xianghao",
+         "congyue",
+         "srinath",
+         "rahul"
+      ],
+      "hasResponded": [],
+      "name": "Articulated Canonicalization",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?20233461-xkHM9"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "pradeep",
+         "mor",
+         "sifan",
+         "xianghao",
+         "amir"
+      ],
+      "hasResponded": [
+         "karl"
+      ],
+      "name": "Xianghao Autodesk Internship",
+      "numViableMeetingTimesSoFar": 20,
+      "when2meet": "https://when2meet.com/?20233462-R18RM"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "noam",
+         "vova",
+         "arman"
+      ],
+      "hasResponded": [],
+      "name": "Arman Adobe Internship",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?20233464-aA6RG"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "will"
+      ],
+      "hasResponded": [
+         "dylan"
+      ],
+      "name": "CS 1230 summer course dev check-in",
+      "numViableMeetingTimesSoFar": 82,
+      "when2meet": "https://when2meet.com/?20233468-Hragb"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "yanyan",
+         "zainab"
+      ],
+      "hasResponded": [
+         "michal",
+         "catherine"
+      ],
+      "name": "REU Site staff meeting",
+      "numViableMeetingTimesSoFar": 50,
+      "when2meet": "https://when2meet.com/?20233471-9fjJj"
+   },
+   {
+      "deadline": "06/05/23",
+      "hasNotResponded": [
+         "stewart",
+         "brian",
+         "xianghao",
+         "aditya",
+         "kenny",
+         "rio",
+         "maxim"
+      ],
+      "hasResponded": [],
+      "name": "LLM Scene Generation",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://www.when2meet.com/?20242410-Tg7aw"
+   }
+]
