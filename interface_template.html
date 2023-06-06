@@ -836,7 +836,8 @@
 
                         var request = gapi.client.calendar.events.insert({
                             'calendarId': 'primary',
-                            'resource': event
+                            'resource': event,
+                            'sendUpdates': 'all'
                         });
 
                         request.execute(function(event) {
