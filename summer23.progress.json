@@ -1,14 +1,13 @@
 [
    {
       "deadline": "06/05/23",
-      "hasNotResponded": [
-         "luca"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "manolis",
          "angel",
-         "adrian",
-         "kai"
+         "luca",
+         "kai",
+         "manolis",
+         "adrian"
       ],
       "name": "Neurosymbolic Scene Synth",
       "numViableMeetingTimesSoFar": 0,
@@ -40,30 +39,29 @@
    {
       "deadline": "06/05/23",
       "hasNotResponded": [
-         "jb",
-         "thomas",
          "aaron"
       ],
       "hasResponded": [
+         "thomas",
+         "tiny",
          "hari",
-         "tiny"
+         "jb"
       ],
       "name": "Geopipe: Procedural Buildings",
-      "numViableMeetingTimesSoFar": 16,
+      "numViableMeetingTimesSoFar": 7,
       "when2meet": "https://when2meet.com/?20233438-gMFsc"
    },
    {
       "deadline": "06/05/23",
-      "hasNotResponded": [
-         "angel",
-         "qirui"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "angel",
          "manolis",
+         "qirui",
          "sonia"
       ],
       "name": "Scene Dataset Meeting",
-      "numViableMeetingTimesSoFar": 17,
+      "numViableMeetingTimesSoFar": 6,
       "when2meet": "https://when2meet.com/?20233439-maAOz"
    },
    {
@@ -92,9 +90,9 @@
       "deadline": "06/05/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "anh",
          "kenny",
-         "kai"
+         "kai",
+         "anh"
       ],
       "name": "Implicit Transformer Shape Synth",
       "numViableMeetingTimesSoFar": 24,
@@ -114,14 +112,13 @@
    },
    {
       "deadline": "06/05/23",
-      "hasNotResponded": [
-         "matt"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "soren",
-         "krishi",
          "vova",
-         "arman"
+         "arman",
+         "krishi",
+         "matt",
+         "soren"
       ],
       "name": "Arman's Noise Project",
       "numViableMeetingTimesSoFar": 0,
@@ -141,10 +138,10 @@
       "deadline": "06/05/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
-         "neil",
          "norman",
-         "aditya"
+         "kenny",
+         "aditya",
+         "neil"
       ],
       "name": "vpi-edits",
       "numViableMeetingTimesSoFar": 8,
@@ -156,11 +153,11 @@
          "ellie"
       ],
       "hasResponded": [
-         "rao",
-         "srinath",
-         "dingxi",
          "ran",
-         "carmen"
+         "rao",
+         "carmen",
+         "dingxi",
+         "srinath"
       ],
       "name": "Text2Action",
       "numViableMeetingTimesSoFar": 0,
@@ -168,13 +165,12 @@
    },
    {
       "deadline": "06/05/23",
-      "hasNotResponded": [
-         "congyue"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "rahul",
          "srinath",
-         "xianghao"
+         "xianghao",
+         "rahul",
+         "congyue"
       ],
       "name": "Articulated Canonicalization",
       "numViableMeetingTimesSoFar": 3,
@@ -182,27 +178,26 @@
    },
    {
       "deadline": "06/05/23",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
+         "amir",
+         "karl",
+         "mor",
+         "xianghao",
          "pradeep",
          "sifan"
       ],
-      "hasResponded": [
-         "mor",
-         "karl",
-         "amir",
-         "xianghao"
-      ],
       "name": "Xianghao Autodesk Internship",
-      "numViableMeetingTimesSoFar": 5,
+      "numViableMeetingTimesSoFar": 3,
       "when2meet": "https://when2meet.com/?20233462-R18RM"
    },
    {
       "deadline": "06/05/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "noam",
          "vova",
-         "arman"
+         "arman",
+         "noam"
       ],
       "name": "Arman Adobe Internship",
       "numViableMeetingTimesSoFar": 2,
@@ -223,10 +218,10 @@
       "deadline": "06/05/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "michal",
-         "yanyan",
          "zainab",
-         "catherine"
+         "michal",
+         "catherine",
+         "yanyan"
       ],
       "name": "REU Site staff meeting",
       "numViableMeetingTimesSoFar": 14,
@@ -236,13 +231,13 @@
       "deadline": "06/05/23",
       "hasNotResponded": [],
       "hasResponded": [
+         "brian",
          "maxim",
          "rio",
-         "brian",
-         "stewart",
-         "kenny",
          "aditya",
-         "xianghao"
+         "stewart",
+         "xianghao",
+         "kenny"
       ],
       "name": "LLM Scene Generation",
       "numViableMeetingTimesSoFar": 1,
