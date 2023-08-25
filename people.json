@@ -86,7 +86,7 @@
 
     "noam": {
         "name": "Noam Aigerman",
-        "email": "aigerman@adobe.com"
+        "email": "noamaigerman@gmail.com"
     },
 
     "vova": {
@@ -423,5 +423,17 @@
     "maxim": {
         "name": "Maxim Gumin",
         "email": "maxgumin@gmail.com"
+    },
+    "junyu": {
+        "name": "Junyu Liu",
+        "email": "liu_junyu@brown.edu"
+    },
+    "coco": {
+        "name": "Coco Kaleel",
+        "email": "caroline_kaleel@brown.edu"
+    },
+    "jean": {
+        "name": "Jean Yoo",
+        "email": "seung_jean_yoo@brown.edu"
     }
 }
