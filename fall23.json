@@ -63,7 +63,7 @@
             "name": "Neurosymbolic Scene Synth",
             "length": 30,
             "type": "hybrid",
-            "participants": ["manolis", "angel", "adrian", "luca", "kai"]
+            "participants": ["manolis", "angel", "adrian", "luca", "kai", "cal"]
         },
         {
             "name": "Part Graph Programs",
@@ -86,7 +86,7 @@
         },
         {
             "name": "Procedural Modeling + Diffusion",
-            "length": 60,
+            "length": 30,
             "type": "hybrid",
             "participants": ["xianghao", "srinath"]
         },
@@ -153,16 +153,10 @@
             "participants": ["arman", "noam", "vova"]
         },
         {
-            "name": "CS 1230 Staff Meeting",
-            "length": 60,
-            "type": "remote",
-            "participants": ["will", "dylan"]
-        },
-        {
             "name": "LLM Scene Generation",
             "length": 60,
             "type": "hybrid",
-            "participants": ["rio", "brian", "stewart", "maxim", "kenny", "aditya", "xianghao"]
+            "participants": ["rio", "brian", "stewart", "maxim", "kenny", "aditya", "xianghao", "jean"]
         },
         {
             "name": "Guitar Design Project",

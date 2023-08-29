@@ -435,5 +435,9 @@
     "jean": {
         "name": "Jean Yoo",
         "email": "seung_jean_yoo@brown.edu"
+    },
+    "cal": {
+        "name": "Cal Nightingale",
+        "email": "cal_nightingale@brown.edu"
     }
 }
