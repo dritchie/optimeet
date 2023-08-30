@@ -2,146 +2,151 @@
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "manolis",
-         "angel",
-         "adrian",
          "luca",
-         "kai",
-         "cal"
+         "adrian"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "manolis",
+         "cal",
+         "kai",
+         "angel"
+      ],
       "name": "Neurosymbolic Scene Synth",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 4,
       "when2meet": "https://when2meet.com/?21056055-Yq9Ra"
    },
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "kenny",
-         "niloy",
-         "paul_g"
+         "paul_g",
+         "niloy"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "kenny"
+      ],
       "name": "Part Graph Programs",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 17,
       "when2meet": "https://when2meet.com/?21056056-5l2wP"
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
-         "kenny",
-         "aditya"
+      "hasNotResponded": [],
+      "hasResponded": [
+         "aditya",
+         "kenny"
       ],
-      "hasResponded": [],
       "name": "structural-gradients",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 8,
       "when2meet": "https://when2meet.com/?21056057-l2MFA"
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
          "manolis",
-         "angel",
+         "sonia",
          "qirui",
-         "sonia"
+         "angel"
       ],
-      "hasResponded": [],
       "name": "Scene Dataset Meeting",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 4,
       "when2meet": "https://when2meet.com/?21056058-OBSnx"
    },
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "xianghao",
          "srinath"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "xianghao"
+      ],
       "name": "Procedural Modeling + Diffusion",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 64,
       "when2meet": "https://when2meet.com/?21056059-ijHqi"
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
          "xiangyu",
          "toshiya"
       ],
-      "hasResponded": [],
       "name": "dl-rendering",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 3,
       "when2meet": "https://when2meet.com/?21056060-XoNnV"
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
+         "junyu",
          "kai",
          "kenny",
-         "anh",
-         "junyu"
+         "anh"
       ],
-      "hasResponded": [],
       "name": "Implicit Transformer Shape Synth",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 6,
       "when2meet": "https://when2meet.com/?21056061-h4r6d"
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
          "kenny",
          "sid"
       ],
-      "hasResponded": [],
       "name": "Kenny Stochastic PLAD Project",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 17,
       "when2meet": "https://when2meet.com/?21056062-mqxst"
    },
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "arman",
+         "krishi",
          "matt",
-         "soren",
-         "vova",
-         "krishi"
+         "arman"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "soren",
+         "vova"
+      ],
       "name": "Arman's Noise Project",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 6,
       "when2meet": "https://when2meet.com/?21056063-z79md"
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
          "alex_w"
       ],
-      "hasResponded": [],
       "name": "3D perceptual sim",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 24,
       "when2meet": "https://when2meet.com/?21056064-y3rTU"
    },
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "kenny",
-         "aditya",
-         "norman",
          "neil"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "aditya",
+         "norman",
+         "kenny"
+      ],
       "name": "vpi-edits",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 10,
       "when2meet": "https://when2meet.com/?21056065-LBcYV"
    },
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "srinath",
-         "rao",
-         "ran",
-         "carmen",
          "ellie",
-         "dingxi"
+         "srinath",
+         "ran",
+         "dingxi",
+         "rao",
+         "carmen"
       ],
       "hasResponded": [],
       "name": "Text2Action",
@@ -151,69 +156,84 @@
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "srinath",
          "congyue",
-         "rahul",
+         "srinath",
+         "rahul"
+      ],
+      "hasResponded": [
          "xianghao"
       ],
-      "hasResponded": [],
       "name": "Articulated Canonicalization",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 54,
       "when2meet": "https://when2meet.com/?21056067-qTYlU"
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
-         "xianghao",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "sifan",
+         "amir",
          "karl",
          "mor",
-         "amir",
-         "pradeep",
-         "sifan"
+         "xianghao",
+         "pradeep"
       ],
-      "hasResponded": [],
       "name": "Xianghao Autodesk Internship",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 1,
       "when2meet": "https://when2meet.com/?21056068-ozocH"
    },
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "arman",
+         "arman"
+      ],
+      "hasResponded": [
          "noam",
          "vova"
       ],
-      "hasResponded": [],
       "name": "Arman PoissonNet Project",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 11,
       "when2meet": "https://when2meet.com/?21056069-98Hkq"
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
-         "rio",
-         "brian",
-         "stewart",
-         "maxim",
-         "kenny",
+      "hasNotResponded": [],
+      "hasResponded": [
          "aditya",
+         "brian",
+         "rio",
+         "jean",
+         "maxim",
          "xianghao",
-         "jean"
+         "stewart",
+         "kenny"
       ],
-      "hasResponded": [],
       "name": "LLM Scene Generation",
       "numViableMeetingTimesSoFar": 0,
       "when2meet": "https://when2meet.com/?21056070-qnh6K"
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
          "coco",
          "aditya"
       ],
-      "hasResponded": [],
       "name": "Guitar Design Project",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 26,
       "when2meet": "https://when2meet.com/?21056071-ZsmIe"
+   },
+   {
+      "deadline": "09/01/23",
+      "hasNotResponded": [
+         "stefen"
+      ],
+      "hasResponded": [
+         "aditya",
+         "morayo"
+      ],
+      "name": "exploreCSR continued",
+      "numViableMeetingTimesSoFar": 18,
+      "when2meet": "https://www.when2meet.com/?21110755-RMqtP"
    }
 ]

@@ -163,6 +163,12 @@
             "length": 30,
             "type": "hybrid",
             "participants": ["coco", "aditya"]
+        },
+        {
+            "name": "exploreCSR continued",
+            "length": 30,
+            "type": "remote",
+            "participants": ["aditya", "morayo", "stefen"]
         }
     ]
 }
