@@ -7,8 +7,8 @@
       ],
       "hasResponded": [
          "manolis",
-         "cal",
          "kai",
+         "cal",
          "angel"
       ],
       "name": "Neurosymbolic Scene Synth",
@@ -44,9 +44,9 @@
       "hasNotResponded": [],
       "hasResponded": [
          "manolis",
-         "sonia",
+         "angel",
          "qirui",
-         "angel"
+         "sonia"
       ],
       "name": "Scene Dataset Meeting",
       "numViableMeetingTimesSoFar": 4,
@@ -55,7 +55,9 @@
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "srinath"
+         "srinath",
+         "ray",
+         "zihan"
       ],
       "hasResponded": [
          "xianghao"
@@ -68,8 +70,8 @@
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "xiangyu",
-         "toshiya"
+         "toshiya",
+         "xiangyu"
       ],
       "name": "dl-rendering",
       "numViableMeetingTimesSoFar": 3,
@@ -79,10 +81,10 @@
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "junyu",
+         "anh",
          "kai",
          "kenny",
-         "anh"
+         "junyu"
       ],
       "name": "Implicit Transformer Shape Synth",
       "numViableMeetingTimesSoFar": 6,
@@ -92,8 +94,8 @@
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
-         "sid"
+         "sid",
+         "kenny"
       ],
       "name": "Kenny Stochastic PLAD Project",
       "numViableMeetingTimesSoFar": 17,
@@ -103,12 +105,12 @@
       "deadline": "09/01/23",
       "hasNotResponded": [
          "krishi",
-         "matt",
-         "arman"
+         "matt"
       ],
       "hasResponded": [
-         "soren",
-         "vova"
+         "arman",
+         "vova",
+         "soren"
       ],
       "name": "Arman's Noise Project",
       "numViableMeetingTimesSoFar": 6,
@@ -131,8 +133,8 @@
       ],
       "hasResponded": [
          "aditya",
-         "norman",
-         "kenny"
+         "kenny",
+         "norman"
       ],
       "name": "vpi-edits",
       "numViableMeetingTimesSoFar": 10,
@@ -141,24 +143,25 @@
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "ellie",
-         "srinath",
-         "ran",
+         "carmen",
          "dingxi",
-         "rao",
-         "carmen"
+         "srinath",
+         "ellie",
+         "ran"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "rao"
+      ],
       "name": "Text2Action",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 54,
       "when2meet": "https://when2meet.com/?21056066-5Ji8o"
    },
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "congyue",
+         "rahul",
          "srinath",
-         "rahul"
+         "congyue"
       ],
       "hasResponded": [
          "xianghao"
@@ -171,12 +174,12 @@
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "sifan",
-         "amir",
-         "karl",
          "mor",
+         "karl",
          "xianghao",
-         "pradeep"
+         "amir",
+         "pradeep",
+         "sifan"
       ],
       "name": "Xianghao Autodesk Internship",
       "numViableMeetingTimesSoFar": 1,
@@ -184,12 +187,11 @@
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
-         "arman"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "noam",
-         "vova"
+         "arman",
+         "vova",
+         "noam"
       ],
       "name": "Arman PoissonNet Project",
       "numViableMeetingTimesSoFar": 11,
@@ -199,14 +201,14 @@
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "aditya",
          "brian",
          "rio",
-         "jean",
          "maxim",
          "xianghao",
+         "aditya",
          "stewart",
-         "kenny"
+         "kenny",
+         "jean"
       ],
       "name": "LLM Scene Generation",
       "numViableMeetingTimesSoFar": 0,
@@ -216,8 +218,8 @@
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "coco",
-         "aditya"
+         "aditya",
+         "coco"
       ],
       "name": "Guitar Design Project",
       "numViableMeetingTimesSoFar": 26,

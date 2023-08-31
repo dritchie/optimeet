@@ -88,7 +88,7 @@
             "name": "Procedural Modeling + Diffusion",
             "length": 30,
             "type": "hybrid",
-            "participants": ["xianghao", "srinath"]
+            "participants": ["xianghao", "srinath", "ray", "zihan"]
         },
         {
             "name": "dl-rendering",

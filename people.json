@@ -439,5 +439,13 @@
     "cal": {
         "name": "Cal Nightingale",
         "email": "cal_nightingale@brown.edu"
+    },
+    "ray": {
+        "name": "Ruiqi Xu",
+        "email": "ruiqi_xu1@brown.edu"
+    },
+    "zihan": {
+        "name": "Zihan Zhu",
+        "email": "zihan_zhu@brown.edu"
     }
 }
