@@ -2,14 +2,14 @@
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "luca",
-         "adrian"
+         "luca"
       ],
       "hasResponded": [
+         "angel",
+         "adrian",
          "manolis",
          "kai",
-         "cal",
-         "angel"
+         "cal"
       ],
       "name": "Neurosymbolic Scene Synth",
       "numViableMeetingTimesSoFar": 4,
@@ -17,15 +17,14 @@
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
-         "paul_g",
-         "niloy"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "niloy",
+         "paul_g",
          "kenny"
       ],
       "name": "Part Graph Programs",
-      "numViableMeetingTimesSoFar": 17,
+      "numViableMeetingTimesSoFar": 1,
       "when2meet": "https://when2meet.com/?21056056-5l2wP"
    },
    {
@@ -43,9 +42,9 @@
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "manolis",
          "angel",
          "qirui",
+         "manolis",
          "sonia"
       ],
       "name": "Scene Dataset Meeting",
@@ -56,35 +55,35 @@
       "deadline": "09/01/23",
       "hasNotResponded": [
          "srinath",
-         "ray",
          "zihan"
       ],
       "hasResponded": [
+         "ray",
          "xianghao"
       ],
       "name": "Procedural Modeling + Diffusion",
-      "numViableMeetingTimesSoFar": 64,
+      "numViableMeetingTimesSoFar": 34,
       "when2meet": "https://when2meet.com/?21056059-ijHqi"
    },
    {
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "toshiya",
-         "xiangyu"
+         "xiangyu",
+         "toshiya"
       ],
       "name": "dl-rendering",
-      "numViableMeetingTimesSoFar": 3,
+      "numViableMeetingTimesSoFar": 6,
       "when2meet": "https://when2meet.com/?21056060-XoNnV"
    },
    {
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
+         "junyu",
          "anh",
          "kai",
-         "kenny",
-         "junyu"
+         "kenny"
       ],
       "name": "Implicit Transformer Shape Synth",
       "numViableMeetingTimesSoFar": 6,
@@ -108,9 +107,9 @@
          "matt"
       ],
       "hasResponded": [
-         "arman",
+         "soren",
          "vova",
-         "soren"
+         "arman"
       ],
       "name": "Arman's Noise Project",
       "numViableMeetingTimesSoFar": 6,
@@ -133,8 +132,8 @@
       ],
       "hasResponded": [
          "aditya",
-         "kenny",
-         "norman"
+         "norman",
+         "kenny"
       ],
       "name": "vpi-edits",
       "numViableMeetingTimesSoFar": 10,
@@ -143,11 +142,11 @@
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "carmen",
          "dingxi",
-         "srinath",
          "ellie",
-         "ran"
+         "ran",
+         "srinath",
+         "carmen"
       ],
       "hasResponded": [
          "rao"
@@ -159,8 +158,8 @@
    {
       "deadline": "09/01/23",
       "hasNotResponded": [
-         "rahul",
          "srinath",
+         "rahul",
          "congyue"
       ],
       "hasResponded": [
@@ -174,12 +173,12 @@
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "mor",
-         "karl",
          "xianghao",
-         "amir",
          "pradeep",
-         "sifan"
+         "amir",
+         "sifan",
+         "karl",
+         "mor"
       ],
       "name": "Xianghao Autodesk Internship",
       "numViableMeetingTimesSoFar": 1,
@@ -189,8 +188,8 @@
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "arman",
          "vova",
+         "arman",
          "noam"
       ],
       "name": "Arman PoissonNet Project",
@@ -201,14 +200,14 @@
       "deadline": "09/01/23",
       "hasNotResponded": [],
       "hasResponded": [
-         "brian",
-         "rio",
-         "maxim",
          "xianghao",
          "aditya",
+         "rio",
+         "brian",
+         "jean",
          "stewart",
-         "kenny",
-         "jean"
+         "maxim",
+         "kenny"
       ],
       "name": "LLM Scene Generation",
       "numViableMeetingTimesSoFar": 0,
@@ -227,15 +226,14 @@
    },
    {
       "deadline": "09/01/23",
-      "hasNotResponded": [
-         "stefen"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "aditya",
-         "morayo"
+         "morayo",
+         "stefen",
+         "aditya"
       ],
       "name": "exploreCSR continued",
-      "numViableMeetingTimesSoFar": 18,
+      "numViableMeetingTimesSoFar": 3,
       "when2meet": "https://www.when2meet.com/?21110755-RMqtP"
    }
 ]
