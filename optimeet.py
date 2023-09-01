@@ -199,7 +199,7 @@ If all fail, returns UnknownPerson<Name>
 def getPersonFromName(name, participants):
     people = loadPeople()
     origName = name
-    name = name.lower()
+    name = name.lower().strip()
     # Try full name
     exactMatch = next((pid for pid,p in people.items() if (p['name'].lower() == name and pid in participants)), None)
     if not (exactMatch is None):
