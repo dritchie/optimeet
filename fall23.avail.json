@@ -1,0 +1,372 @@
+{
+   "3D perceptual sim": {
+      "Friday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Tuesday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Wednesday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ]
+   },
+   "Arman PoissonNet Project": {
+      "Friday": [],
+      "Monday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "04:00 PM",
+         "04:30 PM"
+      ]
+   },
+   "Arman's Noise Project": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "01:00 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": [
+         "01:00 PM"
+      ]
+   },
+   "Articulated Canonicalization": {
+      "Friday": [
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Guitar Design Project": {
+      "Friday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "04:00 PM",
+         "04:30 PM",
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "12:00 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Tuesday": [
+         "10:00 AM"
+      ],
+      "Wednesday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ]
+   },
+   "Implicit Transformer Shape Synth": {
+      "Friday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Kenny Stochastic PLAD Project": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "LLM Scene Generation": {
+      "Friday": [
+         "11:00 AM",
+         "11:30 AM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "12:00 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Neurosymbolic Scene Synth": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Part Graph Programs": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Procedural Modeling + Diffusion": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Tuesday": [
+         "04:00 PM",
+         "04:30 PM",
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM",
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ]
+   },
+   "Scene Dataset Meeting": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Tuesday": [
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Wednesday": []
+   },
+   "Text2Action": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Xianghao Autodesk Internship": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": [
+         "04:00 PM",
+         "04:30 PM"
+      ]
+   },
+   "dl-rendering": {
+      "Friday": [],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM"
+      ],
+      "Tuesday": [
+         "10:00 AM"
+      ],
+      "Wednesday": [
+         "11:00 AM"
+      ]
+   },
+   "exploreCSR continued": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "05:00 PM"
+      ],
+      "Tuesday": [
+         "05:00 PM"
+      ],
+      "Wednesday": []
+   },
+   "structural-gradients": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "vpi-edits": {
+      "Friday": [
+         "01:00 PM",
+         "01:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": []
+   }
+}

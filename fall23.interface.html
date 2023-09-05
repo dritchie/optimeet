@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <title>Optimeet Scheduling Interface</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://apis.google.com/js/api.js"></script>
+        <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+        <style>
+            #maincontent {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            #calendar {
+                table-layout: fixed;
+                width: 100%;
+            }
+
+            #meetings {
+                width: 100%;
+            }
+
+            .smalltext {
+                font-size: x-small;
+            }
+        </style>
+
+        <script type='text/javascript'>
+            // --------------------------------------------------------------------------
+            // Global stuff
+            // --------------------------------------------------------------------------
+
+            const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const TIMES = ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM"];
+
+            var highlightClass = 'table-primary';
+            var selectClass = 'border-primary';
+            var scheduledHightlightClass = 'table-success';
+            var scheduledSelectClass = 'border-success';
+            var scheduledBGClass = 'table-secondary';
+            var scheduledBorderClass = 'border-dark';
+            var scheduledTextClass = 'text-body';
+            // var commitmentBGClass = 'table-dark';
+            // var commitmentBorderClass = 'border-dark';
+            // var commitmentTextClass = 'text-light';
+            var commitmentBGClass = 'table-danger';
+            var commitmentBorderClass = 'border-dark';
+            var commitmentTextClass = 'text-body';
+            var hideClass = 'opacity-25';
+            var scheduledMeetingTextClass = 'opacity-50';
+
+            let config = {"timeZone": "America/New_York", "deadlineInDaysFromNow": 5, "reminderFrequencyInHours": 24, "progressCheckFrequencyInHours": 1, "useBestSlotsIfNoneViable": true, "name": "Daniel Ritchie", "emailAddress": "optimeet.scheduler@gmail.com", "emailServer": "smtp.gmail.com", "gCalEventColorId": 1}
+            let people = {"kai": {"name": "Kai Wang", "email": "kwang.ether@gmail.com"}, "kenny": {"name": "Kenny Jones", "email": "russell_jones@brown.edu"}, "xianghao": {"name": "Xianghao Xu", "email": "xianghao_xu@brown.edu"}, "aditya": {"name": "Aditya Ganeshan", "email": "aditya_ganeshan@brown.edu"}, "arman": {"name": "Arman Maesumi", "email": "arman_maesumi@brown.edu"}, "manolis": {"name": "Manolis Savva", "email": "manolis.savva@gmail.com"}, "angel": {"name": "Angel Chang", "email": "angelx@gmail.com"}, "paul_g": {"name": "Paul Guerrero", "email": "paulaugguerrero@gmail.com"}, "niloy": {"name": "Niloy Mitra", "email": "niloym@gmail.com"}, "rao": {"name": "Rao Fu", "email": "rao_fu@brown.edu"}, "srinath": {"name": "Srinath Sridhar", "email": "srinath@brown.edu"}, "matt": {"name": "Matt Fisher", "email": "matfishe@adobe.com"}, "noam": {"name": "Noam Aigerman", "email": "noamaigerman@gmail.com"}, "vova": {"name": "Vova Kim", "email": "vokim@adobe.com"}, "sid": {"name": "Sid Chaudhuri", "email": "sidch@adobe.com"}, "xiangyu": {"name": "Xiangyu Li", "email": "xiangyu_li@brown.edu"}, "toshiya": {"name": "Toshiya Hachisuka", "email": "tohachisu@gmail.com"}, "adrian": {"name": "Adrian Chang", "email": "adrian_chang@brown.edu"}, "anh": {"name": "Anh Truong", "email": "dinh_anh_truong@brown.edu"}, "soren": {"name": "Soren Pirk", "email": "soeren.pirk@gmail.com"}, "qirui": {"name": "Qirui Wu", "email": "qirui_wu@sfu.ca"}, "sonia": {"name": "Sonia Raychaudhuri", "email": "sonia_raychaudhuri@sfu.ca"}, "krishi": {"name": "Krishi Saripalli", "email": "krishi_saripalli@brown.edu"}, "morayo": {"name": "Morayo Adeyemi", "email": "morayoadeyemi2c@gmail.com"}, "stefen": {"name": "Stefen Dodson", "email": "sdodson@vassar.edu"}, "norman": {"name": "Norman Zhang", "email": "renhao_zhang@brown.edu"}, "rahul": {"name": "Rahul Sajnani", "email": "rahul_sajnani@brown.edu"}, "congyue": {"name": "Congyue Deng", "email": "congyue@stanford.edu"}, "luca": {"name": "Luca Fonstad", "email": "luca_fonstad@brown.edu"}, "alex_w": {"name": "Alexander Wang", "email": "alexander_wang1@brown.edu"}, "neil": {"name": "Neil Xu", "email": "neil_xu@brown.edu"}, "ran": {"name": "Ran Zhang", "email": "tianran_zhang@brown.edu"}, "ellie": {"name": "Ellie Pavlick", "email": "ellie_pavlick@brown.edu"}, "carmen": {"name": "Carmen Yu", "email": "carmen_yu@brown.edu"}, "dingxi": {"name": "Dingxi Zhang", "email": "dxzhang1@mit.edu"}, "karl": {"name": "Karl Willis", "email": "karl.willis@autodesk.com"}, "mor": {"name": "Mor Katz", "email": "mor.katz@autodesk.com"}, "amir": {"name": "Amir Khas Ahmadi", "email": "amir.khasahmadi@autodesk.com"}, "pradeep": {"name": "Pradeep Kumar Jayaraman", "email": "pradeep.kumar.jayaraman@autodesk.com"}, "sifan": {"name": "Sifan Wu", "email": "sifan.wu@autodesk.com"}, "rio": {"name": "Rio Aguina-Kang", "email": "raguinakangus@gmail.com"}, "brian": {"name": "Do Han Heon", "email": "do_heon_han@brown.edu"}, "stewart": {"name": "Stewart Morris", "email": "stewart_morris@brown.edu"}, "maxim": {"name": "Maxim Gumin", "email": "maxgumin@gmail.com"}, "junyu": {"name": "Junyu Liu", "email": "liu_junyu@brown.edu"}, "coco": {"name": "Coco Kaleel", "email": "caroline_kaleel@brown.edu"}, "jean": {"name": "Jean Yoo", "email": "seung_jean_yoo@brown.edu"}, "cal": {"name": "Cal Nightingale", "email": "cal_nightingale@brown.edu"}, "ray": {"name": "Ray (Ruiqi) Xu", "email": "ruiqi_xu1@brown.edu"}, "zihan": {"name": "Zihan Zhu", "email": "zihan_zhu@brown.edu"}};
+            let myAvailability = {"Sunday": [], "Monday": ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM"], "Tuesday": ["10:00 AM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM"], "Wednesday": ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM"], "Thursday": ["10:00 AM", "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM"], "Friday": ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM"], "Saturday": []};
+            let myCommitments = {"Sunday": [], "Monday": [{"name": "VC Group Meeting", "time": "12:00 PM", "length": 60}], "Tuesday": [{"name": "CS 1230 Lecture", "time": "10:30 AM", "length": 90}, {"name": "CS Faculty Meeting", "time": "12:00 PM", "length": 60}], "Wednesday": [], "Thursday": [{"name": "CS 1230 Lecture", "time": "10:30 AM", "length": 90}, {"name": "CS 1230 Staff Meeting", "time": "04:00 PM", "length": 60}], "Friday": [{"name": "BVC Seminar", "time": "12:00 PM", "length": 60}], "Saturday": []};
+            let meetings = [{"length": 30, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "Neurosymbolic Scene Synth", "participants": ["manolis", "angel", "adrian", "luca", "kai", "cal"]}, {"length": 60, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "Part Graph Programs", "participants": ["kenny", "niloy", "paul_g"]}, {"length": 60, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "structural-gradients", "participants": ["kenny", "aditya"]}, {"length": 60, "type": "remote", "remoteLocation": "https://sfu.zoom.us/j/97617289278?pwd=K0dTRkNJTmJwcnNpVHRmb2pHbTJQQT09", "name": "Scene Dataset Meeting", "participants": ["manolis", "angel", "qirui", "sonia"]}, {"length": 30, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "Procedural Modeling + Diffusion", "participants": ["xianghao", "srinath", "ray", "zihan"]}, {"length": 30, "type": "remote", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "dl-rendering", "participants": ["xiangyu", "toshiya"]}, {"length": 30, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "Implicit Transformer Shape Synth", "participants": ["kai", "kenny", "anh", "junyu"]}, {"length": 30, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "Kenny Stochastic PLAD Project", "participants": ["kenny", "sid"]}, {"length": 60, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "Arman's Noise Project", "participants": ["arman", "matt", "soren", "vova", "krishi"]}, {"length": 30, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "3D perceptual sim", "participants": ["alex_w"]}, {"length": 30, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "vpi-edits", "participants": ["kenny", "aditya", "norman", "neil"]}, {"length": 60, "type": "remote", "remoteLocation": "https://brown.zoom.us/my/raofu", "name": "Text2Action", "participants": ["srinath", "rao", "ran", "carmen", "ellie", "dingxi"]}, {"length": 60, "type": "remote", "remoteLocation": "https://brown.zoom.us/j/92062477527?pwd=QUpJdGNnMFgxbXpqaGRDaWF2Yy9LZz09", "name": "Articulated Canonicalization", "participants": ["srinath", "congyue", "rahul", "xianghao"]}, {"length": 60, "type": "remote", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "Xianghao Autodesk Internship", "participants": ["xianghao", "karl", "mor", "amir", "pradeep", "sifan"]}, {"length": 60, "type": "remote", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "Arman PoissonNet Project", "participants": ["arman", "noam", "vova"]}, {"length": 60, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "LLM Scene Generation", "participants": ["rio", "brian", "stewart", "maxim", "kenny", "aditya", "xianghao", "jean"]}, {"length": 30, "type": "hybrid", "physicalLocation": "CIT 445", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "Guitar Design Project", "participants": ["coco", "aditya"]}, {"length": 30, "type": "remote", "remoteLocation": "https://brown.zoom.us/j/2338054298", "name": "exploreCSR continued", "participants": ["aditya", "morayo", "stefen"]}];
+            let meeting2validslots = {"3D perceptual sim": {"Friday": ["01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": ["01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"], "Tuesday": ["01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"], "Wednesday": ["01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"]}, "Arman PoissonNet Project": {"Friday": [], "Monday": ["01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM"], "Saturday": [], "Sunday": [], "Thursday": ["01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM"], "Tuesday": [], "Wednesday": ["01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "04:00 PM", "04:30 PM"]}, "Arman's Noise Project": {"Friday": [], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": ["01:00 PM"], "Tuesday": [], "Wednesday": ["01:00 PM"]}, "Articulated Canonicalization": {"Friday": ["02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM"], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": ["02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"], "Tuesday": [], "Wednesday": []}, "Guitar Design Project": {"Friday": ["01:00 PM", "01:30 PM", "02:00 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM"], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": ["10:00 AM", "12:00 PM", "03:00 PM", "03:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM"], "Tuesday": ["10:00 AM"], "Wednesday": ["01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "06:00 PM", "06:30 PM"]}, "Implicit Transformer Shape Synth": {"Friday": ["01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": [], "Tuesday": [], "Wednesday": []}, "Kenny Stochastic PLAD Project": {"Friday": ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"], "Monday": ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM"], "Saturday": [], "Sunday": [], "Thursday": ["10:00 AM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"], "Tuesday": [], "Wednesday": []}, "LLM Scene Generation": {"Friday": ["11:00 AM", "11:30 AM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM"], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": ["12:00 PM", "03:00 PM", "03:30 PM"], "Tuesday": [], "Wednesday": []}, "Neurosymbolic Scene Synth": {"Friday": [], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": ["05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM"], "Tuesday": [], "Wednesday": []}, "Part Graph Programs": {"Friday": ["10:00 AM", "10:30 AM"], "Monday": ["10:00 AM", "10:30 AM"], "Saturday": [], "Sunday": [], "Thursday": [], "Tuesday": [], "Wednesday": []}, "Procedural Modeling + Diffusion": {"Friday": ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM"], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": ["05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM"], "Tuesday": ["04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM"], "Wednesday": ["10:00 AM", "10:30 AM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM"]}, "Scene Dataset Meeting": {"Friday": [], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": ["05:30 PM", "06:00 PM", "06:30 PM"], "Tuesday": ["05:30 PM", "06:00 PM", "06:30 PM"], "Wednesday": []}, "Text2Action": {"Friday": ["10:00 AM", "10:30 AM"], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": [], "Tuesday": [], "Wednesday": []}, "Xianghao Autodesk Internship": {"Friday": [], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": [], "Tuesday": [], "Wednesday": ["04:00 PM", "04:30 PM"]}, "dl-rendering": {"Friday": [], "Monday": ["10:00 AM", "10:30 AM", "11:00 AM"], "Saturday": [], "Sunday": [], "Thursday": ["10:00 AM"], "Tuesday": ["10:00 AM"], "Wednesday": ["11:00 AM"]}, "exploreCSR continued": {"Friday": [], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": ["05:00 PM"], "Tuesday": ["05:00 PM"], "Wednesday": []}, "structural-gradients": {"Friday": ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": [], "Tuesday": [], "Wednesday": []}, "vpi-edits": {"Friday": ["01:00 PM", "01:30 PM"], "Monday": [], "Saturday": [], "Sunday": [], "Thursday": [], "Tuesday": [], "Wednesday": []}};
+            let calendar = undefined;
+
+            function vbars_med(n) {
+                let vbars = '';
+                for (let i = 0; i < n; i++) {
+                    vbars += '❙';
+                }
+                return vbars;
+            }
+            function vbars_thick(n) {
+                let vbars = '';
+                for (let i = 0; i < n; i++) {
+                    vbars += '❚';
+                }
+                return vbars;
+            }
+
+            function timestr2hoursminutes(timestr) {
+                const re = /(\d\d):(\d\d) ([A|P]M)/;
+                matches = timestr.match(re);
+                if (matches.length == 0) return NaN;
+                let hours = parseInt(matches[1]);
+                const minutes = parseInt(matches[2]);
+                const AMPM = matches[3];
+                if (AMPM == "AM" && hours == 12)
+                    hours -= 12;
+                if (AMPM == 'PM' && hours != 12)
+                    hours += 12;
+                return {hours: hours, minutes: minutes};
+            }
+
+            function nexttime(time) {
+                if (!TIMES.includes(time)) return undefined;
+                const i = TIMES.indexOf(time);
+                if (i == TIMES.length) return undefined;
+                return TIMES[i+1];
+            }
+
+            function timestr2minutes(timestr) {
+                const time = timestr2hoursminutes(timestr);
+                return 60*time.hours + time.minutes;
+            }
+
+            function inSelectMode() {
+                return meetings.some((m) => m.selected);
+            }
+            function selectedMeeting()  {
+                return meetings.find((m) => m.selected);
+            }
+
+
+            // --------------------------------------------------------------------------
+            // Meeting stuff
+            // --------------------------------------------------------------------------
+
+
+            class Meeting {
+
+                constructor(index, data, validSlots) {
+                    // Basic properties
+                    this.index = index;
+                    for (let prop in data)  {
+                        this[prop] = data[prop];
+                    }
+                    this.allValidSlots = validSlots;
+                    this.currValidSlots = JSON.parse(JSON.stringify(validSlots));
+
+                    this.scheduled = false;
+
+                    // UI state
+                    this.selected = false;
+
+                    // DOM elemments
+                    let tableBody = $('#meetings tbody');
+                    tableBody.append(`<tr class="meeting" index=${index}></tr>`);
+                    let tr = $(this.selector);
+                    tr.append(`<td class='meetingName'>${this.name}</td>`);
+                    const maxLength = Math.max(...meetings.map((m) => m.length));
+                    let options = '';
+                    for (let i = 30; i <= maxLength; i += 30) {
+                        options += `<option ${i == this.length ? "selected" : ""} value=${i}>${i}</option>`;
+                    }
+                    tr.append(`<td class='meetingLength'><select class="form-select form-select-sm">${options}</select></td>`);
+                    tr.append(`<td class='meetingViable'></td>`);
+                    tr.append('<td class="meetingCommon"></td>');
+
+                    // Viable times
+                    this.viableTimes = undefined;
+                    this.numViableTimes = undefined;
+                    this.__updateViableTimes();
+
+                    // Event handlers
+                    // ----------------------------------------------------
+
+                    // Change meeting length
+                    $(`${this.selector} select`).change(function(event) {
+                        this.changeMeetingLength(event.target.value);
+                    }.bind(this));
+                    // Prevent click from bubbling up and 'selecting' the meeeting
+                    $(`${this.selector} select`).click(function(event) {
+                        event.stopPropagation();
+                    });
+
+                    // Hover
+                    $(this.selector).hover(this.hoverIn.bind(this), this.hoverOut.bind(this));
+
+                    // Click
+                    $(this.selector).click(this.click.bind(this));
+                }
+
+                hoverIn() {
+                    if (inSelectMode()) return;
+                    this.highlight(true);
+                    calendar.highlightValidSlotsFor(this);
+                }
+                hoverOut() {
+                    if (inSelectMode()) return;
+                    this.unhighlight(true);
+                    calendar.unhighlightValidSlotsFor(this);
+                }
+
+                click() {
+                    if (!this.selected)  {
+                        if (inSelectMode()) return;
+                        this.selected = true;
+                        this.select();
+                        calendar.hideCellsNotValidFor(this);
+                    } else {
+                        this.selected = false;
+                        this.unselect();
+                        calendar.showAllCells(this);
+                    }
+                }
+
+                get selector() { return `#meetings tr[index="${this.index}"]`; }
+
+                changeMeetingLength(newLength) {
+                    if (this.length != newLength) {
+                        this.length = newLength;
+                        this.__updateViableTimes();
+                    }
+                }
+
+                highlight(showPeopleInCommon=false) {
+                    $(this.selector).addClass(this.scheduled ? scheduledHightlightClass : highlightClass);
+                    if (showPeopleInCommon) {
+                        for (let meeting of meetings) {
+                            if (meeting !== this) {
+                                meeting.showPeopleInCommon(this);
+                            }
+                        }
+                    }
+                }
+                unhighlight(showPeopleInCommon=false) {
+                    $(this.selector).removeClass(this.scheduled ? scheduledHightlightClass : highlightClass);
+                    if (showPeopleInCommon) {
+                        for (let meeting of meetings) {
+                            if (meeting !== this) {
+                                meeting.unshowPeopleInCommon();
+                            }
+                        } 
+                    }
+                }
+
+                select() { $(this.selector).addClass(`${this.scheduled ? scheduledSelectClass : selectClass} border-2`); }
+                unselect() { $(this.selector).removeClass(`${this.scheduled ? scheduledSelectClass : selectClass} border-2`); }
+
+                peopleInCommon(meeting) {
+                    let n = 0;
+                    for (let p of this.participants) {
+                        n += meeting.participants.includes(p);
+                    }
+                    return n;
+                }
+                showPeopleInCommon(meeting) {
+                    $(`${this.selector} td.meetingCommon`).html(vbars_thick(this.peopleInCommon(meeting)));
+                }
+                unshowPeopleInCommon() {
+                    $(`${this.selector} td.meetingCommon`).html('');
+                }
+
+                isViable(day, time) {
+                    return this.viableTimes[day].includes(time);
+                }
+
+                schedule(day, time) {
+                    this.scheduled = {day: day, time: time};
+
+                    // Remove this time slot from viable times of all other meetings
+                    for (let meeting of meetings) {
+                        if (meeting !== this) {
+                            let times = meeting.currValidSlots[day];
+                            if (times) {
+                                const nslots = this.length / 30;
+                                let t = time;
+                                for (let i = 0; i < nslots; i++) {
+                                    if (times.includes(t))
+                                        times.splice(times.indexOf(t), 1);
+                                    t = nexttime(t);
+                                }
+                            }
+                            meeting.__updateViableTimes();
+                        }
+                    }
+
+                    $(this.selector).addClass(scheduledMeetingTextClass);
+                    $(`${this.selector} select`).prop('disabled', true);
+
+                    // Enable the 'naviagate away from page' warning
+                    window.onbeforeunload = () => true;
+
+                    // If all meetings have been scheduled, enable the export button
+                    if (meetings.every((m) => m.scheduled))
+                        $('#exportButton').prop('disabled', false);
+                }
+                unschedule() {
+                    const day = this.scheduled.day;
+                    const time = this.scheduled.time;
+                    this.scheduled = false;
+
+                    // Add this time slot back to viable times for other meetings
+                    for (let meeting of meetings) {
+                        if (meeting !== this) {
+                            let times = meeting.allValidSlots[day];
+                            if (times) {
+                                const nslots = this.length / 30;
+                                let t = time;
+                                for (let i = 0; i < nslots; i++) {
+                                    if (times.includes(t))
+                                        meeting.currValidSlots[day].push(t); // TODO: Sorted order?
+                                    t = nexttime(t);
+                                }
+                            }
+                            meeting.__updateViableTimes();
+                        }
+                    }
+
+                    $(this.selector).removeClass(scheduledMeetingTextClass);
+                    $(`${this.selector} select`).prop('disabled', false);
+
+                    // If no remaining scheduled meetings remain, disable the
+                    //  'navigate away from page' warning
+                    if (!meetings.some((m) => m.scheduled))
+                        window.onbeforeunload = null;
+
+                    // Make sure the export button is disabled
+                    $('#exportButton').prop('disabled', true);
+                }
+
+                __updateViableTimes() {
+                    const nslots = this.length / 30;
+                    this.viableTimes = {}
+                    for (let day in this.currValidSlots) {
+                        const slots = this.currValidSlots[day];
+                        this.viableTimes[day] = [];
+                        // For each valid slot, check whether there are enough back-to-back
+                        //  slots starting from that slot to account for the whole meeting length
+                        for (let i = 0; i < slots.length - (nslots-1); i++) {
+                            let time = timestr2minutes(slots[i]);
+                            let enoughValidBackToBackSlots = true;
+                            for (let j = 1; j < nslots; j++) {
+                                const time2 = timestr2minutes(slots[i+j]);
+                                if (time2 - time != 30) {
+                                    enoughValidBackToBackSlots = false;
+                                    break;
+                                }
+                                time = time2;
+                            }
+                            if (enoughValidBackToBackSlots)
+                                this.viableTimes[day].push(slots[i]);
+                        }
+                    }
+
+                    // Update numViableTimmes
+                    this.numViableTimes = 0;
+                    for (let day in this.viableTimes)
+                        this.numViableTimes += this.viableTimes[day].length;
+                    // Update DOM
+                    $(`${this.selector} td.meetingViable`).html(vbars_med(this.numViableTimes));
+                }
+            }
+
+
+            // --------------------------------------------------------------------------
+            // Calendar stuff
+            // --------------------------------------------------------------------------
+
+
+            let allslots = {};
+            for (let day of DAYS) {
+                allslots[day] = [];
+                for (let time of TIMES) {
+                    allslots[day].push(time);
+                }
+            }
+            function fordaytimes(f, slots=undefined) {
+                slots = slots ? slots : allslots;
+                for (let day in slots) {
+                    for (let time of slots[day]) {
+                        f(day, time);
+                    }
+                }
+            }
+            function mapdaytimes(f, slots=undefined) {
+                slots = slots ? slots : allslots;
+                let ret = {};
+                for (let day in slots) {
+                    ret[day] = [];
+                    for (let time of slots[day]) {
+                        ret[day][time] = f(day, time);
+                    }
+                }
+                return ret;
+            }
+
+            class Calendar {
+                constructor() {
+                    this.meetings = undefined;
+                    this.__updateMeetingsPerCell();
+
+                    // Event handlers
+                    // ------------------------------------
+
+                    // Hover
+                    fordaytimes(function(day,time) {
+                        this.cell(day, time).hover(function() {
+                            this.hoverIn(day, time);
+                        }.bind(this), function() {
+                            this.hoverOut(day, time);
+                        }.bind(this));
+                    }.bind(this));
+
+                    // Click
+                    fordaytimes(function(day, time) {
+                        this.cell(day, time).click(function() {
+                            this.click(day, time);
+                        }.bind(this));
+                    }.bind(this));
+                }
+
+                hoverIn(day, time) {
+                    if (inSelectMode()) {
+                        this.previewScheduleMeetingAtCell(selectedMeeting(), day, time);
+                    } else {
+                        if (this.meetings[day][time].length > 0)
+                            this.highlight(day,time);
+                        if (this.isScheduled(day, time)) {
+                            this.meetingScheduledAt(day, time).highlight(true);
+                        } else  {
+                            for (let meeting of this.meetings[day][time])
+                                meeting.highlight();
+                        }
+                    }
+                }
+                hoverOut(day, time) {
+                    if (inSelectMode()) {
+                        this.unpreviewScheduleMeetingAtCell(selectedMeeting(), day, time);
+                    } else {
+                        if (this.meetings[day][time].length > 0)
+                            this.unhighlight(day,time);
+                        if (this.isScheduled(day, time)) {
+                            this.meetingScheduledAt(day, time).unhighlight(true);
+                        } else  {
+                            for (let meeting of this.meetings[day][time])
+                                meeting.unhighlight();
+                        }
+                    }
+                }
+
+                click(day, time) {
+                    if (inSelectMode()) {
+                        let meeting = selectedMeeting();
+                        if (!meeting.isViable(day, time)) {
+                            // Just deselect the meeting
+                            meeting.click();
+                            meeting.hoverOut();
+                            return;
+                        }
+                        if (!meeting.scheduled) {
+                            this.scheduleMeeting(meeting, day, time);
+                        } else {
+                            const sday = meeting.scheduled.day;
+                            const stime = meeting.scheduled.time;
+                            if (!(sday == day && stime == time)) {
+                                this.hoverOut(day, time);
+                                this.hoverIn(sday, stime);
+                            }
+                            this.unscheduleMeeting(meeting);
+                            if (!(sday == day && stime == time)) {
+                                this.hoverOut(sday, stime);
+                                this.hoverIn(day, time);
+                                this.scheduleMeeting(meeting, day, time);
+                            } else {
+                                this.hoverOut(sday, stime);
+                                meeting.click();
+                                meeting.hoverOut();
+                                this.hoverIn(day, time);
+                            }
+                        }
+                    } else {
+                        if (this.isScheduled(day, time)) {
+                            let meeting = this.meetingScheduledAt(day, time);
+                            meeting.hoverIn();
+                            meeting.click();
+                            this.hoverIn(day, time);
+                        }
+                    }
+                }
+
+                cell(day, time) { return $(`#calendar td[day="${day}"][time="${time}"]`); }
+                leftcell(day, time) {
+                    const i = DAYS.indexOf(day);
+                    if (i > 0) return this.cell(DAYS[i-1], time);
+                    return undefined;
+                }
+                rightcell(day, time) {
+                    const i = DAYS.indexOf(day);
+                    if (i < DAYS.length-1) return this.cell(DAYS[i+1], time);
+                    return undefined;
+                }
+                abovecell(day, time) {
+                    const i = TIMES.indexOf(time);
+                    if (i > 0) return this.cell(day, TIMES[i-1]);
+                    return undefined;
+                } 
+                belowcell(day, time) {
+                    const i = TIMES.indexOf(time);
+                    if (i < TIMES.length-1) return this.cell(day, TIMES[i+1]);
+                    return undefined;
+                }
+
+                isScheduled(day, time) {
+                    return this.meetingScheduledAt(day, time) != undefined;
+                }
+                meetingScheduledAt(day, time) {
+                    if (this.meetings[day][time].length == 0) return undefined;
+                    if (!this.meetings[day][time][0].scheduled) return undefined;
+                    return this.meetings[day][time][0];
+                }
+
+                highlight(day, time) {
+                    this.scheduledFormatting('remove', day, time);
+                    this.cell(day, time).addClass(this.isScheduled(day, time) ? scheduledHightlightClass : highlightClass);
+                    if (this.isScheduled(day, time) && this.meetingScheduledAt(day, time).length > 30) {
+                        const nslots = this.meetingScheduledAt(day, time).length / 30;
+                        for (let i = 1; i < nslots; i++) {
+                            time = nexttime(time);
+                            this.cell(day, time).addClass(scheduledHightlightClass);
+                        }
+                    }
+                }
+                unhighlight(day, time) {
+                    this.scheduledFormatting('add', day, time);
+                    this.cell(day, time).removeClass(this.isScheduled(day, time) ? scheduledHightlightClass : highlightClass);
+                    if (this.isScheduled(day, time) && this.meetingScheduledAt(day, time).length > 30) {
+                        const nslots = this.meetingScheduledAt(day, time).length / 30;
+                        for (let i = 1; i < nslots; i++) {
+                            time = nexttime(time);
+                            this.cell(day, time).removeClass(scheduledHightlightClass);
+                        }
+                    }
+                }
+                highlightValidSlotsFor(meeting) {
+                    fordaytimes(function(day,time) {
+                        this.scheduledFormatting('remove', day, time);
+                        this.cell(day, time).addClass(meeting.scheduled ? scheduledHightlightClass : highlightClass);
+                    }.bind(this), meeting.currValidSlots);
+                }
+                unhighlightValidSlotsFor(meeting) {
+                    fordaytimes(function(day,time) {
+                        this.scheduledFormatting('add', day, time);
+                        this.cell(day, time).removeClass(meeting.scheduled ? scheduledHightlightClass : highlightClass);
+                    }.bind(this), meeting.currValidSlots);
+                }
+
+                hideCellsNotValidFor(meeting) {
+                    let cells = meeting.currValidSlots;
+                    fordaytimes(function(day,time) {
+                        if (!cells[day].includes(time)) {
+                            this.cell(day,time).addClass(hideClass);
+                        }
+                    }.bind(this));
+                    // Also need to change the border color of scheduled meetings and commitments
+                    for (let m of meetings) {
+                        if (m !== meeting && m.scheduled) {
+                            this.outlineForMeeting('remove', m, m.scheduled.day, m.scheduled.time, scheduledBorderClass);
+                        }
+                    }
+                    for (let day in myCommitments) {
+                        for (let c of myCommitments[day]) {
+                            this.outlineForMeeting('remove', c, day, c.time, commitmentBorderClass);
+                        }
+                    }
+                }
+                showAllCells(meeting) {
+                    fordaytimes(function(day,time) {
+                        this.cell(day,time).removeClass(hideClass);
+                    }.bind(this));
+                    // Also need to change the border color of scheduled meetings and commitments
+                    for (let m of meetings) {
+                        if (m !== meeting && m.scheduled) {
+                            this.outlineForMeeting('add', m, m.scheduled.day, m.scheduled.time, scheduledBorderClass);
+                        }
+                    }
+                    for (let day in myCommitments) {
+                        for (let c of myCommitments[day]) {
+                            this.outlineForMeeting('add', c, day, c.time, commitmentBorderClass);
+                        }
+                    }
+                }
+
+                outlineForMeeting(mode, meeting, day, time, borderColorClass) {
+                    const nslots = meeting.length / 30;
+                    for (let i = 0; i < nslots; i++) {
+                        let cell = this.cell(day, time);
+                        cell[`${mode}Class`](borderColorClass);
+
+                        // Top-most cell has a top border; others do not
+                        if (i == 0) {
+                            cell[`${mode}Class`]('border-top');
+                            cell.removeClass('border-top-0');
+                            // Adjacent top cell should have bottom border turned off
+                            let abovecell = this.abovecell(day, time);
+                            if (abovecell)
+                                abovecell[`${mode}Class`]('border-bottom-0');
+                        } else {
+                            cell[`${mode}Class`]('border-top-0');
+                        }
+
+                        // Bottom-most cell has a bottom border; others do not
+                        if (i == nslots-1) {
+                            cell[`${mode}Class`]('border-bottom');
+                            cell.removeClass('border-bottom-0');
+                            // Adjacent bottom cell should have top border turned off
+                            let belowcell = this.belowcell(day, time);
+                            if (belowcell)
+                                belowcell[`${mode}Class`]('border-top-0');
+                        } else {
+                            cell[`${mode}Class`]('border-bottom-0');
+                        }
+
+                        // All cells have left/right borders
+                        cell[`${mode}Class`]('border-start');
+                        cell[`${mode}Class`]('border-end');
+                        cell.removeClass('border-start-0');
+                        cell.removeClass('border-end-0');
+                        // Left/right adjacent cells should have their right/left borders turned off
+                        let leftcell = this.leftcell(day, time);
+                        if (leftcell)
+                            leftcell[`${mode}Class`]('border-end-0');
+                        let rightcell = this.rightcell(day, time);
+                        if (rightcell)
+                            rightcell[`${mode}Class`]('border-start-0');
+
+                        time = nexttime(time);
+                    }
+                }
+                previewScheduleMeetingAtCell(meeting, day, time) {
+                    if (meeting.isViable(day, time))
+                        this.outlineForMeeting('add', meeting, day, time, meeting.scheduled ? scheduledSelectClass : selectClass);
+                }
+                unpreviewScheduleMeetingAtCell(meeting, day, time) {
+                    if (meeting.isViable(day, time))
+                        this.outlineForMeeting('remove', meeting, day, time, meeting.scheduled ? scheduledSelectClass : selectClass);
+                }
+
+                scheduledFormatting(mode, day, time) {
+                    if (this.isScheduled(day, time)) {
+                        let meeting = this.meetingScheduledAt(day, time);
+                        this.formatForMeeting(meeting, 'scheduled', mode, day, time);
+                    }
+                }
+
+                formatForMeeting(meeting, type, mode, day, time) {
+                    this.outlineForMeeting(mode, meeting, day, time, window[`${type}BorderClass`]);
+                    const nslots = meeting.length / 30;
+                    for (let i = 0; i < nslots; i++) {
+                        this.cell(day, time)[`${mode}Class`](window[`${type}BGClass`] + ' ' + window[`${type}TextClass`]);
+                        time = nexttime(time);
+                    }
+                }
+
+                scheduleMeeting(meeting, day, time) {
+                    if (meeting.isViable(day, time)) {
+                        this.hoverOut(day, time);
+                        meeting.click();
+                        meeting.hoverOut();
+
+                        meeting.schedule(day, time);
+                        this.__updateMeetingsPerCell();
+
+                        // meeting.hoverIn();
+                        // meeting.click()
+                        this.hoverIn(day, time);
+                    }
+                }
+                unscheduleMeeting(meeting) {
+                    if (meeting.scheduled) {
+                        const day = meeting.scheduled.day;
+                        const time = meeting.scheduled.time;
+                        this.hoverOut(day, time);
+                        meeting.click();
+                        meeting.hoverOut();
+
+                        this.scheduledFormatting('remove', day, time);
+                        meeting.unschedule();
+                        this.__updateMeetingsPerCell();
+
+                        meeting.hoverIn();
+                        meeting.click();
+                        this.hoverIn(day, time);
+                    }
+                }
+                unscheduleAllMeetings() {
+                    // First, de-select any selected meeting
+                    if (inSelectMode()) {
+                        let meeting = selectedMeeting();
+                        meeting.click();
+                        meeting.hoverOut();
+                    }
+                    for (let meeting of meetings) {
+                        if (meeting.scheduled) {
+                            const day = meeting.scheduled.day;
+                            const time = meeting.scheduled.time;
+                            this.scheduledFormatting('remove', day, time);
+                            meeting.unschedule();
+                        }
+                    }
+                    this.__updateMeetingsPerCell();
+                }
+
+                addCommitmentToDOM(commitment, day, time) {
+                    const nslots = commitment.length / 30;
+                    for (let i = 0; i < nslots; i++) {
+                        let cell = this.cell(day, time);
+                        cell.html(commitment.name);
+                        cell.addClass('smalltext');
+                        time = nexttime(time);    
+                    }
+                }
+
+                __updateMeetingsPerCell() {
+                    this.meetings = mapdaytimes(() => []);
+                    for (let meeting of meetings) {
+                        if (meeting.scheduled) {
+                            this.meetings[meeting.scheduled.day][meeting.scheduled.time].push(meeting);
+                        } else {
+                            fordaytimes(function(day, time) {
+                                this.meetings[day][time].push(meeting);
+                            }.bind(this), meeting.currValidSlots);
+                        }
+                    }
+
+                    // Update DOM: unscheduled slots
+                    fordaytimes(function(day,time) {
+                        if (!this.isScheduled(day,time)) {
+                            let cell = this.cell(day, time);
+                            cell.html(vbars_thick(this.meetings[day][time].length));
+                            cell.removeClass('smalltext');
+                        } 
+                    }.bind(this));
+                    // Update DOM: scheduled slots
+                    for (let meeting of meetings) {
+                        if (meeting.scheduled) {
+                            let day = meeting.scheduled.day;
+                            let time = meeting.scheduled.time;
+                            this.addCommitmentToDOM(meeting, day, time);
+                        }
+                    }
+                    // Update DOM: existing commitments
+                    for (let day in myCommitments) {
+                        for (let commitment of myCommitments[day]) {
+                            let time = commitment.time;
+                            this.addCommitmentToDOM(commitment, day, time);
+                            this.formatForMeeting(commitment, 'commitment', 'add', day, time);
+                        }
+                    }
+                }
+
+            }
+
+            // --------------------------------------------------------------------------
+            // GCAL STUFF
+            // --------------------------------------------------------------------------
+
+            var CLIENT_ID = '809694660718-d5r3pmi1l0jt5fs1gv8gk7tfmvvbgsbd.apps.googleusercontent.com';
+            var API_KEY = 'AIzaSyDcf7Xs1WA_Z0EMx1L9iTRvp8qnOTkicxM';
+            var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+            var SCOPES = "https://www.googleapis.com/auth/calendar.events";
+
+            function exportToGCal() {
+                let clientInitialized = false;
+
+                let resultModal = new bootstrap.Modal(document.getElementById('exportResult'), {
+                    keyboard: false
+                });
+
+                function initClient() {
+                        gapi.client.init({
+                        apiKey: API_KEY,
+                        clientId: CLIENT_ID,
+                        discoveryDocs: DISCOVERY_DOCS,
+                        scope: SCOPES
+                    }).then(function () {
+                        clientInitialized = true;
+                        // Listen for sign-in state changes.
+                        gapi.auth2.getAuthInstance().isSignedIn.listen(signInStatusChanged);
+                        // Trigger sign-in
+                        signInIfNeeded(); 
+                    }, function(error) {
+                        $('#resultModalLabel').html('Export Error');
+                        $('#exportResult .modal-body').html(JSON.stringify(error, null, 2));
+                        resultModal.show();
+                    });
+                }
+
+                function signInIfNeeded() {
+                    if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
+                        gapi.auth2.getAuthInstance().signIn();
+                    } else {
+                        doExport();
+                    }
+                }
+
+                function signInStatusChanged(isSignedIn) {
+                    if (isSignedIn)
+                        doExport();
+                }
+
+                function doExport(mtgIndex=0) {
+                    if (mtgIndex == meetings.length) {
+                        $('#resultModalLabel').html('Export Success!');
+                        $('#exportResult .modal-body').html('Meeting schedule successfully exported to Google Calendar.');
+                        resultModal.show();
+                    } else {
+                        const startDate = document.getElementById('startDate').value;
+                        const d = dayjs(startDate);
+                        const meeting = meetings[mtgIndex];
+                        const di = d.day();
+                        const mdi = DAYS.indexOf(meeting.scheduled.day);
+                        let daysDiff = mdi - di;
+                        if (daysDiff < 0) daysDiff += 7;
+                        const meetingTime = timestr2hoursminutes(meeting.scheduled.time);
+                        let meetingDate = d.add(daysDiff, 'day').hour(meetingTime.hours).minute(meetingTime.minutes);
+
+                        const event = {
+                            'summary': meeting.name,
+                            'location': (meeting.type == 'hybrid' || meeting.type == 'in-person') ? meeting.physicalLocation : meeting.remoteLocation,
+                            'description': meeting.type == 'hybrid' ? `Remote Location: ${meeting.remoteLocation}` : '',
+                            'colorId': config.gCalEventColorId ? `${config.gCalEventColorId}` : undefined,
+                            'start': {
+                                'dateTime': meetingDate.toISOString(),
+                                'timeZone': config.timeZone
+                            },
+                            'end': {
+                                'dateTime': meetingDate.add(meeting.length, 'minutes').toISOString(),
+                                'timeZone': config.timeZone
+                            },
+                            'recurrence': [
+                                'RRULE:FREQ=WEEKLY'
+                            ],
+                            'attendees': meeting.participants.map(function(p) {
+                                return { email: people[p].email };
+                            }),
+                            'reminders': {
+                                'useDefault': true
+                            }
+                        };
+
+                        var request = gapi.client.calendar.events.insert({
+                            'calendarId': 'primary',
+                            'resource': event,
+                            'sendUpdates': 'all'
+                        });
+
+                        request.execute(function(event) {
+                            doExport(mtgIndex+1);
+                        });
+                    }
+                }
+
+                if (!clientInitialized) {
+                    gapi.load('client:auth2', initClient);
+                } else {
+                    signInIfNeeded();
+                }
+            }
+
+            // --------------------------------------------------------------------------
+            // Initialization stuff
+            // --------------------------------------------------------------------------
+
+
+            $(document).ready(function() {
+                initMeetings();
+                calendar = new Calendar();
+                $('#clearButton').click(() => calendar.unscheduleAllMeetings());
+                $('#startDate').change(function(event) {
+                    $('#confirmExportButton').prop('disabled', event.target.value == '');
+                });
+                $('#confirmExportButton').click(() => exportToGCal());
+            });
+
+            function initMeetings() {
+                for (let i = 0; i < meetings.length; i++) {
+                    let meeting = meetings[i];
+                    validSlots = meeting2validslots[meeting.name];
+                    // Remove any slots that aren't in myAvailability
+                    for (let day in validSlots) {
+                        validSlots[day] = validSlots[day].filter(time => myAvailability[day].includes(time));
+                    }
+                    meetings[i] = new Meeting(i, meetings[i], validSlots);
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class='container' id='maincontent'>
+            <div class='row'>
+                <div class='col-7'>
+                    <div class='text-center'>
+                        <h4>Calendar</h4>
+                    </div>
+                    <table class='table table-bordered table-sm text-break' id='calendar'>
+                    <!-- <table class='table table-borderless table-sm text-break' id='calendar'> -->
+                        <thead>
+                            <tr class='text-center'>
+                                <th scope='col'></th>
+                                <th scope='col'>Sun</th>
+                                <th scope='col'>Mon</th>
+                                <th scope='col'>Tues</th>
+                                <th scope='col'>Weds</th>
+                                <th scope='col'>Thurs</th>
+                                <th scope='col'>Fri</th>
+                                <th scope='col'>Sat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+        <tr>
+            <th scope="row">10:00 AM</th>
+            <td day="Sunday" time="10:00 AM"></td><td day="Monday" time="10:00 AM"></td><td day="Tuesday" time="10:00 AM"></td><td day="Wednesday" time="10:00 AM"></td><td day="Thursday" time="10:00 AM"></td><td day="Friday" time="10:00 AM"></td><td day="Saturday" time="10:00 AM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">10:30 AM</th>
+            <td day="Sunday" time="10:30 AM"></td><td day="Monday" time="10:30 AM"></td><td day="Tuesday" time="10:30 AM"></td><td day="Wednesday" time="10:30 AM"></td><td day="Thursday" time="10:30 AM"></td><td day="Friday" time="10:30 AM"></td><td day="Saturday" time="10:30 AM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">11:00 AM</th>
+            <td day="Sunday" time="11:00 AM"></td><td day="Monday" time="11:00 AM"></td><td day="Tuesday" time="11:00 AM"></td><td day="Wednesday" time="11:00 AM"></td><td day="Thursday" time="11:00 AM"></td><td day="Friday" time="11:00 AM"></td><td day="Saturday" time="11:00 AM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">11:30 AM</th>
+            <td day="Sunday" time="11:30 AM"></td><td day="Monday" time="11:30 AM"></td><td day="Tuesday" time="11:30 AM"></td><td day="Wednesday" time="11:30 AM"></td><td day="Thursday" time="11:30 AM"></td><td day="Friday" time="11:30 AM"></td><td day="Saturday" time="11:30 AM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">12:00 PM</th>
+            <td day="Sunday" time="12:00 PM"></td><td day="Monday" time="12:00 PM"></td><td day="Tuesday" time="12:00 PM"></td><td day="Wednesday" time="12:00 PM"></td><td day="Thursday" time="12:00 PM"></td><td day="Friday" time="12:00 PM"></td><td day="Saturday" time="12:00 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">12:30 PM</th>
+            <td day="Sunday" time="12:30 PM"></td><td day="Monday" time="12:30 PM"></td><td day="Tuesday" time="12:30 PM"></td><td day="Wednesday" time="12:30 PM"></td><td day="Thursday" time="12:30 PM"></td><td day="Friday" time="12:30 PM"></td><td day="Saturday" time="12:30 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">01:00 PM</th>
+            <td day="Sunday" time="01:00 PM"></td><td day="Monday" time="01:00 PM"></td><td day="Tuesday" time="01:00 PM"></td><td day="Wednesday" time="01:00 PM"></td><td day="Thursday" time="01:00 PM"></td><td day="Friday" time="01:00 PM"></td><td day="Saturday" time="01:00 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">01:30 PM</th>
+            <td day="Sunday" time="01:30 PM"></td><td day="Monday" time="01:30 PM"></td><td day="Tuesday" time="01:30 PM"></td><td day="Wednesday" time="01:30 PM"></td><td day="Thursday" time="01:30 PM"></td><td day="Friday" time="01:30 PM"></td><td day="Saturday" time="01:30 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">02:00 PM</th>
+            <td day="Sunday" time="02:00 PM"></td><td day="Monday" time="02:00 PM"></td><td day="Tuesday" time="02:00 PM"></td><td day="Wednesday" time="02:00 PM"></td><td day="Thursday" time="02:00 PM"></td><td day="Friday" time="02:00 PM"></td><td day="Saturday" time="02:00 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">02:30 PM</th>
+            <td day="Sunday" time="02:30 PM"></td><td day="Monday" time="02:30 PM"></td><td day="Tuesday" time="02:30 PM"></td><td day="Wednesday" time="02:30 PM"></td><td day="Thursday" time="02:30 PM"></td><td day="Friday" time="02:30 PM"></td><td day="Saturday" time="02:30 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">03:00 PM</th>
+            <td day="Sunday" time="03:00 PM"></td><td day="Monday" time="03:00 PM"></td><td day="Tuesday" time="03:00 PM"></td><td day="Wednesday" time="03:00 PM"></td><td day="Thursday" time="03:00 PM"></td><td day="Friday" time="03:00 PM"></td><td day="Saturday" time="03:00 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">03:30 PM</th>
+            <td day="Sunday" time="03:30 PM"></td><td day="Monday" time="03:30 PM"></td><td day="Tuesday" time="03:30 PM"></td><td day="Wednesday" time="03:30 PM"></td><td day="Thursday" time="03:30 PM"></td><td day="Friday" time="03:30 PM"></td><td day="Saturday" time="03:30 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">04:00 PM</th>
+            <td day="Sunday" time="04:00 PM"></td><td day="Monday" time="04:00 PM"></td><td day="Tuesday" time="04:00 PM"></td><td day="Wednesday" time="04:00 PM"></td><td day="Thursday" time="04:00 PM"></td><td day="Friday" time="04:00 PM"></td><td day="Saturday" time="04:00 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">04:30 PM</th>
+            <td day="Sunday" time="04:30 PM"></td><td day="Monday" time="04:30 PM"></td><td day="Tuesday" time="04:30 PM"></td><td day="Wednesday" time="04:30 PM"></td><td day="Thursday" time="04:30 PM"></td><td day="Friday" time="04:30 PM"></td><td day="Saturday" time="04:30 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">05:00 PM</th>
+            <td day="Sunday" time="05:00 PM"></td><td day="Monday" time="05:00 PM"></td><td day="Tuesday" time="05:00 PM"></td><td day="Wednesday" time="05:00 PM"></td><td day="Thursday" time="05:00 PM"></td><td day="Friday" time="05:00 PM"></td><td day="Saturday" time="05:00 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">05:30 PM</th>
+            <td day="Sunday" time="05:30 PM"></td><td day="Monday" time="05:30 PM"></td><td day="Tuesday" time="05:30 PM"></td><td day="Wednesday" time="05:30 PM"></td><td day="Thursday" time="05:30 PM"></td><td day="Friday" time="05:30 PM"></td><td day="Saturday" time="05:30 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">06:00 PM</th>
+            <td day="Sunday" time="06:00 PM"></td><td day="Monday" time="06:00 PM"></td><td day="Tuesday" time="06:00 PM"></td><td day="Wednesday" time="06:00 PM"></td><td day="Thursday" time="06:00 PM"></td><td day="Friday" time="06:00 PM"></td><td day="Saturday" time="06:00 PM"></td>
+        </tr>
+        
+        <tr>
+            <th scope="row">06:30 PM</th>
+            <td day="Sunday" time="06:30 PM"></td><td day="Monday" time="06:30 PM"></td><td day="Tuesday" time="06:30 PM"></td><td day="Wednesday" time="06:30 PM"></td><td day="Thursday" time="06:30 PM"></td><td day="Friday" time="06:30 PM"></td><td day="Saturday" time="06:30 PM"></td>
+        </tr>
+        
+                        </tbody>
+                    </table>
+                    <button id="clearButton" type="button" class="btn btn-primary">Clear Schedule</button>
+                    <button id="exportButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportConfirm" disabled>
+                        Export to Google Calendar
+                    </button>
+                    
+                    <!-- Export Confirm Modal -->
+                    <div class="modal fade" id="exportConfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="confirmModalLabel">Confirm Export</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            This will create entries on your Google Calendar, including sending invite emails to meeting participants. Are you sure you want to proceed?
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button id="proceedWithExportButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportDate">Proceed</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Export Date Modal -->
+                    <div class="modal fade" id="exportDate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="dateModalLabel">Choose Start Date</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Scheduled meetings will be created as recurring weekly Google Calendar events starting from this date:</p>
+                                <input type="date" id="startDate"></input>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button id="confirmExportButton" type="button" class="btn btn-primary" data-bs-dismiss="modal" disabled>Export</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                     <!-- Export Result Modal -->
+                    <div class="modal fade" id="exportResult" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="resultModalLabel">...</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class='col-5'>
+                    <div class='text-center'>
+                        <h4>Meetings</h4>
+                    </div>
+                    <table class='table' id='meetings'>
+                        <thead>
+                            <tr>
+                                <th scope='col'>Name</th>
+                                <th scope='col'>Length</th>
+                                <th scope='col'>Times</th>
+                                <th scope='col'>Common 👤</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

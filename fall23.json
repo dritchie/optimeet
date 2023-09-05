@@ -42,6 +42,11 @@
                 "name": "CS 1230 Lecture",
                 "time": "10:30 AM",
                 "length": 90
+            },
+            {
+                "name": "CS 1230 Staff Meeting",
+                "time": "04:00 PM",
+                "length": 60
             }
         ],
         "Friday": [
@@ -144,13 +149,13 @@
             "name": "Xianghao Autodesk Internship",
             "length": 60,
             "type": "remote",
-            "participants": ["xianghao", "karl", "mor", "amir", "pradeep", "sifan"]
+            "participants": ["xianghao", "karl", "mor", "amir", "pradeep", "sifan", "aditya"]
         },
         {
             "name": "Arman PoissonNet Project",
             "length": 60,
             "type": "remote",
-            "participants": ["arman", "noam", "vova"]
+            "participants": ["arman", "noam", "vova", "thibault"]
         },
         {
             "name": "LLM Scene Generation",
