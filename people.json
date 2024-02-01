@@ -451,5 +451,61 @@
     "thibault": {
         "name": "Thibault Groueix",
         "email": "groueix@adobe.com"
+    },
+    "chloe": {
+        "name": "Chloe Ye",
+        "email": "xiaohan_ye@brown.edu"
+    },
+    "austin": {
+        "name": "Austin Funk",
+        "email": "austin_funk@brown.edu"
+    },
+    "anna": {
+        "name": "Anna Wei",
+        "email": "qiuhong_wei@brown.edu"
+    },
+    "kail": {
+        "name": "Kailiang Fu",
+        "email": "kailiang.fu@gmail.com"
+    },
+    "mandy": {
+        "name": "Mandy He",
+        "email": "mandy_he@brown.edu"
+    },
+    "alex_z": {
+        "name": "Alex Zavalny",
+        "email": "az548@drexel.edu"
+    },
+    "hayun": {
+        "name": "Hayun Jung",
+        "email": "yunjun505@gmail.com"
+    },
+    "clara": {
+        "name": "Clara Fee",
+        "email": "cfee3@brynmawr.edu"
+    },
+    "zekun": {
+        "name": "Zekun Li",
+        "email": "zekun_li1@brown.edu"
+    },
+    "evan": {
+        "name": "Evan Pu",
+        "email": "evanthebouncy@gmail.com"
+    },
+    "victor": {
+        "name": "Victor Zordan",
+        "email": "vbzordan@roblox.com"
+    },
+    "sheldon": {
+        "name": "Sheldon Andrews",
+        "email": "sheldon.andrews@roblox.com"
+    },
+    "derek": {
+        "name": "Derek Liu",
+        "email": "hsuehtiliu@roblox.com"
+    },
+    "yuanbo": {
+        "name": "Yuanbo Li",
+        "email": "yuanbo_li@brown.edu"
     }
 }

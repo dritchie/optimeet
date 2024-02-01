@@ -1,0 +1,178 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["10:00 AM", "7:00 PM"]
+        ]
+    },
+
+    "myCommitments": { 
+        "Monday": [
+            {
+                "name": "CS 2240 Lecture",
+                "time": "11:00 AM",
+                "length": 60
+            },
+            {
+                "name": "VC Group Meeting",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ],
+        "Tuesday" : [
+            {
+                "name": "CS Faculty Meeting",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ],
+        "Wednesday" : [
+            {
+                "name": "CS 2240 Lecture",
+                "time": "11:00 AM",
+                "length": 60
+            }
+        ],
+        "Friday": [
+            {
+                "name": "CS 2240 Lecture",
+                "time": "11:00 AM",
+                "length": 60
+            },
+            {
+                "name": "BVC Seminar",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "Neurosymbolic Scene Synth",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["manolis", "angel", "adrian", "kai", "cal", "yuanbo"]
+        },
+        {
+            "name": "Part Graph Programs",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "niloy", "paul_g"]
+        },
+        {
+            "name": "Edit-driven VPI",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "aditya", "xianghao"]
+        },
+        {
+            "name": "Scene Dataset Meeting",
+            "length": 60,
+            "type": "remote",
+            "participants": ["manolis", "angel", "qirui", "sonia"],
+            "remoteLocation": "https://sfu.zoom.us/j/97617289278?pwd=K0dTRkNJTmJwcnNpVHRmb2pHbTJQQT09"
+        },
+        {
+            "name": "Procedural Modeling + Diffusion",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["xianghao", "ray", "zihan", "chloe"]
+        },
+        {
+            "name": "dl-rendering",
+            "length": 30,
+            "type": "remote",
+            "participants": ["xiangyu", "toshiya"]
+        },
+        {
+            "name": "Implicit Transformer Shape Synth",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kai", "kenny", "anh", "junyu"]
+        },
+        {
+            "name": "3D perceptual sim",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["alex_w"]
+        },
+        {
+            "name": "vpi-edits",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "aditya", "norman"]
+        },
+        {
+            "name": "Text2Action",
+            "length": 60,
+            "type": "remote",
+            "participants": ["srinath", "rao", "dingxi", "austin"],
+            "remoteLocation": "https://brown.zoom.us/my/raofu"
+        },
+        {
+            "name": "Xianghao Autodesk Internship",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["xianghao", "karl", "mor", "amir", "pradeep", "sifan", "aditya", "evan"]
+        },
+        {
+            "name": "Arman PoissonNet Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman", "noam", "vova", "thibault"]
+        },
+        {
+            "name": "LLM Scene Generation",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["rio", "brian", "stewart", "maxim", "kenny", "aditya", "jean", "anna", "kail", "kai"]
+        },
+        {
+            "name": "Guitar Design Project",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["coco", "aditya", "chloe"]
+        },
+        {
+            "name": "NGSP",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny"]
+        },
+        {
+            "name": "Maxim's Project",
+            "length": 60,
+            "type": "remote",
+            "participants": ["maxim", "victor", "sheldon", "derek"]
+        },
+        {
+            "name": "CS 2240 staff meeting",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["coco", "aditya", "yuanbo", "anh", "mandy"]
+        },
+        {
+            "name": "Daniel's exploreCSR group",
+            "length": 30,
+            "type": "remote",
+            "participants": ["alex_z", "hayun", "clara", "zekun"]
+        }
+    ]
+}
