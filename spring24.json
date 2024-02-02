@@ -80,20 +80,20 @@
             "name": "Edit-driven VPI",
             "length": 60,
             "type": "hybrid",
-            "participants": ["kenny", "aditya", "xianghao"]
+            "participants": ["kenny", "aditya", "xianghao", "ryan"]
         },
         {
             "name": "Scene Dataset Meeting",
             "length": 60,
             "type": "remote",
-            "participants": ["manolis", "angel", "qirui", "sonia"],
+            "participants": ["manolis", "angel", "qirui"],
             "remoteLocation": "https://sfu.zoom.us/j/97617289278?pwd=K0dTRkNJTmJwcnNpVHRmb2pHbTJQQT09"
         },
         {
             "name": "Procedural Modeling + Diffusion",
             "length": 30,
             "type": "hybrid",
-            "participants": ["xianghao", "ray", "zihan", "chloe"]
+            "participants": ["xianghao", "ray", "zihan", "chloe", "srinath"]
         },
         {
             "name": "dl-rendering",
