@@ -3,12 +3,12 @@
       "deadline": "02/02/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "kai",
-         "angel",
-         "cal",
-         "adrian",
          "yuanbo",
-         "manolis"
+         "angel",
+         "manolis",
+         "kai",
+         "cal",
+         "adrian"
       ],
       "name": "Neurosymbolic Scene Synth",
       "numViableMeetingTimesSoFar": 0,
@@ -16,12 +16,11 @@
    },
    {
       "deadline": "02/02/24",
-      "hasNotResponded": [
-         "kenny"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
          "paul_g",
-         "niloy"
+         "niloy",
+         "kenny"
       ],
       "name": "Part Graph Programs",
       "numViableMeetingTimesSoFar": 2,
@@ -29,25 +28,24 @@
    },
    {
       "deadline": "02/02/24",
-      "hasNotResponded": [
-         "ryan",
-         "kenny"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
          "xianghao",
-         "aditya"
+         "aditya",
+         "kenny",
+         "ryan"
       ],
       "name": "Edit-driven VPI",
-      "numViableMeetingTimesSoFar": 25,
+      "numViableMeetingTimesSoFar": 9,
       "when2meet": "https://when2meet.com/?23381090-QN4bw"
    },
    {
       "deadline": "02/02/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "angel",
+         "manolis",
          "qirui",
-         "manolis"
+         "angel"
       ],
       "name": "Scene Dataset Meeting",
       "numViableMeetingTimesSoFar": 2,
@@ -57,11 +55,11 @@
       "deadline": "02/02/24",
       "hasNotResponded": [],
       "hasResponded": [
+         "xianghao",
+         "srinath",
          "chloe",
          "ray",
-         "srinath",
-         "zihan",
-         "xianghao"
+         "zihan"
       ],
       "name": "Procedural Modeling + Diffusion",
       "numViableMeetingTimesSoFar": 2,
@@ -81,16 +79,15 @@
    },
    {
       "deadline": "02/02/24",
-      "hasNotResponded": [
-         "kenny"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
          "junyu",
          "kai",
-         "anh"
+         "anh",
+         "kenny"
       ],
       "name": "Implicit Transformer Shape Synth",
-      "numViableMeetingTimesSoFar": 21,
+      "numViableMeetingTimesSoFar": 4,
       "when2meet": "https://when2meet.com/?23381094-wt48B"
    },
    {
@@ -105,25 +102,24 @@
    },
    {
       "deadline": "02/02/24",
-      "hasNotResponded": [
-         "kenny"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
          "norman",
-         "aditya"
+         "aditya",
+         "kenny"
       ],
       "name": "vpi-edits",
-      "numViableMeetingTimesSoFar": 34,
+      "numViableMeetingTimesSoFar": 14,
       "when2meet": "https://when2meet.com/?23381096-zU2ZH"
    },
    {
       "deadline": "02/02/24",
       "hasNotResponded": [],
       "hasResponded": [
+         "austin",
          "srinath",
-         "dingxi",
          "rao",
-         "austin"
+         "dingxi"
       ],
       "name": "Text2Action",
       "numViableMeetingTimesSoFar": 0,
@@ -132,16 +128,16 @@
    {
       "deadline": "02/02/24",
       "hasNotResponded": [
-         "xianghao",
-         "amir",
          "mor",
+         "amir",
          "sifan"
       ],
       "hasResponded": [
-         "pradeep",
          "karl",
-         "aditya",
-         "evan"
+         "xianghao",
+         "evan",
+         "pradeep",
+         "aditya"
       ],
       "name": "Xianghao Autodesk Internship",
       "numViableMeetingTimesSoFar": 2,
@@ -149,33 +145,31 @@
    },
    {
       "deadline": "02/02/24",
-      "hasNotResponded": [
-         "noam"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "vova",
+         "noam",
          "arman",
+         "vova",
          "thibault"
       ],
       "name": "Arman PoissonNet Project",
-      "numViableMeetingTimesSoFar": 13,
+      "numViableMeetingTimesSoFar": 7,
       "when2meet": "https://when2meet.com/?23381099-Y1q6w"
    },
    {
       "deadline": "02/02/24",
-      "hasNotResponded": [
-         "kenny"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "kai",
-         "anna",
-         "maxim",
-         "brian",
+         "kail",
          "jean",
-         "stewart",
          "rio",
+         "anna",
+         "stewart",
+         "brian",
+         "maxim",
+         "kai",
          "aditya",
-         "kail"
+         "kenny"
       ],
       "name": "LLM Scene Generation",
       "numViableMeetingTimesSoFar": 0,
@@ -186,8 +180,8 @@
       "hasNotResponded": [],
       "hasResponded": [
          "coco",
-         "chloe",
-         "aditya"
+         "aditya",
+         "chloe"
       ],
       "name": "Guitar Design Project",
       "numViableMeetingTimesSoFar": 11,
@@ -195,37 +189,36 @@
    },
    {
       "deadline": "02/02/24",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
          "kenny"
       ],
-      "hasResponded": [],
       "name": "NGSP",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 40,
       "when2meet": "https://when2meet.com/?23381102-7tc5s"
    },
    {
       "deadline": "02/02/24",
-      "hasNotResponded": [
-         "victor"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "sheldon",
+         "victor",
+         "maxim",
          "derek",
-         "maxim"
+         "sheldon"
       ],
       "name": "Maxim's Project",
-      "numViableMeetingTimesSoFar": 1,
+      "numViableMeetingTimesSoFar": 0,
       "when2meet": "https://when2meet.com/?23381103-uR3r4"
    },
    {
       "deadline": "02/02/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "coco",
          "yuanbo",
-         "aditya",
+         "anh",
          "mandy",
-         "anh"
+         "coco",
+         "aditya"
       ],
       "name": "CS 2240 staff meeting",
       "numViableMeetingTimesSoFar": 2,
@@ -235,10 +228,10 @@
       "deadline": "02/02/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "hayun",
-         "clara",
+         "alex_z",
          "zekun",
-         "alex_z"
+         "hayun",
+         "clara"
       ],
       "name": "Daniel's exploreCSR group",
       "numViableMeetingTimesSoFar": 2,

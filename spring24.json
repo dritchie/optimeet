@@ -44,6 +44,13 @@
                 "length": 60
             }
         ],
+        "Thursday" : [
+            {
+                "name": "Diversity Committee meeting",
+                "time": "10:00 AM",
+                "length": 60
+            }
+        ],
         "Friday": [
             {
                 "name": "CS 2240 Lecture",
