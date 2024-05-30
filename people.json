@@ -511,5 +511,37 @@
     "ryan": {
         "name": "Ryan Huang",
         "email": "ryan_y_huang@brown.edu"
+    },
+    "adrien": {
+        "name": "Adrien Bousseau",
+        "email": "adrien.bousseau@inria.fr"
+    },
+    "gilda": {
+        "name": "Gilda Manfredi",
+        "email": "gilda.manfredi@inria.fr"
+    },
+    "henro": {
+        "name": "Henro Kriel",
+        "email": "henro.kriel@inria.fr"
+    },
+    "caitlin": {
+        "name": "Caitlin Gong",
+        "email": "ccaitlingo@gmail.com"
+    },
+    "radomir": {
+        "name": "Radomir Mech",
+        "email": "rmech@adobe.com"
+    },
+    "are": {
+        "name": "Are Oelsner",
+        "email": "are_oelsner@brown.edu"
+    },
+    "ruochen": {
+        "name": "Ruochen Zhang",
+        "email": "ruochen_zhang@brown.edu"
+    },
+    "sergio": {
+        "name": "Sergio Orozco",
+        "email": "sergio_orozco@brown.edu"
     }
 }

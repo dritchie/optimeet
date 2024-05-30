@@ -1,0 +1,129 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["10:00 AM", "7:00 PM"]
+        ]
+    },
+
+    "myCommitments": { 
+        "Wednesday" : [
+            {
+                "name": "Text2Action",
+                "time": "4:30 PM",
+                "length": 60
+            }
+        ],
+        "Thursday" : [
+            {
+                "name": "Zekun meeting",
+                "time": "4:30 PM",
+                "length": 60
+            }
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "Neurosymbolic Scene Synth",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["manolis", "angel", "adrian", "kai", "cal", "yuanbo"]
+        },
+        {
+            "name": "Part Graph Programs",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "niloy", "paul_g"]
+        },
+        {
+            "name": "Diorama",
+            "length": 60,
+            "type": "remote",
+            "participants": ["manolis", "angel", "qirui"],
+            "remoteLocation": "https://sfu.zoom.us/j/97617289278?pwd=K0dTRkNJTmJwcnNpVHRmb2pHbTJQQT09"
+        },
+        {
+            "name": "Procedural Modeling + Diffusion",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["xianghao", "ray", "zihan", "chloe", "srinath", "clara", "caitlin"]
+        },
+        {
+            "name": "Implicit Transformer Shape Synth",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "anh", "junyu"]
+        },
+        {
+            "name": "Arman PoissonNet Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman", "noam", "vova", "thibault"]
+        },
+        {
+            "name": "LLM Scene Generation",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["rio", "brian", "stewart", "maxim", "kenny", "aditya", "jean"]
+        },
+        {
+            "name": "Maxim's Project",
+            "length": 60,
+            "type": "remote",
+            "participants": ["maxim", "victor", "sheldon", "derek"]
+        },
+        {
+            "name": "CAD sketch-to-program",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["yuanbo", "adrien", "gilda", "henro", "xianghao", "clara", "caitlin"]
+        },
+        {
+            "name": "Aditya patterns project",
+            "length": 60,
+            "type": "remote",
+            "participants": ["aditya", "matt", "thibault", "paul_g", "radomir"]
+        },
+        {
+            "name": "NGSP",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "jean"]
+        },
+        {
+            "name": "Zero-shot object orientation",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["stewart", "clara", "caitlin"]
+        },
+        {
+            "name": "Few-shot generative concepts",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["junyu", "kenny", "clara", "caitlin"]
+        },
+        {
+            "name": "Study group leader meeting",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["arman", "are", "ruochen", "sergio"]
+        }
+    ]
+}
