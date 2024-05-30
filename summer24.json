@@ -50,7 +50,7 @@
             "name": "Part Graph Programs",
             "length": 60,
             "type": "hybrid",
-            "participants": ["kenny", "niloy", "paul_g"]
+            "participants": ["kenny", "niloy", "paul_g", "tanish"]
         },
         {
             "name": "Diorama",
@@ -75,7 +75,7 @@
             "name": "Arman PoissonNet Project",
             "length": 60,
             "type": "hybrid",
-            "participants": ["arman", "noam", "vova", "thibault"]
+            "participants": ["arman", "noam", "vova", "thibault", "tanish"]
         },
         {
             "name": "LLM Scene Generation",
@@ -117,7 +117,7 @@
             "name": "Few-shot generative concepts",
             "length": 30,
             "type": "hybrid",
-            "participants": ["junyu", "kenny", "clara", "caitlin"]
+            "participants": ["junyu", "kenny", "clara", "caitlin", "tanish"]
         },
         {
             "name": "Study group leader meeting",
