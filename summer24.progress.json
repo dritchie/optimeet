@@ -2,161 +2,172 @@
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "manolis",
-         "angel",
-         "adrian",
          "kai",
-         "cal",
+         "adrian",
+         "angel",
+         "cal"
+      ],
+      "hasResponded": [
+         "manolis",
          "yuanbo"
       ],
-      "hasResponded": [],
       "name": "Neurosymbolic Scene Synth",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 11,
       "when2meet": "https://when2meet.com/?25187081-jpxRa"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "kenny",
          "niloy",
-         "paul_g",
+         "kenny",
+         "paul_g"
+      ],
+      "hasResponded": [
          "tanish"
       ],
-      "hasResponded": [],
       "name": "Part Graph Programs",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 63,
       "when2meet": "https://when2meet.com/?25187082-iXa5v"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "manolis",
-         "angel",
-         "qirui"
+         "angel"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "qirui",
+         "manolis"
+      ],
       "name": "Diorama",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 4,
       "when2meet": "https://when2meet.com/?25187083-xMR8U"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "xianghao",
-         "ray",
-         "zihan",
          "chloe",
-         "srinath",
-         "clara",
-         "caitlin"
+         "caitlin",
+         "clara"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "xianghao",
+         "srinath",
+         "zihan",
+         "ray"
+      ],
       "name": "Procedural Modeling + Diffusion",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 2,
       "when2meet": "https://when2meet.com/?25187084-O2Awf"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "kenny",
-         "anh",
-         "junyu"
+         "kenny"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "junyu",
+         "anh"
+      ],
       "name": "Implicit Transformer Shape Synth",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 15,
       "when2meet": "https://when2meet.com/?25187085-nTMFW"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "arman",
          "noam",
+         "arman",
+         "thibault"
+      ],
+      "hasResponded": [
          "vova",
-         "thibault",
          "tanish"
       ],
-      "hasResponded": [],
       "name": "Arman PoissonNet Project",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 5,
       "when2meet": "https://when2meet.com/?25187087-7ctpN"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "rio",
-         "brian",
+         "jean",
          "stewart",
-         "maxim",
+         "brian",
          "kenny",
-         "aditya",
-         "jean"
+         "rio"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "maxim",
+         "aditya"
+      ],
       "name": "LLM Scene Generation",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 45,
       "when2meet": "https://when2meet.com/?25187088-oxqou"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "maxim",
          "victor",
-         "sheldon",
+         "sheldon"
+      ],
+      "hasResponded": [
+         "maxim",
          "derek"
       ],
-      "hasResponded": [],
       "name": "Maxim's Project",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 20,
       "when2meet": "https://when2meet.com/?25187089-BXKcx"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "yuanbo",
-         "adrien",
-         "gilda",
-         "henro",
-         "xianghao",
          "clara",
-         "caitlin"
+         "caitlin",
+         "gilda"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "xianghao",
+         "henro",
+         "yuanbo",
+         "adrien"
+      ],
       "name": "CAD sketch-to-program",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 2,
       "when2meet": "https://when2meet.com/?25187090-Xcp7u"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "aditya",
-         "matt",
          "thibault",
-         "paul_g",
-         "radomir"
+         "paul_g"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "radomir",
+         "matt",
+         "aditya"
+      ],
       "name": "Aditya patterns project",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 7,
       "when2meet": "https://when2meet.com/?25187091-MiB5P"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "kenny",
+         "kenny"
+      ],
+      "hasResponded": [
          "jean"
       ],
-      "hasResponded": [],
       "name": "NGSP",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 50,
       "when2meet": "https://when2meet.com/?25187092-tawS1"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "stewart",
          "clara",
-         "caitlin"
+         "caitlin",
+         "stewart"
       ],
       "hasResponded": [],
       "name": "Zero-shot object orientation",
@@ -166,28 +177,30 @@
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "junyu",
-         "kenny",
          "clara",
-         "caitlin",
+         "kenny",
+         "caitlin"
+      ],
+      "hasResponded": [
+         "junyu",
          "tanish"
       ],
-      "hasResponded": [],
       "name": "Few-shot generative concepts",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 33,
       "when2meet": "https://when2meet.com/?25187094-kZIdw"
    },
    {
       "deadline": "06/04/24",
       "hasNotResponded": [
-         "arman",
-         "are",
          "ruochen",
+         "arman",
          "sergio"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "are"
+      ],
       "name": "Study group leader meeting",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 61,
       "when2meet": "https://when2meet.com/?25187095-c6lcv"
    }
 ]
