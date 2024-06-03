@@ -628,6 +628,12 @@ def createInterfaceHTML(inputFilename):
     with open(filename) as f:
         html = f.read()
 
+    # Check format of time fields myCommitments
+    # (Improper formatting can cause them to silently not be displayed in the interface)
+    for day,commitments in inp['myCommitments'].items():
+        for commitment in commitments:
+            assert re.match(r'\d\d:\d\d [AP]M', commitment['time']), f'Invalid time format in existing commitment for {commitment["name"]}'
+
     # Inject config
     html = html.replace('let config = undefined;', f'let config = {json.dumps(config)}');
     # Inject all the people who participate in these meetings
