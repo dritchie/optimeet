@@ -1,0 +1,338 @@
+{
+   "Aditya patterns project": {
+      "Friday": [
+         "01:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "01:00 PM",
+         "01:30 PM"
+      ],
+      "Tuesday": [
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Wednesday": []
+   },
+   "Arman PoissonNet Project": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "01:00 PM",
+         "01:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "CAD sketch-to-program": {
+      "Friday": [
+         "10:00 AM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Tuesday": [
+         "10:00 AM"
+      ],
+      "Wednesday": [
+         "10:00 AM"
+      ]
+   },
+   "Diorama": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "04:00 PM",
+         "05:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Few-shot generative concepts": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM"
+      ],
+      "Tuesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM"
+      ],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM"
+      ]
+   },
+   "Implicit Transformer Shape Synth": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM"
+      ],
+      "Tuesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM"
+      ],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM"
+      ]
+   },
+   "LLM Scene Generation": {
+      "Friday": [],
+      "Monday": [
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM"
+      ],
+      "Tuesday": [
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM"
+      ],
+      "Wednesday": [
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM"
+      ]
+   },
+   "Maxim's Project": {
+      "Friday": [],
+      "Monday": [
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "02:00 PM"
+      ],
+      "Tuesday": [
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Wednesday": [
+         "01:00 PM",
+         "01:30 PM"
+      ]
+   },
+   "NGSP": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Tuesday": [
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Wednesday": [
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ]
+   },
+   "Neurosymbolic Scene Synth": {
+      "Friday": [
+         "11:00 AM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM"
+      ],
+      "Wednesday": []
+   },
+   "Part Graph Programs": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Procedural Modeling + Diffusion": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "12:00 PM",
+         "12:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Study group leader meeting": {
+      "Friday": [],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "11:00 AM",
+         "11:30 AM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": [
+         "11:00 AM",
+         "11:30 AM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ]
+   },
+   "Zero-shot object orientation": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM"
+      ],
+      "Tuesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM"
+      ],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM"
+      ]
+   }
+}

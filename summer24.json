@@ -21,14 +21,14 @@
         "Wednesday" : [
             {
                 "name": "Text2Action",
-                "time": "4:30 PM",
+                "time": "04:30 PM",
                 "length": 60
             }
         ],
         "Thursday" : [
             {
                 "name": "Zekun meeting",
-                "time": "4:30 PM",
+                "time": "04:30 PM",
                 "length": 60
             }
         ]
