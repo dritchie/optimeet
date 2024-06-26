@@ -111,7 +111,7 @@
             "name": "Zero-shot object orientation",
             "length": 30,
             "type": "hybrid",
-            "participants": ["stewart", "clara", "caitlin"]
+            "participants": ["stewart", "clara", "caitlin", "nirayka"]
         },
         {
             "name": "Few-shot generative concepts",
