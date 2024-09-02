@@ -1,0 +1,162 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["10:00 AM", "7:00 PM"]
+        ]
+    },
+
+    "myCommitments": { 
+        "Monday" : [
+            {
+                "name": "BVC group meeting",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ],
+        "Tuesday" : [
+            {
+                "name": "CS 1230 Lecture",
+                "time": "10:30 AM",
+                "length": 90
+            },
+            {
+                "name": "CS Faculty Meeting",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ],
+        "Thursday" : [
+            {
+                "name": "CS 1230 Lecture",
+                "time": "10:30 AM",
+                "length": 90
+            },
+            {
+                "name": "Thirsty Thursday",
+                "time": "05:30 PM",
+                "length": 90
+            }
+        ],
+        "Friday" : [
+            {
+                "name": "BVC seminar",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "Neurosymbolic Scene Synth",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["manolis", "angel", "adrian", "kai", "yuanbo"]
+        },
+        {
+            "name": "Part Graph Programs",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "niloy", "paul_g", "tanish"]
+        },
+        {
+            "name": "Diorama",
+            "length": 60,
+            "type": "remote",
+            "participants": ["manolis", "angel", "qirui", "denys"],
+            "remoteLocation": "https://sfu.zoom.us/j/97617289278?pwd=K0dTRkNJTmJwcnNpVHRmb2pHbTJQQT09"
+        },
+        {
+            "name": "Procedural Modeling + Diffusion",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["xianghao", "ray", "zihan",  "srinath"]
+        },
+        {
+            "name": "Implicit Transformer Shape Synth",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "anh", "junyu", "chengfan"]
+        },
+        {
+            "name": "Arman PoissonNet Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman", "noam", "vova", "thibault", "tanish"]
+        },
+        {
+            "name": "LLM Scene Generation",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["rio", "brian", "stewart", "maxim", "kenny", "aditya", "jean"]
+        },
+        {
+            "name": "Maxim's Project",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["maxim", "victor", "sheldon", "derek"]
+        },
+        {
+            "name": "CAD sketch-to-program",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["yuanbo", "adrien", "gilda", "henro", "xianghao"]
+        },
+        {
+            "name": "Aditya patterns project",
+            "length": 60,
+            "type": "remote",
+            "participants": ["aditya", "matt", "thibault", "paul_g", "radomir"]
+        },
+        {
+            "name": "NGSP",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "jean"]
+        },
+        {
+            "name": "Zero-shot object orientation",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["stewart", "nirayka"]
+        },
+        {
+            "name": "Few-shot generative concepts",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["junyu", "kenny", "caitlin"]
+        },
+        {
+            "name": "Text2Action",
+            "length": 60,
+            "type": "remote",
+            "participants": ["srinath", "rao", "dingxi", "austin", "alex_j"],
+            "remoteLocation": "https://brown.zoom.us/my/raofu"
+        },
+        {
+            "name": "Zekun's Project Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["srinath", "zekun"],
+            "remoteLocation": "https://brown.zoom.us/j/91921438261",
+            "physicalLocation": "CIT 407"
+        }
+    ]
+}

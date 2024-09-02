@@ -551,5 +551,17 @@
     "nirayka": {
         "name": "Nirayka Monga",
         "email": "nirayka_monga@brown.edu"
+    },
+    "denys" : {
+        "name": "Denys Iliash",
+        "email": "diliash@sfu.ca"
+    },
+    "chengfan" : {
+        "name": "Chengfan Li",
+        "email": "chengfan_li@brown.edu"
+    },
+    "alex_j" : {
+        "name": "Alex Jiang",
+        "email": "alexander_jiang@brown.edu"
     }
 }
