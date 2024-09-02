@@ -36,7 +36,7 @@ def createWhen2Meet(name, timeZone, daysOfWeek, earliestTime, latestTime):
     }
     r = Request(url + '?' + urlencode(post_fields))
     html = urlopen(r).read().decode()
-    match = re.search(r"window.location='/(\?[a-zA-Z0-9-]+)'", html)
+    match = re.search(r"window.location='./(\?[a-zA-Z0-9-]+)'", html)
     when2meet_id = match.group(1)
     return 'https://when2meet.com/' + when2meet_id
 
