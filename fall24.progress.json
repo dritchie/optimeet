@@ -3,11 +3,11 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "angel",
          "yuanbo",
-         "adrian",
+         "angel",
          "kai",
-         "manolis"
+         "manolis",
+         "adrian"
       ],
       "name": "Neurosymbolic Scene Synth",
       "numViableMeetingTimesSoFar": 3,
@@ -17,9 +17,9 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "paul_g",
          "kenny",
-         "niloy"
+         "niloy",
+         "paul_g"
       ],
       "name": "Part Graph Programs",
       "numViableMeetingTimesSoFar": 6,
@@ -29,10 +29,10 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "angel",
+         "manolis",
          "denys",
-         "qirui",
-         "manolis"
+         "angel",
+         "qirui"
       ],
       "name": "Diorama",
       "numViableMeetingTimesSoFar": 2,
@@ -45,8 +45,8 @@
          "zihan"
       ],
       "hasResponded": [
-         "xianghao",
-         "ray"
+         "ray",
+         "xianghao"
       ],
       "name": "Procedural Modeling + Diffusion",
       "numViableMeetingTimesSoFar": 15,
@@ -57,9 +57,9 @@
       "hasNotResponded": [],
       "hasResponded": [
          "junyu",
-         "anh",
+         "chengfan",
          "kenny",
-         "chengfan"
+         "anh"
       ],
       "name": "Implicit Transformer Shape Synth",
       "numViableMeetingTimesSoFar": 16,
@@ -68,13 +68,13 @@
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "noam",
-         "thibault"
+         "thibault",
+         "noam"
       ],
       "hasResponded": [
-         "arman",
          "vova",
-         "tanish"
+         "tanish",
+         "arman"
       ],
       "name": "Arman PoissonNet Project",
       "numViableMeetingTimesSoFar": 15,
@@ -84,8 +84,8 @@
       "deadline": "09/07/24",
       "hasNotResponded": [
          "stewart",
-         "kenny",
-         "maxim"
+         "maxim",
+         "kenny"
       ],
       "hasResponded": [
          "rio",
@@ -101,7 +101,6 @@
       "deadline": "09/07/24",
       "hasNotResponded": [
          "victor",
-         "sheldon",
          "maxim"
       ],
       "hasResponded": [
@@ -114,13 +113,13 @@
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "adrien",
-         "gilda"
+         "gilda",
+         "adrien"
       ],
       "hasResponded": [
-         "xianghao",
+         "yuanbo",
          "henro",
-         "yuanbo"
+         "xianghao"
       ],
       "name": "CAD sketch-to-program",
       "numViableMeetingTimesSoFar": 3,
@@ -129,13 +128,13 @@
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "radomir",
-         "thibault"
+         "thibault",
+         "radomir"
       ],
       "hasResponded": [
          "matt",
-         "paul_g",
-         "aditya"
+         "aditya",
+         "paul_g"
       ],
       "name": "Aditya patterns project",
       "numViableMeetingTimesSoFar": 12,
@@ -145,8 +144,8 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "jean",
-         "kenny"
+         "kenny",
+         "jean"
       ],
       "name": "NGSP",
       "numViableMeetingTimesSoFar": 8,
@@ -183,9 +182,9 @@
          "dingxi"
       ],
       "hasResponded": [
-         "austin",
+         "alex_j",
          "rao",
-         "alex_j"
+         "austin"
       ],
       "name": "Text2Action",
       "numViableMeetingTimesSoFar": 13,

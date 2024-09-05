@@ -111,7 +111,7 @@
             "name": "Maxim's Project",
             "length": 30,
             "type": "hybrid",
-            "participants": ["maxim", "victor", "sheldon", "derek"]
+            "participants": ["maxim", "victor", "derek"]
         },
         {
             "name": "CAD sketch-to-program",
