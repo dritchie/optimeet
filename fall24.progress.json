@@ -6,8 +6,8 @@
          "yuanbo",
          "angel",
          "kai",
-         "manolis",
-         "adrian"
+         "adrian",
+         "manolis"
       ],
       "name": "Neurosymbolic Scene Synth",
       "numViableMeetingTimesSoFar": 3,
@@ -29,10 +29,10 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "manolis",
+         "qirui",
          "denys",
-         "angel",
-         "qirui"
+         "manolis",
+         "angel"
       ],
       "name": "Diorama",
       "numViableMeetingTimesSoFar": 2,
@@ -41,12 +41,12 @@
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "srinath",
-         "zihan"
+         "zihan",
+         "srinath"
       ],
       "hasResponded": [
-         "ray",
-         "xianghao"
+         "xianghao",
+         "ray"
       ],
       "name": "Procedural Modeling + Diffusion",
       "numViableMeetingTimesSoFar": 15,
@@ -56,58 +56,58 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "junyu",
+         "anh",
          "chengfan",
          "kenny",
-         "anh"
+         "junyu"
       ],
       "name": "Implicit Transformer Shape Synth",
-      "numViableMeetingTimesSoFar": 16,
+      "numViableMeetingTimesSoFar": 12,
       "when2meet": "https://when2meet.com/?26225657-B4m78"
    },
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "thibault",
          "noam"
       ],
       "hasResponded": [
          "vova",
          "tanish",
+         "thibault",
          "arman"
       ],
       "name": "Arman PoissonNet Project",
-      "numViableMeetingTimesSoFar": 15,
+      "numViableMeetingTimesSoFar": 12,
       "when2meet": "https://when2meet.com/?26225658-xFAii"
    },
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "stewart",
-         "maxim",
-         "kenny"
+         "stewart"
       ],
       "hasResponded": [
          "rio",
-         "brian",
          "jean",
-         "aditya"
+         "maxim",
+         "kenny",
+         "aditya",
+         "brian"
       ],
       "name": "LLM Scene Generation",
-      "numViableMeetingTimesSoFar": 6,
+      "numViableMeetingTimesSoFar": 4,
       "when2meet": "https://when2meet.com/?26225659-LaV9O"
    },
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "victor",
-         "maxim"
+         "victor"
       ],
       "hasResponded": [
+         "maxim",
          "derek"
       ],
       "name": "Maxim's Project",
-      "numViableMeetingTimesSoFar": 38,
+      "numViableMeetingTimesSoFar": 33,
       "when2meet": "https://when2meet.com/?26225661-jpe7L"
    },
    {
@@ -117,8 +117,8 @@
          "adrien"
       ],
       "hasResponded": [
-         "yuanbo",
          "henro",
+         "yuanbo",
          "xianghao"
       ],
       "name": "CAD sketch-to-program",
@@ -127,25 +127,24 @@
    },
    {
       "deadline": "09/07/24",
-      "hasNotResponded": [
-         "thibault",
-         "radomir"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
          "matt",
+         "radomir",
          "aditya",
+         "thibault",
          "paul_g"
       ],
       "name": "Aditya patterns project",
-      "numViableMeetingTimesSoFar": 12,
+      "numViableMeetingTimesSoFar": 1,
       "when2meet": "https://when2meet.com/?26225663-VYyeA"
    },
    {
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
-         "jean"
+         "jean",
+         "kenny"
       ],
       "name": "NGSP",
       "numViableMeetingTimesSoFar": 8,
@@ -154,8 +153,8 @@
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "stewart",
-         "nirayka"
+         "nirayka",
+         "stewart"
       ],
       "hasResponded": [],
       "name": "Zero-shot object orientation",
@@ -168,8 +167,8 @@
          "caitlin"
       ],
       "hasResponded": [
-         "junyu",
-         "kenny"
+         "kenny",
+         "junyu"
       ],
       "name": "Few-shot generative concepts",
       "numViableMeetingTimesSoFar": 25,
@@ -178,16 +177,16 @@
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "srinath",
-         "dingxi"
+         "srinath"
       ],
       "hasResponded": [
-         "alex_j",
+         "dingxi",
          "rao",
+         "alex_j",
          "austin"
       ],
       "name": "Text2Action",
-      "numViableMeetingTimesSoFar": 13,
+      "numViableMeetingTimesSoFar": 1,
       "when2meet": "https://when2meet.com/?26225667-SccKF"
    },
    {
