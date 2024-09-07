@@ -3,11 +3,11 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "angel",
-         "kai",
-         "adrian",
+         "yuanbo",
          "manolis",
-         "yuanbo"
+         "angel",
+         "adrian",
+         "kai"
       ],
       "name": "Neurosymbolic Scene Synth",
       "numViableMeetingTimesSoFar": 3,
@@ -17,8 +17,8 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
          "niloy",
+         "kenny",
          "paul_g"
       ],
       "name": "Part Graph Programs",
@@ -29,10 +29,10 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "denys",
          "angel",
-         "manolis",
-         "qirui"
+         "qirui",
+         "denys",
+         "manolis"
       ],
       "name": "Diorama",
       "numViableMeetingTimesSoFar": 3,
@@ -49,17 +49,17 @@
          "ray"
       ],
       "name": "Procedural Modeling + Diffusion",
-      "numViableMeetingTimesSoFar": 15,
+      "numViableMeetingTimesSoFar": 13,
       "when2meet": "https://when2meet.com/?26225656-Fwfb9"
    },
    {
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
+         "chengfan",
          "kenny",
-         "junyu",
          "anh",
-         "chengfan"
+         "junyu"
       ],
       "name": "Implicit Transformer Shape Synth",
       "numViableMeetingTimesSoFar": 12,
@@ -71,26 +71,26 @@
          "noam"
       ],
       "hasResponded": [
-         "tanish",
-         "vova",
          "thibault",
-         "arman"
+         "vova",
+         "arman",
+         "tanish"
       ],
       "name": "Arman PoissonNet Project",
-      "numViableMeetingTimesSoFar": 12,
+      "numViableMeetingTimesSoFar": 10,
       "when2meet": "https://when2meet.com/?26225658-xFAii"
    },
    {
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "rio",
          "kenny",
-         "jean",
-         "maxim",
+         "brian",
          "aditya",
+         "rio",
+         "jean",
          "stewart",
-         "brian"
+         "maxim"
       ],
       "name": "LLM Scene Generation",
       "numViableMeetingTimesSoFar": 0,
@@ -100,8 +100,8 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "maxim",
          "derek",
+         "maxim",
          "victor"
       ],
       "name": "Maxim's Project",
@@ -127,11 +127,11 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "aditya",
-         "thibault",
          "radomir",
-         "paul_g",
-         "matt"
+         "aditya",
+         "matt",
+         "thibault",
+         "paul_g"
       ],
       "name": "Aditya patterns project",
       "numViableMeetingTimesSoFar": 1,
@@ -152,8 +152,8 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "nirayka",
-         "stewart"
+         "stewart",
+         "nirayka"
       ],
       "name": "Zero-shot object orientation",
       "numViableMeetingTimesSoFar": 7,
@@ -177,10 +177,10 @@
          "srinath"
       ],
       "hasResponded": [
-         "rao",
          "austin",
+         "dingxi",
          "alex_j",
-         "dingxi"
+         "rao"
       ],
       "name": "Text2Action",
       "numViableMeetingTimesSoFar": 4,
@@ -197,5 +197,16 @@
       "name": "Zekun's Project Meeting",
       "numViableMeetingTimesSoFar": 24,
       "when2meet": "https://when2meet.com/?26225668-GZMYr"
+   },
+   {
+      "deadline": "09/07/24",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "krishi",
+         "arman"
+      ],
+      "name": "Krishi Project Meeting",
+      "numViableMeetingTimesSoFar": 11,
+      "when2meet": "https://www.when2meet.com/?26286372-jmm1q"
    }
 ]

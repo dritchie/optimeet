@@ -37,6 +37,13 @@
                 "length": 60
             }
         ],
+        "Wednesday" : [
+            {
+                "name": "CS 1230 Staff meeting",
+                "time": "06:00 PM",
+                "length": 60
+            }
+        ],
         "Thursday" : [
             {
                 "name": "CS 1230 Lecture",
@@ -157,6 +164,12 @@
             "participants": ["srinath", "zekun"],
             "remoteLocation": "https://brown.zoom.us/j/91921438261",
             "physicalLocation": "CIT 407"
+        },
+        {
+            "name": "Krishi Project Meeting",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["krishi", "arman"]
         }
     ]
 }
