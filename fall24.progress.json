@@ -3,11 +3,11 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "angel",
-         "kai",
-         "yuanbo",
          "manolis",
-         "adrian"
+         "yuanbo",
+         "adrian",
+         "kai",
+         "angel"
       ],
       "name": "Neurosymbolic Scene Synth",
       "numViableMeetingTimesSoFar": 3,
@@ -17,9 +17,9 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
+         "paul_g",
          "niloy",
-         "paul_g"
+         "kenny"
       ],
       "name": "Part Graph Programs",
       "numViableMeetingTimesSoFar": 6,
@@ -29,10 +29,10 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "angel",
          "manolis",
+         "denys",
          "qirui",
-         "denys"
+         "angel"
       ],
       "name": "Diorama",
       "numViableMeetingTimesSoFar": 2,
@@ -41,8 +41,8 @@
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "srinath",
-         "zihan"
+         "zihan",
+         "srinath"
       ],
       "hasResponded": [
          "xianghao",
@@ -56,10 +56,10 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
          "junyu",
-         "anh",
-         "chengfan"
+         "chengfan",
+         "kenny",
+         "anh"
       ],
       "name": "Implicit Transformer Shape Synth",
       "numViableMeetingTimesSoFar": 12,
@@ -72,9 +72,9 @@
       ],
       "hasResponded": [
          "vova",
+         "arman",
          "thibault",
-         "tanish",
-         "arman"
+         "tanish"
       ],
       "name": "Arman PoissonNet Project",
       "numViableMeetingTimesSoFar": 12,
@@ -82,19 +82,18 @@
    },
    {
       "deadline": "09/07/24",
-      "hasNotResponded": [
-         "stewart"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "aditya",
-         "kenny",
+         "brian",
+         "stewart",
          "rio",
-         "jean",
          "maxim",
-         "brian"
+         "kenny",
+         "jean",
+         "aditya"
       ],
       "name": "LLM Scene Generation",
-      "numViableMeetingTimesSoFar": 4,
+      "numViableMeetingTimesSoFar": 0,
       "when2meet": "https://when2meet.com/?26225659-LaV9O"
    },
    {
@@ -115,10 +114,10 @@
          "gilda"
       ],
       "hasResponded": [
-         "adrien",
          "xianghao",
+         "yuanbo",
          "henro",
-         "yuanbo"
+         "adrien"
       ],
       "name": "CAD sketch-to-program",
       "numViableMeetingTimesSoFar": 3,
@@ -128,11 +127,11 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "matt",
-         "aditya",
+         "paul_g",
          "radomir",
          "thibault",
-         "paul_g"
+         "matt",
+         "aditya"
       ],
       "name": "Aditya patterns project",
       "numViableMeetingTimesSoFar": 1,
@@ -151,26 +150,25 @@
    },
    {
       "deadline": "09/07/24",
-      "hasNotResponded": [
-         "nirayka",
-         "stewart"
+      "hasNotResponded": [],
+      "hasResponded": [
+         "stewart",
+         "nirayka"
       ],
-      "hasResponded": [],
       "name": "Zero-shot object orientation",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 7,
       "when2meet": "https://when2meet.com/?26225665-aEJOB"
    },
    {
       "deadline": "09/07/24",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
+         "junyu",
+         "kenny",
          "caitlin"
       ],
-      "hasResponded": [
-         "kenny",
-         "junyu"
-      ],
       "name": "Few-shot generative concepts",
-      "numViableMeetingTimesSoFar": 25,
+      "numViableMeetingTimesSoFar": 12,
       "when2meet": "https://when2meet.com/?26225666-eHIYn"
    },
    {
@@ -179,10 +177,10 @@
          "srinath"
       ],
       "hasResponded": [
-         "alex_j",
-         "dingxi",
          "rao",
-         "austin"
+         "alex_j",
+         "austin",
+         "dingxi"
       ],
       "name": "Text2Action",
       "numViableMeetingTimesSoFar": 1,
