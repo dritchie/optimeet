@@ -3,11 +3,11 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "manolis",
-         "yuanbo",
-         "adrian",
+         "angel",
          "kai",
-         "angel"
+         "adrian",
+         "manolis",
+         "yuanbo"
       ],
       "name": "Neurosymbolic Scene Synth",
       "numViableMeetingTimesSoFar": 3,
@@ -17,9 +17,9 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "paul_g",
+         "kenny",
          "niloy",
-         "kenny"
+         "paul_g"
       ],
       "name": "Part Graph Programs",
       "numViableMeetingTimesSoFar": 6,
@@ -29,20 +29,20 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "manolis",
          "denys",
-         "qirui",
-         "angel"
+         "angel",
+         "manolis",
+         "qirui"
       ],
       "name": "Diorama",
-      "numViableMeetingTimesSoFar": 2,
+      "numViableMeetingTimesSoFar": 3,
       "when2meet": "https://when2meet.com/?26225655-6seeS"
    },
    {
       "deadline": "09/07/24",
       "hasNotResponded": [
-         "zihan",
-         "srinath"
+         "srinath",
+         "zihan"
       ],
       "hasResponded": [
          "xianghao",
@@ -56,10 +56,10 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "junyu",
-         "chengfan",
          "kenny",
-         "anh"
+         "junyu",
+         "anh",
+         "chengfan"
       ],
       "name": "Implicit Transformer Shape Synth",
       "numViableMeetingTimesSoFar": 12,
@@ -71,10 +71,10 @@
          "noam"
       ],
       "hasResponded": [
+         "tanish",
          "vova",
-         "arman",
          "thibault",
-         "tanish"
+         "arman"
       ],
       "name": "Arman PoissonNet Project",
       "numViableMeetingTimesSoFar": 12,
@@ -84,13 +84,13 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "brian",
-         "stewart",
          "rio",
-         "maxim",
          "kenny",
          "jean",
-         "aditya"
+         "maxim",
+         "aditya",
+         "stewart",
+         "brian"
       ],
       "name": "LLM Scene Generation",
       "numViableMeetingTimesSoFar": 0,
@@ -115,9 +115,9 @@
       ],
       "hasResponded": [
          "xianghao",
-         "yuanbo",
+         "adrien",
          "henro",
-         "adrien"
+         "yuanbo"
       ],
       "name": "CAD sketch-to-program",
       "numViableMeetingTimesSoFar": 3,
@@ -127,11 +127,11 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "paul_g",
-         "radomir",
+         "aditya",
          "thibault",
-         "matt",
-         "aditya"
+         "radomir",
+         "paul_g",
+         "matt"
       ],
       "name": "Aditya patterns project",
       "numViableMeetingTimesSoFar": 1,
@@ -152,8 +152,8 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "stewart",
-         "nirayka"
+         "nirayka",
+         "stewart"
       ],
       "name": "Zero-shot object orientation",
       "numViableMeetingTimesSoFar": 7,
@@ -163,9 +163,9 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "junyu",
          "kenny",
-         "caitlin"
+         "caitlin",
+         "junyu"
       ],
       "name": "Few-shot generative concepts",
       "numViableMeetingTimesSoFar": 12,
@@ -178,12 +178,12 @@
       ],
       "hasResponded": [
          "rao",
-         "alex_j",
          "austin",
+         "alex_j",
          "dingxi"
       ],
       "name": "Text2Action",
-      "numViableMeetingTimesSoFar": 1,
+      "numViableMeetingTimesSoFar": 4,
       "when2meet": "https://when2meet.com/?26225667-SccKF"
    },
    {
@@ -195,7 +195,7 @@
          "zekun"
       ],
       "name": "Zekun's Project Meeting",
-      "numViableMeetingTimesSoFar": 20,
+      "numViableMeetingTimesSoFar": 24,
       "when2meet": "https://when2meet.com/?26225668-GZMYr"
    }
 ]

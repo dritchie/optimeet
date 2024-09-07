@@ -78,7 +78,7 @@
         },
         {
             "name": "Diorama",
-            "length": 60,
+            "length": 30,
             "type": "remote",
             "participants": ["manolis", "angel", "qirui", "denys"],
             "remoteLocation": "https://sfu.zoom.us/j/97617289278?pwd=K0dTRkNJTmJwcnNpVHRmb2pHbTJQQT09"
@@ -145,14 +145,14 @@
         },
         {
             "name": "Text2Action",
-            "length": 60,
+            "length": 30,
             "type": "remote",
             "participants": ["srinath", "rao", "dingxi", "austin", "alex_j"],
             "remoteLocation": "https://brown.zoom.us/my/raofu"
         },
         {
             "name": "Zekun's Project Meeting",
-            "length": 60,
+            "length": 30,
             "type": "hybrid",
             "participants": ["srinath", "zekun"],
             "remoteLocation": "https://brown.zoom.us/j/91921438261",
