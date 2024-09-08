@@ -3,10 +3,10 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "adrian",
          "manolis",
-         "angel",
          "kai",
+         "adrian",
+         "angel",
          "yuanbo"
       ],
       "name": "Neurosymbolic Scene Synth",
@@ -17,9 +17,9 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
+         "paul_g",
          "niloy",
-         "paul_g"
+         "kenny"
       ],
       "name": "Part Graph Programs",
       "numViableMeetingTimesSoFar": 6,
@@ -29,10 +29,10 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "denys",
          "angel",
+         "qirui",
          "manolis",
-         "qirui"
+         "denys"
       ],
       "name": "Diorama",
       "numViableMeetingTimesSoFar": 3,
@@ -43,8 +43,8 @@
       "hasNotResponded": [],
       "hasResponded": [
          "zihan",
-         "ray",
          "srinath",
+         "ray",
          "xianghao"
       ],
       "name": "Procedural Modeling + Diffusion",
@@ -55,10 +55,10 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
+         "anh",
          "kenny",
-         "junyu",
          "chengfan",
-         "anh"
+         "junyu"
       ],
       "name": "Implicit Transformer Shape Synth",
       "numViableMeetingTimesSoFar": 12,
@@ -68,10 +68,10 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
+         "noam",
          "vova",
          "tanish",
          "arman",
-         "noam",
          "thibault"
       ],
       "name": "Arman PoissonNet Project",
@@ -82,25 +82,25 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "maxim",
-         "aditya",
          "rio",
-         "jean",
+         "aditya",
+         "brian",
+         "maxim",
          "kenny",
-         "stewart",
-         "brian"
+         "jean",
+         "stewart"
       ],
       "name": "LLM Scene Generation",
-      "numViableMeetingTimesSoFar": 2,
+      "numViableMeetingTimesSoFar": 6,
       "when2meet": "https://when2meet.com/?26225659-LaV9O"
    },
    {
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
+         "derek",
          "maxim",
-         "victor",
-         "derek"
+         "victor"
       ],
       "name": "Maxim's Project",
       "numViableMeetingTimesSoFar": 15,
@@ -113,9 +113,9 @@
       ],
       "hasResponded": [
          "henro",
-         "xianghao",
+         "yuanbo",
          "adrien",
-         "yuanbo"
+         "xianghao"
       ],
       "name": "CAD sketch-to-program",
       "numViableMeetingTimesSoFar": 3,
@@ -125,11 +125,11 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "matt",
+         "paul_g",
          "aditya",
+         "matt",
          "radomir",
-         "thibault",
-         "paul_g"
+         "thibault"
       ],
       "name": "Aditya patterns project",
       "numViableMeetingTimesSoFar": 1,
@@ -139,19 +139,19 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
-         "jean"
+         "jean",
+         "kenny"
       ],
       "name": "NGSP",
-      "numViableMeetingTimesSoFar": 4,
+      "numViableMeetingTimesSoFar": 10,
       "when2meet": "https://when2meet.com/?26225664-2VkSY"
    },
    {
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "stewart",
-         "nirayka"
+         "nirayka",
+         "stewart"
       ],
       "name": "Zero-shot object orientation",
       "numViableMeetingTimesSoFar": 7,
@@ -173,11 +173,11 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "rao",
          "dingxi",
-         "srinath",
+         "austin",
          "alex_j",
-         "austin"
+         "srinath",
+         "rao"
       ],
       "name": "Text2Action",
       "numViableMeetingTimesSoFar": 0,
@@ -187,8 +187,8 @@
       "deadline": "09/07/24",
       "hasNotResponded": [],
       "hasResponded": [
-         "srinath",
-         "zekun"
+         "zekun",
+         "srinath"
       ],
       "name": "Zekun's Project Meeting",
       "numViableMeetingTimesSoFar": 4,

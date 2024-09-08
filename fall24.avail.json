@@ -137,8 +137,14 @@
       ]
    },
    "LLM Scene Generation": {
-      "Friday": [],
-      "Monday": [],
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
       "Saturday": [],
       "Sunday": [],
       "Thursday": [],
@@ -179,12 +185,19 @@
    },
    "NGSP": {
       "Friday": [
+         "10:00 AM",
+         "10:30 AM",
          "02:00 PM",
          "02:30 PM",
          "03:00 PM",
          "03:30 PM"
       ],
-      "Monday": [],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
       "Saturday": [],
       "Sunday": [],
       "Thursday": [],
