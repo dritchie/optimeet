@@ -1,0 +1,291 @@
+{
+   "Aditya patterns project": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Wednesday": []
+   },
+   "Arman PoissonNet Project": {
+      "Friday": [],
+      "Monday": [
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "04:00 PM",
+         "04:30 PM",
+         "05:00 PM"
+      ],
+      "Tuesday": [
+         "03:30 PM",
+         "04:00 PM"
+      ],
+      "Wednesday": []
+   },
+   "CAD sketch-to-program": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM"
+      ],
+      "Tuesday": [
+         "10:00 AM"
+      ],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM"
+      ]
+   },
+   "Diorama": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Wednesday": []
+   },
+   "Few-shot generative concepts": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM"
+      ],
+      "Tuesday": [
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM"
+      ],
+      "Wednesday": []
+   },
+   "Implicit Transformer Shape Synth": {
+      "Friday": [
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [
+         "02:00 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "04:00 PM",
+         "04:30 PM"
+      ],
+      "Tuesday": [
+         "04:00 PM",
+         "04:30 PM"
+      ],
+      "Wednesday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM"
+      ]
+   },
+   "Krishi Project Meeting": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [
+         "10:00 AM"
+      ],
+      "Wednesday": [
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM"
+      ]
+   },
+   "LLM Scene Generation": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM"
+      ]
+   },
+   "Maxim's Project": {
+      "Friday": [
+         "11:00 AM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Monday": [
+         "11:00 AM",
+         "11:30 AM",
+         "02:00 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "05:00 PM"
+      ],
+      "Tuesday": [
+         "04:00 PM",
+         "05:00 PM",
+         "05:30 PM"
+      ],
+      "Wednesday": [
+         "11:00 AM",
+         "12:00 PM"
+      ]
+   },
+   "NGSP": {
+      "Friday": [
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Neurosymbolic Scene Synth": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [
+         "04:30 PM",
+         "05:00 PM",
+         "05:30 PM"
+      ],
+      "Wednesday": []
+   },
+   "Part Graph Programs": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Procedural Modeling + Diffusion": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": [
+         "11:00 AM",
+         "11:30 AM",
+         "12:00 PM"
+      ]
+   },
+   "Text2Action": {
+      "Friday": [],
+      "Monday": [
+         "04:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM"
+      ],
+      "Wednesday": [
+         "04:30 PM"
+      ]
+   },
+   "Zekun's Project Meeting": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Wednesday": []
+   },
+   "Zero-shot object orientation": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "02:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM"
+      ]
+   }
+}
