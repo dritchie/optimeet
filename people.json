@@ -563,5 +563,45 @@
     "alex_j" : {
         "name": "Alex Jiang",
         "email": "alexander_jiang@brown.edu"
+    },
+    "marzia" : {
+        "name": "Marzia Riso",
+        "email": "marzia.riso@inria.fr"
+    },
+    "vivian" : {
+        "name": "Vivian Lu",
+        "email": "vivian_f_lu@brown.edu"
+    },
+    "rui" : {
+        "name": "Rui Zhou",
+        "email": "rui_zhou1@brown.edu"
+    },
+    "anh_d" : {
+        "name": "Anh Duong",
+        "email": "Anh_Duong@brown.edu"
+    },
+    "max" : {
+        "name": "Max Guo",
+        "email": "max_guo@brown.edu"
+    },
+    "josh" : {
+        "name": "Josh Yang",
+        "email": "joshua_yang@brown.edu"
+    },
+    "arman_1950u" : {
+        "name": "Arman Mohammadi",
+        "email": "Arman_Mohammadi@brown.edu"
+    },
+    "feiyue" : {
+        "name": "Feiyue Zhang",
+        "email": "feiyue_zhang@brown.edu"
+    },
+    "quinn" : {
+        "name": "Quinn Shing",
+        "email": "quinnshing17@gmail.com"
+    },
+    "bilal" : {
+        "name": "Bilal Tariq",
+        "email": "mtariq27@amherst.edu"
     }
 }

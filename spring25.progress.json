@@ -1,0 +1,211 @@
+[
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "kenny",
+         "niloy",
+         "paul_g"
+      ],
+      "hasResponded": [],
+      "name": "Part Graph Programs",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694482-Zt7yc"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "manolis",
+         "angel",
+         "qirui",
+         "denys"
+      ],
+      "hasResponded": [],
+      "name": "Diorama",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694483-ggj2V"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "ray",
+         "zihan",
+         "srinath"
+      ],
+      "hasResponded": [],
+      "name": "Procedural Modeling + Diffusion",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694484-FNDse"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "arman",
+         "noam",
+         "vova",
+         "thibault",
+         "tanish"
+      ],
+      "hasResponded": [],
+      "name": "Arman PoissonNet Project",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694486-eBdSH"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "maxim",
+         "victor",
+         "derek"
+      ],
+      "hasResponded": [],
+      "name": "Maxim's Project",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694487-ERpkQ"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "yuanbo",
+         "adrien",
+         "gilda",
+         "henro",
+         "marzia"
+      ],
+      "hasResponded": [],
+      "name": "CAD sketch-to-program",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694488-uhecd"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "kenny",
+         "jean",
+         "vivian"
+      ],
+      "hasResponded": [],
+      "name": "NGSP",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694489-MdnD5"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "stewart",
+         "nirayka"
+      ],
+      "hasResponded": [],
+      "name": "Zero-shot object orientation",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694490-cdg8x"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "junyu",
+         "kenny"
+      ],
+      "hasResponded": [],
+      "name": "Few-shot generative concepts",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694491-ESjZa"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "srinath",
+         "rao",
+         "dingxi",
+         "austin",
+         "alex_j"
+      ],
+      "hasResponded": [],
+      "name": "Text2Action",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694492-6j7pP"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "srinath",
+         "zekun",
+         "rahul",
+         "rui"
+      ],
+      "hasResponded": [],
+      "name": "Zekun's Project Meeting",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694493-NriFI"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "stewart",
+         "anh_d",
+         "max",
+         "josh"
+      ],
+      "hasResponded": [],
+      "name": "CS 2240 Staff Meeting",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694494-6fziO"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "arman_1950u",
+         "feiyue"
+      ],
+      "hasResponded": [],
+      "name": "CS 1950U Staff Meeting",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694495-LP8vO"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "quinn",
+         "bilal"
+      ],
+      "hasResponded": [],
+      "name": "Daniel's exploreCSR Group",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694496-HIxLP"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "adrien",
+         "henro",
+         "sid"
+      ],
+      "hasResponded": [],
+      "name": "Henro SDF Program Inference Project",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694497-2qi4n"
+   },
+   {
+      "deadline": "02/02/25",
+      "hasNotResponded": [
+         "kenny",
+         "maxim",
+         "arman",
+         "aditya",
+         "yuanbo",
+         "ray",
+         "zihan",
+         "stewart",
+         "junyu",
+         "chengfan",
+         "brian",
+         "jean",
+         "nirayka",
+         "tanish",
+         "vivian"
+      ],
+      "hasResponded": [],
+      "name": "Daniel's Group Meeting",
+      "numViableMeetingTimesSoFar": 0,
+      "when2meet": "https://when2meet.com/?28694498-qxbIo"
+   }
+]
