@@ -1,10 +1,9 @@
 [
    {
       "deadline": "02/02/25",
-      "hasNotResponded": [
-         "kenny"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "kenny",
          "niloy",
          "paul_g"
       ],
@@ -31,8 +30,8 @@
          "srinath"
       ],
       "hasResponded": [
-         "ray",
-         "zihan"
+         "zihan",
+         "ray"
       ],
       "name": "Procedural Modeling + Diffusion",
       "numViableMeetingTimesSoFar": 41,
@@ -40,14 +39,13 @@
    },
    {
       "deadline": "02/02/25",
-      "hasNotResponded": [
-         "vova"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "arman",
          "tanish",
-         "thibault",
-         "noam"
+         "arman",
+         "noam",
+         "vova",
+         "thibault"
       ],
       "name": "Arman PoissonNet Project",
       "numViableMeetingTimesSoFar": 4,
@@ -55,26 +53,25 @@
    },
    {
       "deadline": "02/02/25",
-      "hasNotResponded": [
-         "victor"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
          "derek",
-         "maxim"
+         "maxim",
+         "victor"
       ],
       "name": "Maxim's Project",
-      "numViableMeetingTimesSoFar": 19,
+      "numViableMeetingTimesSoFar": 7,
       "when2meet": "https://when2meet.com/?28694487-ERpkQ"
    },
    {
       "deadline": "02/02/25",
       "hasNotResponded": [],
       "hasResponded": [
-         "marzia",
          "adrien",
-         "henro",
          "yuanbo",
-         "gilda"
+         "gilda",
+         "marzia",
+         "henro"
       ],
       "name": "CAD sketch-to-program",
       "numViableMeetingTimesSoFar": 1,
@@ -82,38 +79,36 @@
    },
    {
       "deadline": "02/02/25",
-      "hasNotResponded": [
-         "kenny"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "jean",
-         "vivian"
+         "vivian",
+         "kenny",
+         "jean"
       ],
       "name": "NGSP",
-      "numViableMeetingTimesSoFar": 30,
+      "numViableMeetingTimesSoFar": 18,
       "when2meet": "https://when2meet.com/?28694489-MdnD5"
    },
    {
       "deadline": "02/02/25",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
          "stewart",
          "nirayka"
       ],
-      "hasResponded": [],
       "name": "Zero-shot object orientation",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 17,
       "when2meet": "https://when2meet.com/?28694490-cdg8x"
    },
    {
       "deadline": "02/02/25",
-      "hasNotResponded": [
-         "kenny"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "kenny",
          "junyu"
       ],
       "name": "Few-shot generative concepts",
-      "numViableMeetingTimesSoFar": 41,
+      "numViableMeetingTimesSoFar": 24,
       "when2meet": "https://when2meet.com/?28694491-ESjZa"
    },
    {
@@ -123,9 +118,9 @@
       ],
       "hasResponded": [
          "alex_j",
-         "rao",
          "dingxi",
-         "austin"
+         "austin",
+         "rao"
       ],
       "name": "Text2Action",
       "numViableMeetingTimesSoFar": 1,
@@ -147,13 +142,12 @@
    },
    {
       "deadline": "02/02/25",
-      "hasNotResponded": [
-         "stewart"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "max",
          "josh",
-         "anh_d"
+         "stewart",
+         "anh_d",
+         "max"
       ],
       "name": "CS 2240 Staff Meeting",
       "numViableMeetingTimesSoFar": 1,
@@ -185,9 +179,9 @@
       "deadline": "02/02/25",
       "hasNotResponded": [],
       "hasResponded": [
-         "sid",
+         "adrien",
          "henro",
-         "adrien"
+         "sid"
       ],
       "name": "Henro SDF Program Inference Project",
       "numViableMeetingTimesSoFar": 2,
@@ -195,24 +189,23 @@
    },
    {
       "deadline": "02/02/25",
-      "hasNotResponded": [
-         "stewart",
-         "kenny",
-         "nirayka"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "jean",
-         "ray",
-         "maxim",
-         "aditya",
-         "junyu",
-         "yuanbo",
+         "stewart",
          "tanish",
-         "brian",
+         "aditya",
          "arman",
-         "zihan",
+         "maxim",
+         "yuanbo",
+         "junyu",
+         "nirayka",
+         "chengfan",
+         "jean",
+         "brian",
+         "kenny",
+         "ray",
          "vivian",
-         "chengfan"
+         "zihan"
       ],
       "name": "Daniel's Group Meeting",
       "numViableMeetingTimesSoFar": 0,
