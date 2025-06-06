@@ -603,5 +603,57 @@
     "bilal" : {
         "name": "Bilal Tariq",
         "email": "mtariq27@amherst.edu"
+    },
+     "xiaoyan" : {
+        "name": "Xiaoyan Cong",
+        "email": "xiaoyan_cong@brown.edu"
+    },
+     "yeganeh" : {
+        "name": "Yeganeh Kordi",
+        "email": "yeganeh_kordi@brown.edu"
+    },
+    "karina" : {
+        "name": "Karina LaRubbio",
+        "email": "karina_larubbio@brown.edu"
+    },
+    "stephen_c" : {
+        "name": "Stephen Crawford",
+        "email": "stephen_crawford@brown.edu"
+    },
+    "aruna" : {
+        "name": "Aruna Anderson",
+        "email": "asunander@hotmail.com"
+    },
+    "nicole_g": {
+        "name": "Nicole Ge",
+        "email": "nge@g.hmc.edu"
+    },
+    "chengye": {
+        "name": "Chengye Hao",
+        "email": "chengye_hao@brown.edu"
+    },
+    "ben_a": {
+        "name": "Ben Ahlbrand",
+        "email": "bmahlbrand@gmail.com"
+    },
+    "jason_l": {
+        "name": "Jason Liu",
+        "email": "xiaoyi_liu@brown.edu"
+    },
+    "adriana": {
+        "name": "Adriana Schulz",
+        "email": "adriana_schulz@brown.edu"
+    },
+    "yuqiao": {
+        "name": "Yuqiao Guan",
+        "email": "yuqiao_guan@brown.edu"
+    },
+    "gavin": {
+        "name": "Gavin Dhanda",
+        "email": "gavin_dhanda@brown.edu"
+    },
+     "spandan": {
+        "name": "Spandan Goel",
+        "email": "spandan_goel@brown.edu"
     }
 }

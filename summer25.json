@@ -1,0 +1,136 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["10:00 AM", "7:00 PM"]
+        ]
+    },
+
+    "myCommitments": { 
+        "Monday" : [
+        ],
+        "Tuesday" : [
+        ],
+        "Wednesday" : [
+        ],
+        "Thursday" : [
+            {
+                "name": "Thirsty Thursday",
+                "time": "05:30 PM",
+                "length": 90
+            }
+        ],
+        "Friday" : [
+            {
+                "name": "DynamicHOI",
+                "time": "10:00 AM",
+                "length": 60
+            }
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "Maxim + Roblox",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["maxim", "victor", "derek"]
+        },
+        {
+            "name": "NGSP",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "jean"]
+        },
+        {
+            "name": "Zero-shot object orientation",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["stewart", "nirayka"]
+        },
+        {
+            "name": "Human-Scene Interaction",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["srinath", "zekun", "rahul", "rui", "xiaoyan"],
+            "remoteLocation": "https://brown.zoom.us/j/91921438261",
+            "physicalLocation": "CIT 407"
+        },
+        {
+            "name": "Henro SDF Program Inference Project",
+            "length": 60,
+            "type": "remote",
+            "participants": ["adrien", "henro", "sid", "marzia"]
+        },
+        {
+            "name": "Study group leader checkin",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["arman", "yeganeh", "karina", "stephen_c"]
+        },
+        {
+            "name": "Harmonic measure features",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman", "aruna", "nicole_g"]
+        },
+        {
+            "name": "Arman + Daniel",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman"]
+        },
+        {
+            "name": "Sketch-to-CAD spin-offs",
+            "length": 30,
+            "type": "remote",
+            "participants": ["yuanbo", "bilal", "chengye"]
+        },
+        {
+            "name": "Jason project brainstorming",
+            "length": 30,
+            "type": "remote",
+            "participants": ["jason_l", "adriana"]
+        },
+        {
+            "name": "Ben project brainstorming",
+            "length": 30,
+            "type": "remote",
+            "participants": ["ben_a"]
+        },
+        {
+            "name": "Open-vocabulary neurosymbolic 3D models",
+            "length": 30,
+            "type": "remote",
+            "participants": ["kenny", "yuqiao"]
+        },
+        {
+            "name": "Aruna & Nicole checkin",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["aruna", "nicole_g"]
+        },
+        {
+            "name": "CS 1230 course dev checkin",
+            "length": 30,
+            "type": "remote",
+            "participants": ["gavin", "spandan"]
+        }
+    ]
+}
