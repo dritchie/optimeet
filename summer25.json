@@ -130,7 +130,7 @@
             "name": "CS 1230 course dev checkin",
             "length": 30,
             "type": "remote",
-            "participants": ["gavin", "spandan"]
+            "participants": ["gavin", "spandan", "faisal", "apoorva"]
         }
     ]
 }

@@ -655,5 +655,13 @@
      "spandan": {
         "name": "Spandan Goel",
         "email": "spandan_goel@brown.edu"
+    },
+    "faisal": {
+        "name": "Faisal Zaghloul",
+        "email": "faisal_zaghloul@brown.edu"
+    },
+    "apoorva": {
+        "name": "Apoorva Talwalkar",
+        "email": "apoorva_talwalkar@brown.edu"
     }
 }
