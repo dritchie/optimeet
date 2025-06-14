@@ -136,6 +136,12 @@
             "length": 30,
             "type": "remote",
             "participants": ["gavin", "spandan", "faisal", "apoorva"]
+        },
+        {
+            "name": "Neurocad",
+            "length": 60,
+            "type": "remote",
+            "participants": ["adriana", "milin"]
         }
     ]
 }
