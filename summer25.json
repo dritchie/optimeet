@@ -26,6 +26,11 @@
         ],
         "Thursday" : [
             {
+                "name": "Aditya Project Meeting",
+                "time": "11:00 AM",
+                "length": 60
+            },
+            {
                 "name": "Thirsty Thursday",
                 "time": "05:30 PM",
                 "length": 90
