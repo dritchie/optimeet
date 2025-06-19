@@ -73,7 +73,7 @@
             "name": "Human-Scene Interaction",
             "length": 30,
             "type": "hybrid",
-            "participants": ["srinath", "zekun", "rahul", "rui", "xiaoyan"],
+            "participants": ["srinath", "zekun", "rahul", "xiaoyan"],
             "remoteLocation": "https://brown.zoom.us/j/91921438261",
             "physicalLocation": "CIT 407"
         },
@@ -142,6 +142,12 @@
             "length": 60,
             "type": "remote",
             "participants": ["adriana", "milin"]
+        },
+        {
+            "name": "Improved sketch lifting",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["adrien", "yuanbo", "xiaoxi"]
         }
     ]
 }

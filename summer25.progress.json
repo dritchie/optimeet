@@ -5,8 +5,8 @@
          "victor"
       ],
       "hasResponded": [
-         "maxim",
-         "derek"
+         "derek",
+         "maxim"
       ],
       "name": "Maxim + Roblox",
       "numViableMeetingTimesSoFar": 11,
@@ -16,8 +16,8 @@
       "deadline": "06/21/25",
       "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
-         "jean"
+         "jean",
+         "kenny"
       ],
       "name": "NGSP",
       "numViableMeetingTimesSoFar": 13,
@@ -26,8 +26,8 @@
    {
       "deadline": "06/21/25",
       "hasNotResponded": [
-         "nirayka",
-         "stewart"
+         "stewart",
+         "nirayka"
       ],
       "hasResponded": [],
       "name": "Zero-shot object orientation",
@@ -37,13 +37,12 @@
    {
       "deadline": "06/21/25",
       "hasNotResponded": [
-         "xiaoyan",
-         "rui"
+         "xiaoyan"
       ],
       "hasResponded": [
-         "zekun",
+         "rahul",
          "srinath",
-         "rahul"
+         "zekun"
       ],
       "name": "Human-Scene Interaction",
       "numViableMeetingTimesSoFar": 1,
@@ -52,11 +51,11 @@
    {
       "deadline": "06/21/25",
       "hasNotResponded": [
-         "sid",
-         "henro"
+         "sid"
       ],
       "hasResponded": [
          "marzia",
+         "henro",
          "adrien"
       ],
       "name": "Henro SDF Program Inference Project",
@@ -67,10 +66,10 @@
       "deadline": "06/21/25",
       "hasNotResponded": [],
       "hasResponded": [
-         "yeganeh",
-         "stephen_c",
          "karina",
-         "arman"
+         "yeganeh",
+         "arman",
+         "stephen_c"
       ],
       "name": "Study group leader checkin",
       "numViableMeetingTimesSoFar": 10,
@@ -78,11 +77,10 @@
    },
    {
       "deadline": "06/21/25",
-      "hasNotResponded": [
-         "aruna"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
          "nicole_g",
+         "aruna",
          "arman"
       ],
       "name": "Harmonic measure features",
@@ -103,9 +101,9 @@
       "deadline": "06/21/25",
       "hasNotResponded": [],
       "hasResponded": [
+         "chengye",
          "yuanbo",
-         "bilal",
-         "chengye"
+         "bilal"
       ],
       "name": "Sketch-to-CAD spin-offs",
       "numViableMeetingTimesSoFar": 17,
@@ -113,14 +111,13 @@
    },
    {
       "deadline": "06/21/25",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
+         "jason_l",
          "adriana"
       ],
-      "hasResponded": [
-         "jason_l"
-      ],
       "name": "Jason project brainstorming",
-      "numViableMeetingTimesSoFar": 35,
+      "numViableMeetingTimesSoFar": 9,
       "when2meet": "https://when2meet.com/?31009759-84JaK"
    },
    {
@@ -137,25 +134,24 @@
       "deadline": "06/21/25",
       "hasNotResponded": [
          "paul_g",
-         "niloy",
-         "pranav"
+         "niloy"
       ],
       "hasResponded": [
-         "kenny",
          "tj",
-         "yuqiao"
+         "yuqiao",
+         "pranav",
+         "kenny"
       ],
       "name": "Neurosymbolic 3D models",
-      "numViableMeetingTimesSoFar": 18,
+      "numViableMeetingTimesSoFar": 3,
       "when2meet": "https://when2meet.com/?31009761-359r9"
    },
    {
       "deadline": "06/21/25",
-      "hasNotResponded": [
-         "aruna"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "nicole_g"
+         "nicole_g",
+         "aruna"
       ],
       "name": "Aruna & Nicole checkin",
       "numViableMeetingTimesSoFar": 54,
@@ -177,14 +173,26 @@
    },
    {
       "deadline": "06/21/25",
-      "hasNotResponded": [
-         "adriana"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "adriana",
          "milin"
       ],
       "name": "Neurocad",
-      "numViableMeetingTimesSoFar": 42,
+      "numViableMeetingTimesSoFar": 3,
       "when2meet": "https://when2meet.com/?31009764-Iz6AZ"
+   },
+   {
+      "deadline": "06/21/25",
+      "hasNotResponded": [
+         "adrien"
+      ],
+      "hasResponded": [
+         "yuanbo",
+         "xiaoxi"
+      ],
+      "name": "Improved sketch lifting",
+      "numViableMeetingTimesSoFar": 49,
+      "when2meet": "https://www.when2meet.com/?31037257-vrAWI"
    }
 ]
