@@ -1,23 +1,22 @@
 [
    {
       "deadline": "06/21/25",
-      "hasNotResponded": [
-         "victor"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "victor",
          "derek",
          "maxim"
       ],
       "name": "Maxim + Roblox",
-      "numViableMeetingTimesSoFar": 11,
+      "numViableMeetingTimesSoFar": 5,
       "when2meet": "https://when2meet.com/?31009750-DPUod"
    },
    {
       "deadline": "06/21/25",
       "hasNotResponded": [],
       "hasResponded": [
-         "jean",
-         "kenny"
+         "kenny",
+         "jean"
       ],
       "name": "NGSP",
       "numViableMeetingTimesSoFar": 13,
@@ -25,24 +24,23 @@
    },
    {
       "deadline": "06/21/25",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
          "stewart",
          "nirayka"
       ],
-      "hasResponded": [],
       "name": "Zero-shot object orientation",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 6,
       "when2meet": "https://when2meet.com/?31009752-hbVSa"
    },
    {
       "deadline": "06/21/25",
-      "hasNotResponded": [
-         "xiaoyan"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "rahul",
+         "xiaoyan",
+         "zekun",
          "srinath",
-         "zekun"
+         "rahul"
       ],
       "name": "Human-Scene Interaction",
       "numViableMeetingTimesSoFar": 1,
@@ -50,26 +48,25 @@
    },
    {
       "deadline": "06/21/25",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
+         "henro",
+         "marzia",
+         "adrien",
          "sid"
       ],
-      "hasResponded": [
-         "marzia",
-         "henro",
-         "adrien"
-      ],
       "name": "Henro SDF Program Inference Project",
-      "numViableMeetingTimesSoFar": 2,
+      "numViableMeetingTimesSoFar": 1,
       "when2meet": "https://when2meet.com/?31009754-ZKNW2"
    },
    {
       "deadline": "06/21/25",
       "hasNotResponded": [],
       "hasResponded": [
-         "karina",
-         "yeganeh",
          "arman",
-         "stephen_c"
+         "karina",
+         "stephen_c",
+         "yeganeh"
       ],
       "name": "Study group leader checkin",
       "numViableMeetingTimesSoFar": 10,
@@ -79,9 +76,9 @@
       "deadline": "06/21/25",
       "hasNotResponded": [],
       "hasResponded": [
+         "arman",
          "nicole_g",
-         "aruna",
-         "arman"
+         "aruna"
       ],
       "name": "Harmonic measure features",
       "numViableMeetingTimesSoFar": 45,
@@ -101,9 +98,9 @@
       "deadline": "06/21/25",
       "hasNotResponded": [],
       "hasResponded": [
-         "chengye",
+         "bilal",
          "yuanbo",
-         "bilal"
+         "chengye"
       ],
       "name": "Sketch-to-CAD spin-offs",
       "numViableMeetingTimesSoFar": 17,
@@ -133,14 +130,14 @@
    {
       "deadline": "06/21/25",
       "hasNotResponded": [
-         "paul_g",
          "niloy"
       ],
       "hasResponded": [
-         "tj",
+         "paul_g",
+         "kenny",
          "yuqiao",
          "pranav",
-         "kenny"
+         "tj"
       ],
       "name": "Neurosymbolic 3D models",
       "numViableMeetingTimesSoFar": 3,
@@ -159,24 +156,23 @@
    },
    {
       "deadline": "06/21/25",
-      "hasNotResponded": [
-         "spandan"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "gavin",
          "faisal",
-         "apoorva"
+         "apoorva",
+         "spandan",
+         "gavin"
       ],
       "name": "CS 1230 course dev checkin",
-      "numViableMeetingTimesSoFar": 7,
+      "numViableMeetingTimesSoFar": 4,
       "when2meet": "https://when2meet.com/?31009763-rTvD3"
    },
    {
       "deadline": "06/21/25",
       "hasNotResponded": [],
       "hasResponded": [
-         "adriana",
-         "milin"
+         "milin",
+         "adriana"
       ],
       "name": "Neurocad",
       "numViableMeetingTimesSoFar": 3,
@@ -184,15 +180,14 @@
    },
    {
       "deadline": "06/21/25",
-      "hasNotResponded": [
-         "adrien"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "yuanbo",
-         "xiaoxi"
+         "adrien",
+         "xiaoxi",
+         "yuanbo"
       ],
       "name": "Improved sketch lifting",
-      "numViableMeetingTimesSoFar": 49,
+      "numViableMeetingTimesSoFar": 0,
       "when2meet": "https://www.when2meet.com/?31037257-vrAWI"
    }
 ]
