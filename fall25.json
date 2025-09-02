@@ -1,0 +1,168 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["10:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["10:00 AM", "7:00 PM"]
+        ]
+    },
+
+    "myCommitments": { 
+        "Monday" : [
+            {
+                "name": "BVC group meeting",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ],
+        "Tuesday" : [
+            {
+                "name": "CS 1230 Lecture",
+                "time": "10:30 AM",
+                "length": 90
+            },
+            {
+                "name": "CS Faculty Meeting",
+                "time": "12:00 PM",
+                "length": 60
+            },
+            {
+                "name": "CS 1230 Staff Meeting",
+                "time": "05:00 PM",
+                "length": 60
+            }
+        ],
+        "Wednesday" : [
+        ],
+        "Thursday" : [
+            {
+                "name": "CS 1230 Lecture",
+                "time": "10:30 AM",
+                "length": 90
+            },
+            {
+                "name": "Thirsty Thursday",
+                "time": "05:30 PM",
+                "length": 90
+            }
+        ],
+        "Friday" : [
+            {
+                "name": "BVC seminar",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "Aditya Adobe Internship Project",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["aditya", "yifan_w", "vova", "sid", "thibault", "zhiqin", "matheus", "pranav"]
+        },
+        {
+            "name": "JacobianGen Project Meeting",
+            "length": 60,
+            "type": "remote",
+            "participants": ["arman", "noam", "tianshu"]
+        },
+        {
+            "name": "Maxim + Roblox",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["maxim", "victor", "derek"]
+        },
+        {
+            "name": "NGSP",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["kenny", "jean", "kai"]
+        },
+        {
+            "name": "Zero-shot object orientation",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["stewart", "nirayka"]
+        },
+        {
+            "name": "Human-Scene Interaction",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["srinath", "zekun", "rahul", "xiaoyan"],
+            "remoteLocation": "https://brown.zoom.us/j/91921438261",
+            "physicalLocation": "CIT 407"
+        },
+        {
+            "name": "Henro SDF Program Inference Project",
+            "length": 60,
+            "type": "remote",
+            "participants": ["adrien", "henro", "sid", "marzia"]
+        },
+        {
+            "name": "Harmonic measure features",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman", "aruna", "nicole_g"]
+        },
+        {
+            "name": "Jason Project Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["jason_l", "adriana"]
+        },
+        {
+            "name": "Ben Project Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["ben_a"]
+        },
+        {
+            "name": "Neurosymbolic 3D models",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "yuqiao", "tj", "niloy", "paul_g", "ben_a"]
+        },
+        {
+            "name": "Neurocad",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["adriana", "milin"]
+        },
+        {
+            "name": "Improved sketch lifting",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["adrien", "yuanbo", "xiaoxi"]
+        },
+        {
+            "name": "Sketch-to-CAD spin-offs",
+            "length": 30,
+            "type": "remote",
+            "participants": ["yuanbo", "bilal", "chengye"]
+        },
+        {
+            "name": "Daniel's Group Meeting",
+            "length": 60,
+            "type": "in-person",
+            "physicalLocation": "TBD",
+            "participants": ["maxim", "arman", "aditya", "yuanbo", "brian", "nirayka", "tanish", "jason_l", "ben_a", "tj", "xiaoxi", "chengye", "pranav"]
+        }
+    ]
+}

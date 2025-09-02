@@ -679,5 +679,21 @@
     "xiaoxi": {
         "name": "Xiaoxi Yang",
         "email": "xiaoxi_yang@brown.edu"
+    },
+    "yifan_w": {
+        "name": "Yifan Wang",
+        "email": "yifwang@adobe.com"
+    },
+    "zhiqin": {
+        "name": "Zhiqin Chen",
+        "email": "zchen@adobe.com"
+    },
+    "matheus": {
+        "name": "Matheus Gadelha",
+        "email": "gadelha@adobe.com"
+    },
+    "tianshu": {
+        "name": "Tianshu Kuai",
+        "email": "tianshukuai@gmail.com"
     }
 }
