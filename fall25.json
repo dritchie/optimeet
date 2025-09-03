@@ -146,16 +146,10 @@
             "participants": ["adriana", "milin"]
         },
         {
-            "name": "Improved sketch lifting",
-            "length": 30,
+            "name": "Sketch2CAD Projects Meeting",
+            "length": 90,
             "type": "hybrid",
-            "participants": ["adrien", "yuanbo", "xiaoxi"]
-        },
-        {
-            "name": "Sketch-to-CAD spin-offs",
-            "length": 30,
-            "type": "remote",
-            "participants": ["yuanbo", "bilal", "chengye"]
+            "participants": ["adrien", "yuanbo", "xiaoxi", "bilal", "chengye", "marzia", "henro"]
         },
         {
             "name": "Daniel's Group Meeting",
