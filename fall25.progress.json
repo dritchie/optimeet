@@ -5,14 +5,14 @@
          "inigo"
       ],
       "hasResponded": [
-         "zhiqin",
          "thibault",
-         "sid",
-         "aditya",
          "vova",
          "yifan_w",
          "matheus",
-         "pranav"
+         "zhiqin",
+         "pranav",
+         "aditya",
+         "sid"
       ],
       "name": "Aditya Adobe Internship Project",
       "numViableMeetingTimesSoFar": 0,
@@ -24,8 +24,8 @@
          "noam"
       ],
       "hasResponded": [
-         "tianshu",
-         "arman"
+         "arman",
+         "tianshu"
       ],
       "name": "JacobianGen Project Meeting",
       "numViableMeetingTimesSoFar": 49,
@@ -33,15 +33,14 @@
    },
    {
       "deadline": "09/11/25",
-      "hasNotResponded": [
-         "victor"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "victor",
          "derek",
          "maxim"
       ],
       "name": "Maxim + Roblox",
-      "numViableMeetingTimesSoFar": 21,
+      "numViableMeetingTimesSoFar": 5,
       "when2meet": "https://when2meet.com/?32121723-7tXHB"
    },
    {
@@ -71,16 +70,15 @@
    },
    {
       "deadline": "09/11/25",
-      "hasNotResponded": [
-         "srinath",
-         "rahul"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "xiaoyan",
-         "zekun"
+         "zekun",
+         "srinath",
+         "rahul",
+         "xiaoyan"
       ],
       "name": "Human-Scene Interaction",
-      "numViableMeetingTimesSoFar": 34,
+      "numViableMeetingTimesSoFar": 11,
       "when2meet": "https://when2meet.com/?32121726-cxP3w"
    },
    {
@@ -90,8 +88,8 @@
          "marzia"
       ],
       "hasResponded": [
-         "sid",
-         "adrien"
+         "adrien",
+         "sid"
       ],
       "name": "Henro SDF Program Inference Project",
       "numViableMeetingTimesSoFar": 2,
@@ -101,9 +99,9 @@
       "deadline": "09/11/25",
       "hasNotResponded": [],
       "hasResponded": [
+         "arman",
          "nicole_g",
-         "aruna",
-         "arman"
+         "aruna"
       ],
       "name": "Harmonic measure features",
       "numViableMeetingTimesSoFar": 6,
@@ -123,6 +121,7 @@
    {
       "deadline": "09/11/25",
       "hasNotResponded": [
+         "rana",
          "ben_a"
       ],
       "hasResponded": [],
@@ -133,14 +132,14 @@
    {
       "deadline": "09/11/25",
       "hasNotResponded": [
-         "ben_a",
-         "kenny"
+         "kenny",
+         "ben_a"
       ],
       "hasResponded": [
+         "tj",
          "niloy",
          "yuqiao",
-         "paul_g",
-         "tj"
+         "paul_g"
       ],
       "name": "Neurosymbolic 3D models",
       "numViableMeetingTimesSoFar": 1,
@@ -163,8 +162,8 @@
       "hasNotResponded": [
          "chengye",
          "bilal",
-         "marzia",
-         "henro"
+         "henro",
+         "marzia"
       ],
       "hasResponded": [
          "yuanbo",
@@ -179,18 +178,18 @@
       "deadline": "09/11/25",
       "hasNotResponded": [
          "chengye",
-         "ben_a",
-         "tanish"
+         "tanish",
+         "ben_a"
       ],
       "hasResponded": [
-         "maxim",
-         "aditya",
-         "arman",
          "jason_l",
+         "arman",
+         "maxim",
          "tj",
          "pranav",
          "yuanbo",
-         "xiaoxi"
+         "xiaoxi",
+         "aditya"
       ],
       "name": "Daniel's Group Meeting",
       "numViableMeetingTimesSoFar": 4,

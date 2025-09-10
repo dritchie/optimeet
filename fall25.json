@@ -131,7 +131,7 @@
             "name": "Ben Project Meeting",
             "length": 60,
             "type": "hybrid",
-            "participants": ["ben_a"]
+            "participants": ["ben_a", "rana"]
         },
         {
             "name": "Neurosymbolic 3D models",
