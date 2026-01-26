@@ -376,7 +376,7 @@
         "name": "Karl Willis",
         "email": "karl.willis@autodesk.com"
     },
-    "will": {
+    "will_s": {
         "name": "William Sun",
         "email": "william_sun@brown.edu"
     },
@@ -703,5 +703,61 @@
      "rana": {
         "name": "Rana Hanocka",
         "email": "ranahanocka@uchicago.edu"
+    },
+    "arin": {
+        "name": "Arin Idhant",
+        "email": "arin_idhant@brown.edu"
+    },
+    "lana": {
+        "name": "Lana Yang-Maccini",
+        "email": "Lana_Yang-Maccini@brown.edu"
+    },
+    "autumn": {
+        "name": "Autumn Tilley",
+        "email": "autumn_tilley@brown.edu"
+    },
+    "barb": {
+        "name": "Barb Meier",
+        "email": "barbara_meier@brown.edu"
+    },
+    "karima": {
+        "name": "Karima Ma",
+        "email": "karima@mit.edu"
+    },
+    "jeffrey": {
+        "name": "Jeffrey Mu",
+        "email": "jeffrey_mu@brown.edu"
+    },
+    "chujun": {
+        "name": "Chujun Tang",
+        "email": "chujun_tang@brown.edu"
+    },
+    "henry": {
+        "name": "Henry Yin",
+        "email": "hanzhang_yin@brown.edu"
+    },
+    "lyfey": {
+        "name": "Lyfey Vutha",
+        "email": "chealyfey_vutha@brown.edu"
+    },
+    "ryan_l": {
+        "name": "Ryan Lee",
+        "email": "xianrui_ryan_lee@brown.edu"
+    },
+    "yubo": {
+        "name": "Yubo Wang",
+        "email": "yubo_wang1@brown.edu"
+    },
+    "una": {
+        "name": "Una Wu",
+        "email": "yuyan_wu1@brown.edu"
+    },
+    "henry_meta": {
+        "name": "Henry Howard-Jenkins",
+        "email": "henryhj@meta.com"
+    },
+    "will": {
+        "name": "Will Crichton",
+        "email": "will_crichton@brown.edu"
     }
 }

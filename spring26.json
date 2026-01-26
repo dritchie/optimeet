@@ -1,0 +1,180 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["09:00 AM", "7:00 PM"]
+        ]
+    },
+
+    "myCommitments": { 
+        "Monday" : [
+            {
+                "name": "CS 2240 lecture",
+                "time": "11:00 AM",
+                "length": 60
+            },
+            {
+                "name": "BVC group meeting",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ],
+        "Tuesday" : [
+            {
+                "name": "CS Faculty Meeting",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ],
+        "Wednesday" : [
+            {
+                "name": "CS 2240 lecture",
+                "time": "11:00 AM",
+                "length": 60
+            }
+        ],
+        "Thursday" : [
+            {
+                "name": "Thirsty Thursday",
+                "time": "05:30 PM",
+                "length": 90
+            }
+        ],
+        "Friday" : [
+            {
+                "name": "CS 2240 lecture",
+                "time": "11:00 AM",
+                "length": 60
+            },
+            {
+                "name": "BVC seminar",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "BVC faculty monthly coffee chat",
+            "length": 60,
+            "type": "in-person",
+            "participants": ["james", "david_l", "adriana", "barb", "srinath"],
+            "physicalLocation": "Caffe Nero"
+        },
+        {
+            "name": "CS 2240 staff meeting",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["arman", "arin", "lana"]
+        },
+        {
+            "name": "CS 1950U staff meeting",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["faisal", "autumn"]
+        },
+        {
+            "name": "surfacing abstractions",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["adriana", "karima", "will"]
+        },
+        {
+            "name": "Part-level affordances weekly",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["aditya", "henry", "henry_meta"],
+            "remoteLocation": "https://fb.zoom.us/j/93472252826?pwd=B034HJ4o7HMaaGYFcH15imvSIYgnGV.1"
+        },
+        {
+            "name": "Aditya SuperFit Project Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["aditya", "yifan_w", "sid", "thibault", "zhiqin", "matheus", "pranav"]
+        },
+        {
+            "name": "JacobianGen Project Meeting",
+            "length": 60,
+            "type": "remote",
+            "participants": ["arman", "noam", "tianshu"]
+        },
+        {
+            "name": "Maxim + Roblox",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["maxim", "victor", "derek"]
+        },
+        {
+            "name": "Zero-shot object orientation",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["stewart"]
+        },
+        {
+            "name": "Henro SDF Program Inference Project",
+            "length": 60,
+            "type": "remote",
+            "participants": ["adrien", "henro", "sid", "marzia"]
+        },
+        {
+            "name": "Monte Carlo DTN",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["arman", "aruna", "nicole_g"]
+        },
+        {
+            "name": "Jason Project Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["jason_l", "adriana", "karima"]
+        },
+        {
+            "name": "Ben Project Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["ben_a", "rana", "paul_g"]
+        },
+        {
+            "name": "Neurosymbolic 3D models",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "yuqiao", "paul_g", "ben_a", "jeffrey"]
+        },
+        {
+            "name": "Neurocad",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["adriana", "milin", "aditya"]
+        },
+        {
+            "name": "Sketch2CAD Projects Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["adrien", "yuanbo", "xiaoxi", "chengye", "marzia"]
+        },
+        {
+            "name": "Daniel's Group Meeting",
+            "length": 60,
+            "type": "in-person",
+            "physicalLocation": "TBD",
+            "participants": ["maxim", "arman", "aditya", "yuanbo", "tanish", "jason_l", "ben_a", "xiaoxi", "chengye", "pranav", "yuqiao", "chujun", "henry", "lyfey", "ryan_l", "yubo", "una"]
+        }
+    ]
+}
