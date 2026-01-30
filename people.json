@@ -767,5 +767,13 @@
     "alexander": {
         "name": "Alexander Vassilev",
         "email": "alexander_vassilev@brown.edu"
+    },
+    "ruby": {
+        "name": "Ruby Hong",
+        "email": "rhong08@smith.edu"
+    },
+    "sandesh": {
+        "name": "Sandesh Ghimire",
+        "email": "sghimire26@amherst.edu"
     }
 }
