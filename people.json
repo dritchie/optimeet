@@ -759,5 +759,13 @@
     "will": {
         "name": "Will Crichton",
         "email": "will_crichton@brown.edu"
+    },
+    "oras": {
+        "name": "Oras Phongpanangam",
+        "email": "oras_phongpanangam@brown.edu"
+    },
+    "alexander": {
+        "name": "Alexander Vassilev",
+        "email": "alexander_vassilev@brown.edu"
     }
 }

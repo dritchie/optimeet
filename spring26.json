@@ -137,7 +137,7 @@
             "name": "Monte Carlo DTN",
             "length": 60,
             "type": "hybrid",
-            "participants": ["arman", "aruna", "nicole_g"]
+            "participants": ["arman", "aruna", "nicole_g", "oras", "tanish"]
         },
         {
             "name": "Jason Project Meeting",
@@ -149,7 +149,7 @@
             "name": "Ben Project Meeting",
             "length": 60,
             "type": "hybrid",
-            "participants": ["ben_a", "rana", "paul_g"]
+            "participants": ["ben_a", "rana", "paul_g", "apoorva"]
         },
         {
             "name": "Neurosymbolic 3D models",
@@ -174,7 +174,7 @@
             "length": 60,
             "type": "in-person",
             "physicalLocation": "TBD",
-            "participants": ["maxim", "arman", "aditya", "yuanbo", "tanish", "jason_l", "ben_a", "xiaoxi", "chengye", "pranav", "yuqiao", "chujun", "henry", "lyfey", "ryan_l", "yubo", "una"]
+            "participants": ["maxim", "arman", "aditya", "yuanbo", "tanish", "jason_l", "ben_a", "xiaoxi", "chengye", "pranav", "yuqiao", "chujun", "henry", "lyfey", "ryan_l", "yubo", "una", "oras", "alexander"]
         }
     ]
 }
