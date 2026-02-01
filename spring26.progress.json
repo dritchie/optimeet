@@ -3,10 +3,10 @@
       "deadline": "02/01/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "barb",
+         "adriana",
          "david_l",
          "james",
-         "adriana",
+         "barb",
          "srinath"
       ],
       "name": "BVC faculty monthly coffee chat",
@@ -17,8 +17,8 @@
       "deadline": "02/01/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "arman",
          "lana",
+         "arman",
          "arin"
       ],
       "name": "CS 2240 staff meeting",
@@ -29,8 +29,8 @@
       "deadline": "02/01/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "autumn",
-         "faisal"
+         "faisal",
+         "autumn"
       ],
       "name": "CS 1950U staff meeting",
       "numViableMeetingTimesSoFar": 18,
@@ -40,8 +40,8 @@
       "deadline": "02/01/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "adriana",
          "will",
+         "adriana",
          "karima"
       ],
       "name": "surfacing abstractions",
@@ -53,8 +53,8 @@
       "hasNotResponded": [],
       "hasResponded": [
          "henry_meta",
-         "henry",
-         "aditya"
+         "aditya",
+         "henry"
       ],
       "name": "Part-level affordances weekly",
       "numViableMeetingTimesSoFar": 2,
@@ -62,28 +62,27 @@
    },
    {
       "deadline": "02/01/26",
-      "hasNotResponded": [
-         "matheus",
-         "thibault",
-         "yifan_w"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "aditya",
          "pranav",
+         "matheus",
          "zhiqin",
          "sid",
-         "aditya"
+         "yifan_w",
+         "thibault"
       ],
       "name": "Aditya SuperFit Project Meeting",
-      "numViableMeetingTimesSoFar": 1,
+      "numViableMeetingTimesSoFar": 0,
       "when2meet": "https://when2meet.com/?34658997-c6t1U"
    },
    {
       "deadline": "02/01/26",
       "hasNotResponded": [],
       "hasResponded": [
+         "noam",
          "arman",
-         "tianshu",
-         "noam"
+         "tianshu"
       ],
       "name": "JacobianGen Project Meeting",
       "numViableMeetingTimesSoFar": 10,
@@ -91,15 +90,14 @@
    },
    {
       "deadline": "02/01/26",
-      "hasNotResponded": [
-         "victor"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "victor",
          "maxim",
          "derek"
       ],
       "name": "Maxim + Roblox",
-      "numViableMeetingTimesSoFar": 26,
+      "numViableMeetingTimesSoFar": 5,
       "when2meet": "https://when2meet.com/?34658999-UdTWh"
    },
    {
@@ -116,10 +114,10 @@
       "deadline": "02/01/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "henro",
-         "sid",
+         "marzia",
          "adrien",
-         "marzia"
+         "henro",
+         "sid"
       ],
       "name": "Henro SDF Program Inference Project",
       "numViableMeetingTimesSoFar": 7,
@@ -129,11 +127,11 @@
       "deadline": "02/01/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "aruna",
-         "arman",
-         "tanish",
          "oras",
-         "nicole_g"
+         "arman",
+         "aruna",
+         "nicole_g",
+         "tanish"
       ],
       "name": "Monte Carlo DTN",
       "numViableMeetingTimesSoFar": 0,
@@ -141,27 +139,37 @@
    },
    {
       "deadline": "02/01/26",
-      "hasNotResponded": [
-         "ruby",
-         "sandesh"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "sandesh",
+         "karima",
          "adriana",
-         "jason_l",
-         "karima"
+         "ruby",
+         "jason_l"
       ],
       "name": "Jason Project Meeting",
-      "numViableMeetingTimesSoFar": 5,
+      "numViableMeetingTimesSoFar": 0,
       "when2meet": "https://when2meet.com/?34659005-WucVs"
    },
    {
       "deadline": "02/01/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "ben_a",
+         "jason_l",
+         "adriana"
+      ],
+      "name": "Jason Advising Meeting",
+      "numViableMeetingTimesSoFar": 7,
+      "when2meet": "https://www.when2meet.com/?34760234-z5ypE"
+   },
+   {
+      "deadline": "02/01/26",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "apoorva",
          "rana",
          "paul_g",
-         "apoorva"
+         "ben_a"
       ],
       "name": "Ben Project Meeting",
       "numViableMeetingTimesSoFar": 0,
@@ -171,11 +179,11 @@
       "deadline": "02/01/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "ben_a",
-         "paul_g",
-         "kenny",
          "yuqiao",
-         "jeffrey"
+         "kenny",
+         "jeffrey",
+         "paul_g",
+         "ben_a"
       ],
       "name": "Neurosymbolic 3D models",
       "numViableMeetingTimesSoFar": 0,
@@ -185,9 +193,9 @@
       "deadline": "02/01/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "adriana",
          "milin",
-         "aditya"
+         "aditya",
+         "adriana"
       ],
       "name": "Neurocad",
       "numViableMeetingTimesSoFar": 8,
@@ -198,9 +206,9 @@
       "hasNotResponded": [],
       "hasResponded": [
          "yuanbo",
-         "adrien",
-         "chengye",
          "marzia",
+         "chengye",
+         "adrien",
          "xiaoxi"
       ],
       "name": "Sketch2CAD Projects Meeting",
@@ -210,27 +218,27 @@
    {
       "deadline": "02/01/26",
       "hasNotResponded": [
-         "alexander",
-         "oras"
+         "alexander"
       ],
       "hasResponded": [
-         "una",
-         "arman",
-         "yuanbo",
-         "maxim",
-         "ben_a",
-         "ryan_l",
-         "henry",
-         "chengye",
-         "aditya",
-         "chujun",
-         "yuqiao",
-         "pranav",
-         "tanish",
-         "lyfey",
          "jason_l",
+         "lyfey",
+         "yuanbo",
+         "oras",
+         "aditya",
+         "una",
+         "pranav",
+         "henry",
+         "yuqiao",
+         "ryan_l",
+         "arman",
+         "maxim",
+         "chujun",
+         "chengye",
+         "yubo",
+         "tanish",
          "xiaoxi",
-         "yubo"
+         "ben_a"
       ],
       "name": "Daniel's Group Meeting",
       "numViableMeetingTimesSoFar": 0,

@@ -146,6 +146,12 @@
             "participants": ["jason_l", "adriana", "karima", "sandesh", "ruby"]
         },
         {
+            "name": "Jason Advising Meeting",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["jason_l", "adriana"]
+        },
+        {
             "name": "Ben Project Meeting",
             "length": 60,
             "type": "hybrid",
