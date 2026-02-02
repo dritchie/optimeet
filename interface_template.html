@@ -275,10 +275,6 @@
 
                     // Enable the 'naviagate away from page' warning
                     window.onbeforeunload = () => true;
-
-                    // If all meetings have been scheduled, enable the export button
-                    if (meetings.every((m) => m.scheduled))
-                        $('#exportButton').prop('disabled', false);
                 }
                 unschedule() {
                     const day = this.scheduled.day;
@@ -309,9 +305,6 @@
                     //  'navigate away from page' warning
                     if (!meetings.some((m) => m.scheduled))
                         window.onbeforeunload = null;
-
-                    // Make sure the export button is disabled
-                    $('#exportButton').prop('disabled', true);
                 }
 
                 __updateViableTimes() {
@@ -803,6 +796,11 @@
                         const startDate = document.getElementById('startDate').value;
                         const d = dayjs(startDate);
                         const meeting = meetings[mtgIndex];
+                        // Skip this meeting if it has not been scheduled)
+                        if (!meeting.scheduled) {
+                            doExport(mtgIndex+1);
+                            return;
+                        }
                         const di = d.day();
                         const mdi = DAYS.indexOf(meeting.scheduled.day);
                         let daysDiff = mdi - di;
@@ -908,7 +906,7 @@
                         </tbody>
                     </table>
                     <button id="clearButton" type="button" class="btn btn-primary">Clear Schedule</button>
-                    <button id="exportButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportConfirm" disabled>
+                    <button id="exportButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportConfirm">
                         Export to Google Calendar
                     </button>
                     
