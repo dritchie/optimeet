@@ -568,10 +568,6 @@
         "name": "Marzia Riso",
         "email": "marzia.riso@inria.fr"
     },
-    "vivian" : {
-        "name": "Vivian Lu",
-        "email": "vivian_f_lu@brown.edu"
-    },
     "rui" : {
         "name": "Rui Zhou",
         "email": "rui_zhou1@brown.edu"
@@ -775,5 +771,41 @@
     "sandesh": {
         "name": "Sandesh Ghimire",
         "email": "sghimire26@amherst.edu"
+    },
+    "vivian": {
+        "name": "Vivian Li",
+        "email": "vivian_li1@brown.edu"
+    },
+    "olga": {
+        "name": "Olga Sorkine-Hornung",
+        "email": "olga.sorkine@inf.ethz.ch"
+    },
+    "sam": {
+        "name": "Sam Corey",
+        "email": "scorey906@gmail.com"
+    },
+    "jenny": {
+        "name": "Jenny Patel",
+        "email": "jsp5@williams.edu"
+    },
+    "ryan_a": {
+        "name": "Ryan Aubrey",
+        "email": "ryan_aubrey@brown.edu"
+    },
+    "sarya": {
+        "name": "Sarya Kilic",
+        "email": "sarya_kilic@brown.edu"
+    },
+    "aamen": {
+        "name": "Aamen Muharram",
+        "email": "aamen_muharram@brown.edu"
+    },
+    "eddie": {
+        "name": "Eddie Lin",
+        "email": "hancheng_lin@brown.edu"
+    },
+    "akash": {
+        "name": "Akash Nagaraj",
+        "email": "akash_nagaraj_v@brown.edu"
     }
 }

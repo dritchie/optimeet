@@ -1,0 +1,137 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["09:00 AM", "7:00 PM"]
+        ]
+    },
+
+    "myCommitments": { 
+        "Tuesday" : [
+            {
+                "name": "REU Site study group leader meeting",
+                "time": "3:00 PM",
+                "length": 30
+            }
+        ],
+        "Thursday" : [
+            {
+                "name": "Thirsty Thursday",
+                "time": "05:30 PM",
+                "length": 90
+            }
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "BVC faculty monthly coffee chat",
+            "length": 60,
+            "type": "in-person",
+            "participants": ["james", "david_l", "adriana", "barb", "srinath"],
+            "physicalLocation": "Caffe Nero"
+        },
+        {
+            "name": "surfacing abstractions",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["adriana", "karima", "will"]
+        },
+        {
+            "name": "Part-level affordances weekly",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["aditya", "henry", "henry_meta", "sam"],
+            "remoteLocation": "https://fb.zoom.us/j/93472252826?pwd=B034HJ4o7HMaaGYFcH15imvSIYgnGV.1"
+        },
+        {
+            "name": "Aditya SuperFit Project Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["aditya", "yifan_w", "sid", "thibault", "zhiqin", "matheus", "pranav"]
+        },
+        {
+            "name": "Zero-shot object orientation",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["stewart"]
+        },
+        {
+            "name": "Henro SDF Program Inference Project",
+            "length": 60,
+            "type": "remote",
+            "participants": ["adrien", "henro", "sid", "marzia"]
+        },
+        {
+            "name": "Jason Project Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["jason_l", "adriana", "karima", "ruby"]
+        },
+        {
+            "name": "Ben Project Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["ben_a", "paul_g", "ryan_a", "sarya", "aamen", "eddie", "akash"]
+        },
+        {
+            "name": "Neurosymbolic 3D models",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "yuqiao", "paul_g", "ben_a", "jeffrey", "jenny"]
+        },
+        {
+            "name": "Sketch2CAD Projects Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["adrien", "yuanbo", "xiaoxi", "chengye", "marzia"]
+        },
+        {
+            "name": "Alex project meeting",
+            "length": 30,
+            "type": "remote",
+            "participants": ["alexander", "karima"]
+        },
+        {
+            "name": "GarmentCode++",
+            "length": 60,  
+            "type": "hybrid",
+            "participants": ["adriana", "oras", "vivian", "olga", "rui"]
+        },
+        {
+            "name": "Daniel's Group Meeting",
+            "length": 60,
+            "type": "in-person",
+            "physicalLocation": "TBD",
+            "participants": ["arman", "aditya", "ben_a", "xiaoxi", "chengye", "pranav", "chujun", "henry", "lyfey", "yubo", "oras", "sam", "jenny", "ryan_a"]
+        },
+        {
+            "name": "Sam + Daniel 1:1",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["sam"]
+        },
+        {
+            "name": "Jenny + Daniel 1:1",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["jenny"]
+        }
+    ]
+}
