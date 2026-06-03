@@ -25,6 +25,13 @@
                 "length": 30
             }
         ],
+        "Wednesday" : [
+            {
+                "name": "BVC faculty monthly coffee chat",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ],
         "Thursday" : [
             {
                 "name": "Thirsty Thursday",
@@ -41,17 +48,10 @@
 
     "meetingsToSchedule": [
         {
-            "name": "BVC faculty monthly coffee chat",
-            "length": 60,
-            "type": "in-person",
-            "participants": ["james", "david_l", "adriana", "barb", "srinath"],
-            "physicalLocation": "Caffe Nero"
-        },
-        {
             "name": "surfacing abstractions",
             "length": 60,
             "type": "hybrid",
-            "participants": ["adriana", "karima", "will"]
+            "participants": ["adriana", "karima", "will", "jason_l"]
         },
         {
             "name": "Part-level affordances weekly",
@@ -73,16 +73,10 @@
             "participants": ["stewart"]
         },
         {
-            "name": "Henro SDF Program Inference Project",
+            "name": "Henro SDF Project",
             "length": 60,
             "type": "remote",
             "participants": ["adrien", "henro", "sid", "marzia"]
-        },
-        {
-            "name": "Jason Project Meeting",
-            "length": 60,
-            "type": "hybrid",
-            "participants": ["jason_l", "adriana", "karima", "ruby"]
         },
         {
             "name": "Ben Project Meeting",
@@ -119,7 +113,7 @@
             "length": 60,
             "type": "in-person",
             "physicalLocation": "TBD",
-            "participants": ["arman", "aditya", "ben_a", "xiaoxi", "chengye", "pranav", "chujun", "henry", "lyfey", "yubo", "oras", "sam", "jenny", "ryan_a"]
+            "participants": ["arman", "aditya", "ben_a", "henry", "lyfey", "oras", "sam", "jenny", "ryan_a"]
         },
         {
             "name": "Sam + Daniel 1:1",
