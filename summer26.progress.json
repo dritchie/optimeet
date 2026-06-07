@@ -2,46 +2,45 @@
    {
       "deadline": "06/08/26",
       "hasNotResponded": [
-         "karima",
-         "adriana"
+         "karima"
       ],
       "hasResponded": [
          "will",
-         "jason_l"
+         "jason_l",
+         "adriana"
       ],
       "name": "surfacing abstractions",
-      "numViableMeetingTimesSoFar": 27,
+      "numViableMeetingTimesSoFar": 6,
       "when2meet": "https://when2meet.com/?36980174-zx8FI"
    },
    {
       "deadline": "06/08/26",
-      "hasNotResponded": [
-         "aditya",
-         "sam",
-         "henry_meta"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "henry"
+         "sam",
+         "henry_meta",
+         "henry",
+         "aditya"
       ],
       "name": "Part-level affordances weekly",
-      "numViableMeetingTimesSoFar": 11,
+      "numViableMeetingTimesSoFar": 2,
       "when2meet": "https://when2meet.com/?36980175-h2qrp"
    },
    {
       "deadline": "06/08/26",
       "hasNotResponded": [
+         "matheus",
          "yifan_w",
-         "pranav",
-         "sid",
-         "aditya",
-         "thibault",
-         "matheus"
+         "thibault"
       ],
       "hasResponded": [
+         "sid",
+         "pranav",
+         "aditya",
          "zhiqin"
       ],
       "name": "Aditya SuperFit Project Meeting",
-      "numViableMeetingTimesSoFar": 31,
+      "numViableMeetingTimesSoFar": 0,
       "when2meet": "https://when2meet.com/?36980176-hjwUE"
    },
    {
@@ -56,10 +55,9 @@
    },
    {
       "deadline": "06/08/26",
-      "hasNotResponded": [
-         "sid"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
+         "sid",
          "henro",
          "marzia",
          "adrien"
@@ -71,45 +69,44 @@
    {
       "deadline": "06/08/26",
       "hasNotResponded": [
-         "paul_g",
-         "eddie",
-         "akash"
+         "akash",
+         "eddie"
       ],
       "hasResponded": [
-         "ben_a",
          "sarya",
+         "ben_a",
          "aamen",
-         "ryan_a"
+         "ryan_a",
+         "paul_g"
       ],
       "name": "Ben Project Meeting",
-      "numViableMeetingTimesSoFar": 26,
+      "numViableMeetingTimesSoFar": 12,
       "when2meet": "https://when2meet.com/?36980179-Scaoy"
    },
    {
       "deadline": "06/08/26",
-      "hasNotResponded": [
-         "kenny",
+      "hasNotResponded": [],
+      "hasResponded": [
+         "jenny",
          "yuqiao",
+         "ben_a",
+         "jeffrey",
+         "kenny",
          "paul_g"
       ],
-      "hasResponded": [
-         "jeffrey",
-         "ben_a",
-         "jenny"
-      ],
       "name": "Neurosymbolic 3D models",
-      "numViableMeetingTimesSoFar": 14,
+      "numViableMeetingTimesSoFar": 1,
       "when2meet": "https://when2meet.com/?36980180-2Af1U"
    },
    {
       "deadline": "06/08/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "xiaoxi",
-         "chengye",
-         "adrien",
          "marzia",
-         "yuanbo"
+         "adrien",
+         "chengye",
+         "yuanbo",
+         "xiaoxi"
       ],
       "name": "Sketch2CAD Projects Meeting",
       "numViableMeetingTimesSoFar": 3,
@@ -118,43 +115,43 @@
    {
       "deadline": "06/08/26",
       "hasNotResponded": [
-         "alexander",
          "karima"
       ],
-      "hasResponded": [],
+      "hasResponded": [
+         "alexander"
+      ],
       "name": "Alex project meeting",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 56,
       "when2meet": "https://when2meet.com/?36980182-TWO9l"
    },
    {
       "deadline": "06/08/26",
-      "hasNotResponded": [
-         "adriana"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "olga",
-         "oras",
          "rui",
-         "vivian"
+         "olga",
+         "adriana",
+         "vivian",
+         "oras"
       ],
       "name": "GarmentCode++",
-      "numViableMeetingTimesSoFar": 4,
+      "numViableMeetingTimesSoFar": 1,
       "when2meet": "https://when2meet.com/?36980183-B6wOa"
    },
    {
       "deadline": "06/08/26",
       "hasNotResponded": [
-         "aditya",
          "arman",
-         "sam",
          "ryan_a"
       ],
       "hasResponded": [
-         "lyfey",
          "jenny",
-         "ben_a",
+         "henry",
+         "aditya",
+         "sam",
          "oras",
-         "henry"
+         "ben_a",
+         "lyfey"
       ],
       "name": "Daniel's Group Meeting",
       "numViableMeetingTimesSoFar": 1,
@@ -162,12 +159,12 @@
    },
    {
       "deadline": "06/08/26",
-      "hasNotResponded": [
+      "hasNotResponded": [],
+      "hasResponded": [
          "sam"
       ],
-      "hasResponded": [],
       "name": "Sam + Daniel 1:1",
-      "numViableMeetingTimesSoFar": 0,
+      "numViableMeetingTimesSoFar": 76,
       "when2meet": "https://when2meet.com/?36980185-9MdIc"
    },
    {
