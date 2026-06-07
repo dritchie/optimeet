@@ -56,11 +56,7 @@ def parseWhen2Meet(url, participants, myAvailability):
     for idx,Id in slot_index_info:
         slots[int(idx)] = id2slot[Id]
 
-    # Build reverse index of people names to people ids/keys
-    people = loadPeople()
-    name2pid = {p['name'] : pid for pid,p in people.items()}
-
-    people_name_info = re.findall(r"PeopleNames\[(\d+)\] = '([^;]+)';", html)
+    people_name_info = re.findall(r"PeopleNames\[(\d+)\] = '((?:\\'|[^'])*)';", html)
     if len(people_name_info) > 0:
         people_id_info = re.findall(r"PeopleIDs\[(\d+)\] = (\d+);", html)
         idx2name = {p[0] : p[1] for p in people_name_info}
