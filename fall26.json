@@ -1,0 +1,167 @@
+{
+    "myAvailability": {
+        "Monday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Tuesday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Wednesday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Thursday": [
+            ["09:00 AM", "7:00 PM"]
+        ],
+        "Friday": [
+            ["09:00 AM", "7:00 PM"]
+        ]
+    },
+
+     "myCommitments": { 
+        "Monday" : [
+            {
+                "name": "BVC group meeting",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ],
+        "Tuesday" : [
+            {
+                "name": "CS 1230 Lecture",
+                "time": "10:30 AM",
+                "length": 90
+            },
+            {
+                "name": "CS Faculty Meeting",
+                "time": "12:00 PM",
+                "length": 60
+            },
+            {
+                "name": "CS 1230 Staff Meeting",
+                "time": "05:00 PM",
+                "length": 60
+            }
+        ],
+        "Wednesday" : [
+        ],
+        "Thursday" : [
+            {
+                "name": "CS 1230 Lecture",
+                "time": "10:30 AM",
+                "length": 90
+            },
+            {
+                "name": "Thirsty Thursday",
+                "time": "05:30 PM",
+                "length": 90
+            }
+        ],
+        "Friday" : [
+            {
+                "name": "BVC seminar",
+                "time": "12:00 PM",
+                "length": 60
+            }
+        ]
+    },
+
+    "myLocations": {
+        "physical": "CIT 445",
+        "remote": "https://brown.zoom.us/j/2338054298"
+    },
+
+    "meetingsToSchedule": [
+        {
+            "name": "programmatic design",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["adriana", "karima", "will", "jason_l"]
+        },
+        {
+            "name": "Part-level affordances weekly",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["aditya", "henry", "henry_meta", "sam"],
+            "remoteLocation": "https://fb.zoom.us/j/93472252826?pwd=B034HJ4o7HMaaGYFcH15imvSIYgnGV.1"
+        },
+        {
+            "name": "Zero-shot object orientation",
+            "length": 30,
+            "type": "hybrid",
+            "participants": ["stewart"]
+        },
+        {
+            "name": "Henro Eigenfunctions Project",
+            "length": 60,
+            "type": "remote",
+            "participants": ["adrien", "henro", "etienne"]
+        },
+        {
+            "name": "Ben Project Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["ben_a", "paul_g", "ryan_a", "sarya", "aamen"]
+        },
+        {
+            "name": "Neurosymbolic 3D models",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["kenny", "yuqiao", "paul_g", "ben_a", "jeffrey"]
+        },
+        {
+            "name": "Sketch2CAD Projects Meeting",
+            "length": 60,
+            "type": "hybrid",
+            "participants": ["adrien", "yuanbo", "xiaoxi", "chengye", "marzia"]
+        },
+        {
+            "name": "Alex project meeting",
+            "length": 30,
+            "type": "remote",
+            "participants": ["alexander", "karima"]
+        },
+        {
+            "name": "GarmentCode++",
+            "length": 60,  
+            "type": "hybrid",
+            "participants": ["adriana", "oras", "vivian", "olga", "rui", "joanna"]
+        },
+        {
+            "name": "Daniel's Group Meeting",
+            "length": 60,
+            "type": "in-person",
+            "physicalLocation": "TBD",
+            "participants": ["ben_a", "lyfey", "oras", "alice", "joanna", "yuanbo", "maxim", "jason_l", "jeffrey", "pranav", "chujun", "yubo", "una", "alexander", "aamen", "henry"]
+        },
+        {
+            "name": "Jason 1:1",
+            "length": 60,  
+            "type": "hybrid",
+            "participants": ["adriana", "jason_l"]
+        },
+        {
+            "name": "Alice 1:1",
+            "length": 60,  
+            "type": "hybrid",
+            "participants": ["adriana", "alice"]
+        },
+        {
+            "name": "Joanna 1:1",
+            "length": 60,  
+            "type": "hybrid",
+            "participants": ["adriana", "joanna"]
+        },
+        {
+            "name": "Maxim Project Meeting",
+            "length": 60,  
+            "type": "hybrid",
+            "participants": ["maxim"]
+        },
+        {
+            "name": "Yuanbo Fixtures Project Meeting",
+            "length": 60,  
+            "type": "hybrid",
+            "participants": ["yuanbo", "adrien"]
+        }
+    ]
+}

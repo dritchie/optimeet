@@ -807,5 +807,17 @@
     "akash": {
         "name": "Akash Nagaraj",
         "email": "akash_nagaraj_v@brown.edu"
+    },
+    "etienne": {
+        "name": "Etienne Vouga",
+        "email": "paul.vouga@austin.utexas.edu"
+    },
+    "alice": {
+        "name": "Alice Wei",
+        "email": "ziyu_wei@brown.edu"
+    },
+    "joanna": {
+        "name": "Joanna Yoo",
+        "email": "sujin_yoo@brown.edu"
     }
 }
