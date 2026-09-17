@@ -106,7 +106,7 @@
             "name": "Neurosymbolic 3D models",
             "length": 60,
             "type": "hybrid",
-            "participants": ["kenny", "yuqiao", "paul_g", "ben_a", "jeffrey"]
+            "participants": ["kenny", "yuqiao", "paul_g", "ben_a", "jeffrey", "aurora"]
         },
         {
             "name": "Sketch2CAD Projects Meeting",
@@ -131,7 +131,7 @@
             "length": 60,
             "type": "in-person",
             "physicalLocation": "TBD",
-            "participants": ["ben_a", "lyfey", "oras", "alice", "joanna", "yuanbo", "maxim", "jason_l", "jeffrey", "pranav", "chujun", "yubo", "una", "alexander", "aamen", "henry"]
+            "participants": ["ben_a", "lyfey", "oras", "alice", "joanna", "yuanbo", "maxim", "jason_l", "jeffrey", "pranav", "chujun", "yubo", "una", "alexander", "aamen", "henry", "aurora"]
         },
         {
             "name": "Jason 1:1",
