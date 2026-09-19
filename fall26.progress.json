@@ -3,9 +3,9 @@
       "deadline": "09/20/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "will",
          "karima",
          "adriana",
+         "will",
          "jason_l"
       ],
       "name": "programmatic design",
@@ -16,9 +16,9 @@
       "deadline": "09/20/26",
       "hasNotResponded": [],
       "hasResponded": [
+         "henry_meta",
          "aditya",
          "henry",
-         "henry_meta",
          "sam"
       ],
       "name": "Part-level affordances weekly",
@@ -50,14 +50,13 @@
    },
    {
       "deadline": "09/20/26",
-      "hasNotResponded": [
-         "paul_g"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
          "ryan_a",
-         "aamen",
+         "paul_g",
+         "sarya",
          "ben_a",
-         "sarya"
+         "aamen"
       ],
       "name": "Ben Project Meeting",
       "numViableMeetingTimesSoFar": 0,
@@ -65,18 +64,17 @@
    },
    {
       "deadline": "09/20/26",
-      "hasNotResponded": [
-         "aurora",
-         "paul_g",
-         "yuqiao"
-      ],
+      "hasNotResponded": [],
       "hasResponded": [
-         "kenny",
+         "yuqiao",
+         "paul_g",
+         "aurora",
          "jeffrey",
+         "kenny",
          "ben_a"
       ],
       "name": "Neurosymbolic 3D models",
-      "numViableMeetingTimesSoFar": 7,
+      "numViableMeetingTimesSoFar": 1,
       "when2meet": "https://when2meet.com/?38577924-9xzRR"
    },
    {
@@ -87,8 +85,8 @@
       ],
       "hasResponded": [
          "adrien",
-         "yuanbo",
-         "xiaoxi"
+         "xiaoxi",
+         "yuanbo"
       ],
       "name": "Sketch2CAD Projects Meeting",
       "numViableMeetingTimesSoFar": 0,
@@ -98,8 +96,8 @@
       "deadline": "09/20/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "alexander",
-         "karima"
+         "karima",
+         "alexander"
       ],
       "name": "Alex project meeting",
       "numViableMeetingTimesSoFar": 21,
@@ -109,12 +107,12 @@
       "deadline": "09/20/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "rui",
-         "vivian",
-         "adriana",
          "olga",
          "joanna",
-         "oras"
+         "oras",
+         "vivian",
+         "adriana",
+         "rui"
       ],
       "name": "GarmentCode++",
       "numViableMeetingTimesSoFar": 0,
@@ -123,25 +121,25 @@
    {
       "deadline": "09/20/26",
       "hasNotResponded": [
-         "aurora",
-         "aamen",
          "pranav",
+         "aamen",
          "yubo"
       ],
       "hasResponded": [
-         "lyfey",
-         "chujun",
          "una",
-         "maxim",
-         "alice",
-         "henry",
-         "yuanbo",
-         "jeffrey",
-         "jason_l",
          "joanna",
-         "alexander",
          "oras",
-         "ben_a"
+         "alice",
+         "aurora",
+         "alexander",
+         "chujun",
+         "jeffrey",
+         "maxim",
+         "yuanbo",
+         "lyfey",
+         "ben_a",
+         "henry",
+         "jason_l"
       ],
       "name": "Daniel's Group Meeting",
       "numViableMeetingTimesSoFar": 0,
@@ -173,8 +171,8 @@
       "deadline": "09/20/26",
       "hasNotResponded": [],
       "hasResponded": [
-         "adriana",
-         "joanna"
+         "joanna",
+         "adriana"
       ],
       "name": "Joanna 1:1",
       "numViableMeetingTimesSoFar": 4,

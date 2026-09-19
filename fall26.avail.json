@@ -1,0 +1,347 @@
+{
+   "Alex project meeting": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM"
+      ],
+      "Tuesday": [
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM"
+      ],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "11:00 AM",
+         "11:30 AM"
+      ]
+   },
+   "Alice 1:1": {
+      "Friday": [
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": [
+         "11:00 AM",
+         "11:30 AM",
+         "03:00 PM",
+         "03:30 PM"
+      ]
+   },
+   "Ben Project Meeting": {
+      "Friday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "12:00 PM",
+         "12:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Daniel's Group Meeting": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Wednesday": []
+   },
+   "GarmentCode++": {
+      "Friday": [
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": [
+         "01:00 PM",
+         "01:30 PM"
+      ]
+   },
+   "Henro Eigenfunctions Project": {
+      "Friday": [
+         "09:00 AM",
+         "09:30 AM",
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Monday": [
+         "09:00 AM",
+         "09:30 AM",
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM"
+      ],
+      "Tuesday": [
+         "10:00 AM"
+      ],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM"
+      ]
+   },
+   "Jason 1:1": {
+      "Friday": [],
+      "Monday": [
+         "11:00 AM",
+         "11:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": [
+         "01:00 PM",
+         "01:30 PM"
+      ]
+   },
+   "Joanna 1:1": {
+      "Friday": [
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": [
+         "11:00 AM",
+         "11:30 AM",
+         "01:00 PM",
+         "01:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ]
+   },
+   "Maxim Project Meeting": {
+      "Friday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Monday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Tuesday": [
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ],
+      "Wednesday": [
+         "12:00 PM",
+         "12:30 PM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM"
+      ]
+   },
+   "Neurosymbolic 3D models": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "12:00 PM",
+         "12:30 PM"
+      ],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Part-level affordances weekly": {
+      "Friday": [
+         "09:00 AM",
+         "09:30 AM"
+      ],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": []
+   },
+   "Sketch2CAD Projects Meeting": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM",
+         "05:00 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "04:00 PM",
+         "04:30 PM",
+         "05:00 PM"
+      ],
+      "Tuesday": [
+         "10:00 AM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM",
+         "01:00 PM",
+         "01:30 PM",
+         "02:00 PM",
+         "02:30 PM",
+         "03:00 PM",
+         "03:30 PM",
+         "06:30 PM"
+      ]
+   },
+   "Yuanbo Fixtures Project Meeting": {
+      "Friday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Monday": [
+         "10:00 AM",
+         "10:30 AM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "10:00 AM"
+      ],
+      "Tuesday": [
+         "10:00 AM"
+      ],
+      "Wednesday": [
+         "10:00 AM",
+         "10:30 AM"
+      ]
+   },
+   "Zero-shot object orientation": {
+      "Friday": [],
+      "Monday": [
+         "04:30 PM",
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [
+         "04:30 PM",
+         "05:00 PM"
+      ],
+      "Tuesday": [
+         "09:00 AM",
+         "04:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ],
+      "Wednesday": [
+         "09:00 AM",
+         "04:30 PM",
+         "05:00 PM",
+         "05:30 PM",
+         "06:00 PM",
+         "06:30 PM"
+      ]
+   },
+   "programmatic design": {
+      "Friday": [],
+      "Monday": [],
+      "Saturday": [],
+      "Sunday": [],
+      "Thursday": [],
+      "Tuesday": [],
+      "Wednesday": [
+         "01:00 PM",
+         "01:30 PM"
+      ]
+   }
+}
